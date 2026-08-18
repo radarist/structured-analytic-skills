@@ -1,0 +1,36 @@
+{
+  "skill_name": "skill-name-here",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "template-pos-1",
+      "kind": "positive",
+      "prompt": "A request phrased the way a user would phrase it, naming the situation rather than the method — the skill has to be retrieved from the description alone. Ship at least three of these.",
+      "expected_output": "A response that satisfies these checks: Follows the published step order; Fills every mandatory field of the output template; States the confidence and what would change it.",
+      "files": [],
+      "expectations": [
+        "Follows the published step order",
+        "Fills every mandatory field of the output template",
+        "States the confidence and what would change it"
+      ],
+      "skills": [
+        "skill-name-here"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "template-neg-1",
+      "kind": "negative",
+      "prompt": "A near miss: a request that looks like this skill's territory but belongs to the sibling named in the Do NOT invoke list. Ship at least one.",
+      "expected_output": "A response that satisfies these checks: Routes the request to the sibling skill; Does not apply this skill's procedure.",
+      "files": [],
+      "expectations": [
+        "Routes the request to the sibling skill",
+        "Does not apply this skill's procedure"
+      ],
+      "skills": [
+        "sibling-skill-one"
+      ]
+    }
+  ]
+}

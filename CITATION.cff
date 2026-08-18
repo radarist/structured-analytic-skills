@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use these skills in research or products, please cite the repository and the underlying method authors named in each SKILL.md."
+title: "structured-analytic-skills: structured analytic techniques as agent skills"
+type: software
+version: "1.0.0"
+date-released: "2026-08-18"
+license: MIT
+repository-code: "https://github.com/radarist/structured-analytic-skills"
+authors:
+  - family-names: Babelis
+    given-names: Claudio
+keywords:
+  - structured analytic techniques
+  - agent skills
+  - intelligence analysis
+  - foresight
+  - evidence appraisal
+  - decision support
+abstract: >-
+  A library of agent skills that implement published analytic methods (Heuer's ACH,
+  NATO Admiralty grading, GRADE, Cochrane RoB 2, Delphi, scenario planning, Wardley
+  mapping, NASA TRL, Brier scoring, meta-analysis and others), each with citations,
+  worked examples, verification checklists, and deterministic companion tools, plus a
+  deterministic multidimensional scorer for the library itself.

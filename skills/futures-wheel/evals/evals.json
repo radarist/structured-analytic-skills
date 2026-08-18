@@ -1,0 +1,85 @@
+{
+  "skill_name": "futures-wheel",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "fw-pos-1",
+      "kind": "positive",
+      "prompt": "The EU bans new combustion-car sales from 2035. Run a futures wheel on it — I want the first, second and third-order consequences mapped, including the unintended ones.",
+      "expected_output": "A response that satisfies these checks: Writes the change as a definite dated statement at the centre; Generates 5-10 primary impacts, then second- and third-order rings chained parent by parent; States the mechanism for every parent-to-child link and deletes topic-adjacent items; Marks convergence points, runs a desirable/undesirable valence check, and flags speculative chains; Ends with an implication-to-action table (amplify / mitigate / monitor / research).",
+      "files": [],
+      "expectations": [
+        "Writes the change as a definite dated statement at the centre",
+        "Generates 5-10 primary impacts, then second- and third-order rings chained parent by parent",
+        "States the mechanism for every parent-to-child link and deletes topic-adjacent items",
+        "Marks convergence points, runs a desirable/undesirable valence check, and flags speculative chains",
+        "Ends with an implication-to-action table (amplify / mitigate / monitor / research)"
+      ],
+      "skills": [
+        "futures-wheel"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "fw-pos-2",
+      "kind": "positive",
+      "prompt": "If we move 30% of the workforce fully remote by 2028, what are the second-order effects — and then what happens after that? I keep only seeing the obvious direct impacts and want the ripple effects and unintended consequences.",
+      "expected_output": "A response that satisfies these checks: Pushes past the direct effects into second- and third-order consequences; Requires each consequence to chain to a named parent with a mechanism; Surfaces at least one perverse or undesirable consequence per major branch; Identifies outcomes reached independently by two or more branches.",
+      "files": [],
+      "expectations": [
+        "Pushes past the direct effects into second- and third-order consequences",
+        "Requires each consequence to chain to a named parent with a mechanism",
+        "Surfaces at least one perverse or undesirable consequence per major branch",
+        "Identifies outcomes reached independently by two or more branches"
+      ],
+      "skills": [
+        "futures-wheel"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "fw-pos-3",
+      "kind": "positive",
+      "prompt": "Map the implications of our decision to close the two regional depots next year — a consequence map of the knock-on effects on customers, staff, suppliers and the towns involved.",
+      "expected_output": "A response that satisfies these checks: Treats the decision as the central change and elaborates consequences ring by ring; Sweeps different domains rather than staying in one; Tags each implication desirable, undesirable or neutral; Recommends an action for each significant implication.",
+      "files": [],
+      "expectations": [
+        "Treats the decision as the central change and elaborates consequences ring by ring",
+        "Sweeps different domains rather than staying in one",
+        "Tags each implication desirable, undesirable or neutral",
+        "Recommends an action for each significant implication"
+      ],
+      "skills": [
+        "futures-wheel"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "fw-neg-1",
+      "kind": "negative",
+      "prompt": "What could happen to the European electricity market over the next five years? Build a set of plausible alternative futures around the two most consequential uncertainties.",
+      "expected_output": "A response that satisfies these checks: Does not build a consequence tree from one change; constructs branching alternative futures from critical uncertainties (scenario-planning behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not build a consequence tree from one change; constructs branching alternative futures from critical uncertainties (scenario-planning behaviour)"
+      ],
+      "skills": [
+        "scenario-planning"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "fw-neg-2",
+      "kind": "negative",
+      "prompt": "Before we commit to this ERP migration, imagine it's a year from now and the project has failed. What went wrong, how likely is each failure mode, and what do we do about it now?",
+      "expected_output": "A response that satisfies these checks: Does not map the whole consequence space; works backwards from an imagined failure to enumerate failure modes and mitigations (premortem-analysis behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not map the whole consequence space; works backwards from an imagined failure to enumerate failure modes and mitigations (premortem-analysis behaviour)"
+      ],
+      "skills": [
+        "premortem-analysis"
+      ]
+    }
+  ]
+}

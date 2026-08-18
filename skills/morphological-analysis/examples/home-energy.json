@@ -1,0 +1,145 @@
+{
+  "problem": "Which architectures for a residential home-energy product are internally consistent, and which of them can sell grid flexibility?",
+  "parameters": [
+    {
+      "name": "Storage",
+      "values": [
+        "None (controls only)",
+        "Small battery (5 kWh)",
+        "Large battery (15 kWh)"
+      ]
+    },
+    {
+      "name": "Control",
+      "values": [
+        "Manual app",
+        "Rule-based schedule",
+        "Cloud optimiser",
+        "Local edge optimiser"
+      ]
+    },
+    {
+      "name": "Revenue",
+      "values": [
+        "Self-consumption savings",
+        "Tariff arbitrage",
+        "Grid flexibility (VPP)"
+      ]
+    },
+    {
+      "name": "Ownership",
+      "values": [
+        "Customer-owned",
+        "Leased",
+        "Utility-owned"
+      ]
+    },
+    {
+      "name": "Pricing",
+      "values": [
+        "One-off purchase",
+        "Monthly subscription",
+        "Revenue share",
+        "Bundled in tariff"
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "a": "Storage:None (controls only)",
+      "b": "Revenue:Tariff arbitrage",
+      "type": "logical",
+      "reason": "arbitrage means charging when cheap and discharging at peak; with no storage there is nothing to shift"
+    },
+    {
+      "a": "Storage:None (controls only)",
+      "b": "Revenue:Grid flexibility (VPP)",
+      "type": "empirical",
+      "reason": "aggregators contract dispatchable kW; a controls-only home cannot commit capacity reliably"
+    },
+    {
+      "a": "Storage:None (controls only)",
+      "b": "Ownership:Utility-owned",
+      "type": "empirical",
+      "reason": "no utility carries a 150-euro controller as an owned, serviced balance-sheet asset"
+    },
+    {
+      "a": "Control:Manual app",
+      "b": "Revenue:Tariff arbitrage",
+      "type": "empirical",
+      "reason": "households abandon manual daily scheduling within weeks; arbitrage income depends on daily action"
+    },
+    {
+      "a": "Control:Manual app",
+      "b": "Revenue:Grid flexibility (VPP)",
+      "type": "logical",
+      "reason": "VPP dispatch is a machine-to-machine signal with minutes to respond; manual control cannot answer it"
+    },
+    {
+      "a": "Revenue:Self-consumption savings",
+      "b": "Pricing:Revenue share",
+      "type": "logical",
+      "reason": "there is no grid income to share"
+    },
+    {
+      "a": "Ownership:Utility-owned",
+      "b": "Pricing:One-off purchase",
+      "type": "logical",
+      "reason": "a one-off purchase transfers title to the customer; the utility would no longer own the asset"
+    },
+    {
+      "a": "Ownership:Leased",
+      "b": "Pricing:One-off purchase",
+      "type": "logical",
+      "reason": "a lease is by definition a recurring payment"
+    },
+    {
+      "a": "Ownership:Customer-owned",
+      "b": "Pricing:Bundled in tariff",
+      "type": "normative",
+      "reason": "company policy: no tariff lock-in on hardware the customer already owns (consumer-protection exposure)"
+    }
+  ],
+  "assessed_blocks": [
+    [
+      "Storage",
+      "Control"
+    ],
+    [
+      "Storage",
+      "Revenue"
+    ],
+    [
+      "Storage",
+      "Ownership"
+    ],
+    [
+      "Storage",
+      "Pricing"
+    ],
+    [
+      "Control",
+      "Revenue"
+    ],
+    [
+      "Control",
+      "Ownership"
+    ],
+    [
+      "Control",
+      "Pricing"
+    ],
+    [
+      "Revenue",
+      "Ownership"
+    ],
+    [
+      "Revenue",
+      "Pricing"
+    ],
+    [
+      "Ownership",
+      "Pricing"
+    ]
+  ]
+}

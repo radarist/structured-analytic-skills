@@ -1,0 +1,16 @@
+{
+  "title": "G20 energy transition, 2025-2035",
+  "mode": "impact",
+  "events": [
+    "Carbon price reaches $100/t in G20",
+    "Grid storage cost falls 50%",
+    "EVs exceed 50% of new car sales",
+    "G20 fossil-fuel subsidies phased out"
+  ],
+  "matrix": [
+    [0, 2, 2, 1],
+    [0, 0, 3, 0],
+    [-1, 1, 0, 0],
+    [2, 1, 3, 0]
+  ]
+}

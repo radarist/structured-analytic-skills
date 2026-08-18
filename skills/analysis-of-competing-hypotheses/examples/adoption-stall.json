@@ -1,0 +1,21 @@
+{
+  "question": "Why did Q4 revenue for the platform fall 8% year-on-year?",
+  "hypotheses": [
+    "H1: Adoption is genuinely slowing",
+    "H2: Company is pivoting to a different segment",
+    "H3: The addressable market shrank",
+    "H4: Null -- normal quarter-to-quarter noise"
+  ],
+  "evidence": [
+    {"id": "E1", "description": "Q4 revenue -8% YoY (10-Q, A1)", "credibility": 1.0, "relevance": 1.0,
+     "marks": {"H1": "C", "H2": "C", "H3": "C", "H4": "I"}},
+    {"id": "E2", "description": "No new logos in the roadmap-aligned ICP for two quarters (sales dashboard, B2)", "credibility": 0.9, "relevance": 0.9,
+     "marks": {"H1": "C", "H2": "N", "H3": "I", "H4": "I"}},
+    {"id": "E3", "description": "CEO on earnings call: 'we are re-evaluating market fit' (transcript, A2)", "credibility": 1.0, "relevance": 0.8,
+     "marks": {"H1": "I", "H2": "CC", "H3": "N", "H4": "N"}},
+    {"id": "E4", "description": "Headcount flat; no reorg announced (LinkedIn headcount tracker, C3)", "credibility": 0.6, "relevance": 0.7,
+     "marks": {"H1": "C", "H2": "I", "H3": "C", "H4": "C"}},
+    {"id": "E5", "description": "Two competitors reported +15% growth in the same segment (press releases, B2)", "credibility": 0.8, "relevance": 0.9,
+     "marks": {"H1": "C", "H2": "N", "H3": "II", "H4": "I"}}
+  ]
+}

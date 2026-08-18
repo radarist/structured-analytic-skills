@@ -1,0 +1,18 @@
+{
+  "uncertainty": "Demand",
+  "signals": [
+    "Positive",
+    "Negative"
+  ],
+  "cost": 2,
+  "likelihood": {
+    "High": {
+      "Positive": 0.9,
+      "Negative": 0.1
+    },
+    "Low": {
+      "Positive": 0.4,
+      "Negative": 0.6
+    }
+  }
+}

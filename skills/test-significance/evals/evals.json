@@ -1,0 +1,84 @@
+{
+  "skill_name": "test-significance",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "sig-pos-1",
+      "kind": "positive",
+      "prompt": "Run a significance test on this A/B result: the control converted 96 out of 800 and the treatment converted 128 out of 800. Is the gap statistically significant, and what is the confidence interval on the difference?",
+      "expected_output": "A response that satisfies these checks: Chooses the pooled two-proportion z-test because both expected counts exceed 5; Reports the two-sided p-value, the 95% CI on the difference in percentage points, and Cohen's h with its band; Reproduces the numbers with scripts/significance.py two-prop; States the decision consequence at the low end of the interval rather than a bare 'significant'.",
+      "files": [],
+      "expectations": [
+        "Chooses the pooled two-proportion z-test because both expected counts exceed 5",
+        "Reports the two-sided p-value, the 95% CI on the difference in percentage points, and Cohen's h with its band",
+        "Reproduces the numbers with scripts/significance.py two-prop",
+        "States the decision consequence at the low end of the interval rather than a bare 'significant'"
+      ],
+      "skills": [
+        "test-significance"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "sig-pos-2",
+      "kind": "positive",
+      "prompt": "The vendor claims their model scored 87% and the competitor 85% on the same 500-item benchmark and calls that a clear win. Is a two-point gap actually meaningful at that sample size, or is it within noise?",
+      "expected_output": "A response that satisfies these checks: Converts the percentages back to raw counts out of 500 before testing; Runs a two-proportion test and reports the confidence interval on the difference; Concludes the gap is not distinguishable from sampling variation and says so without calling the models equivalent.",
+      "files": [],
+      "expectations": [
+        "Converts the percentages back to raw counts out of 500 before testing",
+        "Runs a two-proportion test and reports the confidence interval on the difference",
+        "Concludes the gap is not distinguishable from sampling variation and says so without calling the models equivalent"
+      ],
+      "skills": [
+        "test-significance"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "sig-pos-3",
+      "kind": "positive",
+      "prompt": "Our new prompt gave a mean latency of 20.8 seconds across 15 runs versus 23.0 seconds for the old one across 15 runs, with different spreads. Is that difference real or noise, and how big is the effect?",
+      "expected_output": "A response that satisfies these checks: Selects Welch's t-test because the variances are unequal and the samples are small; Reports t, degrees of freedom and the two-sided p-value plus an effect size (Cohen's d or Hedges' g); Flags the small sample size and what it means for a null result.",
+      "files": [],
+      "expectations": [
+        "Selects Welch's t-test because the variances are unequal and the samples are small",
+        "Reports t, degrees of freedom and the two-sided p-value plus an effect size (Cohen's d or Hedges' g)",
+        "Flags the small sample size and what it means for a null result"
+      ],
+      "skills": [
+        "test-significance"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "sig-neg-1",
+      "kind": "negative",
+      "prompt": "We are about to launch a one-click checkout test. How many users per arm do we need to detect a two percentage point lift on a 10% baseline at 80% power, and what should the preregistered analysis plan say?",
+      "expected_output": "A response that satisfies these checks: Runs a power analysis and produces a design card with MDE, randomization unit and sample size; Does not analyse a completed comparison — the data do not exist yet (experimental-design behaviour).",
+      "files": [],
+      "expectations": [
+        "Runs a power analysis and produces a design card with MDE, randomization unit and sample size",
+        "Does not analyse a completed comparison — the data do not exist yet (experimental-design behaviour)"
+      ],
+      "skills": [
+        "experimental-design"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "sig-neg-2",
+      "kind": "negative",
+      "prompt": "I have eight trials of the same intervention, each with an effect size and standard error. Pool them into an overall effect and tell me how much they disagree.",
+      "expected_output": "A response that satisfies these checks: Pools the studies with fixed-effect and random-effects estimators and reports I² and tau²; Does not test a single two-group comparison (meta-analysis behaviour).",
+      "files": [],
+      "expectations": [
+        "Pools the studies with fixed-effect and random-effects estimators and reports I² and tau²",
+        "Does not test a single two-group comparison (meta-analysis behaviour)"
+      ],
+      "skills": [
+        "meta-analysis"
+      ]
+    }
+  ]
+}

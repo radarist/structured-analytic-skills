@@ -1,0 +1,11 @@
+{
+  "question": "Illustrative: workplace mindfulness programme vs waitlist on burnout (Maslach emotional-exhaustion subscale), standardized mean difference (SMD); negative = less burnout. Six invented RCTs.",
+  "studies": [
+    {"study": "Andersen 2017", "effect": -0.42, "se": 0.15},
+    {"study": "Bianchi 2018",  "effect": -0.25, "se": 0.12},
+    {"study": "Chen 2019",     "effect": -0.61, "se": 0.20},
+    {"study": "Dubois 2020",   "effect": -0.10, "se": 0.11},
+    {"study": "Ekstrom 2021",  "effect": -0.38, "se": 0.17},
+    {"study": "Farah 2022",    "effect": -0.55, "se": 0.24}
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "skill_name": "wardley-map-drafting",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "wardley-pos-1",
+      "kind": "positive",
+      "prompt": "Draw a Wardley map for our photo-sharing product so we can settle where the platform team should build versus buy next year.",
+      "expected_output": "A response that satisfies these checks: Anchors the map on a specific user need stated in one sentence; Builds the value chain by visibility, with dependencies from the need downwards; Plots every component on the evolution axis (genesis, custom-built, product, commodity); Gives each component an explicit build / buy / consume-as-utility decision; Reads the map for inversion, drift and duplication and names one thing to stop doing.",
+      "files": [],
+      "expectations": [
+        "Anchors the map on a specific user need stated in one sentence",
+        "Builds the value chain by visibility, with dependencies from the need downwards",
+        "Plots every component on the evolution axis (genesis, custom-built, product, commodity)",
+        "Gives each component an explicit build / buy / consume-as-utility decision",
+        "Reads the map for inversion, drift and duplication and names one thing to stop doing"
+      ],
+      "skills": [
+        "wardley-map-drafting"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "wardley-pos-2",
+      "kind": "positive",
+      "prompt": "Our architecture keeps reinventing infrastructure that vendors already sell as a utility, and every review argues in the abstract. Map the value chain for the alerting product so the whole dependency chain is visible.",
+      "expected_output": "A response that satisfies these checks: Produces the chain from user need down to raw utilities rather than a flat component list; Identifies commodity components being built in-house as the duplication finding; Warns against placing in-house work further left than the market warrants.",
+      "files": [],
+      "expectations": [
+        "Produces the chain from user need down to raw utilities rather than a flat component list",
+        "Identifies commodity components being built in-house as the duplication finding",
+        "Warns against placing in-house work further left than the market warrants"
+      ],
+      "skills": [
+        "wardley-map-drafting"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "wardley-pos-3",
+      "kind": "positive",
+      "prompt": "We need situational awareness of our whole delivery stack before the build-versus-buy meeting — which parts are genuinely differentiating, which are rentable products, and which should be consumed as a utility?",
+      "expected_output": "A response that satisfies these checks: Distinguishes components across the evolution axis rather than clustering them; Ties each build/buy/consume call to the component's evolution position; Applies appropriate methods per position (exploratory on the left, volume operations on the right).",
+      "files": [],
+      "expectations": [
+        "Distinguishes components across the evolution axis rather than clustering them",
+        "Ties each build/buy/consume call to the component's evolution position",
+        "Applies appropriate methods per position (exploratory on the left, volume operations on the right)"
+      ],
+      "skills": [
+        "wardley-map-drafting"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "wardley-neg-1",
+      "kind": "negative",
+      "prompt": "Give one component a maturity score: is our feature-flag service still custom-built or has it become a product? Just that single stage judgement with the evidence.",
+      "expected_output": "A response that satisfies these checks: Scores the single component's stage with evidence rather than drawing a whole chain; Does not build a value chain or emit build/buy/consume calls for other components.",
+      "files": [],
+      "expectations": [
+        "Scores the single component's stage with evidence rather than drawing a whole chain",
+        "Does not build a value chain or emit build/buy/consume calls for other components"
+      ],
+      "skills": [
+        "evolution-stage"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "wardley-neg-2",
+      "kind": "negative",
+      "prompt": "Plot Datadog, Grafana and New Relic against each other on a two-axis competitive landscape and show where the whitespace is.",
+      "expected_output": "A response that satisfies these checks: Places the named rival firms on a competitive map with defensible axes; Does not map an internal dependency chain anchored on a user need.",
+      "files": [],
+      "expectations": [
+        "Places the named rival firms on a competitive map with defensible axes",
+        "Does not map an internal dependency chain anchored on a user need"
+      ],
+      "skills": [
+        "position-competitor"
+      ]
+    }
+  ]
+}

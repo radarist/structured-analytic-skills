@@ -1,0 +1,99 @@
+{
+  "skill_name": "quantitative-sanity-check",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "qsc-pos-1",
+      "kind": "positive",
+      "prompt": "Run a quantitative sanity check on this investor memo: it says the market grows from $6.25B to $50B by 2032 at a 24.8% CAGR, and that 40,000 customers at $99 a month produce $120M ARR. Do the numbers reproduce each other?",
+      "expected_output": "A response that satisfies these checks: Recomputes the implied CAGR from start, end and years (8 compounding periods) and flags the 24.8% claim as inconsistent; Multiplies customers × annual price and reports the gap to the claimed ARR as a multiple; Uses the verdict table with a Recomputed column and an Overall/Action line; Does not pick a side — flags the inconsistency and routes to re-sourcing.",
+      "files": [],
+      "expectations": [
+        "Recomputes the implied CAGR from start, end and years (8 compounding periods) and flags the 24.8% claim as inconsistent",
+        "Multiplies customers × annual price and reports the gap to the claimed ARR as a multiple",
+        "Uses the verdict table with a Recomputed column and an Overall/Action line",
+        "Does not pick a side — flags the inconsistency and routes to re-sourcing"
+      ],
+      "skills": [
+        "quantitative-sanity-check"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "qsc-pos-2",
+      "kind": "positive",
+      "prompt": "These figures in the pitch deck do not feel right — they say revenue tripled in four years at 25% a year, and that share fell 50% to 20%. Can you recompute the arithmetic and tell me whether the numbers are internally consistent?",
+      "expected_output": "A response that satisfies these checks: Checks that 25% compounded over four years gives about 2.4×, not 3×, and flags the compounding claim; Shows both readings of 'fell 50% to 20%' (from 40% relative or from 70% in points) and marks it ambiguous; Reports verdicts per claim rather than a single overall impression.",
+      "files": [],
+      "expectations": [
+        "Checks that 25% compounded over four years gives about 2.4×, not 3×, and flags the compounding claim",
+        "Shows both readings of 'fell 50% to 20%' (from 40% relative or from 70% in points) and marks it ambiguous",
+        "Reports verdicts per claim rather than a single overall impression"
+      ],
+      "skills": [
+        "quantitative-sanity-check"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "qsc-pos-3",
+      "kind": "positive",
+      "prompt": "Before I quote this in the report — the source says conversion improved 5% and elsewhere gives 10% before and 15% after. Is that percentage points or relative percent, and is the claim consistent with its own before/after numbers?",
+      "expected_output": "A response that satisfies these checks: Computes both the percentage-point change (+5 pp) and the relative change (50%) and states which the prose matches; Recommends restating the claim in unambiguous units; Reproduces the check with scripts/sanity.py pp or equivalent arithmetic.",
+      "files": [],
+      "expectations": [
+        "Computes both the percentage-point change (+5 pp) and the relative change (50%) and states which the prose matches",
+        "Recommends restating the claim in unambiguous units",
+        "Reproduces the check with scripts/sanity.py pp or equivalent arithmetic"
+      ],
+      "skills": [
+        "quantitative-sanity-check"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "qsc-neg-1",
+      "kind": "negative",
+      "prompt": "Fact-check the vendor numbers in this brief before we publish — the qubit count, the parameter count and the benchmark scores — against live web sources and reconcile the draft with what the sources actually say.",
+      "expected_output": "A response that satisfies these checks: Verifies each specific against external sources rather than recomputing internal arithmetic; Behaves as grounded-fact-check: reconciles the draft against what the sources state.",
+      "files": [],
+      "expectations": [
+        "Verifies each specific against external sources rather than recomputing internal arithmetic",
+        "Behaves as grounded-fact-check: reconciles the draft against what the sources state"
+      ],
+      "skills": [
+        "grounded-fact-check"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "qsc-neg-2",
+      "kind": "negative",
+      "prompt": "How big is the market for warehouse robotics? Give me TAM, SAM and SOM with a top-down and a bottom-up estimate that agree within an order of magnitude.",
+      "expected_output": "A response that satisfies these checks: Builds two independent market-size estimates rather than checking a stated figure's arithmetic; Behaves as estimate-market-size: TAM/SAM/SOM triangulation.",
+      "files": [],
+      "expectations": [
+        "Builds two independent market-size estimates rather than checking a stated figure's arithmetic",
+        "Behaves as estimate-market-size: TAM/SAM/SOM triangulation"
+      ],
+      "skills": [
+        "estimate-market-size"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "qsc-neg-3",
+      "kind": "negative",
+      "prompt": "Variant B converted at 12.4% versus 11.9% for variant A with about 5,000 users in each arm — is that difference statistically significant or just noise?",
+      "expected_output": "A response that satisfies these checks: Runs a two-proportion significance test with a confidence interval and effect size instead of an arithmetic consistency check; Behaves as test-significance.",
+      "files": [],
+      "expectations": [
+        "Runs a two-proportion significance test with a confidence interval and effect size instead of an arithmetic consistency check",
+        "Behaves as test-significance"
+      ],
+      "skills": [
+        "test-significance"
+      ]
+    }
+  ]
+}

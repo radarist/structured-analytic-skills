@@ -1,0 +1,86 @@
+{
+  "skill_name": "steelman-argument",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "steelman-pos-1",
+      "kind": "positive",
+      "prompt": "Steelman the argument for building our own model in-house before I write the rebuttal — I want the strongest version its actual advocates would endorse, not the version I can beat.",
+      "expected_output": "A response that satisfies these checks: States the position in its proponents' own vocabulary; Builds the core claim, premises, best evidence, best answer to the obvious objection, and the genuine insight at its centre; Applies Rapoport's rules (re-express, list agreements, say what was learned) before any rebuttal; Names the load-bearing assumption and pivotal evidence where even the strong version is exposed; Runs an endorsement test and records the verdict.",
+      "files": [],
+      "expectations": [
+        "States the position in its proponents' own vocabulary",
+        "Builds the core claim, premises, best evidence, best answer to the obvious objection, and the genuine insight at its centre",
+        "Applies Rapoport's rules (re-express, list agreements, say what was learned) before any rebuttal",
+        "Names the load-bearing assumption and pivotal evidence where even the strong version is exposed",
+        "Runs an endorsement test and records the verdict"
+      ],
+      "skills": [
+        "steelman-argument"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "steelman-pos-2",
+      "kind": "positive",
+      "prompt": "Reading my draft back, I think I've described the opposing camp in a way they'd never accept. Is this a strawman, and what would the charitable version of their case look like?",
+      "expected_output": "A response that satisfies these checks: Diagnoses which parts of the draft the opposing camp would reject; Rebuilds the position without importing outside premises; Identifies the genuine insight the rejected view contains.",
+      "files": [],
+      "expectations": [
+        "Diagnoses which parts of the draft the opposing camp would reject",
+        "Rebuilds the position without importing outside premises",
+        "Identifies the genuine insight the rejected view contains"
+      ],
+      "skills": [
+        "steelman-argument"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 3,
+      "case_id": "steelman-pos-3",
+      "kind": "positive",
+      "prompt": "Our two engineering camps keep talking past each other. Can you write each side's case so persuasively that the other side would sign off on it — an ideological Turing test, basically?",
+      "expected_output": "A response that satisfies these checks: Reconstructs each position in its own frame to the standard its holders would endorse; Applies the endorsement test rather than declaring a winner; Marks where each strong version remains exposed.",
+      "files": [],
+      "expectations": [
+        "Reconstructs each position in its own frame to the standard its holders would endorse",
+        "Applies the endorsement test rather than declaring a winner",
+        "Marks where each strong version remains exposed"
+      ],
+      "skills": [
+        "steelman-argument"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "steelman-neg-1",
+      "kind": "negative",
+      "prompt": "Attack our own headline conclusion as hard as a hostile reviewer would before it ships — undefined terms, missing baselines, counter-examples, the lot.",
+      "expected_output": "A response that satisfies these checks: Runs the adversarial vector-by-vector attack on the claim and returns a survival score and verdict; Does not reconstruct an opposing position charitably.",
+      "files": [],
+      "expectations": [
+        "Runs the adversarial vector-by-vector attack on the claim and returns a survival score and verdict",
+        "Does not reconstruct an opposing position charitably"
+      ],
+      "skills": [
+        "red-team-claim"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "steelman-neg-2",
+      "kind": "negative",
+      "prompt": "There are four possible explanations for why adoption stalled last quarter. Which one does the evidence actually support best?",
+      "expected_output": "A response that satisfies these checks: Builds an evidence-by-hypothesis matrix and ranks by fewest inconsistencies; Does not produce a charitable reconstruction of a single opposing argument.",
+      "files": [],
+      "expectations": [
+        "Builds an evidence-by-hypothesis matrix and ranks by fewest inconsistencies",
+        "Does not produce a charitable reconstruction of a single opposing argument"
+      ],
+      "skills": [
+        "analysis-of-competing-hypotheses"
+      ]
+    }
+  ]
+}

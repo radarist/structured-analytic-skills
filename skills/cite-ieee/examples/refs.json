@@ -1,0 +1,52 @@
+[
+  {
+    "type": "arxiv",
+    "authors": [
+      "Shehzaad Dhuliawala",
+      "Mojtaba Komeili",
+      "Jing Xu",
+      "Roberta Raileanu",
+      "Xian Li",
+      "Asli Celikyilmaz",
+      "Jason Weston"
+    ],
+    "title": "Chain-of-Verification reduces hallucination in large language models",
+    "year": 2023,
+    "arxiv": "2309.11495"
+  },
+  {
+    "type": "conference",
+    "authors": [
+      "Ashish Vaswani",
+      "Noam Shazeer",
+      "Niki Parmar",
+      "Jakob Uszkoreit",
+      "Llion Jones",
+      "Aidan N. Gomez",
+      "Lukasz Kaiser",
+      "Illia Polosukhin"
+    ],
+    "title": "Attention is all you need",
+    "booktitle": "Proc. Adv. Neural Inf. Process. Syst. (NeurIPS)",
+    "year": 2017,
+    "pp": "5998-6008"
+  },
+  {
+    "type": "journal",
+    "authors": [
+      "Matthew J. Page",
+      "Joanne E. McKenzie",
+      "Patrick M. Bossuyt",
+      "Isabelle Boutron",
+      "Tammy C. Hoffmann",
+      "Cynthia D. Mulrow",
+      "Larissa Shamseer"
+    ],
+    "title": "The PRISMA 2020 statement: an updated guideline for reporting systematic reviews",
+    "journal": "BMJ",
+    "vol": 372,
+    "art_no": "n71",
+    "year": 2021,
+    "doi": "10.1136/bmj.n71"
+  }
+]

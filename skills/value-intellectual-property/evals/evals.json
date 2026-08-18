@@ -1,0 +1,90 @@
+{
+  "skill_name": "value-intellectual-property",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "ipvalue-pos-1",
+      "kind": "positive",
+      "prompt": "Our university technology-transfer office needs to value this patent and know-how bundle before an exclusive licence negotiation. Use cost, market and income evidence and give us a defensible range, not a single magic number.",
+      "expected_output": "A purpose-specific IP valuation with explicit asset boundaries, approach ranges, reconciliation and sensitivities.",
+      "files": [],
+      "expectations": [
+        "States the valuation purpose, asset boundary, base date, currency, premise and exclusions",
+        "Separates cost, market and income approaches and explains when each is usable",
+        "Keeps replacement or reproduction cost outside the economic reconciliation unless the stated premise makes it directly relevant",
+        "Returns an evidence-backed range with dominant sensitivities rather than an unsupported point price",
+        "Routes material legal, tax and transaction opinions to qualified professionals"
+      ],
+      "skills": ["value-intellectual-property"]
+    },
+    {
+      "id": 2,
+      "case_id": "ipvalue-pos-2",
+      "kind": "positive",
+      "prompt": "Calculate an rNPV range for a Phase II biotech patent asset before we set licensing milestones. I have stage costs, success probabilities, launch timing and forecast cash flows.",
+      "expected_output": "A probability-adjusted, discounted IP valuation that preserves staged uncertainty and shows sensitivity.",
+      "files": [],
+      "expectations": [
+        "Distinguishes conditional stage success from unconditional occurrence probabilities used on cash flows",
+        "Discounts probability-adjusted cash flows and reports low, base and high cases",
+        "Identifies launch timing, success probability and remaining investment as sensitivities",
+        "Frames the result as a licensing input rather than an investment or fairness opinion"
+      ],
+      "skills": ["value-intellectual-property"]
+    },
+    {
+      "id": 3,
+      "case_id": "ipvalue-pos-3",
+      "kind": "positive",
+      "prompt": "What is our software IP actually worth for an internal portfolio review? We know replacement cost and forecast incremental margins, but the comparable transactions are weak.",
+      "expected_output": "An internal-screen valuation that marks the market approach unavailable or weak and reconciles only supported evidence.",
+      "files": [],
+      "expectations": [
+        "Defines the software, rights, know-how and support included in the asset boundary",
+        "Uses replacement cost as a floor or fact rather than proof of economic value",
+        "Marks weak market comparables as unavailable or low-weight instead of inventing them",
+        "Cross-checks IP-attributable value against the product economics"
+      ],
+      "skills": ["value-intellectual-property"]
+    },
+    {
+      "id": 4,
+      "case_id": "ipvalue-neg-1",
+      "kind": "negative",
+      "prompt": "Read independent claim 1 of the patent below and tell me what elements a competitor would have to omit to avoid the claim.",
+      "expected_output": "A structural claim analysis, not an IP valuation.",
+      "files": [],
+      "expectations": [
+        "Uses analyze-patent-claims to parse the named claim set",
+        "Does not estimate monetary value from the patent number"
+      ],
+      "skills": ["analyze-patent-claims"]
+    },
+    {
+      "id": 5,
+      "case_id": "ipvalue-neg-2",
+      "kind": "negative",
+      "prompt": "Map the solid-state battery patent landscape: top assignees, filing velocity, CPC concentration and white-space classes.",
+      "expected_output": "A multi-family patent landscape, not an asset valuation.",
+      "files": [],
+      "expectations": [
+        "Uses read-patent-landscape for the patent-family cluster",
+        "Does not produce a currency valuation without an identified asset and purpose"
+      ],
+      "skills": ["read-patent-landscape"]
+    },
+    {
+      "id": 6,
+      "case_id": "ipvalue-neg-3",
+      "kind": "negative",
+      "prompt": "Should we continue, delay or abandon this pilot after the next test? Build the decision tree and calculate EVPI for learning first.",
+      "expected_output": "A staged expected-value decision tree, not an IP asset valuation.",
+      "files": [],
+      "expectations": [
+        "Uses expected-value-decision-tree for continue, delay and abandon branches",
+        "Does not label project expected value as intellectual-property value"
+      ],
+      "skills": ["expected-value-decision-tree"]
+    }
+  ]
+}

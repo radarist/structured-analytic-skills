@@ -1,0 +1,84 @@
+{
+  "skill_name": "triangulate-sources",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "tri-pos-1",
+      "kind": "positive",
+      "prompt": "Triangulate this figure before it goes in the executive summary — I have four articles that all state the same valuation and I want to know whether they are actually independent.",
+      "expected_output": "A response that satisfies these checks: States the claim as one specific sentence with value, unit and date; Applies the four independence tests and collapses sources sharing an originator or first-hand root; Counts only surviving independent sources and reports corroborated, single-source, contested or uncorroborated; Lists every collapsed source with the test it failed.",
+      "files": [],
+      "expectations": [
+        "States the claim as one specific sentence with value, unit and date",
+        "Applies the four independence tests and collapses sources sharing an originator or first-hand root",
+        "Counts only surviving independent sources and reports corroborated, single-source, contested or uncorroborated",
+        "Lists every collapsed source with the test it failed"
+      ],
+      "skills": [
+        "triangulate-sources"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "tri-pos-2",
+      "kind": "positive",
+      "prompt": "Do these sources really agree or are they all quoting the same press release? Everything I find traces back to one announcement as far as I can tell.",
+      "expected_output": "A response that satisfies these checks: Walks each source to its first-hand root document; Collapses re-reports of a single release into one source; Reports single-source when nothing independent survives, rather than counting URLs.",
+      "files": [],
+      "expectations": [
+        "Walks each source to its first-hand root document",
+        "Collapses re-reports of a single release into one source",
+        "Reports single-source when nothing independent survives, rather than counting URLs"
+      ],
+      "skills": [
+        "triangulate-sources"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "tri-pos-3",
+      "kind": "positive",
+      "prompt": "Find independent confirmation for this funding amount — the recommendation in the brief depends on it being right, so one source is not enough.",
+      "expected_output": "A response that satisfies these checks: Gathers candidates from different kinds of origin, including primary records; Grades each candidate before counting it; Applies the incentive-structure test to sources that gain from the claim.",
+      "files": [],
+      "expectations": [
+        "Gathers candidates from different kinds of origin, including primary records",
+        "Grades each candidate before counting it",
+        "Applies the incentive-structure test to sources that gain from the claim"
+      ],
+      "skills": [
+        "triangulate-sources"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "tri-neg-1",
+      "kind": "negative",
+      "prompt": "Give this one outlet an Admiralty grade — reliability letter and credibility digit with a rationale I can record.",
+      "expected_output": "A response that satisfies these checks: Grades a single source on the A–F / 1–6 axes rather than corroborating a claim; Returns the combined code with a rationale.",
+      "files": [],
+      "expectations": [
+        "Grades a single source on the A–F / 1–6 axes rather than corroborating a claim",
+        "Returns the combined code with a rationale"
+      ],
+      "skills": [
+        "rate-source-admiralty"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "tri-neg-2",
+      "kind": "negative",
+      "prompt": "Go through this brief and mark which sentences are backed by a citation and which are really just assumptions we should retire later.",
+      "expected_output": "A response that satisfies these checks: Tags each fact-claim as validated or assumption with a retire-by milestone; Does not gather or deduplicate sources for a single claim.",
+      "files": [],
+      "expectations": [
+        "Tags each fact-claim as validated or assumption with a retire-by milestone",
+        "Does not gather or deduplicate sources for a single claim"
+      ],
+      "skills": [
+        "claim-provenance"
+      ]
+    }
+  ]
+}

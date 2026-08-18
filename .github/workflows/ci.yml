@@ -1,0 +1,70 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: structure, schemas, deterministic scorecard, trigger eval, catalog
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Structural gate (frontmatter, links, self-containment, script self-tests)
+        run: python3 evaluation/check_repo.py
+      - name: Canonical skill-creator eval schema
+        run: python3 evaluation/eval_schema.py --check
+
+      - name: Companion-tool exit-code convention
+        run: python3 evaluation/exit_codes.py
+      - name: Codex and ChatGPT UI metadata
+        run: python3 evaluation/build_openai_metadata.py --check
+      - name: Deterministic scorecard (fails below thresholds)
+        run: python3 evaluation/score_skills.py --min-score 95 --min-library 99 --json /tmp/scores.json --md /tmp/scores.md
+      - name: Trigger (discoverability) eval
+        run: python3 evaluation/trigger_eval.py --min-rank1 0.98 --min-negative 0.98 --min-cases 3 --min-routed 0.90
+      - name: Catalog and index are current
+        run: python3 evaluation/build_index.py --check
+      - name: Publish scorecard summary
+        if: always()
+        run: |
+          echo '## Deterministic scorecard' >> "$GITHUB_STEP_SUMMARY"
+          sed -n '1,40p' /tmp/scores.md >> "$GITHUB_STEP_SUMMARY" || true
+      - name: Companion tools run twice with identical output (determinism)
+        run: |
+          set -e
+          for f in skills/*/scripts/*.py; do
+            a=$(python3 "$f" --selftest 2>&1); b=$(python3 "$f" --selftest 2>&1)
+            [ "$a" = "$b" ] || { echo "non-deterministic: $f"; exit 1; }
+          done
+          echo "all companion tools deterministic"
+
+  spec-validate:
+    name: agentskills.io reference validator (skills-ref / agentskills)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          enable-cache: false
+      - name: agentskills validate every skill
+        run: |
+          set -e
+          uv tool install skills-ref
+          fail=0
+          for d in skills/*/; do
+            case "$(basename "$d")" in _*) continue ;; esac   # skip skills/_TEMPLATE
+            agentskills validate "$d" || fail=1
+          done
+          exit $fail

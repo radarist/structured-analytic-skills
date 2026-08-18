@@ -1,0 +1,85 @@
+{
+  "skill_name": "morphological-analysis",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "morph-pos-1",
+      "kind": "positive",
+      "prompt": "We need to explore all viable architectures for a home-energy product — parameters like storage, control, ownership model, pricing. Help me map the solution space and prune the impossible combos.",
+      "expected_output": "A response that satisfies these checks: Defines 4-8 MECE parameters and 2-6 discrete values each, and states the raw configuration count as the product of the value counts; Performs a pairwise cross-consistency assessment: each excluded value pair is typed logical / empirical / normative and carries a one-line reason; Reports the internally consistent count and the reduction achieved (raw vs consistent), reproduced with scripts/morph.py; Shortlists and names interesting configurations, saying what would make each work.",
+      "files": [],
+      "expectations": [
+        "Defines 4-8 MECE parameters and 2-6 discrete values each, and states the raw configuration count as the product of the value counts",
+        "Performs a pairwise cross-consistency assessment: each excluded value pair is typed logical / empirical / normative and carries a one-line reason",
+        "Reports the internally consistent count and the reduction achieved (raw vs consistent), reproduced with scripts/morph.py",
+        "Shortlists and names interesting configurations, saying what would make each work"
+      ],
+      "skills": [
+        "morphological-analysis"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "morph-pos-2",
+      "kind": "positive",
+      "prompt": "Run a Zwicky box / morphological analysis on our sensor-platform design options — I want the full box, then a cross-consistency assessment so we only look at combinations that can actually coexist.",
+      "expected_output": "A response that satisfies these checks: Builds the morphological box (parameters as columns, values beneath) and prints the raw count; Assesses every cross-parameter value pair, leaving no block un-assessed (cca reports complete); Lists the consistent configurations, optionally filtered by a driver value; Does not read causation into the matrix — pairs are judged for compatibility only.",
+      "files": [],
+      "expectations": [
+        "Builds the morphological box (parameters as columns, values beneath) and prints the raw count",
+        "Assesses every cross-parameter value pair, leaving no block un-assessed (cca reports complete)",
+        "Lists the consistent configurations, optionally filtered by a driver value",
+        "Does not read causation into the matrix — pairs are judged for compatibility only"
+      ],
+      "skills": [
+        "morphological-analysis"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "morph-pos-3",
+      "kind": "positive",
+      "prompt": "How many internally consistent business-model configurations exist here? We have five dimensions (customer segment, revenue mechanism, channel, ownership, pricing) with 3-4 options each and a list of combinations we already know are contradictory.",
+      "expected_output": "A response that satisfies these checks: Computes the raw count (product of option counts) and the count of internally consistent configurations after applying the stated exclusions; Asks for or records a reason and a type for each contradiction rather than accepting bare exclusions; Reports raw vs consistent with the reduction percentage and reconciles the number with the companion tool.",
+      "files": [],
+      "expectations": [
+        "Computes the raw count (product of option counts) and the count of internally consistent configurations after applying the stated exclusions",
+        "Asks for or records a reason and a type for each contradiction rather than accepting bare exclusions",
+        "Reports raw vs consistent with the reduction percentage and reconciles the number with the companion tool"
+      ],
+      "skills": [
+        "morphological-analysis"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "morph-neg-1",
+      "kind": "negative",
+      "prompt": "We have decided to move all customer support to an AI agent next quarter. Map the second-order and third-order consequences of that decision — the ripple effects and unintended consequences.",
+      "expected_output": "A response that satisfies these checks: Does not build a parameter box or count configurations; Places the decision at the centre and generates first-, second- and third-order consequence rings (futures-wheel behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not build a parameter box or count configurations",
+        "Places the decision at the centre and generates first-, second- and third-order consequence rings (futures-wheel behaviour)"
+      ],
+      "skills": [
+        "futures-wheel"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "morph-neg-2",
+      "kind": "negative",
+      "prompt": "Build me a 2x2 scenario matrix for the European EV-charging market over the next five years — pick the two most uncertain drivers and narrate the four plausible futures.",
+      "expected_output": "A response that satisfies these checks: Does not enumerate a multi-parameter configuration space or run a cross-consistency assessment; Selects two critical uncertainties, constructs the 2x2 matrix and narrates four scenarios (scenario-planning behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not enumerate a multi-parameter configuration space or run a cross-consistency assessment",
+        "Selects two critical uncertainties, constructs the 2x2 matrix and narrates four scenarios (scenario-planning behaviour)"
+      ],
+      "skills": [
+        "scenario-planning"
+      ]
+    }
+  ]
+}

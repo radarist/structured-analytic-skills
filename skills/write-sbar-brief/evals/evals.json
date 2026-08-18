@@ -1,0 +1,85 @@
+{
+  "skill_name": "write-sbar-brief",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "sbar-pos-1",
+      "kind": "positive",
+      "prompt": "Give me a 1-pager on the payments outage for tomorrow's leadership meeting — SBAR format, and tell me what you recommend we do.",
+      "expected_output": "A response that satisfies these checks: Produces Situation, Background, Assessment and Recommendation in that order; Keeps each section within its sentence cap and the whole brief to about one page; Names one primary action with an owner, a date and a confidence tag; Keeps evaluative judgement out of the Situation section.",
+      "files": [],
+      "expectations": [
+        "Produces Situation, Background, Assessment and Recommendation in that order",
+        "Keeps each section within its sentence cap and the whole brief to about one page",
+        "Names one primary action with an owner, a date and a confidence tag",
+        "Keeps evaluative judgement out of the Situation section"
+      ],
+      "skills": [
+        "write-sbar-brief"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "sbar-pos-2",
+      "kind": "positive",
+      "prompt": "Our supplier just missed a second shipment and the exec team wants something short before Thursday's board — what is going on, what is the context, and what should be done about it?",
+      "expected_output": "A response that satisfies these checks: Names the decision the briefing serves before writing; Separates the current state from the history that bears on the decision; Adds an analytical assessment naming a specific risk, not just restated facts; Ends with a single recommended action rather than a menu of options.",
+      "files": [],
+      "expectations": [
+        "Names the decision the briefing serves before writing",
+        "Separates the current state from the history that bears on the decision",
+        "Adds an analytical assessment naming a specific risk, not just restated facts",
+        "Ends with a single recommended action rather than a menu of options"
+      ],
+      "skills": [
+        "write-sbar-brief"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "sbar-pos-3",
+      "kind": "positive",
+      "prompt": "I need to hand this incident over to the on-call lead who has not been watching it. Write the handover briefing — situation, background, assessment, recommendation.",
+      "expected_output": "A response that satisfies these checks: Makes the first sentence intelligible with zero prior context; Includes only background that bears on the handover decision; States a diagnosis and an ask rather than a chronological narrative.",
+      "files": [],
+      "expectations": [
+        "Makes the first sentence intelligible with zero prior context",
+        "Includes only background that bears on the handover decision",
+        "States a diagnosis and an ask rather than a chronological narrative"
+      ],
+      "skills": [
+        "write-sbar-brief"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "sbar-neg-1",
+      "kind": "negative",
+      "prompt": "Write up our eight-week benchmark experiment as a journal-style scientific paper with a reproducible methods section and a numbered reference list.",
+      "expected_output": "A response that satisfies these checks: Produces a research report with Introduction, Methods, Results and Discussion; Does not compress the material into a one-page decision briefing.",
+      "files": [],
+      "expectations": [
+        "Produces a research report with Introduction, Methods, Results and Discussion",
+        "Does not compress the material into a one-page decision briefing"
+      ],
+      "skills": [
+        "write-imrad-report"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "sbar-neg-2",
+      "kind": "negative",
+      "prompt": "What year was the H100 announced and what memory bandwidth does it have? Just the verified facts with sources.",
+      "expected_output": "A response that satisfies these checks: Answers the factual question with verified sources; Does not produce a briefing with a recommendation attached.",
+      "files": [],
+      "expectations": [
+        "Answers the factual question with verified sources",
+        "Does not produce a briefing with a recommendation attached"
+      ],
+      "skills": [
+        "grounded-answer"
+      ]
+    }
+  ]
+}

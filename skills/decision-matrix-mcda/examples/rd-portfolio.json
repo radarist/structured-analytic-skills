@@ -1,0 +1,27 @@
+{
+  "title": "R&D portfolio choice FY27 — which programme gets the discretionary budget?",
+  "criteria": [
+    {"id": "C1", "name": "Strategic fit (1-5)", "direction": "max", "range": [1, 5]},
+    {"id": "C2", "name": "Expected NPV (EUR m)", "direction": "max"},
+    {"id": "C3", "name": "Time to first revenue (months)", "direction": "min"},
+    {"id": "C4", "name": "Technical risk (1-5, 5 = riskiest)", "direction": "min", "range": [1, 5]},
+    {"id": "C5", "name": "Capability fit (1-5)", "direction": "max", "range": [1, 5]}
+  ],
+  "pairwise": [
+    [1, 1, 3, 3, 3],
+    [1, 1, 3, 2, 4],
+    ["1/3", "1/3", 1, "1/2", 1],
+    ["1/3", "1/2", 2, 1, 2],
+    ["1/3", "1/4", 1, "1/2", 1]
+  ],
+  "options": [
+    {"id": "O1", "name": "Status quo (incremental roadmap)",
+     "scores": {"C1": 3, "C2": 4, "C3": 6, "C4": 1, "C5": 5}},
+    {"id": "O2", "name": "Solid-state cell pilot line",
+     "scores": {"C1": 5, "C2": 12, "C3": 30, "C4": 4, "C5": 3}},
+    {"id": "O3", "name": "AI materials-discovery platform",
+     "scores": {"C1": 4, "C2": 9, "C3": 18, "C4": 3, "C5": 4}},
+    {"id": "O4", "name": "Flow-battery demonstrator",
+     "scores": {"C1": 3, "C2": 7, "C3": 24, "C4": 3, "C5": 2}}
+  ]
+}

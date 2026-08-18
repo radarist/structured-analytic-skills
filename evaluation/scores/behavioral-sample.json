@@ -1,0 +1,238 @@
+{
+ "judge_model": "haiku",
+ "mean_delta_all": 0.38,
+ "model": "haiku",
+ "runs": 1,
+ "skills": {
+  "analysis-of-competing-hypotheses": {
+   "cases": [
+    {
+     "arms": {
+      "with_skill": {
+       "errors": [],
+       "pass_fraction": 0.0,
+       "runs": 1
+      },
+      "without_skill": {
+       "errors": [],
+       "pass_fraction": 0.0,
+       "runs": 1
+      }
+     },
+     "delta": 0.0,
+     "id": "ach-pos-1",
+     "kind": "positive",
+     "n_expected": 5
+    }
+   ],
+   "mean_delta": 0.0
+  },
+  "decision-matrix-mcda": {
+   "cases": [
+    {
+     "arms": {
+      "with_skill": {
+       "errors": [],
+       "pass_fraction": 0.0,
+       "runs": 1
+      },
+      "without_skill": {
+       "errors": [],
+       "pass_fraction": 0.2,
+       "runs": 1
+      }
+     },
+     "delta": -0.2,
+     "id": "mcda-pos-1",
+     "kind": "positive",
+     "n_expected": 5
+    }
+   ],
+   "mean_delta": -0.2
+  },
+  "estimative-language": {
+   "cases": [
+    {
+     "arms": {
+      "with_skill": {
+       "errors": [],
+       "pass_fraction": 0.75,
+       "runs": 1
+      },
+      "without_skill": {
+       "errors": [],
+       "pass_fraction": 0.25,
+       "runs": 1
+      }
+     },
+     "delta": 0.5,
+     "id": "estimative-language-pos-2",
+     "kind": "positive",
+     "n_expected": 4
+    }
+   ],
+   "mean_delta": 0.5
+  },
+  "evidence-appraisal": {
+   "cases": [
+    {
+     "arms": {
+      "with_skill": {
+       "errors": [],
+       "pass_fraction": 0.75,
+       "runs": 1
+      },
+      "without_skill": {
+       "errors": [],
+       "pass_fraction": 0.25,
+       "runs": 1
+      }
+     },
+     "delta": 0.5,
+     "id": "grade-pos-1",
+     "kind": "positive",
+     "n_expected": 4
+    }
+   ],
+   "mean_delta": 0.5
+  },
+  "indicators-validation": {
+   "cases": [
+    {
+     "arms": {
+      "with_skill": {
+       "errors": [],
+       "pass_fraction": 1.0,
+       "runs": 1
+      },
+      "without_skill": {
+       "errors": [],
+       "pass_fraction": 0.0,
+       "runs": 1
+      }
+     },
+     "delta": 1.0,
+     "id": "indval-pos-1",
+     "kind": "positive",
+     "n_expected": 5
+    }
+   ],
+   "mean_delta": 1.0
+  },
+  "key-assumptions-check": {
+   "cases": [
+    {
+     "arms": {
+      "with_skill": {
+       "errors": [],
+       "pass_fraction": 1.0,
+       "runs": 1
+      },
+      "without_skill": {
+       "errors": [],
+       "pass_fraction": 0.2,
+       "runs": 1
+      }
+     },
+     "delta": 0.8,
+     "id": "kac-pos-1",
+     "kind": "positive",
+     "n_expected": 5
+    }
+   ],
+   "mean_delta": 0.8
+  },
+  "premortem-analysis": {
+   "cases": [
+    {
+     "arms": {
+      "with_skill": {
+       "errors": [],
+       "pass_fraction": 1.0,
+       "runs": 1
+      },
+      "without_skill": {
+       "errors": [],
+       "pass_fraction": 0.4,
+       "runs": 1
+      }
+     },
+     "delta": 0.6,
+     "id": "premortem-pos-1",
+     "kind": "positive",
+     "n_expected": 5
+    }
+   ],
+   "mean_delta": 0.6
+  },
+  "rate-source-admiralty": {
+   "cases": [
+    {
+     "arms": {
+      "with_skill": {
+       "errors": [],
+       "pass_fraction": 0.75,
+       "runs": 1
+      },
+      "without_skill": {
+       "errors": [],
+       "pass_fraction": 0.75,
+       "runs": 1
+      }
+     },
+     "delta": 0.0,
+     "id": "admiralty-pos-1",
+     "kind": "positive",
+     "n_expected": 4
+    }
+   ],
+   "mean_delta": 0.0
+  },
+  "reference-class-forecasting": {
+   "cases": [
+    {
+     "arms": {
+      "with_skill": {
+       "errors": [],
+       "pass_fraction": 0.167,
+       "runs": 1
+      },
+      "without_skill": {
+       "errors": [],
+       "pass_fraction": 0.167,
+       "runs": 1
+      }
+     },
+     "delta": 0.0,
+     "id": "rcf-pos-1",
+     "kind": "positive",
+     "n_expected": 6
+    }
+   ],
+   "mean_delta": 0.0
+  },
+  "scenario-planning": {
+   "cases": [
+    {
+     "arms": {
+      "with_skill": {
+       "errors": [],
+       "pass_fraction": 1.0,
+       "runs": 1
+      },
+      "without_skill": {
+       "errors": [],
+       "pass_fraction": 0.4,
+       "runs": 1
+      }
+     },
+     "delta": 0.6,
+     "id": "scenario-pos-1",
+     "kind": "positive",
+     "n_expected": 5
+    }
+   ],
+   "mean_delta": 0.6
+  }
+ }
+}

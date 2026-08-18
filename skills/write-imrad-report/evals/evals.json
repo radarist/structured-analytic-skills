@@ -1,0 +1,85 @@
+{
+  "skill_name": "write-imrad-report",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "imrad-pos-1",
+      "kind": "positive",
+      "prompt": "Write this benchmark study up as a journal-style scientific paper in IMRAD structure — introduction, methods, results and discussion — so our reviewers can reproduce the numbers.",
+      "expected_output": "A response that satisfies these checks: Produces Introduction, Methods, Results and Discussion sections in that order; Keeps interpretation out of Results and puts it in Discussion; Makes Methods detailed enough to reproduce, with sources, criteria and settings; Ends with a numbered reference list and a one-sentence answer to the opening question.",
+      "files": [],
+      "expectations": [
+        "Produces Introduction, Methods, Results and Discussion sections in that order",
+        "Keeps interpretation out of Results and puts it in Discussion",
+        "Makes Methods detailed enough to reproduce, with sources, criteria and settings",
+        "Ends with a numbered reference list and a one-sentence answer to the opening question"
+      ],
+      "skills": [
+        "write-imrad-report"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "imrad-pos-2",
+      "kind": "positive",
+      "prompt": "My draft mixes the results with my own conclusions and there is no methods section at all — a reviewer said the findings cannot be checked. How should the report be structured so the evidence stands apart from the interpretation?",
+      "expected_output": "A response that satisfies these checks: Separates observations from interpretation into distinct sections; Requires a reproducible methods section and inline citations for external numbers; Includes null findings and excluded cases in the results.",
+      "files": [],
+      "expectations": [
+        "Separates observations from interpretation into distinct sections",
+        "Requires a reproducible methods section and inline citations for external numbers",
+        "Includes null findings and excluded cases in the results"
+      ],
+      "skills": [
+        "write-imrad-report"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 3,
+      "case_id": "imrad-pos-3",
+      "kind": "positive",
+      "prompt": "We ran an eight-week experiment and now need an academic whitepaper for external publication — a journal-style write-up of the methods and results that would survive peer review.",
+      "expected_output": "A response that satisfies these checks: Uses the four-section research-report convention with an optional executive summary; States the question, the gap and the objective up front without reporting results there; States limitations and labels any post-hoc hypothesis.",
+      "files": [],
+      "expectations": [
+        "Uses the four-section research-report convention with an optional executive summary",
+        "States the question, the gap and the objective up front without reporting results there",
+        "States limitations and labels any post-hoc hypothesis"
+      ],
+      "skills": [
+        "write-imrad-report"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "imrad-neg-1",
+      "kind": "negative",
+      "prompt": "Give me a one-page brief for Thursday's board meeting on the supplier situation — the situation, the background, and what should be done about it.",
+      "expected_output": "A response that satisfies these checks: Produces a short decision-oriented brief with a recommendation, not a research report; Does not impose a methods-and-results academic structure.",
+      "files": [],
+      "expectations": [
+        "Produces a short decision-oriented brief with a recommendation, not a research report",
+        "Does not impose a methods-and-results academic structure"
+      ],
+      "skills": [
+        "write-sbar-brief"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "imrad-neg-2",
+      "kind": "negative",
+      "prompt": "Do a comprehensive, reproducible review of the published literature on this intervention with screening counts and inclusion criteria at each stage.",
+      "expected_output": "A response that satisfies these checks: Runs a PRISMA-style identification, screening, eligibility and inclusion process; Reports the audit trail of included and excluded studies rather than formatting a manuscript.",
+      "files": [],
+      "expectations": [
+        "Runs a PRISMA-style identification, screening, eligibility and inclusion process",
+        "Reports the audit trail of included and excluded studies rather than formatting a manuscript"
+      ],
+      "skills": [
+        "systematic-review"
+      ]
+    }
+  ]
+}

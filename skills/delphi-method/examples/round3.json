@@ -1,0 +1,16 @@
+{
+  "question": "Year in which a fault-tolerant quantum computer first demonstrates commercial advantage on a logistics-optimization workload",
+  "round": 3,
+  "items": {
+    "fault-tolerant advantage year": [
+      {"panelist": "E1", "estimate": 2033, "rationale": "unchanged"},
+      {"panelist": "E2", "estimate": 2034, "rationale": "unchanged"},
+      {"panelist": "E3", "estimate": 2035, "rationale": "unchanged"},
+      {"panelist": "E4", "estimate": 2035, "rationale": "unchanged"},
+      {"panelist": "E5", "estimate": 2036, "rationale": "unchanged"},
+      {"panelist": "E6", "estimate": 2038, "rationale": "unchanged"},
+      {"panelist": "E7", "estimate": 2039, "rationale": "moved one year on the fidelity trend"},
+      {"panelist": "E8", "estimate": 2055, "rationale": "holds: logical-qubit economics still unaddressed"}
+    ]
+  }
+}

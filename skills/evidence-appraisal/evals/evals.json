@@ -1,0 +1,84 @@
+{
+  "skill_name": "evidence-appraisal",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "grade-pos-1",
+      "kind": "positive",
+      "prompt": "GRADE the evidence for CBT-I versus sleep-hygiene education on sleep-onset latency — we have five RCTs with their risk-of-bias ratings and the pooled estimate. What certainty level does this body of evidence deserve?",
+      "expected_output": "A response that satisfies these checks: Rates certainty per outcome starting from High for randomized trials; Applies each of the five rate-down factors (or explicitly declines it) with a reason tied to the appraisal table or pooled statistics; Reports the level as high/moderate/low/very low with a summary-of-findings row and a GRADE-language certainty statement; Reproduces the arithmetic with scripts/grade.py or by hand and names what new evidence would change the grade.",
+      "files": [],
+      "expectations": [
+        "Rates certainty per outcome starting from High for randomized trials",
+        "Applies each of the five rate-down factors (or explicitly declines it) with a reason tied to the appraisal table or pooled statistics",
+        "Reports the level as high/moderate/low/very low with a summary-of-findings row and a GRADE-language certainty statement",
+        "Reproduces the arithmetic with scripts/grade.py or by hand and names what new evidence would change the grade"
+      ],
+      "skills": [
+        "evidence-appraisal"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "grade-pos-2",
+      "kind": "positive",
+      "prompt": "How strong is the evidence that intermittent fasting improves insulin sensitivity? The studies conflict and I need to know what we actually know before writing the recommendation.",
+      "expected_output": "A response that satisfies these checks: Frames a PICO and rates outcomes separately rather than issuing one verdict on 'fasting'; Treats conflicting results as an inconsistency judgment with a stated reason, not as 'no evidence'; Avoids the words 'proven', 'conclusive' and 'no evidence' in the certainty statement.",
+      "files": [],
+      "expectations": [
+        "Frames a PICO and rates outcomes separately rather than issuing one verdict on 'fasting'",
+        "Treats conflicting results as an inconsistency judgment with a stated reason, not as 'no evidence'",
+        "Avoids the words 'proven', 'conclusive' and 'no evidence' in the certainty statement"
+      ],
+      "skills": [
+        "evidence-appraisal"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "grade-pos-3",
+      "kind": "positive",
+      "prompt": "There are only observational cohort studies on this occupational exposure and cancer risk, but the relative risk is around 6 with a clear dose-response. Is this proven, or how certain should we be in the body of evidence?",
+      "expected_output": "A response that satisfies these checks: Starts the observational body at Low; Considers rating up for the very large effect and the dose-response gradient only after rating down, with the residual-confounding argument made explicit; States the result as a certainty level with reasons and a surveillance trigger.",
+      "files": [],
+      "expectations": [
+        "Starts the observational body at Low",
+        "Considers rating up for the very large effect and the dose-response gradient only after rating down, with the residual-confounding argument made explicit",
+        "States the result as a certainty level with reasons and a surveillance trigger"
+      ],
+      "skills": [
+        "evidence-appraisal"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "grade-neg-1",
+      "kind": "negative",
+      "prompt": "Is this single randomized trial reliable? Walk me through its randomization, blinding, missing outcome data and selective reporting to assess bias in the study.",
+      "expected_output": "A response that satisfies these checks: Runs the RoB 2 per-study domains rather than a body-of-evidence certainty rating; Does not assign a GRADE level to a single study.",
+      "files": [],
+      "expectations": [
+        "Runs the RoB 2 per-study domains rather than a body-of-evidence certainty rating",
+        "Does not assign a GRADE level to a single study"
+      ],
+      "skills": [
+        "assess-study-bias"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "grade-neg-2",
+      "kind": "negative",
+      "prompt": "How trustworthy is this trade-press article claiming a vendor's chip is 40% faster? Give me a source-reliability and information-credibility grade for the citation before I use it in the report.",
+      "expected_output": "A response that satisfies these checks: Grades the source on the Admiralty A1-F6 scale rather than applying GRADE to a non-study document; Does not construct a PICO or a summary-of-findings table.",
+      "files": [],
+      "expectations": [
+        "Grades the source on the Admiralty A1-F6 scale rather than applying GRADE to a non-study document",
+        "Does not construct a PICO or a summary-of-findings table"
+      ],
+      "skills": [
+        "rate-source-admiralty"
+      ]
+    }
+  ]
+}

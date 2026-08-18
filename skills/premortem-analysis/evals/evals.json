@@ -1,0 +1,87 @@
+{
+  "skill_name": "premortem-analysis",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "premortem-pos-1",
+      "kind": "positive",
+      "prompt": "Run a premortem on our plan to migrate billing to a new payments vendor by March. Assume the migration has already failed — work backwards and tell me why.",
+      "expected_output": "A response that satisfies these checks: States the decision in one sentence with owner, date and success measure before anything else; Declares the failure as certain and dated (past tense), not as a possibility; Generates reasons independently across several vantage points before any discussion or ranking, covering the five domains; Scores each reason likelihood x severity and names the top three with one pre-commitment, testable mitigation each; Ends with a kill threshold naming a metric, threshold and date.",
+      "files": [],
+      "expectations": [
+        "States the decision in one sentence with owner, date and success measure before anything else",
+        "Declares the failure as certain and dated (past tense), not as a possibility",
+        "Generates reasons independently across several vantage points before any discussion or ranking, covering the five domains",
+        "Scores each reason likelihood x severity and names the top three with one pre-commitment, testable mitigation each",
+        "Ends with a kill threshold naming a metric, threshold and date"
+      ],
+      "skills": [
+        "premortem-analysis"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "premortem-pos-2",
+      "kind": "positive",
+      "prompt": "We are about to lock in a two-year product roadmap and nobody in the room has raised a single objection. Before we commit, what could go wrong with this decision? Stress-test the roadmap.",
+      "expected_output": "A response that satisfies these checks: Recognises the silence as the symptom the premortem targets and runs the method rather than a generic risk list; Uses prospective hindsight — the roadmap 'has failed' — to elicit reasons; Produces the output template with reasons per domain, scores, top-3 mitigations and a kill threshold; Flags any domain with no failure mode as a blind spot to fill or justify.",
+      "files": [],
+      "expectations": [
+        "Recognises the silence as the symptom the premortem targets and runs the method rather than a generic risk list",
+        "Uses prospective hindsight — the roadmap 'has failed' — to elicit reasons",
+        "Produces the output template with reasons per domain, scores, top-3 mitigations and a kill threshold",
+        "Flags any domain with no failure mode as a blind spot to fill or justify"
+      ],
+      "skills": [
+        "premortem-analysis"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "premortem-pos-3",
+      "kind": "positive",
+      "prompt": "Imagine it's a year from now and the launch of our new subscription tier has failed badly. Work backwards from that failure and tell me the failure modes and the pre-emptive mitigations we should put in place before launch.",
+      "expected_output": "A response that satisfies these checks: Writes a dated, present-tense failure vignette; Lists concrete, specific reasons (who, what component, when, consequence) rather than vague ones; Mitigations are actionable before launch, testable and not restatements of the risk; Recommends feeding mitigations into the plan as checkpoints and sets a kill threshold.",
+      "files": [],
+      "expectations": [
+        "Writes a dated, present-tense failure vignette",
+        "Lists concrete, specific reasons (who, what component, when, consequence) rather than vague ones",
+        "Mitigations are actionable before launch, testable and not restatements of the risk",
+        "Recommends feeding mitigations into the plan as checkpoints and sets a kill threshold"
+      ],
+      "skills": [
+        "premortem-analysis"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "premortem-neg-1",
+      "kind": "negative",
+      "prompt": "Our forecast that the market will double by 2028 rests on a handful of premises nobody has examined. What are we assuming here, and which assumptions is the conclusion load-bearing on?",
+      "expected_output": "A response that satisfies these checks: Audits the hidden premises of the conclusion (key assumptions check) rather than imagining a plan's failure; Does not produce a failure vignette or a kill threshold.",
+      "files": [],
+      "expectations": [
+        "Audits the hidden premises of the conclusion (key assumptions check) rather than imagining a plan's failure",
+        "Does not produce a failure vignette or a kill threshold"
+      ],
+      "skills": [
+        "key-assumptions-check"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "premortem-neg-2",
+      "kind": "negative",
+      "prompt": "Revenue fell 15% last quarter and there are three competing explanations — pricing, a competitor launch, or seasonality. Which explanation does the evidence actually support?",
+      "expected_output": "A response that satisfies these checks: Ranks rival explanations against the evidence (ACH) instead of running a premortem; Does not treat the question as a plan to stress-test.",
+      "files": [],
+      "expectations": [
+        "Ranks rival explanations against the evidence (ACH) instead of running a premortem",
+        "Does not treat the question as a plan to stress-test"
+      ],
+      "skills": [
+        "analysis-of-competing-hypotheses"
+      ]
+    }
+  ]
+}

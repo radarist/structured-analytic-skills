@@ -1,0 +1,85 @@
+{
+  "skill_name": "five-forces-analysis",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "5f-pos-1",
+      "kind": "positive",
+      "prompt": "Run a Porter five forces analysis on the European frontier-model inference API market before we decide whether to enter it in 2027.",
+      "expected_output": "A response that satisfies these checks: Fixes the industry scope on product scope, geography and time frame before rating anything; Names buyers, suppliers, competitors, substitutes and potential entrants as concrete groups; Rates all five forces Low/Med/High with at least three evidenced indicators each; Names the controlling force or forces rather than weighting all five equally; Reports the direction of change and strategic implications, not just an attractive/unattractive label.",
+      "files": [],
+      "expectations": [
+        "Fixes the industry scope on product scope, geography and time frame before rating anything",
+        "Names buyers, suppliers, competitors, substitutes and potential entrants as concrete groups",
+        "Rates all five forces Low/Med/High with at least three evidenced indicators each",
+        "Names the controlling force or forces rather than weighting all five equally",
+        "Reports the direction of change and strategic implications, not just an attractive/unattractive label"
+      ],
+      "skills": [
+        "five-forces-analysis"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "5f-pos-2",
+      "kind": "positive",
+      "prompt": "Why are margins in the food-service distribution sector so thin even though volumes keep growing? Is this a structural problem or just bad operators?",
+      "expected_output": "A response that satisfies these checks: Treats the question as one about industry structure rather than firm operations; Rates the forces on evidence and identifies which force is capturing the profit; Explains that a fast growth rate is a factor acting through the forces, not evidence of attractiveness.",
+      "files": [],
+      "expectations": [
+        "Treats the question as one about industry structure rather than firm operations",
+        "Rates the forces on evidence and identifies which force is capturing the profit",
+        "Explains that a fast growth rate is a factor acting through the forces, not evidence of attractiveness"
+      ],
+      "skills": [
+        "five-forces-analysis"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "5f-pos-3",
+      "kind": "positive",
+      "prompt": "How attractive is the industrial-robotics maintenance market for a new entrant, and what are the barriers to entry there?",
+      "expected_output": "A response that satisfies these checks: Assesses entry as a threat (barriers plus expected retaliation) rather than counting observed entrants; Rates supplier power, buyer power, substitutes and rivalry alongside entry threat; Runs the consistency test against observed long-run profitability and states the verdict with its confidence.",
+      "files": [],
+      "expectations": [
+        "Assesses entry as a threat (barriers plus expected retaliation) rather than counting observed entrants",
+        "Rates supplier power, buyer power, substitutes and rivalry alongside entry threat",
+        "Runs the consistency test against observed long-run profitability and states the verdict with its confidence"
+      ],
+      "skills": [
+        "five-forces-analysis"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "5f-neg-1",
+      "kind": "negative",
+      "prompt": "Where does our product sit versus Siemens and Rockwell on a two-axis competitive map, and where is the whitespace?",
+      "expected_output": "A response that satisfies these checks: Places the named firms on a positioning map with defensible axes; Does not rate industry-level forces.",
+      "files": [],
+      "expectations": [
+        "Places the named firms on a positioning map with defensible axes",
+        "Does not rate industry-level forces"
+      ],
+      "skills": [
+        "position-competitor"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "5f-neg-2",
+      "kind": "negative",
+      "prompt": "How big is the TAM for warehouse automation software in North America? I need a top-down and bottom-up estimate that agree.",
+      "expected_output": "A response that satisfies these checks: Produces a triangulated market size (TAM/SAM/SOM) rather than a structural assessment; Does not rate the five forces.",
+      "files": [],
+      "expectations": [
+        "Produces a triangulated market size (TAM/SAM/SOM) rather than a structural assessment",
+        "Does not rate the five forces"
+      ],
+      "skills": [
+        "estimate-market-size"
+      ]
+    }
+  ]
+}

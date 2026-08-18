@@ -1,0 +1,100 @@
+{
+  "skill_name": "decompose-research-question",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "decomp-pos-1",
+      "kind": "positive",
+      "prompt": "Decompose this research question into a tree of sub-questions before we start: 'Should we invest in the foundation-model API space?'",
+      "expected_output": "A response that satisfies these checks: Restates the question and names the decomposition axis; Builds a MECE tree of at most eight atomic leaves; Assigns a skill or research step to every leaf; Orders the leaves into dependency waves and names the recombination method.",
+      "files": [],
+      "expectations": [
+        "Restates the question and names the decomposition axis",
+        "Builds a MECE tree of at most eight atomic leaves",
+        "Assigns a skill or research step to every leaf",
+        "Orders the leaves into dependency waves and names the recombination method"
+      ],
+      "skills": [
+        "decompose-research-question"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "decomp-pos-2",
+      "kind": "positive",
+      "prompt": "Every time I ask about 'the future of robotics in logistics' the answer sprawls for pages and misses half of it. Break the question into parts first and tell me what each part needs.",
+      "expected_output": "A response that satisfies these checks: Diagnoses the sprawl as a missing decomposition rather than a writing problem; Checks siblings for overlap and the set for coverage gaps; States what evidence or method each leaf requires.",
+      "files": [],
+      "expectations": [
+        "Diagnoses the sprawl as a missing decomposition rather than a writing problem",
+        "Checks siblings for overlap and the set for coverage gaps",
+        "States what evidence or method each leaf requires"
+      ],
+      "skills": [
+        "decompose-research-question"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "decomp-pos-3",
+      "kind": "positive",
+      "prompt": "I have a broad, multi-clause brief from the CEO covering the market, the technology, the regulation and our competitors in digital twins. Give me an issue tree of sub-questions and which analysis answers each, in dependency order.",
+      "expected_output": "A response that satisfies these checks: Produces an issue tree with a disposition per leaf; Groups independent leaves into a parallel wave and dependent leaves after them; Names stop conditions that would make the question unanswerable.",
+      "files": [],
+      "expectations": [
+        "Produces an issue tree with a disposition per leaf",
+        "Groups independent leaves into a parallel wave and dependent leaves after them",
+        "Names stop conditions that would make the question unanswerable"
+      ],
+      "skills": [
+        "decompose-research-question"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "decomp-pos-4",
+      "kind": "positive",
+      "prompt": "Build a MECE issue tree for 'how should our bank respond to stablecoins over the next three years?' and map each leaf to a method.",
+      "expected_output": "A response that satisfies these checks: Applies the MECE test explicitly to siblings and to coverage; Keeps the tree to eight leaves or fewer; Specifies the recombination format before any leaf runs.",
+      "files": [],
+      "expectations": [
+        "Applies the MECE test explicitly to siblings and to coverage",
+        "Keeps the tree to eight leaves or fewer",
+        "Specifies the recombination format before any leaf runs"
+      ],
+      "skills": [
+        "decompose-research-question"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "decomp-neg-1",
+      "kind": "negative",
+      "prompt": "I've finished the analysis — structure the report so the recommendation comes first with MECE supporting arguments, Minto style.",
+      "expected_output": "A response that satisfies these checks: Structures a finished argument top-down from a governing thought; Does not produce a research plan or dependency waves.",
+      "files": [],
+      "expectations": [
+        "Structures a finished argument top-down from a governing thought",
+        "Does not produce a research plan or dependency waves"
+      ],
+      "skills": [
+        "pyramid-principle"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "decomp-neg-2",
+      "kind": "negative",
+      "prompt": "What year was the H100 launched and at what price? Give me a sourced answer.",
+      "expected_output": "A response that satisfies these checks: Answers the factual question with verified sources; Does not build a tree of sub-questions.",
+      "files": [],
+      "expectations": [
+        "Answers the factual question with verified sources",
+        "Does not build a tree of sub-questions"
+      ],
+      "skills": [
+        "grounded-answer"
+      ]
+    }
+  ]
+}

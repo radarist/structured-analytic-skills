@@ -1,0 +1,103 @@
+{
+  "skill_name": "decision-matrix-mcda",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "mcda-pos-1",
+      "kind": "positive",
+      "prompt": "We need to pick one of four platform vendors against cost, security, roadmap fit and support — build a weighted decision matrix and tell me how robust the winner is.",
+      "expected_output": "A response that satisfies these checks: Frames the decision and lists all four vendors plus the status quo / do-nothing baseline; Defines the four criteria with a direction (cost = less is better) and a stated scale or unit; Elicits weights (direct or AHP pairwise) that sum to 1 and, if AHP, reports CR <= 0.10; Normalises direction-aware, computes weighted totals, ranks and reports the margin between the top two; Reports sensitivity: break-even weights, the most fragile score cell, and a rank-reversal check before calling the winner robust.",
+      "files": [],
+      "expectations": [
+        "Frames the decision and lists all four vendors plus the status quo / do-nothing baseline",
+        "Defines the four criteria with a direction (cost = less is better) and a stated scale or unit",
+        "Elicits weights (direct or AHP pairwise) that sum to 1 and, if AHP, reports CR <= 0.10",
+        "Normalises direction-aware, computes weighted totals, ranks and reports the margin between the top two",
+        "Reports sensitivity: break-even weights, the most fragile score cell, and a rank-reversal check before calling the winner robust"
+      ],
+      "skills": [
+        "decision-matrix-mcda"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "mcda-pos-2",
+      "kind": "positive",
+      "prompt": "Derive criteria weights with AHP pairwise comparisons and check consistency — I have six criteria for choosing a data-centre site.",
+      "expected_output": "A response that satisfies these checks: Elicits pairwise judgements on Saaty's 1-9 scale into a 6x6 reciprocal matrix; Computes the principal eigenvector as the weight vector (with the companion tool); Reports lambda_max, CI, RI(6) = 1.24 and CR, and states whether CR <= 0.10; If CR > 0.10, names the most inconsistent judgement and asks to re-elicit rather than using the weights.",
+      "files": [],
+      "expectations": [
+        "Elicits pairwise judgements on Saaty's 1-9 scale into a 6x6 reciprocal matrix",
+        "Computes the principal eigenvector as the weight vector (with the companion tool)",
+        "Reports lambda_max, CI, RI(6) = 1.24 and CR, and states whether CR <= 0.10",
+        "If CR > 0.10, names the most inconsistent judgement and asks to re-elicit rather than using the weights"
+      ],
+      "skills": [
+        "decision-matrix-mcda"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "mcda-pos-3",
+      "kind": "positive",
+      "prompt": "Score these R&D options against our criteria — strategic fit, NPV, time to revenue, technical risk — and rank them for the portfolio review.",
+      "expected_output": "A response that satisfies these checks: Builds an options x criteria matrix with sourced raw scores and direction-aware normalisation; Applies stated weights (or derives them) and computes weighted totals with the companion tool; Presents the ranking with the margin between the top two and the sensitivity block; Uses the output template including assumptions and uncertainties.",
+      "files": [],
+      "expectations": [
+        "Builds an options x criteria matrix with sourced raw scores and direction-aware normalisation",
+        "Applies stated weights (or derives them) and computes weighted totals with the companion tool",
+        "Presents the ranking with the margin between the top two and the sensitivity block",
+        "Uses the output template including assumptions and uncertainties"
+      ],
+      "skills": [
+        "decision-matrix-mcda"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "mcda-pos-4",
+      "kind": "positive",
+      "prompt": "Multi-criteria decision analysis for choosing between three ERP suites — weighted scoring, and I want to know which weight change would flip the recommendation.",
+      "expected_output": "A response that satisfies these checks: Runs the seven-step procedure with three options including the incumbent as status quo; Reports per-criterion break-even weights at which the leader changes; States what the recommendation hinges on rather than only the winning total.",
+      "files": [],
+      "expectations": [
+        "Runs the seven-step procedure with three options including the incumbent as status quo",
+        "Reports per-criterion break-even weights at which the leader changes",
+        "States what the recommendation hinges on rather than only the winning total"
+      ],
+      "skills": [
+        "decision-matrix-mcda"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "mcda-neg-1",
+      "kind": "negative",
+      "prompt": "Our churn doubled last quarter and there are three rival explanations — pricing change, a competitor launch, or the onboarding redesign. Rank the hypotheses by which one the evidence contradicts least.",
+      "expected_output": "A response that satisfies these checks: Does not build a weighted decision matrix of options; Ranks rival hypotheses about a cause by inconsistency with the evidence (ACH behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not build a weighted decision matrix of options",
+        "Ranks rival hypotheses about a cause by inconsistency with the evidence (ACH behaviour)"
+      ],
+      "skills": [
+        "analysis-of-competing-hypotheses"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "mcda-neg-2",
+      "kind": "negative",
+      "prompt": "Before we commit to the new platform, what is the smallest, cheapest experiment we could run to validate the bet, and what pass/fail rule should it have?",
+      "expected_output": "A response that satisfies these checks: Does not score options against weighted criteria; Names the smallest validating test with cost, duration and an explicit pass/fail rule (cheapest-experiment behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not score options against weighted criteria",
+        "Names the smallest validating test with cost, duration and an explicit pass/fail rule (cheapest-experiment behaviour)"
+      ],
+      "skills": [
+        "cheapest-experiment"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+# Operating-system files
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# Local agent/client state (the publishable Claude plugin is .claude-plugin/)
+/.claude/
+/.codex/
+/.kimi/
+/.agents/
+/.cursor/
+/.gemini/
+/.opencode/
+
+# Credentials and local environment overrides
+.env
+.env.*
+!.env.example
+!.env.*.example
+/.direnv/
+.envrc
+/.secrets/
+credentials*.json
+service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Editors
+/.idea/
+/.vscode/
+*.code-workspace
+*.iml
+*.swp
+*.swo
+*~
+
+# Python caches, environments, coverage, and packaging output
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+.venv/
+venv/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+junit*.xml
+*.egg-info/
+.eggs/
+/build/
+/dist/
+
+# JavaScript package-manager output (some client harnesses use Node)
+node_modules/
+/.npm/
+/.pnpm-store/
+/.yarn/
+
+# Logs, temporary files, and local benchmark products
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+/.cache/
+/.tmp/
+/tmp/
+/temp/
+/evaluation/runs/
+/evaluation/raw/
+/evaluation/artifacts/
+# Curated evaluation/scores are publishable; only explicitly local/temp scores are ignored.
+/evaluation/scores/local-*
+/evaluation/scores/*.tmp
+/evaluation/scores/*.tmp.*

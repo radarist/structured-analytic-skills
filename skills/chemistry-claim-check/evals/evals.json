@@ -1,0 +1,83 @@
+{
+  "skill_name": "chemistry-claim-check",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "ccc-pos-1",
+      "kind": "positive",
+      "prompt": "This press release says their lead compound is caffeine, C8H10N4O2, with a molecular weight of 312 g/mol. Does that molecular weight check out?",
+      "expected_output": "A response that satisfies these checks: Checks the compound name against the stated molecular formula; Recomputes the molecular weight from standard atomic weights and shows the arithmetic; Reports the mismatch as a FAIL with the percentage difference and a likely cause such as a salt form; Does not silently correct the formula or the weight.",
+      "files": [],
+      "expectations": [
+        "Checks the compound name against the stated molecular formula",
+        "Recomputes the molecular weight from standard atomic weights and shows the arithmetic",
+        "Reports the mismatch as a FAIL with the percentage difference and a likely cause such as a salt form",
+        "Does not silently correct the formula or the weight"
+      ],
+      "skills": [
+        "chemistry-claim-check"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "ccc-pos-2",
+      "kind": "positive",
+      "prompt": "A patent abstract describes an orally bioavailable small molecule with formula C39H47N5O9S. Sanity-check the chemistry claims and tell me whether the drug-likeness assertion holds up.",
+      "expected_output": "A response that satisfies these checks: Computes the degree of unsaturation and confirms the formula is possible; Applies the assessable part of the Lipinski rule of five (molecular weight, N+O acceptor ceiling); Marks hydrogen-bond donors and logP as not assessable without a structure; Treats Lipinski violations as a confidence modifier rather than a disproof.",
+      "files": [],
+      "expectations": [
+        "Computes the degree of unsaturation and confirms the formula is possible",
+        "Applies the assessable part of the Lipinski rule of five (molecular weight, N+O acceptor ceiling)",
+        "Marks hydrogen-bond donors and logP as not assessable without a structure",
+        "Treats Lipinski violations as a confidence modifier rather than a disproof"
+      ],
+      "skills": [
+        "chemistry-claim-check"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "ccc-pos-3",
+      "kind": "positive",
+      "prompt": "Is C2H6O2 really ethanol? The paper pairs that formula with the compound name and I want the molecular formula verified before I cite it.",
+      "expected_output": "A response that satisfies these checks: Identifies that ethanol is C2H6O and C2H6O2 is ethylene glycol; Returns a FAIL verdict on name-versus-formula consistency; Notes that a swapped formula often means the surrounding claim came from the wrong compound.",
+      "files": [],
+      "expectations": [
+        "Identifies that ethanol is C2H6O and C2H6O2 is ethylene glycol",
+        "Returns a FAIL verdict on name-versus-formula consistency",
+        "Notes that a swapped formula often means the surrounding claim came from the wrong compound"
+      ],
+      "skills": [
+        "chemistry-claim-check"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "ccc-neg-1",
+      "kind": "negative",
+      "prompt": "Check whether this SMILES string is syntactically valid: CC(=O)Oc1ccccc1C(=O)O and flag any unclosed rings or bad bond tokens.",
+      "expected_output": "A response that satisfies these checks: Validates the SMILES string's syntax (atoms, brackets, ring closures) rather than checking prose molecular claims.",
+      "files": [],
+      "expectations": [
+        "Validates the SMILES string's syntax (atoms, brackets, ring closures) rather than checking prose molecular claims"
+      ],
+      "skills": [
+        "smiles-sanity-check"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "ccc-neg-2",
+      "kind": "negative",
+      "prompt": "The article claims this drug reduced hospital admissions by 40% in a trial last year. Verify that specific figure against the primary literature before we quote it.",
+      "expected_output": "A response that satisfies these checks: Verifies the load-bearing clinical claim against primary sources rather than recomputing molecular arithmetic.",
+      "files": [],
+      "expectations": [
+        "Verifies the load-bearing clinical claim against primary sources rather than recomputing molecular arithmetic"
+      ],
+      "skills": [
+        "grounded-fact-check"
+      ]
+    }
+  ]
+}

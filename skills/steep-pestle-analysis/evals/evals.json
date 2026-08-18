@@ -1,0 +1,85 @@
+{
+  "skill_name": "steep-pestle-analysis",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "steep-pos-1",
+      "kind": "positive",
+      "prompt": "Run a PESTLE analysis of the macro-environment for our decision to open a battery recycling plant in Spain by 2030, and rate each external factor for impact and uncertainty so we know which ones to plan on.",
+      "expected_output": "A response that satisfies these checks: States the focal question with decision, geography and horizon before sweeping; Sweeps every STEEP/PESTLE category and reports coverage counts, declaring thin categories as findings; Rates each factor 1-5 for impact and 1-5 for uncertainty with a one-line rationale; Clusters factors into named driving forces and sorts them into predetermined elements versus critical uncertainties; Hands critical uncertainties off as scenario-axis candidates.",
+      "files": [],
+      "expectations": [
+        "States the focal question with decision, geography and horizon before sweeping",
+        "Sweeps every STEEP/PESTLE category and reports coverage counts, declaring thin categories as findings",
+        "Rates each factor 1-5 for impact and 1-5 for uncertainty with a one-line rationale",
+        "Clusters factors into named driving forces and sorts them into predetermined elements versus critical uncertainties",
+        "Hands critical uncertainties off as scenario-axis candidates"
+      ],
+      "skills": [
+        "steep-pestle-analysis"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "steep-pos-2",
+      "kind": "positive",
+      "prompt": "What external factors could affect our five-year plan for the European grocery business? I want the driving forces across social, technological, economic, environmental and political categories, not just the tech ones we keep talking about.",
+      "expected_output": "A response that satisfies these checks: Forces coverage across all categories rather than only the familiar ones; Requires each factor to be a dated, evidence-attachable directional statement, not a bare noun; Produces a rated driver inventory with an impact x uncertainty sort; Excludes internal capabilities from the inventory.",
+      "files": [],
+      "expectations": [
+        "Forces coverage across all categories rather than only the familiar ones",
+        "Requires each factor to be a dated, evidence-attachable directional statement, not a bare noun",
+        "Produces a rated driver inventory with an impact x uncertainty sort",
+        "Excludes internal capabilities from the inventory"
+      ],
+      "skills": [
+        "steep-pestle-analysis"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "steep-pos-3",
+      "kind": "positive",
+      "prompt": "Do a STEEP analysis of the macro-environment for commercial drone delivery in the US over the next decade — which driving forces are predetermined and which are genuinely uncertain?",
+      "expected_output": "A response that satisfies these checks: Applies the STEEP category checklist to the stated focal question; Separates predetermined elements from critical uncertainties on an impact/uncertainty map; Names couplings between critical uncertainties; Audits coverage and specificity before handing off.",
+      "files": [],
+      "expectations": [
+        "Applies the STEEP category checklist to the stated focal question",
+        "Separates predetermined elements from critical uncertainties on an impact/uncertainty map",
+        "Names couplings between critical uncertainties",
+        "Audits coverage and specificity before handing off"
+      ],
+      "skills": [
+        "steep-pestle-analysis"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "steep-neg-1",
+      "kind": "negative",
+      "prompt": "How attractive is the industrial-gases industry? Assess supplier power, buyer power, barriers to entry, substitutes and rivalry.",
+      "expected_output": "A response that satisfies these checks: Does not sweep macro-environment categories; assesses industry structure with Porter's five forces (five-forces-analysis behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not sweep macro-environment categories; assesses industry structure with Porter's five forces (five-forces-analysis behaviour)"
+      ],
+      "skills": [
+        "five-forces-analysis"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "steep-neg-2",
+      "kind": "negative",
+      "prompt": "We already know our two critical uncertainties. Build the 2x2 scenario matrix and write the four narratives with triggers and implications for the next five years.",
+      "expected_output": "A response that satisfies these checks: Does not produce a factor inventory; constructs the scenario matrix and narratives from the given uncertainties (scenario-planning behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not produce a factor inventory; constructs the scenario matrix and narratives from the given uncertainties (scenario-planning behaviour)"
+      ],
+      "skills": [
+        "scenario-planning"
+      ]
+    }
+  ]
+}

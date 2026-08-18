@@ -1,0 +1,100 @@
+{
+  "skill_name": "read-patent-landscape",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "landscape-pos-1",
+      "kind": "positive",
+      "prompt": "Give me a patent landscape for solid-state battery manufacturing — who owns the IP, how concentrated the assignees are, and whether filing is still accelerating.",
+      "expected_output": "A response that satisfies these checks: Reduces the set to one row per patent family and states the reduction rule, query and pull date; Reports assignee shares with HHI and CR4, quoting both the 2010 and 2023 merger-guideline bands; Buckets families by priority year and labels the trend; Attaches the 18-month publication-lag caveat to the most recent years.",
+      "files": [],
+      "expectations": [
+        "Reduces the set to one row per patent family and states the reduction rule, query and pull date",
+        "Reports assignee shares with HHI and CR4, quoting both the 2010 and 2023 merger-guideline bands",
+        "Buckets families by priority year and labels the trend",
+        "Attaches the 18-month publication-lag caveat to the most recent years"
+      ],
+      "skills": [
+        "read-patent-landscape"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "landscape-pos-2",
+      "kind": "positive",
+      "prompt": "Everyone in this category seems to be filing patents at once. Is the space actually getting crowded, and is there any white space left for a new entrant?",
+      "expected_output": "A response that satisfies these checks: Measures crowding from assignee concentration rather than raw document counts; Builds a classification-by-assignee matrix and names the sparse cells adjacent to the dense ones; States that a white-space gap needs a demand signal before it counts as an opportunity.",
+      "files": [],
+      "expectations": [
+        "Measures crowding from assignee concentration rather than raw document counts",
+        "Builds a classification-by-assignee matrix and names the sparse cells adjacent to the dense ones",
+        "States that a white-space gap needs a demand signal before it counts as an opportunity"
+      ],
+      "skills": [
+        "read-patent-landscape"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "landscape-pos-3",
+      "kind": "positive",
+      "prompt": "Before we invest in this robotics startup, I want to know who holds the IP around its core technique across the last five years of filings and whether incumbents dominate the CPC classes it depends on.",
+      "expected_output": "A response that satisfies these checks: Scopes a cluster by classification or topic and counts families per assignee; Names the top holders with counts and a concentration read; Tallies the densest CPC/IPC symbols at a stated level; Recommends a per-filing claim read on the top holders' broadest claims.",
+      "files": [],
+      "expectations": [
+        "Scopes a cluster by classification or topic and counts families per assignee",
+        "Names the top holders with counts and a concentration read",
+        "Tallies the densest CPC/IPC symbols at a stated level",
+        "Recommends a per-filing claim read on the top holders' broadest claims"
+      ],
+      "skills": [
+        "read-patent-landscape"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "landscape-neg-1",
+      "kind": "negative",
+      "prompt": "Read this granted patent for me — I'll paste the claim set — what does independent claim 1 actually cover, and how narrow are the dependent claims?",
+      "expected_output": "A response that satisfies these checks: Parses the claim set of the single named patent (analyze-patent-claims behaviour); Does not compute assignee concentration or filing velocity.",
+      "files": [],
+      "expectations": [
+        "Parses the claim set of the single named patent (analyze-patent-claims behaviour)",
+        "Does not compute assignee concentration or filing velocity"
+      ],
+      "skills": [
+        "analyze-patent-claims"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "landscape-neg-2",
+      "kind": "negative",
+      "prompt": "QuantumLeap Materials just announced it raised $80 million in a Series B led by Foundry Ventures at a $600M post-money valuation.",
+      "expected_output": "A response that satisfies these checks: Extracts the funding round, amount, stage, lead investor and valuation (detect-funding-round behaviour); Does not produce a patent-family concentration or white-space read.",
+      "files": [],
+      "expectations": [
+        "Extracts the funding round, amount, stage, lead investor and valuation (detect-funding-round behaviour)",
+        "Does not produce a patent-family concentration or white-space read"
+      ],
+      "skills": [
+        "detect-funding-round"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "landscape-neg-3",
+      "kind": "negative",
+      "prompt": "Is academic publishing on neuromorphic computing speeding up? I want the paper counts and citation trend over the last five years.",
+      "expected_output": "A response that satisfies these checks: Reads publication and citation momentum from the literature (assess-research-momentum behaviour); Does not tally patent families by assignee or classification.",
+      "files": [],
+      "expectations": [
+        "Reads publication and citation momentum from the literature (assess-research-momentum behaviour)",
+        "Does not tally patent families by assignee or classification"
+      ],
+      "skills": [
+        "assess-research-momentum"
+      ]
+    }
+  ]
+}

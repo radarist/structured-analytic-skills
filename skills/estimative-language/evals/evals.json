@@ -1,0 +1,87 @@
+{
+  "skill_name": "estimative-language",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "estimative-language-pos-1",
+      "kind": "positive",
+      "prompt": "Rewrite this assessment using ICD 203 probability language — it currently says things like 'there is a significant chance' and 'we have high confidence it is likely', and the reader is a board that acts on it.",
+      "expected_output": "A response that satisfies these checks: Declares ICD 203 as the single standard for the document; Replaces every vague phrase (significant chance, possible, may, could) with an ICD 203 term from the seven-term table, keeping the number in parentheses where the reader acts on it; Moves confidence (high / moderate / low) into its own sentence with its basis (sourcing, corroboration, logic) — never in the same sentence as a likelihood term; Adds a 'would change if …' indicator line for each key judgment and labels assumptions as assumptions; Runs or reproduces the lint output and reports zero errors on the rewritten text.",
+      "files": [],
+      "expectations": [
+        "Declares ICD 203 as the single standard for the document",
+        "Replaces every vague phrase (significant chance, possible, may, could) with an ICD 203 term from the seven-term table, keeping the number in parentheses where the reader acts on it",
+        "Moves confidence (high / moderate / low) into its own sentence with its basis (sourcing, corroboration, logic) — never in the same sentence as a likelihood term",
+        "Adds a 'would change if …' indicator line for each key judgment and labels assumptions as assumptions",
+        "Runs or reproduces the lint output and reports zero errors on the rewritten text"
+      ],
+      "skills": [
+        "estimative-language"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 2,
+      "case_id": "estimative-language-pos-2",
+      "kind": "positive",
+      "prompt": "What does 'realistic possibility' mean in the UK yardstick, and what should I write for a 50 % judgment?",
+      "expected_output": "A response that satisfies these checks: States the PHIA Probability Yardstick range for 'realistic possibility' (≈40 % – <50 %) with the gov.uk source; Explains that 50 % falls in a deliberate gap between 'realistic possibility' and 'likely / probable' (≈55–75 %) and that the gaps are intentional; Advises stating the number or moving the judgment into a band rather than inventing an intermediate term; Does not silently substitute an ICD 203 or IPCC term for the PHIA one.",
+      "files": [],
+      "expectations": [
+        "States the PHIA Probability Yardstick range for 'realistic possibility' (≈40 % – <50 %) with the gov.uk source",
+        "Explains that 50 % falls in a deliberate gap between 'realistic possibility' and 'likely / probable' (≈55–75 %) and that the gaps are intentional",
+        "Advises stating the number or moving the judgment into a band rather than inventing an intermediate term",
+        "Does not silently substitute an ICD 203 or IPCC term for the PHIA one"
+      ],
+      "skills": [
+        "estimative-language"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "estimative-language-pos-3",
+      "kind": "positive",
+      "prompt": "Lint my brief for vague likelihood words and mixed confidence statements before it goes out.",
+      "expected_output": "A response that satisfies these checks: Runs scripts/wep.py lint (or applies the same rules) and reports findings with line numbers; Flags vague words (possible, may, could, potentially, significant chance) and any sentence combining a confidence level with a likelihood term or number; Flags bare numeric probabilities without a term and terms drawn from two different standards; Returns a likelihood & confidence block plus a lint list with a fix for each finding.",
+      "files": [],
+      "expectations": [
+        "Runs scripts/wep.py lint (or applies the same rules) and reports findings with line numbers",
+        "Flags vague words (possible, may, could, potentially, significant chance) and any sentence combining a confidence level with a likelihood term or number",
+        "Flags bare numeric probabilities without a term and terms drawn from two different standards",
+        "Returns a likelihood & confidence block plus a lint list with a fix for each finding"
+      ],
+      "skills": [
+        "estimative-language"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 4,
+      "case_id": "estimative-language-neg-1",
+      "kind": "negative",
+      "prompt": "Here are 40 forecasts I made last year with their probabilities and what actually happened — compute the Brier score and tell me whether I was overconfident.",
+      "expected_output": "A response that satisfies these checks: Scores the resolved forecasts (Brier score, reliability/resolution) rather than rewording them into estimative terms.",
+      "files": [],
+      "expectations": [
+        "Scores the resolved forecasts (Brier score, reliability/resolution) rather than rewording them into estimative terms"
+      ],
+      "skills": [
+        "brier-score-calibration"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "estimative-language-neg-2",
+      "kind": "negative",
+      "prompt": "My prior was 30 % that the supplier misses the deadline; a new audit report just came in. Update my probability given this evidence.",
+      "expected_output": "A response that satisfies these checks: Performs a Bayesian update (prior, likelihood ratio, posterior) rather than mapping the number to a likelihood term.",
+      "files": [],
+      "expectations": [
+        "Performs a Bayesian update (prior, likelihood ratio, posterior) rather than mapping the number to a likelihood term"
+      ],
+      "skills": [
+        "bayesian-update"
+      ]
+    }
+  ]
+}

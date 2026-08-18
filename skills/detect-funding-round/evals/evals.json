@@ -1,0 +1,106 @@
+{
+  "skill_name": "detect-funding-round",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "funding-pos-1",
+      "kind": "positive",
+      "prompt": "Here's a TechCrunch piece: 'Helion Diagnostics raised $47 million in Series B funding led by Northgate Ventures, with participation from Baseline Capital, valuing the company at $400 million post-money.' Turn it into a structured record I can file.",
+      "expected_output": "A response that satisfies these checks: Normalises $47 million to 47000000 and flags the bare $ as an unresolved currency; Records the stage as 'Series B' from the canonical vocabulary; Keeps the $400M valuation in post_money_valuation_usd, never in the amount field; Separates the lead investor from participating investors; Emits a 0-100 confidence with the scoring rules that produced it.",
+      "files": [],
+      "expectations": [
+        "Normalises $47 million to 47000000 and flags the bare $ as an unresolved currency",
+        "Records the stage as 'Series B' from the canonical vocabulary",
+        "Keeps the $400M valuation in post_money_valuation_usd, never in the amount field",
+        "Separates the lead investor from participating investors",
+        "Emits a 0-100 confidence with the scoring rules that produced it"
+      ],
+      "skills": [
+        "detect-funding-round"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "funding-pos-2",
+      "kind": "positive",
+      "prompt": "This press release says the startup closed a seed round of up to $50 million and a European outlet reports the same raise as €10 million to €12 million. What amount and round stage should I record, and how confident should I be?",
+      "expected_output": "A response that satisfies these checks: Treats 'up to' as a cap rather than the amount raised and lowers confidence; Collapses the range to its midpoint and says the midpoint was reconstructed; Keeps the euro figure in EUR with no exchange rate applied; Maps 'seed round' to the canonical stage 'Seed'.",
+      "files": [],
+      "expectations": [
+        "Treats 'up to' as a cap rather than the amount raised and lowers confidence",
+        "Collapses the range to its midpoint and says the midpoint was reconstructed",
+        "Keeps the euro figure in EUR with no exchange rate applied",
+        "Maps 'seed round' to the canonical stage 'Seed'"
+      ],
+      "skills": [
+        "detect-funding-round"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "funding-pos-3",
+      "kind": "positive",
+      "prompt": "Extract the funding event from this article: who raised, how much, which round, who led it, who else participated, and what the post-money valuation was. Flag anything the text does not actually state.",
+      "expected_output": "A response that satisfies these checks: Produces the FundingEvent fields: company, stage, amount, currency, dates, investors, valuation; Leaves lead_investors empty when no investor is stated to have led; Omits fields the source does not state instead of inferring them; Records the source grade and confidence alongside the record.",
+      "files": [],
+      "expectations": [
+        "Produces the FundingEvent fields: company, stage, amount, currency, dates, investors, valuation",
+        "Leaves lead_investors empty when no investor is stated to have led",
+        "Omits fields the source does not state instead of inferring them",
+        "Records the source grade and confidence alongside the record"
+      ],
+      "skills": [
+        "detect-funding-round"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 4,
+      "case_id": "funding-pos-4",
+      "kind": "positive",
+      "prompt": "Reuters reports that the company closed its Series C-1 financing, with a tender offer for employees alongside it. Log the capital raise with the round stage, lead investor and announced date.",
+      "expected_output": "A response that satisfies these checks: Maps 'Series C-1' to the canonical stage label rather than 'Series C'; Distinguishes the primary round from the secondary/tender-offer component; Records the announced date in ISO form.",
+      "files": [],
+      "expectations": [
+        "Maps 'Series C-1' to the canonical stage label rather than 'Series C'",
+        "Distinguishes the primary round from the secondary/tender-offer component",
+        "Records the announced date in ISO form"
+      ],
+      "skills": [
+        "detect-funding-round"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "funding-neg-1",
+      "kind": "negative",
+      "prompt": "Salesforce agreed to acquire the analytics vendor for $2.1 billion in an all-cash deal expected to close next quarter, with a termination fee of $85 million.",
+      "expected_output": "A response that satisfies these checks: Recognises a change-of-control transaction, not a capital raise; Extracts acquirer, target, consideration and deal terms (detect-ma-event behaviour); Does not create a funding-round record with a stage and lead investor.",
+      "files": [],
+      "expectations": [
+        "Recognises a change-of-control transaction, not a capital raise",
+        "Extracts acquirer, target, consideration and deal terms (detect-ma-event behaviour)",
+        "Does not create a funding-round record with a stage and lead investor"
+      ],
+      "skills": [
+        "detect-ma-event"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "funding-neg-2",
+      "kind": "negative",
+      "prompt": "The vendor published version 4.2 of its database engine today: new vector index, a breaking change to the query planner API, and three deprecations. Summarise what changed and what it means for adopters.",
+      "expected_output": "A response that satisfies these checks: Parses a product release rather than a financing event; Reports features, breaking changes and deprecations (analyze-release-notes behaviour); Does not emit an amount, round stage or investor list.",
+      "files": [],
+      "expectations": [
+        "Parses a product release rather than a financing event",
+        "Reports features, breaking changes and deprecations (analyze-release-notes behaviour)",
+        "Does not emit an amount, round stage or investor list"
+      ],
+      "skills": [
+        "analyze-release-notes"
+      ]
+    }
+  ]
+}

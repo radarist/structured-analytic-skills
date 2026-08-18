@@ -1,0 +1,86 @@
+{
+  "skill_name": "cite-ieee",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "ieee-pos-1",
+      "kind": "positive",
+      "prompt": "Format the sources in this report as IEEE numbered citations with a proper References list at the end — bracketed markers in the text, one entry per source.",
+      "expected_output": "A response that satisfies these checks: Numbers sources by order of first citation and reuses the number on later citations; Places bracketed markers on the line, inside the punctuation, next to the claim; Emits a numbered References list with one entry per source, formatted by source type; Includes the DOI where one exists.",
+      "files": [],
+      "expectations": [
+        "Numbers sources by order of first citation and reuses the number on later citations",
+        "Places bracketed markers on the line, inside the punctuation, next to the claim",
+        "Emits a numbered References list with one entry per source, formatted by source type",
+        "Includes the DOI where one exists"
+      ],
+      "skills": [
+        "cite-ieee"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 2,
+      "case_id": "ieee-pos-2",
+      "kind": "positive",
+      "prompt": "I moved two paragraphs around and now the bracketed numbers in my draft are out of order and one of them points at nothing. Can you renumber the citations and fix the reference list?",
+      "expected_output": "A response that satisfies these checks: Renumbers by first appearance and reorders the list to match; Flags cited numbers with no entry and entries that are never cited; Reports gaps and duplicates in the numbering.",
+      "files": [],
+      "expectations": [
+        "Renumbers by first appearance and reorders the list to match",
+        "Flags cited numbers with no entry and entries that are never cited",
+        "Reports gaps and duplicates in the numbering"
+      ],
+      "skills": [
+        "cite-ieee"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 3,
+      "case_id": "ieee-pos-3",
+      "kind": "positive",
+      "prompt": "We have a mix of journal papers, an arXiv preprint, a 10-K filing and a news article to cite in an engineering whitepaper. What is the correct IEEE entry for each type?",
+      "expected_output": "A response that satisfies these checks: Gives the basic format per source type: periodical, preprint, filing or report, news article; Puts the year before the arXiv identifier as the IEEE Reference Guide requires; Lists up to six authors and uses et al. from seven.",
+      "files": [],
+      "expectations": [
+        "Gives the basic format per source type: periodical, preprint, filing or report, news article",
+        "Puts the year before the arXiv identifier as the IEEE Reference Guide requires",
+        "Lists up to six authors and uses et al. from seven"
+      ],
+      "skills": [
+        "cite-ieee"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "ieee-neg-1",
+      "kind": "negative",
+      "prompt": "Check whether the DOIs and arXiv identifiers in this bibliography are well formed and actually point at the papers we claim before the manuscript goes out.",
+      "expected_output": "A response that satisfies these checks: Validates each identifier against its canonical format and flags broken ones; Does not renumber or restyle the reference list.",
+      "files": [],
+      "expectations": [
+        "Validates each identifier against its canonical format and flags broken ones",
+        "Does not renumber or restyle the reference list"
+      ],
+      "skills": [
+        "verify-citations"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "ieee-neg-2",
+      "kind": "negative",
+      "prompt": "Turn our experiment into a journal-style scientific paper with a reproducible methods section and results kept separate from the discussion.",
+      "expected_output": "A response that satisfies these checks: Produces Introduction, Methods, Results and Discussion sections; Does not treat the request as a citation-formatting task.",
+      "files": [],
+      "expectations": [
+        "Produces Introduction, Methods, Results and Discussion sections",
+        "Does not treat the request as a citation-formatting task"
+      ],
+      "skills": [
+        "write-imrad-report"
+      ]
+    }
+  ]
+}

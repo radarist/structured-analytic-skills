@@ -1,0 +1,88 @@
+{
+  "skill_name": "analyze-patent-claims",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "claims-pos-1",
+      "kind": "positive",
+      "prompt": "A colleague pasted the claims of a granted US patent into our thread (the publication number is redacted; the front page shows kind code B2). Claim 1: \"A method comprising: receiving a natural-language query; generating a ranked passage set with a neural ranking model; and transmitting the ranked passage set with a per-passage confidence score.\" Claims 2-9 depend from it (claim 2 limits the model to a cross-encoder; claim 5 limits the index to an approximate-nearest-neighbour structure; claim 7 depends from claims 1 and 5), and claims 10 and 12 are an apparatus and a computer-readable-medium claim. What does independent claim 1 actually cover, how broad does the transitional language make it, and what do the dependent claims fall back to?",
+      "expected_output": "A response that satisfies these checks: Identifies jurisdiction and status from the kind code (US ... B2 = granted); Counts independent and dependent claims and builds the dependency tree; States the transitional phrase and whether the scope is open or closed per MPEP 2111.03; Lists claim 1's elements verbatim and names the element a competitor could omit; Does not read the abstract or title as the invention.",
+      "files": [],
+      "expectations": [
+        "Identifies jurisdiction and status from the kind code (US ... B2 = granted)",
+        "Counts independent and dependent claims and builds the dependency tree",
+        "States the transitional phrase and whether the scope is open or closed per MPEP 2111.03",
+        "Lists claim 1's elements verbatim and names the element a competitor could omit",
+        "Does not read the abstract or title as the invention"
+      ],
+      "skills": [
+        "analyze-patent-claims"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "claims-pos-2",
+      "kind": "positive",
+      "prompt": "A competitor says its new retrieval product is patent-pending. Here is the published application text — how much of our roadmap would actually read on these claims?",
+      "expected_output": "A response that satisfies these checks: Works from the claim text rather than the announcement; Treats a published application as pending, not granted; Walks the elements of the broadest independent claim to test whether a product reads on it; Marks any infringement-shaped conclusion for human review rather than asserting it.",
+      "files": [],
+      "expectations": [
+        "Works from the claim text rather than the announcement",
+        "Treats a published application as pending, not granted",
+        "Walks the elements of the broadest independent claim to test whether a product reads on it",
+        "Marks any infringement-shaped conclusion for human review rather than asserting it"
+      ],
+      "skills": [
+        "analyze-patent-claims"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 3,
+      "case_id": "claims-pos-3",
+      "kind": "positive",
+      "prompt": "Someone pasted the claims of a pending patent application into our thread — claim 1 is a method comprising three steps and there are nine dependent claims after it. Is claim 1 broad, and are there drafting problems like means-plus-function wording or indefinite terms?",
+      "expected_output": "A response that satisfies these checks: Parses numbered claims and classifies each as independent or dependent; Flags means-plus-function language under 35 U.S.C. 112(f) and relative terms under MPEP 2173.05(b); Reports claim length and element count as a breadth proxy; Flags forward, dangling or improper multiple dependencies.",
+      "files": [],
+      "expectations": [
+        "Parses numbered claims and classifies each as independent or dependent",
+        "Flags means-plus-function language under 35 U.S.C. 112(f) and relative terms under MPEP 2173.05(b)",
+        "Reports claim length and element count as a breadth proxy",
+        "Flags forward, dangling or improper multiple dependencies"
+      ],
+      "skills": [
+        "analyze-patent-claims"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "claims-neg-1",
+      "kind": "negative",
+      "prompt": "Who owns the intellectual property around solid-state battery manufacturing, and is the filing rate across all those companies still accelerating?",
+      "expected_output": "A response that satisfies these checks: Tallies families per assignee across the cluster and reads filing velocity (read-patent-landscape behaviour); Does not dissect the claims of a single filing.",
+      "files": [],
+      "expectations": [
+        "Tallies families per assignee across the cluster and reads filing velocity (read-patent-landscape behaviour)",
+        "Does not dissect the claims of a single filing"
+      ],
+      "skills": [
+        "read-patent-landscape"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "claims-neg-2",
+      "kind": "negative",
+      "prompt": "Broadcom announced it is acquiring the sensor division of Meridian Instruments for $1.4 billion in cash, expected to close in Q3, partly for its patent portfolio.",
+      "expected_output": "A response that satisfies these checks: Extracts acquirer, target, consideration type, deal value and expected close (detect-ma-event behaviour); Does not parse claim text or report claim counts.",
+      "files": [],
+      "expectations": [
+        "Extracts acquirer, target, consideration type, deal value and expected close (detect-ma-event behaviour)",
+        "Does not parse claim text or report claim counts"
+      ],
+      "skills": [
+        "detect-ma-event"
+      ]
+    }
+  ]
+}

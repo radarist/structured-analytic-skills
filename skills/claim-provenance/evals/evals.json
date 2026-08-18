@@ -1,0 +1,86 @@
+{
+  "skill_name": "claim-provenance",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "cp-pos-1",
+      "kind": "positive",
+      "prompt": "Go through this brief and tag the provenance of each claim — mark which sentences are backed by a real citation and which are assumptions, with something concrete that would retire them.",
+      "expected_output": "A response that satisfies these checks: Identifies fact-claims and leaves headings, methodology and qualitative narrative untagged; Tags each fact-claim inline as [validated, source] or [assumption, retire-by milestone]; Rejects vague milestones and requires a specific event, date or threshold; Reports coverage against the 80% / 100% thresholds.",
+      "files": [],
+      "expectations": [
+        "Identifies fact-claims and leaves headings, methodology and qualitative narrative untagged",
+        "Tags each fact-claim inline as [validated, source] or [assumption, retire-by milestone]",
+        "Rejects vague milestones and requires a specific event, date or threshold",
+        "Reports coverage against the 80% / 100% thresholds"
+      ],
+      "skills": [
+        "claim-provenance"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 2,
+      "case_id": "cp-pos-2",
+      "kind": "positive",
+      "prompt": "Which numbers in this draft are actually validated? Half of them feel like we reasoned them from priors and I want that visible to the reader.",
+      "expected_output": "A response that satisfies these checks: Separates claims a specific source states from claims reasoned from priors; Tags vendor self-reports as assumptions rather than validated; Places brackets inline at the end of each claim sentence, not in footnotes.",
+      "files": [],
+      "expectations": [
+        "Separates claims a specific source states from claims reasoned from priors",
+        "Tags vendor self-reports as assumptions rather than validated",
+        "Places brackets inline at the end of each claim sentence, not in footnotes"
+      ],
+      "skills": [
+        "claim-provenance"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 3,
+      "case_id": "cp-pos-3",
+      "kind": "positive",
+      "prompt": "This memo goes to a decision-maker who will act before re-checking anything. Add validated/assumption tags to every load-bearing sentence so the split is obvious.",
+      "expected_output": "A response that satisfies these checks: Tags 100% of headline and executive-summary fact-claims; Tags every forward-looking projection as an assumption with a retire-by milestone; Emits the coverage line alongside the tagged text.",
+      "files": [],
+      "expectations": [
+        "Tags 100% of headline and executive-summary fact-claims",
+        "Tags every forward-looking projection as an assumption with a retire-by milestone",
+        "Emits the coverage line alongside the tagged text"
+      ],
+      "skills": [
+        "claim-provenance"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "cp-neg-1",
+      "kind": "negative",
+      "prompt": "Verify the specifics in this finished draft against live sources before publishing — check whether the qubit count and the benchmark score are correct and correct them if not.",
+      "expected_output": "A response that satisfies these checks: Re-verifies each specific value against sources and corrects the draft; Returns a confirmed / corrected / unverifiable ledger rather than provenance brackets.",
+      "files": [],
+      "expectations": [
+        "Re-verifies each specific value against sources and corrects the draft",
+        "Returns a confirmed / corrected / unverifiable ledger rather than provenance brackets"
+      ],
+      "skills": [
+        "grounded-fact-check"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "cp-neg-2",
+      "kind": "negative",
+      "prompt": "What are we assuming here? Stress-test the reasoning behind this conclusion and tell me which hidden premises it would not survive being wrong about.",
+      "expected_output": "A response that satisfies these checks: Enumerates the hidden premises inside a line of reasoning and rates them for sensitivity and grounding; Does not tag document sentences with validated/assumption brackets.",
+      "files": [],
+      "expectations": [
+        "Enumerates the hidden premises inside a line of reasoning and rates them for sensitivity and grounding",
+        "Does not tag document sentences with validated/assumption brackets"
+      ],
+      "skills": [
+        "key-assumptions-check"
+      ]
+    }
+  ]
+}

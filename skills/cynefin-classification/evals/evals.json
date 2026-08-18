@@ -1,0 +1,85 @@
+{
+  "skill_name": "cynefin-classification",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "cynefin-pos-1",
+      "kind": "positive",
+      "prompt": "Classify this with Cynefin before we write recommendations: our regulator just published a consultation paper on AI in credit decisions, no compliance practice exists yet, and our two internal pilots gave contradictory results.",
+      "expected_output": "A response that satisfies these checks: Names exactly one of the five contexts with a reason keyed to the kind of causation; States the matching decision mode verbatim (probe-sense-respond for a Complex classification); Adds a one-sentence implication telling the reader how to consume the recommendations; Does not hedge between two contexts.",
+      "files": [],
+      "expectations": [
+        "Names exactly one of the five contexts with a reason keyed to the kind of causation",
+        "States the matching decision mode verbatim (probe-sense-respond for a Complex classification)",
+        "Adds a one-sentence implication telling the reader how to consume the recommendations",
+        "Does not hedge between two contexts"
+      ],
+      "skills": [
+        "cynefin-classification"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "cynefin-pos-2",
+      "kind": "positive",
+      "prompt": "Is there a best practice for rolling out autonomous agents to a support org, or are we in genuinely new territory here? Two peer companies did completely different things and both claim success.",
+      "expected_output": "A response that satisfies these checks: Treats the absence of a playbook and divergent peer responses as diagnostic of the context; Classifies the situation and names the decision mode rather than answering with a best-practice list; Warns against best-practice language if the classification is Complex.",
+      "files": [],
+      "expectations": [
+        "Treats the absence of a playbook and divergent peer responses as diagnostic of the context",
+        "Classifies the situation and names the decision mode rather than answering with a best-practice list",
+        "Warns against best-practice language if the classification is Complex"
+      ],
+      "skills": [
+        "cynefin-classification"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "cynefin-pos-3",
+      "kind": "positive",
+      "prompt": "Nobody on the leadership team agrees which kind of problem our platform migration even is — some treat it as a known engineering exercise, others as an unknowable mess, and the argument is stuck. What kind of decision situation is this and how should the team decide?",
+      "expected_output": "A response that satisfies these checks: Recognises the situation as Disorder (Confused/Aporetic) when it is unclear which context applies; Applies the Disorder rule: breaks the situation into constituent parts and assigns each to one of the other four contexts; Does not take a decision from the centre of the framework; Reports each part with its own context and decision mode.",
+      "files": [],
+      "expectations": [
+        "Recognises the situation as Disorder (Confused/Aporetic) when it is unclear which context applies",
+        "Applies the Disorder rule: breaks the situation into constituent parts and assigns each to one of the other four contexts",
+        "Does not take a decision from the centre of the framework",
+        "Reports each part with its own context and decision mode"
+      ],
+      "skills": [
+        "cynefin-classification"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "cynefin-neg-1",
+      "kind": "negative",
+      "prompt": "We have already chosen to migrate onto the new platform in Q3. Assume it has failed a year from now and work backwards through the failure modes and mitigations before we commit.",
+      "expected_output": "A response that satisfies these checks: Runs a premortem on the chosen path rather than classifying the decision context; Produces failure modes, mitigations and a kill threshold.",
+      "files": [],
+      "expectations": [
+        "Runs a premortem on the chosen path rather than classifying the decision context",
+        "Produces failure modes, mitigations and a kill threshold"
+      ],
+      "skills": [
+        "premortem-analysis"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "cynefin-neg-2",
+      "kind": "negative",
+      "prompt": "We know this is exploratory territory. Design the smallest test that would validate whether support agents actually adopt the assistant, with its cost, duration and a pass/fail rule.",
+      "expected_output": "A response that satisfies these checks: Designs the bounded experiment with cost, duration and an explicit pass/fail decision rule; Does not spend the answer classifying the domain, which the user has already settled.",
+      "files": [],
+      "expectations": [
+        "Designs the bounded experiment with cost, duration and an explicit pass/fail decision rule",
+        "Does not spend the answer classifying the domain, which the user has already settled"
+      ],
+      "skills": [
+        "cheapest-experiment"
+      ]
+    }
+  ]
+}

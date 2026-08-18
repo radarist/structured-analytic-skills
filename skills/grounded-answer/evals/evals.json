@@ -1,0 +1,84 @@
+{
+  "skill_name": "grounded-answer",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "grounded-answer-pos-1",
+      "kind": "positive",
+      "prompt": "Run chain-of-verification on this question and give me a sourced answer: when was the company founded, who founded it, and how much did it raise in its Series C?",
+      "expected_output": "A response that satisfies these checks: Drafts a baseline answer, plans neutral verification questions, executes them against sources with locators, then revises; Every factual sentence in the final answer carries a citation; Verification questions do not embed the draft's values; Ends with a Not verified line (or 'none').",
+      "files": [],
+      "expectations": [
+        "Drafts a baseline answer, plans neutral verification questions, executes them against sources with locators, then revises",
+        "Every factual sentence in the final answer carries a citation",
+        "Verification questions do not embed the draft's values",
+        "Ends with a Not verified line (or 'none')"
+      ],
+      "skills": [
+        "grounded-answer"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "grounded-answer-pos-2",
+      "kind": "positive",
+      "prompt": "What year did that standard get ratified? Verify it before answering — no guessing, answer with citations I can follow.",
+      "expected_output": "A response that satisfies these checks: Looks the fact up rather than answering from memory; Returns the verified year with a source locator; States explicitly if the fact could not be verified instead of guessing.",
+      "files": [],
+      "expectations": [
+        "Looks the fact up rather than answering from memory",
+        "Returns the verified year with a source locator",
+        "States explicitly if the fact could not be verified instead of guessing"
+      ],
+      "skills": [
+        "grounded-answer"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "grounded-answer-pos-3",
+      "kind": "positive",
+      "prompt": "This factual answer is going into a decision memo the board will act on. Make sure every claim is grounded in a real source and drop anything that cannot be verified.",
+      "expected_output": "A response that satisfies these checks: Applies the four CoVe steps before the answer ships; Keeps only claims that survived independent verification, softening or removing the rest; Lists dropped claims under Not verified.",
+      "files": [],
+      "expectations": [
+        "Applies the four CoVe steps before the answer ships",
+        "Keeps only claims that survived independent verification, softening or removing the rest",
+        "Lists dropped claims under Not verified"
+      ],
+      "skills": [
+        "grounded-answer"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "grounded-answer-neg-1",
+      "kind": "negative",
+      "prompt": "Fact-check the numbers in this finished report draft before it goes out — the qubit counts, market figures and release dates — and give me a ledger of what was confirmed or corrected.",
+      "expected_output": "A response that satisfies these checks: Audits the load-bearing specifics of the existing draft rather than producing a fresh answer; Returns a confirmed / corrected / unverifiable ledger.",
+      "files": [],
+      "expectations": [
+        "Audits the load-bearing specifics of the existing draft rather than producing a fresh answer",
+        "Returns a confirmed / corrected / unverifiable ledger"
+      ],
+      "skills": [
+        "grounded-fact-check"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "grounded-answer-neg-2",
+      "kind": "negative",
+      "prompt": "Why did our competitor cut prices 30% — pivot, distress or a market-share grab? Compare the rival explanations against the evidence.",
+      "expected_output": "A response that satisfies these checks: Treats this as an interpretive multi-hypothesis question and builds an evidence-by-hypothesis matrix; Does not run chain-of-verification for a single factual answer.",
+      "files": [],
+      "expectations": [
+        "Treats this as an interpretive multi-hypothesis question and builds an evidence-by-hypothesis matrix",
+        "Does not run chain-of-verification for a single factual answer"
+      ],
+      "skills": [
+        "analysis-of-competing-hypotheses"
+      ]
+    }
+  ]
+}

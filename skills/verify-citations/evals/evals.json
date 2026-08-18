@@ -1,0 +1,85 @@
+{
+  "skill_name": "verify-citations",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "vc-pos-1",
+      "kind": "positive",
+      "prompt": "This draft report has 23 references with DOIs and arXiv IDs in them. Before it goes out, check that every citation identifier is actually well-formed and flag anything that looks fabricated.",
+      "expected_output": "A response that satisfies these checks: Parses the reference list into numbered entries; Extracts DOI, arXiv, ISBN, PMID and URL identifiers from each entry; Validates each identifier against its standard pattern and check digit; Assigns PASS / REVIEW / FAIL per identifier with the standard it violates; Reports summary counts and states that format validity does not prove the reference exists.",
+      "files": [],
+      "expectations": [
+        "Parses the reference list into numbered entries",
+        "Extracts DOI, arXiv, ISBN, PMID and URL identifiers from each entry",
+        "Validates each identifier against its standard pattern and check digit",
+        "Assigns PASS / REVIEW / FAIL per identifier with the standard it violates",
+        "Reports summary counts and states that format validity does not prove the reference exists"
+      ],
+      "skills": [
+        "verify-citations"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 2,
+      "case_id": "vc-pos-2",
+      "kind": "positive",
+      "prompt": "Are these citations real? A few of the DOIs look invented to me and one ISBN seems off.",
+      "expected_output": "A response that satisfies these checks: Checks each DOI against the ISO 26324 pattern rather than eyeballing it; Computes the ISBN check digit rather than assuming; Distinguishes provably malformed identifiers (FAIL) from merely suspicious ones (REVIEW).",
+      "files": [],
+      "expectations": [
+        "Checks each DOI against the ISO 26324 pattern rather than eyeballing it",
+        "Computes the ISBN check digit rather than assuming",
+        "Distinguishes provably malformed identifiers (FAIL) from merely suspicious ones (REVIEW)"
+      ],
+      "skills": [
+        "verify-citations"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "vc-pos-3",
+      "kind": "positive",
+      "prompt": "Validate the identifiers in this bibliography — arXiv IDs, PMIDs and ORCIDs included — and tell me which entries I cannot ship.",
+      "expected_output": "A response that satisfies these checks: Handles both arXiv identifier schemes and does not date-check against the current clock; Verifies the ORCID checksum with ISO/IEC 7064 MOD 11-2; Names which entries fail and what to do about them.",
+      "files": [],
+      "expectations": [
+        "Handles both arXiv identifier schemes and does not date-check against the current clock",
+        "Verifies the ORCID checksum with ISO/IEC 7064 MOD 11-2",
+        "Names which entries fail and what to do about them"
+      ],
+      "skills": [
+        "verify-citations"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 4,
+      "case_id": "vc-neg-1",
+      "kind": "negative",
+      "prompt": "Turn this list of papers into a properly formatted IEEE numbered reference section with in-text bracket citations.",
+      "expected_output": "A response that satisfies these checks: Formats references in IEEE style rather than validating identifier syntax.",
+      "files": [],
+      "expectations": [
+        "Formats references in IEEE style rather than validating identifier syntax"
+      ],
+      "skills": [
+        "cite-ieee"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "vc-neg-2",
+      "kind": "negative",
+      "prompt": "The draft claims transformer training costs fell 90% between 2020 and 2025. Check whether that specific number is actually supported before we publish.",
+      "expected_output": "A response that satisfies these checks: Verifies the load-bearing factual claim against sources rather than checking citation identifier formats.",
+      "files": [],
+      "expectations": [
+        "Verifies the load-bearing factual claim against sources rather than checking citation identifier formats"
+      ],
+      "skills": [
+        "grounded-fact-check"
+      ]
+    }
+  ]
+}

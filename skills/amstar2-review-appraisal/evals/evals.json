@@ -1,0 +1,105 @@
+{
+  "skill_name": "amstar2-review-appraisal",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "amstar2-pos-1",
+      "kind": "positive",
+      "prompt": "Appraise this systematic review with AMSTAR 2 before we rely on it — it's the review our clinical guidance chapter leans on, and I want to know whether its conclusions are safe to quote.",
+      "expected_output": "A response that satisfies these checks: Records the review's citation, type (RCTs / NRSI / both, meta-analysis or not) and PICO before rating; Pre-specifies the critical domains (default items 2, 4, 7, 9, 11, 13, 15) and how a Partial Yes will count; Answers all 16 items with Yes / Partial Yes / No (or 'No meta-analysis conducted' for 11, 12, 15), citing where the evidence is in the report; Classifies each No/Partial Yes as a critical flaw or non-critical weakness and derives the overall confidence rating mechanically from Box 2; Reports High / Moderate / Low / Critically low with the rule applied — never a summed score — plus implications for using the review's conclusions.",
+      "files": [],
+      "expectations": [
+        "Records the review's citation, type (RCTs / NRSI / both, meta-analysis or not) and PICO before rating",
+        "Pre-specifies the critical domains (default items 2, 4, 7, 9, 11, 13, 15) and how a Partial Yes will count",
+        "Answers all 16 items with Yes / Partial Yes / No (or 'No meta-analysis conducted' for 11, 12, 15), citing where the evidence is in the report",
+        "Classifies each No/Partial Yes as a critical flaw or non-critical weakness and derives the overall confidence rating mechanically from Box 2",
+        "Reports High / Moderate / Low / Critically low with the rule applied — never a summed score — plus implications for using the review's conclusions"
+      ],
+      "skills": [
+        "amstar2-review-appraisal"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "amstar2-pos-2",
+      "kind": "positive",
+      "prompt": "How trustworthy is this meta-analysis of remote-work productivity — run the critical appraisal on the review before I cite it in the board memo. Is its methodology sound enough to rely on?",
+      "expected_output": "A response that satisfies these checks: Applies the 16-item instrument by adaptation to a non-clinical intervention and says that it is adapting; Answers item 15 (publication bias) rather than skipping it, because a quantitative synthesis was performed; Flags flaws in critical domains separately from non-critical weaknesses; States the overall confidence rating and what the pooled effect can and cannot support.",
+      "files": [],
+      "expectations": [
+        "Applies the 16-item instrument by adaptation to a non-clinical intervention and says that it is adapting",
+        "Answers item 15 (publication bias) rather than skipping it, because a quantitative synthesis was performed",
+        "Flags flaws in critical domains separately from non-critical weaknesses",
+        "States the overall confidence rating and what the pooled effect can and cannot support"
+      ],
+      "skills": [
+        "amstar2-review-appraisal"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "amstar2-pos-3",
+      "kind": "positive",
+      "prompt": "Which AMSTAR 2 items are critical, and what rating does my review get? I answered Partial Yes on the protocol item, No on the list of excluded studies, and No on publication bias; everything else was Yes.",
+      "expected_output": "A response that satisfies these checks: Names the seven critical domains: items 2, 4, 7, 9, 11, 13, 15; States the Partial Yes convention being used, because the paper does not weight Partial Yes; Counts two critical flaws (items 7 and 15) and applies the Box 2 rule for more than one critical flaw; Returns 'Critically low' with the rule trace rather than a score or percentage.",
+      "files": [],
+      "expectations": [
+        "Names the seven critical domains: items 2, 4, 7, 9, 11, 13, 15",
+        "States the Partial Yes convention being used, because the paper does not weight Partial Yes",
+        "Counts two critical flaws (items 7 and 15) and applies the Box 2 rule for more than one critical flaw",
+        "Returns 'Critically low' with the rule trace rather than a score or percentage"
+      ],
+      "skills": [
+        "amstar2-review-appraisal"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 4,
+      "case_id": "amstar2-pos-4",
+      "kind": "positive",
+      "prompt": "We have four overlapping systematic reviews of the same intervention for an umbrella review. Appraise the methodological quality of each review so we can say which ones to rely on.",
+      "expected_output": "A response that satisfies these checks: Appraises each review separately against the same pre-specified critical domains and Partial Yes convention; Produces a per-item table per review with the evidence for each answer; Derives each review's overall confidence rating (High / Moderate / Low / Critically low) from the critical-flaw counts; Ranks the reviews by confidence rating and states what follows for the umbrella synthesis.",
+      "files": [],
+      "expectations": [
+        "Appraises each review separately against the same pre-specified critical domains and Partial Yes convention",
+        "Produces a per-item table per review with the evidence for each answer",
+        "Derives each review's overall confidence rating (High / Moderate / Low / Critically low) from the critical-flaw counts",
+        "Ranks the reviews by confidence rating and states what follows for the umbrella synthesis"
+      ],
+      "skills": [
+        "amstar2-review-appraisal"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "amstar2-neg-1",
+      "kind": "negative",
+      "prompt": "Assess the risk of bias in this single randomised controlled trial of a mindfulness app — randomisation, blinding, dropouts and whether the reported outcome was pre-specified.",
+      "expected_output": "A response that satisfies these checks: Applies the Cochrane RoB 2 domains to one trial rather than the 16 AMSTAR 2 items; Returns a per-domain and overall risk-of-bias judgement, not a review confidence rating.",
+      "files": [],
+      "expectations": [
+        "Applies the Cochrane RoB 2 domains to one trial rather than the 16 AMSTAR 2 items",
+        "Returns a per-domain and overall risk-of-bias judgement, not a review confidence rating"
+      ],
+      "skills": [
+        "assess-study-bias"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "amstar2-neg-2",
+      "kind": "negative",
+      "prompt": "Grade the certainty of the evidence for this outcome across all the trials we have — how strong is the overall evidence base, and should we call the effect established?",
+      "expected_output": "A response that satisfies these checks: Applies GRADE to the body of evidence per outcome (risk of bias, inconsistency, indirectness, imprecision, publication bias); Returns a certainty level with a summary-of-findings row rather than appraising one review's methods.",
+      "files": [],
+      "expectations": [
+        "Applies GRADE to the body of evidence per outcome (risk of bias, inconsistency, indirectness, imprecision, publication bias)",
+        "Returns a certainty level with a summary-of-findings row rather than appraising one review's methods"
+      ],
+      "skills": [
+        "evidence-appraisal"
+      ]
+    }
+  ]
+}

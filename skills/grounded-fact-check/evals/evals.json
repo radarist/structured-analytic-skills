@@ -1,0 +1,86 @@
+{
+  "skill_name": "grounded-fact-check",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "gfc-pos-1",
+      "kind": "positive",
+      "prompt": "Fact-check this report before it ships — it states qubit counts, a market size and two release dates, and I want each specific verified against real sources with a ledger of what changed.",
+      "expected_output": "A response that satisfies these checks: Extracts the load-bearing specifics from the draft rather than answering a new question; Queries each one neutrally, without stating the drafted value; Classifies every claim as confirmed, corrected or unverifiable with a source locator; Emits the ledger with totals and zero contradicted claims remaining.",
+      "files": [],
+      "expectations": [
+        "Extracts the load-bearing specifics from the draft rather than answering a new question",
+        "Queries each one neutrally, without stating the drafted value",
+        "Classifies every claim as confirmed, corrected or unverifiable with a source locator",
+        "Emits the ledger with totals and zero contradicted claims remaining"
+      ],
+      "skills": [
+        "grounded-fact-check"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 2,
+      "case_id": "gfc-pos-2",
+      "kind": "positive",
+      "prompt": "Are these figures right? The brief is written and cites sources for every number, but I do not trust that anyone checked the actual values before publishing.",
+      "expected_output": "A response that satisfies these checks: Treats an existing citation as no exemption from re-verification; Corrects any drafted value that sources contradict, citing the source that states it; Hedges or drops values no source states rather than inventing a corrected one.",
+      "files": [],
+      "expectations": [
+        "Treats an existing citation as no exemption from re-verification",
+        "Corrects any drafted value that sources contradict, citing the source that states it",
+        "Hedges or drops values no source states rather than inventing a corrected one"
+      ],
+      "skills": [
+        "grounded-fact-check"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "gfc-pos-3",
+      "kind": "positive",
+      "prompt": "Check the numbers in this draft brief before publication — benchmark scores and the 'first to ship' precedence claim especially.",
+      "expected_output": "A response that satisfies these checks: Prioritises specifics by decision weight and skips forecasts and subjective judgements; Verifies precedence claims by asking when and by what measure; Applies every correction to the text before it is published.",
+      "files": [],
+      "expectations": [
+        "Prioritises specifics by decision weight and skips forecasts and subjective judgements",
+        "Verifies precedence claims by asking when and by what measure",
+        "Applies every correction to the text before it is published"
+      ],
+      "skills": [
+        "grounded-fact-check"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 4,
+      "case_id": "gfc-neg-1",
+      "kind": "negative",
+      "prompt": "Run chain-of-verification and give me a sourced answer to this question: who founded the company and in what year?",
+      "expected_output": "A response that satisfies these checks: Produces a fresh verified answer through the CoVe steps rather than auditing an existing draft; Returns the answer with citations and a Not verified line.",
+      "files": [],
+      "expectations": [
+        "Produces a fresh verified answer through the CoVe steps rather than auditing an existing draft",
+        "Returns the answer with citations and a Not verified line"
+      ],
+      "skills": [
+        "grounded-answer"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "gfc-neg-2",
+      "kind": "negative",
+      "prompt": "Does the arithmetic in this document hold together? It says the market grows at 24% CAGR from $6B to $15B by 2030 — recompute whether those numbers are consistent with each other.",
+      "expected_output": "A response that satisfies these checks: Recomputes the document's internal arithmetic rather than checking values against external sources; Flags the internal inconsistency between growth rate, base and endpoint.",
+      "files": [],
+      "expectations": [
+        "Recomputes the document's internal arithmetic rather than checking values against external sources",
+        "Flags the internal inconsistency between growth rate, base and endpoint"
+      ],
+      "skills": [
+        "quantitative-sanity-check"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "skill_name": "benchmark-model-claims",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "bmc-pos-1",
+      "kind": "positive",
+      "prompt": "Audit this benchmark claim before we quote it: a vendor blog says their model scores 91.2% on GSM8K and outperforms GPT-4o, based on one run against a GPT-4o number from last year.",
+      "expected_output": "A response that satisfies these checks: Normalises the claim with both model versions, the benchmark split and the primary source; Scores test-set contamination, baseline pinning, seed variance, evaluator independence, metric selection and test-set size; Emits a 0-5 reliability score with named risk tags such as baseline-version-drift and single-seed; Separates what the evidence supports from what it does not, and names the replication that would raise the score.",
+      "files": [],
+      "expectations": [
+        "Normalises the claim with both model versions, the benchmark split and the primary source",
+        "Scores test-set contamination, baseline pinning, seed variance, evaluator independence, metric selection and test-set size",
+        "Emits a 0-5 reliability score with named risk tags such as baseline-version-drift and single-seed",
+        "Separates what the evidence supports from what it does not, and names the replication that would raise the score"
+      ],
+      "skills": [
+        "benchmark-model-claims"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "bmc-pos-2",
+      "kind": "positive",
+      "prompt": "A press release says the new model is state of the art on MMLU and HumanEval. How much should I trust a leaderboard number the vendor scored itself, and what would make it credible?",
+      "expected_output": "A response that satisfies these checks: Flags self-evaluation as an evaluator-independence problem and asks for a third-party harness or leaderboard; Raises test-set contamination because both benchmarks are long-scraped, and asks for a decontaminated or held-out variant; Produces a reliability score rather than accepting or rejecting the claim outright.",
+      "files": [],
+      "expectations": [
+        "Flags self-evaluation as an evaluator-independence problem and asks for a third-party harness or leaderboard",
+        "Raises test-set contamination because both benchmarks are long-scraped, and asks for a decontaminated or held-out variant",
+        "Produces a reliability score rather than accepting or rejecting the claim outright"
+      ],
+      "skills": [
+        "benchmark-model-claims"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "bmc-pos-3",
+      "kind": "positive",
+      "prompt": "This paper reports a single run showing their system beats the baseline by 1.2 points on a 400-item benchmark, with no seeds or variance. Is that a real capability claim or reporting noise?",
+      "expected_output": "A response that satisfies these checks: Marks the run-variance domain High because no seeds or spread are reported; Checks whether the test set is large enough to resolve a 1.2-point gap, using a significance calculation; Names the weaker claim the evidence supports and the replication that would settle it.",
+      "files": [],
+      "expectations": [
+        "Marks the run-variance domain High because no seeds or spread are reported",
+        "Checks whether the test set is large enough to resolve a 1.2-point gap, using a significance calculation",
+        "Names the weaker claim the evidence supports and the replication that would settle it"
+      ],
+      "skills": [
+        "benchmark-model-claims"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 4,
+      "case_id": "bmc-neg-1",
+      "kind": "negative",
+      "prompt": "Assess the risk of bias in this randomised controlled trial of a mindfulness app — allocation concealment, dropouts and whether the reported outcome was pre-specified.",
+      "expected_output": "A response that satisfies these checks: Applies the Cochrane RoB 2 domains to a randomized trial; Does not score contamination, seeds or leaderboard independence (assess-study-bias behaviour).",
+      "files": [],
+      "expectations": [
+        "Applies the Cochrane RoB 2 domains to a randomized trial",
+        "Does not score contamination, seeds or leaderboard independence (assess-study-bias behaviour)"
+      ],
+      "skills": [
+        "assess-study-bias"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "bmc-neg-2",
+      "kind": "negative",
+      "prompt": "Two systems scored 87% and 85% on the same 500 test items. Is that gap statistically significant, and what is the confidence interval on the difference?",
+      "expected_output": "A response that satisfies these checks: Runs a two-proportion test and reports p, the confidence interval and an effect size; Does not run a six-domain methodology audit (test-significance behaviour).",
+      "files": [],
+      "expectations": [
+        "Runs a two-proportion test and reports p, the confidence interval and an effect size",
+        "Does not run a six-domain methodology audit (test-significance behaviour)"
+      ],
+      "skills": [
+        "test-significance"
+      ]
+    }
+  ]
+}

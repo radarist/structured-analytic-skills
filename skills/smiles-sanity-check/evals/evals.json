@@ -1,0 +1,84 @@
+{
+  "skill_name": "smiles-sanity-check",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "smiles-pos-1",
+      "kind": "positive",
+      "prompt": "Is this SMILES string valid? CC(=O)Oc1ccccc1C(=O)O — I copied it out of a PDF and I want to be sure nothing got mangled before I put it in the paper.",
+      "expected_output": "A response that satisfies these checks: Checks brackets, atom symbols, bond tokens, ring closures and valence separately; Reports a per-check VALID/INVALID line and an overall RESULT; States that a VALID verdict is syntax-only and not a chemistry judgement.",
+      "files": [],
+      "expectations": [
+        "Checks brackets, atom symbols, bond tokens, ring closures and valence separately",
+        "Reports a per-check VALID/INVALID line and an overall RESULT",
+        "States that a VALID verdict is syntax-only and not a chemistry judgement"
+      ],
+      "skills": [
+        "smiles-sanity-check"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "smiles-pos-2",
+      "kind": "positive",
+      "prompt": "A model generated a list of candidate molecules as SMILES strings and some of them look mangled — unbalanced parentheses, ring digits that never close. Can you check the strings parse before I load the file?",
+      "expected_output": "A response that satisfies these checks: Checks each string in the batch and reports how many are valid; Names the offending token and its character position for each failure; Does not silently repair a broken string.",
+      "files": [],
+      "expectations": [
+        "Checks each string in the batch and reports how many are valid",
+        "Names the offending token and its character position for each failure",
+        "Does not silently repair a broken string"
+      ],
+      "skills": [
+        "smiles-sanity-check"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "smiles-pos-3",
+      "kind": "positive",
+      "prompt": "Sanity-check the smiles column in this dataset before I trust the structures quoted in the patent claim.",
+      "expected_output": "A response that satisfies these checks: Extracts each SMILES string with its source field or line; Runs the structural checks and flags strings that fail; Recommends re-sourcing or dropping failed strings rather than fixing them.",
+      "files": [],
+      "expectations": [
+        "Extracts each SMILES string with its source field or line",
+        "Runs the structural checks and flags strings that fail",
+        "Recommends re-sourcing or dropping failed strings rather than fixing them"
+      ],
+      "skills": [
+        "smiles-sanity-check"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 4,
+      "case_id": "smiles-neg-1",
+      "kind": "negative",
+      "prompt": "The paper says caffeine has the molecular formula C8H10N4O2 and a molecular weight of 194 g/mol. Does that check out?",
+      "expected_output": "A response that satisfies these checks: Checks the prose claim — name against formula and molecular weight — rather than parsing a structure string; Does not run a SMILES syntax check.",
+      "files": [],
+      "expectations": [
+        "Checks the prose claim — name against formula and molecular weight — rather than parsing a structure string",
+        "Does not run a SMILES syntax check"
+      ],
+      "skills": [
+        "chemistry-claim-check"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "smiles-neg-2",
+      "kind": "negative",
+      "prompt": "Check that the DOIs and arXiv IDs in this reference list are well formed and actually resolve before the manuscript goes out.",
+      "expected_output": "A response that satisfies these checks: Validates citation identifiers, not molecular structures; Does not attempt a structural chemistry check.",
+      "files": [],
+      "expectations": [
+        "Validates citation identifiers, not molecular structures",
+        "Does not attempt a structural chemistry check"
+      ],
+      "skills": [
+        "verify-citations"
+      ]
+    }
+  ]
+}

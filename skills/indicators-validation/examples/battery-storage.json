@@ -1,0 +1,179 @@
+{
+  "question": "Which grid-storage battery scenario is unfolding by 2030?",
+  "revalidate": "2027-01-31",
+  "scenarios": [
+    {
+      "id": "S1",
+      "label": "Lithium Lock-in",
+      "description": "LFP lithium-ion keeps >= 85% of new grid-storage GWh through 2030"
+    },
+    {
+      "id": "S2",
+      "label": "Sodium Surge",
+      "description": "sodium-ion takes >= 25% of new stationary-storage GWh by 2030"
+    },
+    {
+      "id": "S3",
+      "label": "Long-Duration Leap",
+      "description": "non-lithium 8-hour-plus technologies take >= 25% of new grid-storage capacity by 2030"
+    }
+  ],
+  "indicators": [
+    {
+      "id": "I1",
+      "text": "Sodium-ion cells quoted at or below $50/kWh at GWh volume by at least two suppliers",
+      "ratings": {
+        "S1": "U",
+        "S2": "HL",
+        "S3": "C"
+      },
+      "source": "supplier price sheets; battery price surveys",
+      "threshold": "<= $50/kWh from >= 2 suppliers",
+      "cadence": "quarterly",
+      "owner": "cell-market analyst"
+    },
+    {
+      "id": "I2",
+      "text": "At least 30% of MW awarded in US/EU/China utility storage tenders in a year specifies 8-hour-plus duration",
+      "ratings": {
+        "S1": "U",
+        "S2": "U",
+        "S3": "HL"
+      },
+      "source": "public tender awards (DOE, EU TSOs, NEA)",
+      "threshold": ">= 30% of awarded MW at >= 8 h",
+      "cadence": "semi-annual",
+      "owner": "policy analyst"
+    },
+    {
+      "id": "I3",
+      "text": "Lithium carbonate spot price stays below $15/kg for four consecutive quarters",
+      "ratings": {
+        "S1": "HL",
+        "S2": "U",
+        "S3": "C"
+      },
+      "source": "lithium carbonate spot index",
+      "threshold": "< $15/kg for 4 consecutive quarters",
+      "cadence": "quarterly",
+      "owner": "commodities analyst"
+    },
+    {
+      "id": "I4",
+      "text": "Global grid-storage installations exceed 100 GWh in a calendar year",
+      "ratings": {
+        "S1": "HL",
+        "S2": "HL",
+        "S3": "L"
+      },
+      "source": "annual market reports",
+      "threshold": "> 100 GWh/yr",
+      "cadence": "annual",
+      "owner": ""
+    },
+    {
+      "id": "I5",
+      "text": "A top-5 cell maker commissions a sodium-ion line of 10 GWh/yr or more dedicated to stationary storage",
+      "ratings": {
+        "S1": "HU",
+        "S2": "HL",
+        "S3": "C"
+      },
+      "source": "company filings and press releases",
+      "threshold": ">= 10 GWh/yr line commissioned",
+      "cadence": "quarterly",
+      "owner": "cell-market analyst"
+    },
+    {
+      "id": "I6",
+      "text": "A major market adopts capacity-market rules that pay duration-weighted credit beyond 4 hours",
+      "ratings": {
+        "S1": "C",
+        "S2": "C",
+        "S3": "HL"
+      },
+      "source": "regulator rulemaking dockets",
+      "threshold": "final rule adopted",
+      "cadence": "semi-annual",
+      "owner": "policy analyst"
+    },
+    {
+      "id": "I7",
+      "text": "An iron-air or flow-battery project of 100 MW or more reaches commercial operation with published round-trip efficiency and availability",
+      "ratings": {
+        "S1": "HU",
+        "S2": "U",
+        "S3": "HL"
+      },
+      "source": "developer releases; grid-operator commissioning notices",
+      "threshold": ">= 100 MW in operation with published data",
+      "cadence": "semi-annual",
+      "owner": "technology analyst"
+    },
+    {
+      "id": "I8",
+      "text": "Government storage subsidies and mandates continue in the major markets",
+      "ratings": {
+        "S1": "L",
+        "S2": "L",
+        "S3": "L"
+      },
+      "source": "policy trackers",
+      "threshold": "n/a",
+      "cadence": "annual",
+      "owner": ""
+    },
+    {
+      "id": "I9",
+      "text": "At least two announced sodium-ion gigafactories are cancelled or delayed by more than 12 months",
+      "ratings": {
+        "S1": "HL",
+        "S2": "HU",
+        "S3": "C"
+      },
+      "source": "trade press; company filings",
+      "threshold": ">= 2 cancellations or > 12-month delays",
+      "cadence": "quarterly",
+      "owner": "cell-market analyst"
+    },
+    {
+      "id": "I10",
+      "text": "Sodium-ion exceeds 10% of new stationary-storage GWh in China in a calendar year (industry-association data)",
+      "ratings": {
+        "S1": "U",
+        "S2": "HL",
+        "S3": "U"
+      },
+      "source": "industry-association annual statistics",
+      "threshold": "> 10% of new stationary GWh",
+      "cadence": "annual",
+      "owner": "cell-market analyst"
+    },
+    {
+      "id": "I11",
+      "text": "At least two long-duration projects above 100 MW are cancelled or re-scoped to 4-hour lithium",
+      "ratings": {
+        "S1": "L",
+        "S2": "C",
+        "S3": "HU"
+      },
+      "source": "trade press; regulator project registers",
+      "threshold": ">= 2 projects > 100 MW cancelled or re-scoped",
+      "cadence": "semi-annual",
+      "owner": "technology analyst"
+    },
+    {
+      "id": "I12",
+      "text": "More than 3 GW of 8-hour-plus storage holds signed offtake contracts in a single market's interconnection queue",
+      "ratings": {
+        "S1": "U",
+        "S2": "C",
+        "S3": "HL"
+      },
+      "source": "interconnection-queue data (e.g. CAISO, ERCOT, PJM)",
+      "threshold": "> 3 GW at >= 8 h with signed offtake",
+      "cadence": "quarterly",
+      "owner": "policy analyst"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "skill_name": "three-horizons",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "3h-pos-1",
+      "kind": "positive",
+      "prompt": "Apply Three Horizons to our 2027 investment portfolio — we have six proposals competing for one budget and I want each tagged H1, H2 or H3 with the evidence bar that goes with it.",
+      "expected_output": "A response that satisfies these checks: Tags each bet with exactly one horizon and splits any bet that straddles two; Attaches a unit-bearing time-to-first-impact estimate with a confidence level to every bet; Assigns the evidence bar and method per horizon (hard ROI / innovation accounting / thesis-and-watchlist); Reports the portfolio mix by a stated basis and flags the starved horizon.",
+      "files": [],
+      "expectations": [
+        "Tags each bet with exactly one horizon and splits any bet that straddles two",
+        "Attaches a unit-bearing time-to-first-impact estimate with a confidence level to every bet",
+        "Assigns the evidence bar and method per horizon (hard ROI / innovation accounting / thesis-and-watchlist)",
+        "Reports the portfolio mix by a stated basis and flags the starved horizon"
+      ],
+      "skills": [
+        "three-horizons"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "3h-pos-2",
+      "kind": "positive",
+      "prompt": "Every proposal on our roadmap is being held to the same ROI hurdle, and the speculative bets keep getting killed at the first gate. Which of these are core versus exploratory, and how should each be judged?",
+      "expected_output": "A response that satisfies these checks: Diagnoses the single-evidence-bar problem and separates the bets by horizon; Explains that an H3 option judged on an H1 hard-ROI threshold dies before it teaches anything; Gives each bet a horizon-appropriate evidence bar and review method.",
+      "files": [],
+      "expectations": [
+        "Diagnoses the single-evidence-bar problem and separates the bets by horizon",
+        "Explains that an H3 option judged on an H1 hard-ROI threshold dies before it teaches anything",
+        "Gives each bet a horizon-appropriate evidence bar and review method"
+      ],
+      "skills": [
+        "three-horizons"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "3h-pos-3",
+      "kind": "positive",
+      "prompt": "Is our investment mix balanced across the near term and the long term? Nearly all the money seems to go to defending the existing business and I want to know what that leaves for 2030.",
+      "expected_output": "A response that satisfies these checks: Sums the bets by horizon on an explicit basis (capital, attention or count) and reports the percentages; Compares against the 70/20/10 core/adjacent/transformational benchmark and attributes it to Nagji & Tuff (2012), not to The Alchemy of Growth; Names the starved horizon and what breaks if the next-horizon bets slip.",
+      "files": [],
+      "expectations": [
+        "Sums the bets by horizon on an explicit basis (capital, attention or count) and reports the percentages",
+        "Compares against the 70/20/10 core/adjacent/transformational benchmark and attributes it to Nagji & Tuff (2012), not to The Alchemy of Growth",
+        "Names the starved horizon and what breaks if the next-horizon bets slip"
+      ],
+      "skills": [
+        "three-horizons"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "3h-neg-1",
+      "kind": "negative",
+      "prompt": "Where does vector-database technology sit on the evolution axis right now — genesis, custom-built, product or commodity? Give it a stage with observable evidence.",
+      "expected_output": "A response that satisfies these checks: Places the single technology on its evolution stage with observable evidence; Does not build a portfolio horizon table.",
+      "files": [],
+      "expectations": [
+        "Places the single technology on its evolution stage with observable evidence",
+        "Does not build a portfolio horizon table"
+      ],
+      "skills": [
+        "evolution-stage"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "3h-neg-2",
+      "kind": "negative",
+      "prompt": "By what date will autonomous trucking be legal for mainline freight in Germany? I want one dated prediction with accelerants, blockers and kill-signals.",
+      "expected_output": "A response that satisfies these checks: Produces a single dated, falsifiable prediction with a review horizon; Does not classify a portfolio into horizons.",
+      "files": [],
+      "expectations": [
+        "Produces a single dated, falsifiable prediction with a review horizon",
+        "Does not classify a portfolio into horizons"
+      ],
+      "skills": [
+        "foresight"
+      ]
+    }
+  ]
+}

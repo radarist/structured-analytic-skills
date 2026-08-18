@@ -1,0 +1,1182 @@
+{
+ "$schema": "https://github.com/radarist/structured-analytic-skills/index.schema/1",
+ "_generated_by": "python3 evaluation/build_index.py — do not edit by hand",
+ "categories": {
+  "decision-strategy": 15,
+  "domain": 4,
+  "evidence-verification": 16,
+  "foresight": 9,
+  "quantitative": 9,
+  "technology-assessment": 11,
+  "writing": 5
+ },
+ "name": "structured-analytic-skills",
+ "skill_count": 69,
+ "skills": [
+  {
+   "category": "evidence-verification",
+   "description": "Decides what to do with a claim that verification could not confirm — drop it, refuse it in plain words, escalate it as a named open question, or report the disagreement between conflicting sources — instead of shipping a hedged guess. Use when verification has already failed: \"there is no source for this\", \"the sources contradict each other\", \"should this claim be dropped or flagged?\", \"abstain rather than guess\". Not for running the verification pass itself (use `grounded-answer`) or for checking published numbers against live sources (use `grounded-fact-check`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Abstention and escalation decision for unverifiable claims",
+   "name": "abstain-or-escalate",
+   "origin": "ODNI Intelligence Community Directive 203 analytic standards, 2015; Chain-of-Verification, Dhuliawala et al., 2023",
+   "path": "skills/abstain-or-escalate/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "c568ebc5ad27547c878afd83375ffee8201edb363c4740194805564e3da3ba0b",
+   "version": "2.0.0",
+   "words": 1585
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Appraises a systematic review or meta-analysis with AMSTAR 2 (AMSTAR-2; Shea et al., BMJ 2017): answers the 16 checklist items from the review's report, flags flaws in the seven critical domains and derives the overall confidence rating — High, Moderate, Low or Critically low — never a summed score. Use when deciding whether a published review can be relied on, or ranking reviews for an umbrella review: \"appraise this systematic review with AMSTAR 2\", \"how trustworthy is this meta-analysis?\", \"which AMSTAR 2 items are critical?\". Not for one trial (use `assess-study-bias`), a body of evidence per outcome (use `evidence-appraisal`) or conducting a review (use `systematic-review`).",
+   "has_evals": true,
+   "license": "MIT (skill text); AMSTAR 2 items © Shea et al. 2017, CC BY 4.0, modified",
+   "method": "AMSTAR 2 (A MeaSurement Tool to Assess systematic Reviews, version 2)",
+   "name": "amstar2-review-appraisal",
+   "origin": "Beverley J. Shea et al., BMJ 2017 (original AMSTAR — Shea et al., 2007)",
+   "path": "skills/amstar2-review-appraisal/SKILL.md",
+   "references": [
+    "skills/amstar2-review-appraisal/references/items.md"
+   ],
+   "scripts": [
+    "skills/amstar2-review-appraisal/scripts/amstar2.py"
+   ],
+   "sha256": "457177204cce67df65aed49115274b7d23147991298962f50c00dbc07301a5c4",
+   "version": "1.0.0",
+   "words": 1759
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Ranks rival explanations of a question by which one the evidence contradicts least (Heuer's Analysis of Competing Hypotheses — ACH — CIA), then names the single piece of evidence the ranking hinges on. Use when a question has two or more plausible explanations and confirmation bias would be costly — \"why is adoption stalling?\", \"is this signal real or just noise?\", \"which of these causes explains the drop?\", or before a headline conclusion ships. Not for factual single-answer questions (use `grounded-answer`) or when only one hypothesis exists.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Analysis of Competing Hypotheses (ACH)",
+   "name": "analysis-of-competing-hypotheses",
+   "origin": "Richards J. Heuer Jr., CIA — developed in the late 1970s, collected in Psychology of Intelligence Analysis, 1999",
+   "path": "skills/analysis-of-competing-hypotheses/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/analysis-of-competing-hypotheses/scripts/ach.py"
+   ],
+   "sha256": "b213b8f1a4ba08f13a7dc9488e76abdf8d77aa9f773367eca0b1062d5bfb9293",
+   "version": "2.0.0",
+   "words": 1569
+  },
+  {
+   "category": "technology-assessment",
+   "description": "Dissects one patent's claim set the way an examiner reads it — independent versus dependent claims, the transitional phrase that fixes the scope (comprising = open, consisting of = closed), the elements of claim 1, the classification codes, and prior-art signals — and returns a structured record of what the filing actually covers. Use when a specific filing is on the table: \"what does US00000000B2 cover?\", \"read this patent application\", \"freedom-to-operate on this claim\", \"is this patent-pending claim broad?\". Not for a cluster of filings — use `read-patent-landscape` instead.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Patent claim construction and structural claim analysis",
+   "name": "analyze-patent-claims",
+   "origin": "35 U.S.C. §112; USPTO MPEP §§ 608.01(n), 2111.03, 2173.05(b), 2181",
+   "path": "skills/analyze-patent-claims/SKILL.md",
+   "references": [
+    "skills/analyze-patent-claims/references/kind-codes-and-classes.md"
+   ],
+   "scripts": [
+    "skills/analyze-patent-claims/scripts/claims.py"
+   ],
+   "sha256": "1a951c8d80a603ebf665d5a055380fe5c03d25b02b8711fde1d291b1a60313b2",
+   "version": "2.0.0",
+   "words": 1630
+  },
+  {
+   "category": "technology-assessment",
+   "description": "Turns a release note or changelog into a structured record — version and prior version, the SemVer bump, breaking changes and deprecations quoted verbatim, bug-fix count, CVE/GHSA advisories — and rates how much the release should worry a consumer. Use when a version delta is on the table: \"what changed in v2.4?\", \"read this changelog\", \"any breaking changes before upgrading?\", \"what deprecations land in the next release?\". Not for repository-level maintenance health — use `oss-project-health` instead.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Release-note parsing against SemVer, Conventional Commits and Keep a Changelog",
+   "name": "analyze-release-notes",
+   "origin": "T. Preston-Werner, Semantic Versioning 2.0.0, 2013; Keep a Changelog 1.1.0, 2019 (2.0.0 in 2026)",
+   "path": "skills/analyze-release-notes/SKILL.md",
+   "references": [
+    "skills/analyze-release-notes/references/cue-vocabulary.md"
+   ],
+   "scripts": [
+    "skills/analyze-release-notes/scripts/relnotes.py"
+   ],
+   "sha256": "b5722062a3ae78cf41633723ced691cee1ea555d5093b732c8ac711d33653199",
+   "version": "2.0.0",
+   "words": 1616
+  },
+  {
+   "category": "technology-assessment",
+   "description": "Places one discontinuous technology on the five phases of Gartner's Hype Cycle — Innovation Trigger, Peak of Inflated Expectations, Trough of Disillusionment, Slope of Enlightenment, Plateau of Productivity — by counting sourced indicators, then reports the phase, a time-to-plateau range and the stall risk. Use when asked \"is X overhyped?\", \"what hype cycle stage is X at?\", \"has X come out of the trough of disillusionment?\" or \"how long until X is boring infrastructure?\". Not for evidence of technical maturity (use `score-technology-readiness`) or one dated prediction (use `foresight`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Gartner Hype Cycle placement",
+   "name": "apply-hype-cycle",
+   "origin": "Jackie Fenn, Gartner, 1995; Fenn & Raskino, 2008",
+   "path": "skills/apply-hype-cycle/SKILL.md",
+   "references": [
+    "skills/apply-hype-cycle/references/hype-indicators.md"
+   ],
+   "scripts": [],
+   "sha256": "051fc879ee477aaf2098cba972a0a2f68bcbb18a55efce1be001b7adb43f535b",
+   "version": "2.0.0",
+   "words": 1691
+  },
+  {
+   "category": "technology-assessment",
+   "description": "Reads a scholarly result set for one research area — publication S-curve phase, citation velocity and acceleration, author and institution concentration — and reports a research-front or maturing verdict with the observation that would flip it. Use when asked \"is research on X heating up?\", \"is this a hot area or has it plateaued?\", \"what does the publication trend for X look like?\" or \"how much academic attention is X getting?\". Not for market perception of a technology (use `apply-hype-cycle`) or for synthesising what the papers actually found (use `systematic-review`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Bibliometric momentum assessment (publication S-curve + citation velocity)",
+   "name": "assess-research-momentum",
+   "origin": "Derek J. de Solla Price, Little Science, Big Science, 1963",
+   "path": "skills/assess-research-momentum/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/assess-research-momentum/scripts/momentum.py"
+   ],
+   "sha256": "5f301b098ea2b8c11e24968efd29d8b22ffbcd2cb67a3c6dcdc6344b9746accd",
+   "version": "2.0.0",
+   "words": 1592
+  },
+  {
+   "category": "quantitative",
+   "description": "Grades a randomised trial with Cochrane RoB 2 — the five domains of randomization process, deviations from intended interventions, missing outcome data, measurement of the outcome, and selection of the reported result — and emits per-domain and overall judgements of Low risk / Some concerns / High risk with the evidence cited. Use when a single study's trustworthiness is in question: \"is this trial reliable?\", \"assess risk of bias in this RCT\", \"run RoB 2 on this study\", \"how much weight does this result deserve?\". Not for grading a whole body of evidence (use `evidence-appraisal`) or for auditing an ML leaderboard claim (use `benchmark-model-claims`).",
+   "has_evals": true,
+   "license": "MIT (skill text); RoB 2 instrument © its authors, CC BY-NC-ND 4.0 — wording not reproduced",
+   "method": "Cochrane Risk of Bias 2 (RoB 2) for randomized trials",
+   "name": "assess-study-bias",
+   "origin": "J. A. C. Sterne, J. Savović, M. J. Page et al., Cochrane RoB2 Development Group, 2019",
+   "path": "skills/assess-study-bias/SKILL.md",
+   "references": [
+    "skills/assess-study-bias/references/rob2-domains.md"
+   ],
+   "scripts": [
+    "skills/assess-study-bias/scripts/rob2.py"
+   ],
+   "sha256": "a1347e48c91ae74f4df520493dc6b335ac6e1d2705b05d4c049c0f7457436e31",
+   "version": "2.0.0",
+   "words": 1941
+  },
+  {
+   "category": "foresight",
+   "description": "Works backwards from a desired end state to the present, producing a dated milestone chain, evidenced measure packages, a barrier and lock-in register and a near-term action agenda (Robinson's normative backcasting, Energy Policy, 1982). Use when the goal is a future that current trends will not deliver — \"how does the city reach net-zero by 2040?\", \"backcast from the 2030 vision\", \"what must be true by {year} for {goal}?\", \"build a roadmap back from the target\". Not for exploring which futures could happen (use `scenario-planning`) or for a probable-future forecast (use `foresight`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Backcasting (normative foresight)",
+   "name": "backcasting",
+   "origin": "John B. Robinson, 1982 (energy backcasting); Karl H. Dreborg, 1996 (methodological essence); Quist & Vergragt participatory variant, 2006",
+   "path": "skills/backcasting/SKILL.md",
+   "references": [
+    "skills/backcasting/references/variants.md"
+   ],
+   "scripts": [],
+   "sha256": "7c1c14c591f0840f7833d2216fcd39f8337b73e87e6e69667afe0a4e09e8a5c7",
+   "version": "2.0.0",
+   "words": 1597
+  },
+  {
+   "category": "quantitative",
+   "description": "Revises a stated probability in light of one new piece of evidence using the odds form of Bayes' rule — prior odds × Bayes factor = posterior odds — and reports the posterior in both relative and absolute terms with a sensitivity sweep over the prior and the likelihood ratio. Use when a belief has to move by a defensible amount: \"update my prior\", \"how much should this evidence change my estimate?\", \"what's the posterior probability?\", \"run a Bayesian update on this\". Not for enumerating and ranking several rival explanations (use `analysis-of-competing-hypotheses`) or for scoring forecasts after they resolve (use `brier-score-calibration`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Bayesian belief updating in odds form (prior odds × Bayes factor)",
+   "name": "bayesian-update",
+   "origin": "T. Bayes (ed. R. Price), 1763; P.-S. Laplace, 1812",
+   "path": "skills/bayesian-update/SKILL.md",
+   "references": [
+    "skills/bayesian-update/references/odds-form-and-bayes-factors.md"
+   ],
+   "scripts": [
+    "skills/bayesian-update/scripts/bayes.py"
+   ],
+   "sha256": "1dfd153e9a24b629e642830e3d3b12f90e04f57058dd5da870b8676a5984c786",
+   "version": "2.0.0",
+   "words": 1878
+  },
+  {
+   "category": "quantitative",
+   "description": "Audits a claim about model or system performance against six integrity domains — test-set contamination, baseline pinning, seed and run variance, evaluator independence, metric selection, and whether the test set is large enough for the reported gap — and emits a 0–5 reliability score with named risk tags and a replication test. Use when a vendor post, paper or release note asserts a benchmark number: \"91% on GSM8K\", \"outperforms GPT-4o\", \"SOTA on MMLU\", \"audit this benchmark claim\". Not for grading a clinical or social-science trial (use `assess-study-bias`) and not for qualitative claims such as \"better reasoning\".",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Benchmark claim integrity audit (six-domain checklist)",
+   "name": "benchmark-model-claims",
+   "origin": "Bespoke checklist; leakage and reporting evidence from Kapoor & Narayanan 2023 and Dodge et al. 2019",
+   "path": "skills/benchmark-model-claims/SKILL.md",
+   "references": [
+    "skills/benchmark-model-claims/references/domains-and-tags.md"
+   ],
+   "scripts": [],
+   "sha256": "571f99408e9c7fdfbce1c5c1e77b85cca29570473e6274f4b24ab4ac7f5f9e91",
+   "version": "2.0.0",
+   "words": 1629
+  },
+  {
+   "category": "quantitative",
+   "description": "Scores a set of resolved probabilistic forecasts with the Brier score, decomposes it into reliability, resolution and uncertainty, compares it against the base-rate reference with a Brier Skill Score, and reports a per-bin calibration table showing where the forecaster is over- or underconfident. Use after predictions resolve — \"how accurate were those forecasts?\", \"score my predictions\", \"was the panel overconfident?\", \"run a calibration check\", \"Brier score for this forecast set\". Not for testing whether two groups differ (use `test-significance`) or for revising a single belief on new evidence (use `bayesian-update`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Brier score with Murphy decomposition and Brier Skill Score",
+   "name": "brier-score-calibration",
+   "origin": "G. W. Brier, 1950; A. H. Murphy (decomposition), 1973",
+   "path": "skills/brier-score-calibration/SKILL.md",
+   "references": [
+    "skills/brier-score-calibration/references/decomposition.md"
+   ],
+   "scripts": [
+    "skills/brier-score-calibration/scripts/brier.py"
+   ],
+   "sha256": "da62f618425769533eb191b9d7f9a3a8772ee391d53fe9bf8157398ab2e7a9fb",
+   "version": "2.0.0",
+   "words": 1737
+  },
+  {
+   "category": "foresight",
+   "description": "Deconstructs an issue through the four levels of Causal Layered Analysis — litany, systemic causes, worldview/discourse, myth/metaphor (Inayatullah, Futures, 1998) — then reconstructs a vertically coherent alternative future, producing a four-layer table, deconstruction notes and a reframed narrative. Use when framing itself is the obstacle: \"why does this problem never get solved?\", \"reframe the debate on {issue}\", \"run a CLA on {issue}\", \"the scenarios all look like more of the same\". Not for verifying a factual claim (use `grounded-fact-check`) or for numeric estimates (use `estimate-market-size`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Causal Layered Analysis (CLA)",
+   "name": "causal-layered-analysis",
+   "origin": "Sohail Inayatullah, 1998 (Futures 30(8); CLA Reader, 2004)",
+   "path": "skills/causal-layered-analysis/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "e28c14d33cadc50d3a9f1e26fa0ec13fd03ed001f14ec2deceefaa6d9fdecda9",
+   "version": "2.0.0",
+   "words": 1597
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Turns a recommendation into its cheapest decisive test — the smallest bounded pilot, its cost and duration, a pass/fail rule fixed before the run, and what each outcome would change — in the spirit of Ries's Lean Startup build-measure-learn loop and MVP. Use when a brief ends in recommendations or a bet is about to be funded — \"should this be piloted before committing?\", \"what is the cheapest experiment that would validate this bet?\", \"design an MVP test with a go/no-go rule\", \"how can this recommendation be de-risked?\". Not for powered trials needing sample size — use `experimental-design`; not for enumerating how a chosen plan fails — use `premortem-analysis`.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Cheapest decisive experiment (minimum viable test with a pre-committed decision rule)",
+   "name": "cheapest-experiment",
+   "origin": "Eric Ries, The Lean Startup, 2011 (build-measure-learn, MVP, innovation accounting); antecedent — Steve Blank, customer development, 2005",
+   "path": "skills/cheapest-experiment/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "48f2731362a31a657f1bb31018afe8653bb9fa210f8fc012cb6e42ed737055da",
+   "version": "2.0.0",
+   "words": 1550
+  },
+  {
+   "category": "domain",
+   "description": "Checks molecular claims stated in prose — compound name against formula, degree of unsaturation, recomputed molecular weight, and the assessable part of the Lipinski rule of five — and returns a PASS/FAIL verdict per item with the arithmetic shown. Use when a paper, patent, or product page pairs a compound with a formula or a weight, on requests like \"does this molecular weight check out?\" or \"is C2H6O2 really ethanol?\". Not for validating a SMILES string — use `smiles-sanity-check` instead.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Formula arithmetic (DBE/RDBE, molecular weight) plus Lipinski's rule of five",
+   "name": "chemistry-claim-check",
+   "origin": "Lipinski, Lombardo, Dominy & Feeney, 1997; DBE from classical mass-spectrometry practice",
+   "path": "skills/chemistry-claim-check/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/chemistry-claim-check/scripts/chem.py"
+   ],
+   "sha256": "1c194aa5333ee3b9c6003abdfc45cf38fe6562562bed489d289568fb620fa3b7",
+   "version": "2.0.0",
+   "words": 1592
+  },
+  {
+   "category": "writing",
+   "description": "Converts a report's sources into IEEE numbered-bracket citations — inline `[1]`, `[1], [4]`, `[2]–[5]` markers numbered by first appearance, plus an end-of-document References list formatted per source type — and checks that the numbering and the list agree. Use when a document carries three or more sources and must look publishable: \"format these references in IEEE style\", \"add citations to this report\", \"IEEE reference list\", \"renumber my citations\". Not for checking whether a DOI or arXiv ID resolves (use `verify-citations`) and not for author-year styles such as APA.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "IEEE numbered-bracket citation style",
+   "name": "cite-ieee",
+   "origin": "IEEE Publication Operations, IEEE Reference Guide (V 3.28.2025) and IEEE Editorial Style Manual for Authors (2024)",
+   "path": "skills/cite-ieee/SKILL.md",
+   "references": [
+    "skills/cite-ieee/references/formats.md"
+   ],
+   "scripts": [
+    "skills/cite-ieee/scripts/ieee.py"
+   ],
+   "sha256": "b0e77d523ceca4bac489742cea5f698c58145aef7ba1ec93e96c7de3d0b6eeab",
+   "version": "2.0.0",
+   "words": 1938
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Tags every fact-claim in a document inline as either `[validated, {source}]` or `[assumption, retire-by {milestone}]`, so a reader can see at a glance which sentences rest on evidence and which rest on reasoning, and what would convert each assumption into knowledge. Use when a brief mixes cited facts with reasoned-from-priors numbers — \"mark which claims are sourced and which are assumptions\", \"tag the provenance of these claims\", \"which numbers here are actually validated?\", \"add validated/assumption tags to this draft\". Not for verifying whether a number is correct (use `grounded-fact-check`) or for corroborating one claim across sources (use `triangulate-sources`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Validated-vs-assumption claim tagging (adapted from Discovery-Driven Planning)",
+   "name": "claim-provenance",
+   "origin": "Adapted from Rita Gunther McGrath and Ian C. MacMillan, Discovery-Driven Planning, 1995",
+   "path": "skills/claim-provenance/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "7b34da4c1bfaab25c0865f0d311b845a5c853cbc467003c49f04875e37d4dfb4",
+   "version": "2.0.0",
+   "words": 1375
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Runs a structured self-critique of a finished draft before it is published — ten review points (does it answer the question, is the evidence sourced, is confidence honest, are limitations and counter-evidence stated, are the numbers defensible, is the next action actionable) plus three conditional ones — and returns a pass/fix/block verdict with located, specific fixes. Use when a draft is done but unsent: \"review this brief before it goes out\", \"critique my report\", \"is this ready to publish?\", \"what would a reviewer catch?\". Not for attacking one headline claim adversarially (use `red-team-claim`) or for checking reference identifiers (use `verify-citations`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Structured self-critique of a draft document",
+   "name": "critique-report",
+   "origin": "This skill's own thirteen-point checklist; influenced by Structured Self-Critique — R. J. Heuer Jr. & R. H. Pherson, Structured Analytic Techniques, 2015/2019",
+   "path": "skills/critique-report/SKILL.md",
+   "references": [
+    "skills/critique-report/references/checklists.md"
+   ],
+   "scripts": [],
+   "sha256": "22dd75a638694538b9c9a133a7934fcb76efddf7d16ffc36f0a82b68204cf5b5",
+   "version": "2.0.0",
+   "words": 1912
+  },
+  {
+   "category": "foresight",
+   "description": "Builds an N x N cross-impact matrix over a set of events or variables, rating each ordered pair's direct influence, then computes direct-stage MICMAC influence/dependence rankings that separate strategic levers from indicators and flags asymmetric pairs for re-rating (Gordon & Hayward, Futures, 1968; Godet's structural analysis). Use when asked \"how do these trends affect each other?\", \"build a cross-impact matrix\", \"which of these drivers actually drive the system?\", \"run MICMAC on these variables\" or \"if X happens, does Y become more likely?\". Not for eliciting the underlying estimates (use `delphi-method`) or writing scenario narratives (use `scenario-planning`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Cross-impact analysis with MICMAC-style structural analysis (direct stage)",
+   "name": "cross-impact-analysis",
+   "origin": "Theodore J. Gordon & H. Hayward, 1968 (cross-impact matrix); Michel Godet and colleagues, 1970s onward (MICMAC structural analysis)",
+   "path": "skills/cross-impact-analysis/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/cross-impact-analysis/scripts/crossimpact.py"
+   ],
+   "sha256": "e182e6a2b10da02796803887b0465875ce1b7fc6dde43b1c9d219b3038a57c50",
+   "version": "2.0.0",
+   "words": 1599
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Classifies a decision situation into one of Cynefin's five contexts — Clear, Complicated, Complex, Chaotic or Disorder — and names the matching decision mode, so recommendations are framed as playbooks, expert analysis, safe-to-fail probes or stabilising action. Use before advising action under uncertainty — \"classify this with Cynefin\", \"is there a best practice here or is this new territory?\", \"what kind of problem is this — known, knowable, or emergent?\", \"nobody agrees which kind of problem this even is\". Not for enumerating a chosen plan's failure modes (use `premortem-analysis`) or designing the probe itself (use `cheapest-experiment`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Cynefin framework",
+   "name": "cynefin-classification",
+   "origin": "David J. Snowden and Mary E. Boone, 2007 (Harvard Business Review); Cynefin Co renames, 2020",
+   "path": "skills/cynefin-classification/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "1219701e673641c6f5d24c7d50187740df29d9d572dda24f43ec1fd623b0b0cf",
+   "version": "2.0.0",
+   "words": 1588
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Ranks several options against weighted criteria with a decision matrix / multi-criteria decision analysis (Heuer & Pherson's Decision Matrix; Saaty's AHP pairwise comparisons for the weights, with a consistency check) and reports how robust the winner is to weight and score changes. Use when a choice has 3+ options and competing criteria — \"which of these vendors/platforms/projects to pick?\", \"build a weighted decision matrix\", \"derive criteria weights with AHP pairwise comparisons\", \"score these options against the criteria\". Not for ranking rival explanations of a cause (use `analysis-of-competing-hypotheses`) or picking the smallest validating test (use `cheapest-experiment`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Weighted Decision Matrix / Multi-Criteria Decision Analysis (MCDA) with AHP weights",
+   "name": "decision-matrix-mcda",
+   "origin": "Thomas L. Saaty (AHP, 1980); Ralph L. Keeney and Howard Raiffa (additive value model, 1976); Heuer and Pherson (Decision Matrix, SAT 3rd ed., 2019)",
+   "path": "skills/decision-matrix-mcda/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/decision-matrix-mcda/scripts/mcda.py"
+   ],
+   "sha256": "48c15385e595537cbac5c261f3d841809829c013628d231c747b65b9dff710ab",
+   "version": "2.0.0",
+   "words": 1593
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Breaks a question too large, vague or multi-part to answer directly into a MECE issue tree of atomic sub-questions — each mapped to the skill or research step that answers it, ordered by dependency, with a named method for recombining the answers. Use when a request would otherwise sprawl — \"help me understand the whole X landscape\", \"what's the future of Y and is it worth investing in?\", \"decompose this research question\", \"break this big question into parts before researching\". Not for structuring an answer already in hand — use `pyramid-principle`; not for a single factual lookup — use `grounded-answer`.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Issue-tree decomposition (MECE sub-questions with dependency order and a recombination plan)",
+   "name": "decompose-research-question",
+   "origin": "Composite — Barbara Minto's MECE issue trees (1987) and Fermi-style decomposition (Weinstein & Adam, 2008)",
+   "path": "skills/decompose-research-question/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "f95916b78c5330976509183070f2a02b61169f6957d283062c341cd2d46f4fa4",
+   "version": "2.0.0",
+   "words": 1600
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Aggregates independent expert judgments into a consensus estimate — or an honest map of where experts split — with the RAND Delphi method: anonymous panel, iterated rounds, controlled feedback of the group median and interquartile range, and a stability stopping rule. Use when data alone cannot answer and structured expert judgment is needed — \"run a Delphi study\", \"expert consensus forecast on X\", \"when will X happen, according to the experts?\", \"expert elicitation of a date or probability\". Not for a single reasoner's dated forecast — use `foresight`; not for branching futures — use `scenario-planning`; not for scoring forecasts afterwards — use `brier-score-calibration`.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Delphi method (anonymous iterated expert elicitation with controlled feedback)",
+   "name": "delphi-method",
+   "origin": "Norman Dalkey and Olaf Helmer, RAND Corporation, 1963",
+   "path": "skills/delphi-method/SKILL.md",
+   "references": [
+    "skills/delphi-method/references/variants-and-evidence.md"
+   ],
+   "scripts": [
+    "skills/delphi-method/scripts/delphi.py"
+   ],
+   "sha256": "bbecfcdf5a79f88c40d3c4d0967146333a3b4d25ccec48d87d33dd2c296ec7c3",
+   "version": "2.0.0",
+   "words": 1600
+  },
+  {
+   "category": "domain",
+   "description": "Parses a capital-raise announcement into a structured FundingEvent record — company, round stage, amount and currency, dates, lead and participating investors, valuation, use of proceeds, confidence. Use when a news item, press release or search result reports financing: \"raised $47 million\", \"closed its Series B\", \"seed round\", \"post-money valuation of $400M\", \"led by Northgate Ventures\". Not for change-of-control news — an acquisition or merger routes to `detect-ma-event`, a product launch to `analyze-release-notes`.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Funding-round event extraction (Form D / venture round taxonomy)",
+   "name": "detect-funding-round",
+   "origin": "U.S. SEC Regulation D Form D, 1982; staged-financing taxonomy, Gompers & Lerner",
+   "path": "skills/detect-funding-round/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/detect-funding-round/scripts/funding.py"
+   ],
+   "sha256": "66030244f3ebc81a6bfc1dac2f64591ccd649b7e998f2e8cdfebcbb076e49789",
+   "version": "2.0.0",
+   "words": 1599
+  },
+  {
+   "category": "domain",
+   "description": "Parses a news article, filing or press release about a change of control into a structured M&A event record — acquirer, target, deal type, consideration, deal value, premium, dates, regulatory jurisdictions, termination fee — and flags deal-structure risks. Use when text says \"agreed to acquire\", \"merger of equals\", \"takeover bid\", \"all-cash deal\", \"go-private\" or \"divests its division\". Not for primary capital raises — a seed or Series B round routes to `detect-funding-round`.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "M&A event extraction (deal-structure taxonomy)",
+   "name": "detect-ma-event",
+   "origin": "R. F. Bruner, Applied Mergers and Acquisitions, 2004; SEC disclosure forms",
+   "path": "skills/detect-ma-event/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/detect-ma-event/scripts/maevent.py"
+   ],
+   "sha256": "d905f9e5d232ef0a070ac103e4b75c038875942c9210883777f2d245d12d9df0",
+   "version": "2.0.0",
+   "words": 1600
+  },
+  {
+   "category": "technology-assessment",
+   "description": "Sizes a market by triangulating two independent estimates — a top-down cut from a larger market and a bottom-up build from buyer counts and revenue per buyer — and reports the TAM/SAM/SOM layer, a range, and whether the two estimates agree within an order of magnitude. Use when asked \"how big is the X market?\", \"what's the TAM for this?\", \"is that multi-billion market number real?\" or \"size the opportunity before the board sees it\". Not for recomputing one published figure's internal arithmetic (use `quantitative-sanity-check`) and not for industry attractiveness (use `five-forces-analysis`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "TAM/SAM/SOM triangulation (top-down × bottom-up Fermi estimation)",
+   "name": "estimate-market-size",
+   "origin": "Fermi estimation tradition; TAM/SAM/SOM layering standardised in venture practice — Blank & Dorf, 2012; Aulet, 2013",
+   "path": "skills/estimate-market-size/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/estimate-market-size/scripts/market.py"
+   ],
+   "sha256": "cc62d3bce992f96fc84a0a05c07da60a975e25b3398e6279053c63079a38c3c0",
+   "version": "2.0.0",
+   "words": 1596
+  },
+  {
+   "category": "writing",
+   "description": "Rewrites and lints the likelihood and confidence wording of an assessment against one declared standard — the ODNI ICD 203 estimative-probability terms, the UK PHIA Probability Yardstick, or the IPCC AR5 likelihood scale — converting numbers to calibrated terms, keeping confidence in its own sentence, and flagging vague words. Use when asked to \"rewrite this assessment using ICD 203 probability language\", \"what does 'realistic possibility' mean in the UK yardstick\", or \"lint my brief for vague likelihood words and mixed confidence statements\". Not for scoring how accurate past forecasts were, or for revising a probability after new information.",
+   "has_evals": true,
+   "license": "MIT (skill text); PHIA yardstick © Crown copyright, OGL v3.0; IPCC AR5 table © IPCC",
+   "method": "Estimative language — words of estimative probability and analytic confidence",
+   "name": "estimative-language",
+   "origin": "Sherman Kent, CIA Office of National Estimates, 1964; codified in ODNI ICD 203, 2015",
+   "path": "skills/estimative-language/SKILL.md",
+   "references": [
+    "skills/estimative-language/references/scales.md"
+   ],
+   "scripts": [
+    "skills/estimative-language/scripts/wep.py"
+   ],
+   "sha256": "aa85952911af63771fca34260e1492b9ddcfc3a66cb4535999fbe08af5d70104",
+   "version": "1.0.0",
+   "words": 1922
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Rates how much certainty a body of evidence deserves, outcome by outcome, on the GRADE scale (Grading of Recommendations Assessment, Development and Evaluation — high, moderate, low, very low), naming the reason behind every downgrade or upgrade and writing the summary-of-findings row and a calibrated certainty statement. Use when asked \"how strong is the evidence for X?\", \"GRADE this evidence\", \"is this proven or just one study?\", or \"the studies conflict — what is actually known?\". Not for one study's risk of bias (use `assess-study-bias`) or for grading a non-study source such as an article or dataset (use `rate-source-admiralty`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "GRADE certainty of evidence (Grading of Recommendations Assessment, Development and Evaluation)",
+   "name": "evidence-appraisal",
+   "origin": "GRADE Working Group — G. H. Guyatt et al., 2008 (BMJ series); GRADE Handbook, 2013",
+   "path": "skills/evidence-appraisal/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/evidence-appraisal/scripts/grade.py"
+   ],
+   "sha256": "5c9c38333f114486da00a952c8791769e7176ffa6e831116c840e1c2667bf9f6",
+   "version": "2.0.0",
+   "words": 1599
+  },
+  {
+   "category": "technology-assessment",
+   "description": "Tags a named technology, capability or vendor category with its Wardley evolution stage — Genesis, Custom built, Product (+rental) or Commodity (+utility) — anchored in observable evidence, and states the way of working that stage implies. Use when asked \"is this a product or still bespoke?\", \"build vs buy for X\", \"where are these tools in their lifecycle?\" or \"what evolution stage is X at?\". Not for the whole value chain and its dependencies (use `wardley-map-drafting`) and not for evidence of technical maturity (use `score-technology-readiness`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Wardley evolution stage (evolution axis)",
+   "name": "evolution-stage",
+   "origin": "Simon Wardley, Wardley Maps, 2016–",
+   "path": "skills/evolution-stage/SKILL.md",
+   "references": [
+    "skills/evolution-stage/references/placement-signals.md"
+   ],
+   "scripts": [],
+   "sha256": "53d2877a303f0d3fefbe7673f31757787d2c85dc5a3ecb49cd651dd7cf8f86f0",
+   "version": "2.0.0",
+   "words": 1701
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Lays out a staged bet as a decision tree, rolls it back to expected values and prices the information a pilot or test would buy — expected value of perfect information (EVPI), expected value of sample information (EVSI) and a one-way sensitivity (tornado) with switching probabilities (Raiffa 1968). Use when a go/no-go, invest/wait or pilot-then-commit choice hinges on chance outcomes — \"is the pilot worth running before committing?\", \"expected value of perfect information\", \"which uncertainty is the decision most sensitive to?\", \"build the decision tree\". Not for designing the experiment itself (`cheapest-experiment`) or revising one probability (`bayesian-update`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Decision tree analysis — expected-value roll-back, EVPI/EVSI, one-way sensitivity (tornado)",
+   "name": "expected-value-decision-tree",
+   "origin": "Howard Raiffa, Decision Analysis (1968); Ronald A. Howard, decision analysis (1966, 1968)",
+   "path": "skills/expected-value-decision-tree/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/expected-value-decision-tree/scripts/dtree.py"
+   ],
+   "sha256": "7b51d4d06fbde0eccb8b3d181f58f7021fd609c2c29562b3ee66fbbe8db02d16",
+   "version": "2.0.0",
+   "words": 1598
+  },
+  {
+   "category": "quantitative",
+   "description": "Produces a preregisterable design card for a causal test before any data are collected — a falsifiable hypothesis with a minimum detectable effect, the randomization unit and mechanism, a power-based sample size per arm, a fixed stop rule and analysis plan, and an audit of the validity threats that survive randomization. Use when a test is being planned: \"design an A/B test\", \"how many users per arm are needed?\", \"run a power analysis\", \"preregister this experiment\", \"is this study design sound?\". Not for analysing a comparison whose data already exist (use `test-significance`) or for grading someone else's finished trial (use `assess-study-bias`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Randomized experimental design with a priori power analysis and validity audit",
+   "name": "experimental-design",
+   "origin": "R. A. Fisher, 1935; D. T. Campbell & J. C. Stanley, 1963; J. Cohen, 1988",
+   "path": "skills/experimental-design/SKILL.md",
+   "references": [
+    "skills/experimental-design/references/power-and-validity.md"
+   ],
+   "scripts": [
+    "skills/experimental-design/scripts/power.py"
+   ],
+   "sha256": "45c258156bc059fbf7387a7c396430daf875789131b2aa2873edb517400a8b92",
+   "version": "2.0.0",
+   "words": 1856
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Assesses the structural profitability of an industry with Porter's Five Forces — entry threat, supplier power, buyer power, substitutes and rivalry — rating each on evidence, naming the one or two forces that actually control profits, and reporting how they are trending. Use when the question is whether a market is worth entering or staying in — \"how attractive is this industry?\", \"Porter five forces for this market\", \"what are the barriers to entry here?\", \"why are margins in this sector so thin?\". Not for placing one firm against its rivals (use `position-competitor`) or for sizing demand (use `estimate-market-size`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Five Forces (industry structure analysis)",
+   "name": "five-forces-analysis",
+   "origin": "Michael E. Porter, 1979 (Harvard Business Review); revised 2008",
+   "path": "skills/five-forces-analysis/SKILL.md",
+   "references": [
+    "skills/five-forces-analysis/references/force-indicators.md"
+   ],
+   "scripts": [],
+   "sha256": "ee571de302bf0e31a7a3664fc630752f860490a8f6f0f482f733c0e5f2854640",
+   "version": "2.0.0",
+   "words": 1649
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Produces one dated, falsifiable prediction about a single technology, trend or market shift — the milestone with a date and a confidence, its accelerants and blockers with lead times, weak signals to watch now, kill-signals that would retract it, and a review date. Use for timing questions — \"when will X happen?\", \"is this accelerating or stalling?\", \"what should be watched to know if this is real?\", \"give a dated forecast with kill-signals\". Not for branching what-could-happen questions — use `scenario-planning`; not for a standing scan of many signals — use `horizon-scanning`; not for polling an expert panel — use `delphi-method`.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Single-trajectory dated prediction with weak-signal and kill-signal watchlist (composite)",
+   "name": "foresight",
+   "origin": "Composite for agent use; weak-signal anchors — H. Igor Ansoff, 1975; Elina Hiltunen, 2008",
+   "path": "skills/foresight/SKILL.md",
+   "references": [
+    "skills/foresight/references/confidence-bands.md"
+   ],
+   "scripts": [],
+   "sha256": "2ff1136e79f96e407089b7e32f2cb2c597692cd4828b163c74190f8f41ac90df",
+   "version": "2.0.0",
+   "words": 1600
+  },
+  {
+   "category": "foresight",
+   "description": "Maps the consequences of one defined change ring by ring — primary, secondary and tertiary impacts, each chained to a named parent with its mechanism — and returns an assessed consequence map with convergence points, a desirable/undesirable valence check and an implication-to-action table (Jerome C. Glenn's Futures Wheel, 1971). Use when asked \"what are the second-order effects of {change}?\", \"map the implications of {decision}\", \"futures wheel\", \"unintended consequences\" or \"and then what happens?\". Not for how likely a consequence is (use `bayesian-update`) or for branching alternative futures (use `scenario-planning`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Futures Wheel",
+   "name": "futures-wheel",
+   "origin": "Jerome C. Glenn, 1971 (first published 1972; Futures Research Methodology V3.0, ch. 6, 2009)",
+   "path": "skills/futures-wheel/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "f79fc555c3adc8d944c323ea84779028b68a9c80ae51d5b2637d47d25c39d63e",
+   "version": "2.0.0",
+   "words": 1565
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Produces a factual answer in which every claim has been independently checked against a source and cited, using Chain-of-Verification (CoVe — Dhuliawala et al., 2023) — the answer ships only with claims that survived verification, plus a list of what could not be verified. Use when a factual answer will reach a reader or a decision — \"give me a sourced answer\", \"what year did that happen? verify it\", \"run chain-of-verification on this question\", \"answer with citations, no guessing\". Not for auditing the numbers in an already-written draft (use `grounded-fact-check`) or for interpretive questions where several explanations compete (use `analysis-of-competing-hypotheses`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Chain-of-Verification (CoVe)",
+   "name": "grounded-answer",
+   "origin": "Dhuliawala, Komeili, Xu, Raileanu, Li, Celikyilmaz and Weston (Meta AI), 2023",
+   "path": "skills/grounded-answer/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "60e08ce927bde73cd6d25d99cd6b333f9f0c3c8cad70efd72d9a41fd985686b2",
+   "version": "2.0.0",
+   "words": 1300
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Audits the load-bearing specifics of a finished draft before it is published — the qubit counts, market figures, benchmark scores, dates and precedence claims a reader would act on — verifying each against live sources with a neutral query and returning a ledger of confirmed, corrected, unverifiable claims. Use when a draft is written and its numbers must hold up — \"fact-check this report before it ships\", \"are these figures right?\", \"check the numbers in this brief\", \"verify the specifics in this draft\". Not for producing a fresh sourced answer (use `grounded-answer`) or recomputing a document's internal arithmetic (use `quantitative-sanity-check`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Pre-publication fact-check of load-bearing specifics (adaptation of newsroom fact-checking practice)",
+   "name": "grounded-fact-check",
+   "origin": "Adapted from professional fact-checking practice — Graves, 2016; IFCN Code of Principles, 2016",
+   "path": "skills/grounded-fact-check/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "258b7dee211625fafc789d25133902d3ce0f36f30e74e17a917f0c08886e3edb",
+   "version": "2.0.0",
+   "words": 1460
+  },
+  {
+   "category": "foresight",
+   "description": "Takes one event judged unlikely but devastating, postulates it has happened, and reasons backwards to the pathways that could produce it — returning the impact, 2–4 distinct pathways with their triggers, observable early-warning indicators, and a proportionate hedge (High-Impact/Low-Probability and \"What If?\" Analysis, US Tradecraft Primer 2009). Use when a severe scenario is being dismissed as improbable — \"what if the sole supplier were cut off?\", \"stress-test how this unlikely event could actually happen\", \"run a high-impact/low-probability analysis\". Not for a decision assumed to have failed (`premortem-analysis`) or a set of plausible futures (`scenario-planning`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "High-Impact/Low-Probability Analysis (with \"What If?\" Analysis)",
+   "name": "high-impact-low-probability",
+   "origin": "US Government Tradecraft Primer, 2009; Heuer & Pherson reframing techniques",
+   "path": "skills/high-impact-low-probability/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "054369761268d1139a596d6599111615196f26b8c942650f3292fd38047719fb",
+   "version": "2.0.0",
+   "words": 1597
+  },
+  {
+   "category": "foresight",
+   "description": "Runs a horizon scan — a systematic early-warning sweep of sources outside an organisation's usual reading for weak signals and emerging issues — and delivers a prioritised horizon-scanning report with impact/likelihood ratings, verified sources and next steps (UK Government Office for Science Futures Toolkit; Amanatidou et al.). Use when asked \"what's on the horizon for {domain} over the next ten years?\", \"what should the strategy team be watching?\", \"scan for weak signals\", \"what could blindside us?\" or \"set up horizon scanning\". Not for a dated prediction on one named trend (use `foresight`) or a rated inventory of macro-environment factors (use `steep-pestle-analysis`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Horizon scanning",
+   "name": "horizon-scanning",
+   "origin": "F. J. Aguilar (environmental scanning), 1967; H. I. Ansoff (weak signals), 1975; UK Government Office for Science (horizon scanning tool, Futures Toolkit), 2017",
+   "path": "skills/horizon-scanning/SKILL.md",
+   "references": [
+    "skills/horizon-scanning/references/sources-and-report.md"
+   ],
+   "scripts": [],
+   "sha256": "93c955ae8a273420beaf6ce9b4f5ecaac47e4dc93961fc609c0b179f0b2f038f",
+   "version": "2.0.0",
+   "words": 1595
+  },
+  {
+   "category": "foresight",
+   "description": "Builds and validates a signpost list — indicators of change — for rival scenarios or hypotheses (Heuer & Pherson's Indicators and Indicators Validator), rating every indicator against every scenario, dropping those that would appear under all of them, and returning the diagnostic set with a monitoring plan. Use when the scenarios already exist and the question is which is unfolding — \"what early-warning indicators would tell us which scenario is unfolding?\", \"validate the indicator list\", \"build a signpost list for the scenario set\", \"are these indicators actually diagnostic?\". Not for building the scenarios (use `scenario-planning`) or an open-ended environmental scan (`horizon-scanning`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Indicators and Indicators Validator (indicators generation, validation and evaluation)",
+   "name": "indicators-validation",
+   "origin": "Heuer & Pherson, 2011/2014/2019; Indicators Validator by Pherson Associates, 2008; U.S. Government Tradecraft Primer, 2009",
+   "path": "skills/indicators-validation/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/indicators-validation/scripts/indicators.py"
+   ],
+   "sha256": "8865be56e97c788cb5973c2d9756006ae47ca5f7ae4f1e8fbce0c911624ef541",
+   "version": "2.0.0",
+   "words": 1556
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Frames a technology, vendor or product comparison around the customer's Job to be Done (JTBD) — a solution-free job statement, Ulwick's desired-outcome metrics, the competing solutions a customer could hire (including non-consumption) and the struggling moment that triggers the search. Use when a brief compares options — \"which of these tools is the right one to adopt?\", \"buy vs build\", \"how do these vendors compare?\", \"what job does this product get hired for?\" — and the comparison risks describing what each option is instead of what it is hired to do. Not for scoring options along chosen axes — use `position-competitor`; not for maturity placement — use `apply-hype-cycle`.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Jobs to be Done (JTBD) framing — Ulwick's outcome-driven job and outcome statements with Christensen's hire / non-consumption lens",
+   "name": "jtbd-framing",
+   "origin": "Anthony W. Ulwick (Outcome-Driven Innovation, 2005; Jobs to be Done — Theory to Practice, 2016); Clayton M. Christensen et al. (Competing Against Luck, 2016)",
+   "path": "skills/jtbd-framing/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "2d0f01b3fd7fb733adc9b58176be5bed6f0561f061bd3471e5951e504edaa511",
+   "version": "2.0.0",
+   "words": 1600
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Surfaces every premise a conclusion rests on — especially the unstated ones — then challenges each and sorts it into the Key Assumptions Check categories (basically solid, correct with caveats, unsupported or questionable), turning load-bearing unsupported premises into named key uncertainties with a disposition. Use when a conclusion may rest on unexamined premises: \"key assumptions check\", \"what is this conclusion assuming?\", \"what would have to be true for this to hold?\", \"stress-test the reasoning\". Not for ranking rival explanations (use `analysis-of-competing-hypotheses`) or for imagining how a plan fails (use `premortem-analysis`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Key Assumptions Check",
+   "name": "key-assumptions-check",
+   "origin": "U.S. Government Tradecraft Primer, 2009; R. J. Heuer Jr. & R. H. Pherson, Structured Analytic Techniques, 2014/2019",
+   "path": "skills/key-assumptions-check/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "618ef463234e4b5796651582170fddb1bdda65b16c3a0ccf126932300e8c0291",
+   "version": "2.0.0",
+   "words": 1568
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Pools the effect sizes of several comparable studies into one estimate — inverse-variance fixed-effect and DerSimonian–Laird random-effects — and reports how much the studies disagree (Cochran's Q, I², tau²) and whether small studies skew the pool (Egger's test), with a forest table. Use when a user asks to \"run a meta-analysis\", \"pool these trial results\", \"what's the overall effect size across the studies?\", or \"how heterogeneous are the findings?\". Not for a single study's significance (use `test-significance`) or for assembling the study set (use `systematic-review`); this skill is the statistical endpoint once comparable studies are in hand.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Meta-analysis (fixed-effect and DerSimonian–Laird random-effects pooling)",
+   "name": "meta-analysis",
+   "origin": "G. V. Glass, 1976 (term); R. DerSimonian & N. Laird, 1986 (random-effects estimator)",
+   "path": "skills/meta-analysis/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/meta-analysis/scripts/metapool.py"
+   ],
+   "sha256": "9782c18d89caa317904baad362ba6789654a4e31bcf3852ebe1c47bd947e9ca0",
+   "version": "2.0.0",
+   "words": 1569
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Maps the solution space of a design, architecture, or business-model problem with General Morphological Analysis (Zwicky box, 1969; Ritchey's Cross-Consistency Assessment) — parameters × discrete values, every cross-parameter value pair judged consistent or excluded for a stated reason, then the count and shortlist of internally consistent configurations. Use when many interacting choices must be explored without missing viable combinations — \"map all viable configurations\", \"Zwicky box / morphological analysis\", \"how many internally consistent combinations exist?\", \"prune the impossible combos\". Not for consequences of one decision (`futures-wheel`) or 2×2 futures (`scenario-planning`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "General Morphological Analysis (GMA) with Cross-Consistency Assessment (CCA)",
+   "name": "morphological-analysis",
+   "origin": "Fritz Zwicky, Caltech, 1940s (book 1969); computer-aided GMA and CCA — Tom Ritchey, Swedish Defence Research Agency / Swedish Morphological Society, 1995–2006",
+   "path": "skills/morphological-analysis/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/morphological-analysis/scripts/morph.py"
+   ],
+   "sha256": "d4d5a1a319197b9157cbada0482b5416ca0f3cb1c90ebf597c5871bdbfa55db6",
+   "version": "2.0.0",
+   "words": 1592
+  },
+  {
+   "category": "technology-assessment",
+   "description": "Reads one open-source repository's maintenance vitality — contributor concentration (the CHAOSS Contributor Absence Factor, i.e. bus factor), commit and release cadence, issue responsiveness, unpatched security advisories — and returns a healthy / at-risk / abandoned verdict naming the single biggest risk. Use when deciding whether to adopt, keep or replace a dependency: \"is X well-maintained?\", \"what is the bus factor of X?\", \"is this project dying?\", \"is this GitHub repo abandoned?\". Not for market hype (use `apply-hype-cycle`) or deployment maturity (use `score-technology-readiness`).",
+   "has_evals": true,
+   "license": "MIT (skill text); CHAOSS metric names MIT; Ecosyste.ms data CC BY-SA 4.0",
+   "method": "CHAOSS community-health metrics (repository vitality read)",
+   "name": "oss-project-health",
+   "origin": "CHAOSS Project, Linux Foundation, 2017; OpenSSF Scorecard, 2020",
+   "path": "skills/oss-project-health/SKILL.md",
+   "references": [
+    "skills/oss-project-health/references/indicator-thresholds.md"
+   ],
+   "scripts": [
+    "skills/oss-project-health/scripts/osshealth.py"
+   ],
+   "sha256": "d29ab73be410efb52fd90f674c95792252ea64e4877855fd580e72588c5b9665",
+   "version": "2.0.0",
+   "words": 1599
+  },
+  {
+   "category": "technology-assessment",
+   "description": "Maps three or more competitors onto a two-axis competitive landscape — axis choice tested for orthogonality, each placement justified by evidence, quadrants read, whitespace argued — and reports whether an empty region is an opportunity or simply unviable. Use when asked \"where does X sit versus Y and Z?\", \"who are the leaders in this category?\", \"build a competitive map of this space\" or \"make me a 2x2 of these vendors\". Not for industry-level structure and profitability (use `five-forces-analysis`) and not for how evolved one component is (use `evolution-stage`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Two-axis competitive positioning map",
+   "name": "position-competitor",
+   "origin": "Michael E. Porter, Competitive Strategy (strategic-group maps), 1980",
+   "path": "skills/position-competitor/SKILL.md",
+   "references": [
+    "skills/position-competitor/references/axis-pairs.md"
+   ],
+   "scripts": [
+    "skills/position-competitor/scripts/positioning.py"
+   ],
+   "sha256": "732294ecc2ae2a788a1a99615591fd8bcd9ad2031f585fda268067230b9a77ae",
+   "version": "2.0.0",
+   "words": 1818
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Runs Gary Klein's premortem — declare that the plan has already failed, then work backwards to surface the failure modes, pre-emptive mitigations and a kill threshold before the plan is locked in. Use before a strategy, roadmap, launch or investment decision is committed — \"premortem this plan\", \"what could go wrong with this decision?\", \"assume it's a year from now and the project has failed — why?\", \"stress-test this roadmap before committing\". Not for auditing the hidden premises behind a conclusion (use `key-assumptions-check`) or for choosing between rival explanations (use `analysis-of-competing-hypotheses`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Premortem (prospective hindsight)",
+   "name": "premortem-analysis",
+   "origin": "Gary Klein — described in Sources of Power, 1998, ch. 5; popularised in Harvard Business Review, 2007; prospective hindsight — Mitchell, Russo & Pennington, 1989",
+   "path": "skills/premortem-analysis/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "d9a3cec6593d121e57dbb78f970eb45c2ce96aa2eb8e7cd07651a43fd413351d",
+   "version": "2.0.0",
+   "words": 1563
+  },
+  {
+   "category": "writing",
+   "description": "Restructures an analytical document top-down using Minto's Pyramid Principle — a single governing thought at the apex, a MECE set of supporting arguments beneath it, evidence beneath those — and checks the vertical and horizontal logic of the result. Use when a document must persuade and currently rambles: \"what's the governing thought?\", \"structure this argument\", \"Minto pyramid\", \"execs say my memo buries the point\". Not for a one-page decision briefing in fixed SBAR sections (use `write-sbar-brief`) or for a research report's section order (`write-imrad-report`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "The Pyramid Principle (governing thought, MECE support, SCQ framing)",
+   "name": "pyramid-principle",
+   "origin": "Barbara Minto, McKinsey & Company; first published 1987",
+   "path": "skills/pyramid-principle/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "962c7044ba0fbd8cddb818c235ff869708d0b5caba2735106bb7984494b3d8b2",
+   "version": "2.0.0",
+   "words": 1589
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Audits the whole evidence base behind an assessment's key judgments — the Quality of Information Check from the CIA Tradecraft Primer (2009), operationalising ICD 206. Maps sources to judgments, exposes single-source, thin and re-reported findings, and writes a source summary statement that tempers confidence per judgment. Use before an assessment ships — \"audit the sourcing behind these key judgments\", \"quality of information check\", \"which conclusions rest on a single source?\". Not for grading one source (`rate-source-admiralty`) or corroborating one claim (`triangulate-sources`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Quality of Information Check",
+   "name": "quality-of-information-check",
+   "origin": "U.S. Government / CIA Sherman Kent School, A Tradecraft Primer, 2009; ODNI ICD 206 sourcing requirements, 2015",
+   "path": "skills/quality-of-information-check/SKILL.md",
+   "references": [
+    "skills/quality-of-information-check/references/icd-206-descriptors.md"
+   ],
+   "scripts": [],
+   "sha256": "ec777badfd879426eb14fb00cb5393de8abb6bfeb37cb780089d4cc54bdc56b6",
+   "version": "1.0.0",
+   "words": 1970
+  },
+  {
+   "category": "quantitative",
+   "description": "Recomputes the arithmetic that a document's own numbers imply — CAGR and compounding, price × volume unit economics, percentage vs percentage-point change, share-of-whole, survivorship and base-rate framing, Fermi order-of-magnitude — and flags every claim whose figures do not reproduce each other. Use when a report, pitch or press release states linked numbers — \"$6B growing to $50B at a 25% CAGR\", \"40,000 customers at $99 a month is $120M ARR\", \"conversion improved 5%\", \"run a quantitative sanity check on these figures\". Internal consistency only — not for checking a lone figure against outside sources (use `grounded-fact-check`) or sizing a market (use `estimate-market-size`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Quantitative sanity check (internal-consistency arithmetic checklist)",
+   "name": "quantitative-sanity-check",
+   "origin": "Bespoke checklist built on textbook conventions — Huff 1954; Wald 1943 via Mangel & Samaniego 1984; Miller 2015",
+   "path": "skills/quantitative-sanity-check/SKILL.md",
+   "references": [
+    "skills/quantitative-sanity-check/references/checks.md"
+   ],
+   "scripts": [
+    "skills/quantitative-sanity-check/scripts/sanity.py"
+   ],
+   "sha256": "8aded33497f5920ef016175e1d20f45062e45caa8ce239b075c40e63414e53b1",
+   "version": "2.0.0",
+   "words": 1638
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Grades one source on the NATO Admiralty Code — a letter for source reliability (A–F) and a digit for information credibility (1–6), such as B2 — and returns the code with a one-sentence rationale. Use when a source behind a claim, citation or record needs a defensible trust grade rather than a gut feeling — \"grade this source\", \"how reliable is this outlet?\", \"give it an Admiralty rating\", \"what is the A1–F6 for this?\". Not for corroborating a claim across several sources (use `triangulate-sources`) or vetting an unfamiliar site laterally first (use `sift-source-check`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Admiralty Code (NATO System, 6×6 source reliability × information credibility)",
+   "name": "rate-source-admiralty",
+   "origin": "NATO STANAG 2511 / AJP-2.1, 2003; U.S. Army FM 2-22.3 Appendix B, 2006",
+   "path": "skills/rate-source-admiralty/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/rate-source-admiralty/scripts/admiralty.py"
+   ],
+   "sha256": "89d46fd12044e3d44d7446ea82135dc9438385d35f9bfeb8b594cdab813c2e47",
+   "version": "2.0.0",
+   "words": 1599
+  },
+  {
+   "category": "technology-assessment",
+   "description": "Reads a cluster of patent families for competitive and white-space signal — assignee concentration (HHI, CR4), filing velocity by priority year, CPC/IPC density and the sparse classes next to the dense ones — and reports who owns the area, whether filing is accelerating and where the gaps sit. Use when the question spans many filings: \"who owns the IP around X?\", \"patent landscape for X\", \"is this space getting crowded?\", \"where is the white space?\". Not for a single named filing — use `analyze-patent-claims` for one patent's claims.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Patent landscape analysis (WIPO PLR methodology)",
+   "name": "read-patent-landscape",
+   "origin": "A. Trippe / WIPO Publication 946E, 2015",
+   "path": "skills/read-patent-landscape/SKILL.md",
+   "references": [
+    "skills/read-patent-landscape/references/cpc-and-search-sources.md"
+   ],
+   "scripts": [
+    "skills/read-patent-landscape/scripts/landscape.py"
+   ],
+   "sha256": "cbbea8550e62bdaa2e56403c7a39ff9cf985bb5f95532e00e5b4a288a431ad81",
+   "version": "2.0.0",
+   "words": 1598
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Attacks a headline claim the way a hostile reviewer would, along seven named vectors — definition, baseline, selection, counter-example, mechanism, base rate, incentive — then returns a survival score, a verdict of ship, hedge, rewrite or retract, and the hedged wording to publish. Use before a conclusion reaches a reader: \"red team this claim\", \"what would a skeptic say about this takeaway?\", \"attack this conclusion before it ships\", \"poke holes in this\". Not for auditing a whole report section by section (use `critique-report`) or for building the opposing case charitably (use `steelman-argument`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Red team / challenge analysis of a single claim",
+   "name": "red-team-claim",
+   "origin": "Seven-vector instrument built for this skill; challenge analysis after U.S. Government Tradecraft Primer, 2009 and Heuer & Pherson, Structured Analytic Techniques, 2nd ed. 2015; M. Zenko, 2015",
+   "path": "skills/red-team-claim/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "10604ae46ba32f414dbb82b6d5ee5a63c1ea214060472e8d3308fe42d8135f6a",
+   "version": "2.0.0",
+   "words": 1569
+  },
+  {
+   "category": "quantitative",
+   "description": "Sanity-checks an inside-view estimate (schedule, cost, adoption, revenue) against the outside view — the outcome distribution of a reference class of similar past cases (Kahneman & Tversky; Flyvbjerg's reference class forecasting) — and computes the base rate, the estimate's percentile in the class and the uplift to a P50/P80 forecast. Use when a plan, budget or timeline rests on an internal estimate: \"sanity-check the 9-month estimate against similar projects\", \"what's the base rate before trusting the internal number?\", \"apply reference class forecasting to this budget\". Not for revising one belief with one datum (use `bayesian-update`) or TAM/SAM/SOM sizing (use `estimate-market-size`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Reference Class Forecasting (outside view)",
+   "name": "reference-class-forecasting",
+   "origin": "Daniel Kahneman & Amos Tversky, 1979; Bent Flyvbjerg, 2006",
+   "path": "skills/reference-class-forecasting/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/reference-class-forecasting/scripts/refclass.py"
+   ],
+   "sha256": "350e85a72416b31c38c1c95436a6ba91be6a4bbcc9630a3b8a435c109a82429e",
+   "version": "2.0.0",
+   "words": 1589
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Builds a small set of divergent, equally plausible futures on the two most consequential uncertainties — the Shell/GBN 2×2 scenario method — and stress-tests a strategy against every one of them, ending with robust moves and signposts to watch. Use when the horizon is 3–10 years and a single forecast would be false precision — \"scenario planning for this market\", \"what are the plausible futures for X by 2030?\", \"build 2x2 scenarios\", \"alternative futures for the sector\". Not for one dated prediction about a single trend (use `foresight`) or for a macro-factor inventory on its own (use `steep-pestle-analysis`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Scenario planning (Shell/GBN deductive 2×2)",
+   "name": "scenario-planning",
+   "origin": "Pierre Wack, Royal Dutch/Shell, 1985; Peter Schwartz / Global Business Network, 1991",
+   "path": "skills/scenario-planning/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "882bd0d1671225bb439e6bf01d4984ca8bc412cf97e3ae521433c6cdfbdaef28",
+   "version": "2.0.0",
+   "words": 1598
+  },
+  {
+   "category": "technology-assessment",
+   "description": "Scores how mature a specific technology is on the NASA Technology Readiness Level scale (TRL 1–9, read through a software/AI evidence checklist) and reports the highest level the evidence defends, the gap to any vendor claim, and the single piece of evidence needed to advance one level. Use when asked \"what TRL is X?\", \"is this production-ready or still a prototype?\", \"how mature is this model, library or platform?\", or \"score the technology readiness of X\". Not for market perception or hype (use `apply-hype-cycle`), open-source project vitality (use `oss-project-health`) or strategic build-vs-buy stage (use `evolution-stage`).",
+   "has_evals": true,
+   "license": "MIT (skill text); EU H2020 Annex G TRL definitions © European Union, CC BY 4.0",
+   "method": "Technology Readiness Level (TRL) assessment",
+   "name": "score-technology-readiness",
+   "origin": "NASA — S. Sadin, 1974 (seven levels); J. C. Mankins, 1995 (nine-level white paper)",
+   "path": "skills/score-technology-readiness/SKILL.md",
+   "references": [
+    "skills/score-technology-readiness/references/trl-scales.md"
+   ],
+   "scripts": [
+    "skills/score-technology-readiness/scripts/trl.py"
+   ],
+   "sha256": "e0345947ef4877f38765279118c8801fccd89343cb96992390d7cfcd00b0a0fe",
+   "version": "2.0.0",
+   "words": 1976
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Runs the SIFT moves (Caulfield, 2019) — Stop, Investigate the source, Find better coverage, Trace claims to the original context — by lateral reading, leaving the page to see what the wider web says about an unfamiliar site or a viral claim, and returns a verdict of trusted, usable with caveat, unconfirmed or refuted. Use before trusting, citing or sharing anything from a source not already known — \"is this website legit?\", \"can this article be trusted?\", \"run a SIFT check on this link\", \"is this viral post real?\". Not for grading a source already vetted (use `rate-source-admiralty`) or corroborating a claim across sources (use `triangulate-sources`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "SIFT (Stop, Investigate the source, Find better coverage, Trace claims to the original context)",
+   "name": "sift-source-check",
+   "origin": "Mike Caulfield, 2019 (lateral reading — Wineburg and McGrew, 2017/2019)",
+   "path": "skills/sift-source-check/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "59f117c1b469eedba168d606b9272ce1debb44cb6c172aa23dafad19b0198311",
+   "version": "2.0.0",
+   "words": 1566
+  },
+  {
+   "category": "domain",
+   "description": "Checks a SMILES string token by token against the SMILES grammar — balanced brackets, atom symbols on the organic subset or a bracketed element, legal bond tokens, paired ring-closure digits, bond-order sums within normal valence — and returns a per-check VALID/INVALID verdict so copy-paste corruption and hallucinated structures are caught before a molecule is quoted. Use whenever a SMILES string appears in a paper, patent, dataset or prompt — \"is this SMILES valid?\", \"sanity-check these SMILES strings\", \"does this SMILES parse?\", \"validate the smiles column\". Not for prose molecular claims such as formulas or molecular weights (use `chemistry-claim-check`), and not a substitute for RDKit.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "SMILES syntax sanity check (Weininger 1988; OpenSMILES 1.0)",
+   "name": "smiles-sanity-check",
+   "origin": "David Weininger, Daylight Chemical Information Systems, 1988; OpenSMILES specification (Craig A. James et al.), 2016",
+   "path": "skills/smiles-sanity-check/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/smiles-sanity-check/scripts/smiles.py"
+   ],
+   "sha256": "d814c7ef6595d8f9eef2c50ca4f765c36ed09756927d5b3f80011bfaa8ab337a",
+   "version": "2.0.0",
+   "words": 1590
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Reconstructs an opposing argument at its strongest, in its proponents' own terms and to the standard they would endorse, then names where even that version is exposed — so any rebuttal lands on the real position rather than a caricature. Use before refuting or dismissing a view: \"steelman this argument\", \"what is the strongest case for the other side?\", \"is this a strawman?\", \"ideological Turing test\". Not for attacking one's own conclusion (use `red-team-claim`) or for verifying a single factual claim (use `grounded-fact-check`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Steelmanning (Rapoport's rules; ideological Turing test)",
+   "name": "steelman-argument",
+   "origin": "A. Rapoport's rules as stated by D. C. Dennett, 2013; B. Caplan, 2011 (ideological Turing test)",
+   "path": "skills/steelman-argument/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "9786464e5803b7e08c39dd5bd84aeb0b08ecad0bbcf8612b80b88d6ae8c5ea27",
+   "version": "2.0.0",
+   "words": 1598
+  },
+  {
+   "category": "foresight",
+   "description": "Sweeps the macro-environment around a decision with the STEEP / PESTLE category checklist (Aguilar's ETPS, 1967) — Social, Technological, Economic, Environmental, Political, plus Legal and Ethical — and delivers a rated driver inventory: every factor evidenced, scored for impact and uncertainty, sorted into predetermined elements versus critical uncertainties. Use when asked \"run a PESTLE analysis of {market}\", \"STEEP analysis for {decision}\", \"what external factors could affect {plan}?\" or \"what are the driving forces in {industry}?\". Not for industry structure (use `five-forces-analysis`) or writing the scenarios themselves (use `scenario-planning`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "STEEP / PESTLE macro-environment analysis",
+   "name": "steep-pestle-analysis",
+   "origin": "Francis J. Aguilar (ETPS, Scanning the Business Environment), 1967; PEST/STEEP/PESTLE variants, 1980s onward",
+   "path": "skills/steep-pestle-analysis/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "e0ab62b5277c021893fc9de6965a033013af30c4b2e4ee6134fac39dd440ba9a",
+   "version": "2.0.0",
+   "words": 1599
+  },
+  {
+   "category": "quantitative",
+   "description": "Runs a reproducible literature review to PRISMA 2020 — a pre-registered protocol, an exhaustive documented search, dual title/abstract screening with an agreement statistic, full-text eligibility with logged exclusion reasons, per-study grading and a synthesis — and delivers the PRISMA flow counts plus an audit trail of every included and excluded record. Use when reproducibility matters: \"systematic review of the evidence on X\", \"what does the research say about Y?\", \"PRISMA review\", \"survey the literature with explicit inclusion criteria\". Not for pooling already-selected studies into an effect estimate (use `meta-analysis`) or answering one factual question (use `grounded-answer`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Systematic review reported to PRISMA 2020",
+   "name": "systematic-review",
+   "origin": "M. J. Page, J. E. McKenzie, P. M. Bossuyt et al., PRISMA 2020 Statement, 2021 (after Moher et al., 2009)",
+   "path": "skills/systematic-review/SKILL.md",
+   "references": [
+    "skills/systematic-review/references/prisma-flow-and-screening.md"
+   ],
+   "scripts": [
+    "skills/systematic-review/scripts/prisma.py"
+   ],
+   "sha256": "894446d9b287793323111f0918a3c159ca614da7554c7630ce80dcd321310148",
+   "version": "2.0.0",
+   "words": 1717
+  },
+  {
+   "category": "quantitative",
+   "description": "Decides whether a reported gap between two groups is a real difference or sampling noise, and reports the p-value, the 95 % confidence interval on the difference and an effect size rather than a bare verdict. Use when a claim rests on a comparison — \"Model A scored 87% vs Model B's 85%\", \"the new variant lifted conversion 12%\", \"is this A/B test result significant?\", \"run a significance test on these two proportions\". Not for pooling several studies into one estimate (use `meta-analysis`) or for planning a test before data exist (use `experimental-design`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Null-hypothesis significance test with confidence interval and effect size",
+   "name": "test-significance",
+   "origin": "R. A. Fisher, 1925; W. S. Gosset (\"Student\"), 1908; B. L. Welch, 1947",
+   "path": "skills/test-significance/SKILL.md",
+   "references": [
+    "skills/test-significance/references/tests-and-effect-sizes.md"
+   ],
+   "scripts": [
+    "skills/test-significance/scripts/significance.py"
+   ],
+   "sha256": "cbdaafd3b6148fcbf8e125098f4db306108b30bd9e5d8ce2ee513cc89f739a6d",
+   "version": "2.0.0",
+   "words": 1677
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Tags every bet in a portfolio with a growth horizon — H1 defend-and-extend the core, H2 build emerging businesses, H3 create options for the future — and holds each to the evidence bar its horizon deserves, exposing a portfolio starved at one horizon. Use when several investments are proposed together — \"three horizons for this portfolio\", \"which of these bets are core versus exploratory?\", \"is the investment mix balanced?\", \"H1/H2/H3 tagging for the roadmap\". Not for placing one technology on a maturity curve (use `evolution-stage`) or for a single dated prediction (use `foresight`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Three Horizons of Growth (McKinsey)",
+   "name": "three-horizons",
+   "origin": "Mehrdad Baghai, Stephen Coley and David White, 1999 (The Alchemy of Growth)",
+   "path": "skills/three-horizons/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "fb091a75356bacab58090a2e952731f121430c3d25b16160bc0e582081e94739",
+   "version": "2.0.0",
+   "words": 1600
+  },
+  {
+   "category": "foresight",
+   "description": "Turns a trend claim into an evidence-checked trend statement, quantifies its rate, curvature and S-curve position from a time series, then projects it — naive extrapolation, logistic fit, or event-adjusted Trend Impact Analysis (Gordon) — with an assumption sheet, counter-trend scan and signposts. Use when asked \"is {X} actually growing or is it a fad?\", \"how far can this trend run?\", \"extrapolate this trend to 2030\", \"validate this trend claim\" or \"is {X} a megatrend?\". Not for publication and citation curves (use `assess-research-momentum`) or for placing a technology on the hype curve (use `apply-hype-cycle`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Trend analysis with Trend Impact Analysis (TIA)",
+   "name": "trend-analysis",
+   "origin": "Theodore J. Gordon (Trend Impact Analysis), The Futures Group, 1970s; Fisher & Pry substitution model, 1971; Rogers' diffusion curve, 1962/2003",
+   "path": "skills/trend-analysis/SKILL.md",
+   "references": [
+    "skills/trend-analysis/references/projection-methods.md"
+   ],
+   "scripts": [
+    "skills/trend-analysis/scripts/trend.py"
+   ],
+   "sha256": "bdac319df3b8d2ce2b769628206233aad02ef72beef52d1b94003498783a1f20",
+   "version": "2.0.0",
+   "words": 1728
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Establishes one claim by independent corroboration — gathering candidate sources, grading each, collapsing those that share an author, a first-hand root document, a publication event or an incentive structure, and reporting whether at least two genuinely independent sources agree. Use when one source is not enough to rely on a claim — \"corroborate this claim\", \"find independent confirmation\", \"do these sources really agree or are they all quoting the same press release?\", \"triangulate this figure\". Not for grading a single source (use `rate-source-admiralty`) or vetting an unfamiliar site laterally (use `sift-source-check`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Source triangulation (data triangulation applied to sourcing)",
+   "name": "triangulate-sources",
+   "origin": "Norman K. Denzin, 1978; ICD 206 sourcing standards, 2015",
+   "path": "skills/triangulate-sources/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "458054d4ae37bb8ea27b06c795e8b45905560648315c56fe69590d43ebca6a5f",
+   "version": "2.0.0",
+   "words": 1534
+  },
+  {
+   "category": "technology-assessment",
+   "description": "Values an early-stage patent, software right, know-how bundle or other IP asset with an explicit valuation purpose, base date and evidence set; selects cost, market, income/DCF, probability-adjusted NPV or real-options framing; and returns a defensible range with sensitivities instead of a false-precision price. Use when asked to \"value this patent portfolio\", \"estimate a licensing value\", \"calculate rNPV for this IP\", or \"what is this university invention worth?\". Not for claim scope or patent crowding — use `analyze-patent-claims` or `read-patent-landscape` instead.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "WIPO IP valuation using cost, market, income, rNPV and real-options approaches",
+   "name": "value-intellectual-property",
+   "origin": "WIPO Intellectual Property Valuation Basics, 2025",
+   "path": "skills/value-intellectual-property/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/value-intellectual-property/scripts/ipvalue.py"
+   ],
+   "sha256": "e29ba1366e0c5158f7b8667b0ad32e2e03f2ab436a08d5c4ca3c1a918db68f78",
+   "version": "2.1.0",
+   "words": 1600
+  },
+  {
+   "category": "evidence-verification",
+   "description": "Validates every scholarly identifier in a reference list — DOI, arXiv, ISBN, PMID, PMCID, ORCID, URL — against its canonical format and check digit, then reports PASS / REVIEW / FAIL per citation. Use when a draft's references need checking before it ships, or on requests like \"are these citations real?\", \"check these DOIs are valid\", or \"did the model invent this reference?\". Not for formatting a reference list — use `cite-ieee` instead.",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Scholarly identifier format and checksum validation (ISO 26324, ISO 2108, ISO/IEC 7064)",
+   "name": "verify-citations",
+   "origin": "ISO/IEC identifier standards; arXiv identifier scheme (Cornell University, 2007)",
+   "path": "skills/verify-citations/SKILL.md",
+   "references": [],
+   "scripts": [
+    "skills/verify-citations/scripts/citecheck.py"
+   ],
+   "sha256": "6a72a8356f6d33971a44c6b14786cc7aa5b2a100c5d24bb1ef0f5b5eb38111d2",
+   "version": "2.0.0",
+   "words": 1597
+  },
+  {
+   "category": "decision-strategy",
+   "description": "Draws a Wardley map — anchor on the user need, chain the components that deliver it by visibility, plot each on the evolution axis from genesis to commodity, then read the map for build, buy and consume-as-utility calls. Use when a strategy argument needs a picture of the whole dependency chain — \"map the value chain for this product\", \"draw a Wardley map\", \"where should the team build versus buy?\", \"why does this architecture keep reinventing infrastructure?\". Not for scoring one component's maturity in isolation (use `evolution-stage`) or for plotting rival firms (use `position-competitor`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "Wardley mapping",
+   "name": "wardley-map-drafting",
+   "origin": "Simon Wardley, 2005–2016 (Wardley Maps, CC BY-SA 4.0)",
+   "path": "skills/wardley-map-drafting/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "d6fa1f4099c4c724960f52656bf9d5d1d3b6d4202ea234d4a8eb731073bff6b1",
+   "version": "2.0.0",
+   "words": 1600
+  },
+  {
+   "category": "writing",
+   "description": "Structures an empirical report in the IMRAD convention — Introduction, Methods, Results, Discussion — with an optional executive summary above and a numbered reference list below, so a reader can audit the methods and results before meeting the interpretation. Use when findings will face reviewers or peer review: \"write this up as a scientific paper\", \"academic whitepaper on an experiment\", \"journal-style report\", \"IMRAD structure\". Not for a one-page decision brief (use `write-sbar-brief`) or for ordering an argument inside a memo (`pyramid-principle`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "IMRAD (Introduction, Methods, Results, Discussion)",
+   "name": "write-imrad-report",
+   "origin": "International Committee of Medical Journal Editors (Vancouver Group), Uniform Requirements 1978; adoption surveyed by Sollaci & Pereira, 2004",
+   "path": "skills/write-imrad-report/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "e52223b0b028719d807b0d7adc40e7cb0b485e19794a00ea25a03a614e7a5863",
+   "version": "2.0.0",
+   "words": 1600
+  },
+  {
+   "category": "writing",
+   "description": "Structures a one-page decision briefing as SBAR — Situation, Background, Assessment, Recommendation — with a hard length cap per section and a single named action, so a decision-maker gets the whole picture and the ask on one page. Use when someone asks for a short briefing rather than a report: \"give me a 1-pager on the outage\", \"SBAR on this vendor\", \"brief me before Thursday's board\", \"decision memo on the migration\". Not for a long research write-up with methods and results (use `write-imrad-report`) or a factual lookup with no recommendation (`grounded-answer`).",
+   "has_evals": true,
+   "license": "MIT",
+   "method": "SBAR (Situation, Background, Assessment, Recommendation)",
+   "name": "write-sbar-brief",
+   "origin": "Michael Leonard, Suzanne Graham and Doug Bonacum, Kaiser Permanente, 2004",
+   "path": "skills/write-sbar-brief/SKILL.md",
+   "references": [],
+   "scripts": [],
+   "sha256": "10bb0ff0534107525732c864e4267bae11b35762ac2267a0eb53ba45a753c02f",
+   "version": "2.0.0",
+   "words": 1588
+  }
+ ],
+ "spec": "https://agentskills.io/specification",
+ "version": "1.0.0",
+ "with_evals": 69,
+ "with_scripts": 36
+}

@@ -1,0 +1,85 @@
+{
+  "skill_name": "causal-layered-analysis",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "cla-pos-1",
+      "kind": "positive",
+      "prompt": "Run a causal layered analysis on urban congestion. Every government has thrown money at it for forty years and nothing sticks — I suspect the way we frame the problem is the problem.",
+      "expected_output": "A response that satisfies these checks: Works down through litany, systemic causes, worldview and myth/metaphor; Shows how the current system reproduces the problem and who benefits from its persistence; Articulates at least two competing worldviews that define the problem differently; Uses metaphors that are alive in the culture, with evidence, not invented ones; Reconstructs an alternative future upward from a new metaphor and checks vertical coherence.",
+      "files": [],
+      "expectations": [
+        "Works down through litany, systemic causes, worldview and myth/metaphor",
+        "Shows how the current system reproduces the problem and who benefits from its persistence",
+        "Articulates at least two competing worldviews that define the problem differently",
+        "Uses metaphors that are alive in the culture, with evidence, not invented ones",
+        "Reconstructs an alternative future upward from a new metaphor and checks vertical coherence"
+      ],
+      "skills": [
+        "causal-layered-analysis"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "cla-pos-2",
+      "kind": "positive",
+      "prompt": "Our scenario work keeps producing more of the same — four versions of today with different growth rates. Help us go deeper than the headlines on the future of work and reframe the debate.",
+      "expected_output": "A response that satisfies these checks: Diagnoses the framing rather than extrapolating trends; Produces a four-layer table for the current issue and an alternative future; Names what the current framing hides, whom it serves and what it makes unthinkable; Marks worldview and myth content as interpretive rather than empirical.",
+      "files": [],
+      "expectations": [
+        "Diagnoses the framing rather than extrapolating trends",
+        "Produces a four-layer table for the current issue and an alternative future",
+        "Names what the current framing hides, whom it serves and what it makes unthinkable",
+        "Marks worldview and myth content as interpretive rather than empirical"
+      ],
+      "skills": [
+        "causal-layered-analysis"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "cla-pos-3",
+      "kind": "positive",
+      "prompt": "Stakeholders in our water policy debate keep citing the same data and talking past each other. What deeper story is each side telling, and how would we reframe the issue so a different set of solutions becomes thinkable?",
+      "expected_output": "A response that satisfies these checks: Treats the disagreement as a worldview conflict rather than a data conflict; Surfaces the deep metaphors carrying each position; Reconstructs a coherent alternative from myth up to litany; Offers more than one candidate reconstruction where the preferred future is contested.",
+      "files": [],
+      "expectations": [
+        "Treats the disagreement as a worldview conflict rather than a data conflict",
+        "Surfaces the deep metaphors carrying each position",
+        "Reconstructs a coherent alternative from myth up to litany",
+        "Offers more than one candidate reconstruction where the preferred future is contested"
+      ],
+      "skills": [
+        "causal-layered-analysis"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "cla-neg-1",
+      "kind": "negative",
+      "prompt": "Is it true that agricultural subsidies for corn syrup exceed subsidies for fruit and vegetables in the US? Check the claim against primary sources.",
+      "expected_output": "A response that satisfies these checks: Does not run a layered reframing; verifies the specific factual claim against primary sources (grounded-fact-check behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not run a layered reframing; verifies the specific factual claim against primary sources (grounded-fact-check behaviour)"
+      ],
+      "skills": [
+        "grounded-fact-check"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "cla-neg-2",
+      "kind": "negative",
+      "prompt": "Give us four plausible futures for the European water sector to 2040, built on the two most consequential uncertainties, with narratives and early warning triggers.",
+      "expected_output": "A response that satisfies these checks: Does not deconstruct framings by layer; builds a branching scenario set from critical uncertainties (scenario-planning behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not deconstruct framings by layer; builds a branching scenario set from critical uncertainties (scenario-planning behaviour)"
+      ],
+      "skills": [
+        "scenario-planning"
+      ]
+    }
+  ]
+}

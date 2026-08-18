@@ -1,0 +1,99 @@
+{
+  "skill_name": "horizon-scanning",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "hs-pos-1",
+      "kind": "positive",
+      "prompt": "Set up horizon scanning for our medical-devices business: a systematic sweep for weak signals and emerging issues from sources we don't normally read, run on a monthly cadence — not another list of the trends we already know.",
+      "expected_output": "A response that satisfies these checks: Frames a scanning brief with focal area, horizon, cadence and consumers of the report; Names sources outside the organisation's usual reading and tracks STEEP/PESTLE coverage with a fringe-source quota; Logs scan entries in a common structure with original source link, date and a 'why it may matter' line; Clusters entries into emerging issues, requiring two or more independent sources, and rates impact and likelihood 1-5 with rationales; Delivers a horizon-scanning report with a drop list and routes escalations to a downstream process.",
+      "files": [],
+      "expectations": [
+        "Frames a scanning brief with focal area, horizon, cadence and consumers of the report",
+        "Names sources outside the organisation's usual reading and tracks STEEP/PESTLE coverage with a fringe-source quota",
+        "Logs scan entries in a common structure with original source link, date and a 'why it may matter' line",
+        "Clusters entries into emerging issues, requiring two or more independent sources, and rates impact and likelihood 1-5 with rationales",
+        "Delivers a horizon-scanning report with a drop list and routes escalations to a downstream process"
+      ],
+      "skills": [
+        "horizon-scanning"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "hs-pos-2",
+      "kind": "positive",
+      "prompt": "We keep getting blindsided by developments that turn out to have been visible for years. What could blindside us next, and how do we build a scanning process that gives early warning of weak signals before they become obvious?",
+      "expected_output": "A response that satisfies these checks: Treats the request as a broad sweep for weak signals rather than a prediction about one trend; Distinguishes the observation, the emerging issue and the interpretation for each cluster; Verifies every reported entry against its original source and checks source independence; Reports a small set of prioritised issues with signposts and a next-review date.",
+      "files": [],
+      "expectations": [
+        "Treats the request as a broad sweep for weak signals rather than a prediction about one trend",
+        "Distinguishes the observation, the emerging issue and the interpretation for each cluster",
+        "Verifies every reported entry against its original source and checks source independence",
+        "Reports a small set of prioritised issues with signposts and a next-review date"
+      ],
+      "skills": [
+        "horizon-scanning"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "hs-pos-3",
+      "kind": "positive",
+      "prompt": "What's on the horizon for regional passenger rail over the next ten years — what should we be watching that isn't already on our strategy slides?",
+      "expected_output": "A response that satisfies these checks: Sweeps sources beyond the industry's mainstream reading and states the coverage achieved; Separates established trends from newly emerging issues and possible future events; Rates each issue for impact and likelihood with a one-line rationale and lists dropped candidates; Recommends what to escalate, monitor or drop, naming the downstream skill for escalations.",
+      "files": [],
+      "expectations": [
+        "Sweeps sources beyond the industry's mainstream reading and states the coverage achieved",
+        "Separates established trends from newly emerging issues and possible future events",
+        "Rates each issue for impact and likelihood with a one-line rationale and lists dropped candidates",
+        "Recommends what to escalate, monitor or drop, naming the downstream skill for escalations"
+      ],
+      "skills": [
+        "horizon-scanning"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "hs-neg-1",
+      "kind": "negative",
+      "prompt": "When will solid-state batteries reach 10% of global EV production? I want a dated prediction with the kill-signals that would tell me the forecast is wrong.",
+      "expected_output": "A response that satisfies these checks: Does not run a broad scan; produces a single dated, falsifiable prediction with accelerants, blockers and kill-signals (foresight behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not run a broad scan; produces a single dated, falsifiable prediction with accelerants, blockers and kill-signals (foresight behaviour)"
+      ],
+      "skills": [
+        "foresight"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "hs-neg-2",
+      "kind": "negative",
+      "prompt": "Give me a PESTLE analysis of the external macro-environment factors affecting our decision to build a battery plant in Poland by 2030, with each factor rated for impact and uncertainty.",
+      "expected_output": "A response that satisfies these checks: Does not run a scanning process; produces a rated STEEP/PESTLE factor inventory for the stated decision (steep-pestle-analysis behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not run a scanning process; produces a rated STEEP/PESTLE factor inventory for the stated decision (steep-pestle-analysis behaviour)"
+      ],
+      "skills": [
+        "steep-pestle-analysis"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "hs-neg-3",
+      "kind": "negative",
+      "prompt": "We already have four scenarios for the European gas market. Build and validate the indicator list that would tell us which scenario is unfolding, and drop any indicator that would show up under all of them.",
+      "expected_output": "A response that satisfies these checks: Does not start a new scan; rates each candidate indicator against every existing scenario and returns the diagnostic set with a monitoring plan (indicators-validation behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not start a new scan; rates each candidate indicator against every existing scenario and returns the diagnostic set with a monitoring plan (indicators-validation behaviour)"
+      ],
+      "skills": [
+        "indicators-validation"
+      ]
+    }
+  ]
+}

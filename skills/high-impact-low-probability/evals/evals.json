@@ -1,0 +1,86 @@
+{
+  "skill_name": "high-impact-low-probability",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "hilp-pos-1",
+      "kind": "positive",
+      "prompt": "What if our sole supplier of the germanium substrate were shut down by sanctions? It's unlikely — nobody here thinks it will happen — but I want the pathways it could come about and the early warnings we should be watching.",
+      "expected_output": "A response that satisfies these checks: Defines the event precisely: what, where, by when, magnitude, and why it is judged unlikely; Assesses first- and second-order impact with at least one quantified consequence and a time to bite; Builds 2-4 distinct pathways, each with a trigger and a decider, reasoned backwards from the event; Derives observable, dated, owned indicators from the pathways rather than restating the outcome; Recommends a proportionate posture: cheap hedges, monitoring cadence, and decision triggers.",
+      "files": [],
+      "expectations": [
+        "Defines the event precisely: what, where, by when, magnitude, and why it is judged unlikely",
+        "Assesses first- and second-order impact with at least one quantified consequence and a time to bite",
+        "Builds 2-4 distinct pathways, each with a trigger and a decider, reasoned backwards from the event",
+        "Derives observable, dated, owned indicators from the pathways rather than restating the outcome",
+        "Recommends a proportionate posture: cheap hedges, monitoring cadence, and decision triggers"
+      ],
+      "skills": [
+        "high-impact-low-probability"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "hilp-pos-2",
+      "kind": "positive",
+      "prompt": "Run a high-impact/low-probability analysis on a critical failure of our main model provider — a multi-week outage or a withdrawal of the API from our region.",
+      "expected_output": "A response that satisfies these checks: Runs the HILP procedure rather than debating the probability estimate; Postulates the event as having happened and reasons backwards to plausible pathways; Emits the output template: event, impact, pathway table, indicators, posture, review date.",
+      "files": [],
+      "expectations": [
+        "Runs the HILP procedure rather than debating the probability estimate",
+        "Postulates the event as having happened and reasons backwards to plausible pathways",
+        "Emits the output template: event, impact, pathway table, indicators, posture, review date"
+      ],
+      "skills": [
+        "high-impact-low-probability"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "hilp-pos-3",
+      "kind": "positive",
+      "prompt": "The team keeps dismissing this scenario as improbable and refuses to plan for it. Stress-test how it could actually happen and what would warn us first.",
+      "expected_output": "A response that satisfies these checks: Suspends the likelihood argument and asks how the event could come about; Produces distinct chains of developments with triggers, deciders and lags; Names what would raise the estimate and what would deflect the event; Sets a review date for re-reading the indicators.",
+      "files": [],
+      "expectations": [
+        "Suspends the likelihood argument and asks how the event could come about",
+        "Produces distinct chains of developments with triggers, deciders and lags",
+        "Names what would raise the estimate and what would deflect the event",
+        "Sets a review date for re-reading the indicators"
+      ],
+      "skills": [
+        "high-impact-low-probability"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "hilp-neg-1",
+      "kind": "negative",
+      "prompt": "Assume the project decision we are about to make has failed twelve months from now. Work backwards and find the reasons why, with mitigations we can put in place before we commit.",
+      "expected_output": "A response that satisfies these checks: Treats a decision, not an external event, as the thing that failed; Enumerates failure modes across domains with likelihood, severity and pre-emptive mitigations (premortem-analysis behaviour).",
+      "files": [],
+      "expectations": [
+        "Treats a decision, not an external event, as the thing that failed",
+        "Enumerates failure modes across domains with likelihood, severity and pre-emptive mitigations (premortem-analysis behaviour)"
+      ],
+      "skills": [
+        "premortem-analysis"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "hilp-neg-2",
+      "kind": "negative",
+      "prompt": "Build a 2x2 matrix of plausible futures for the enterprise storage market out to 2030, picking the two critical uncertainties as axes and naming each quadrant.",
+      "expected_output": "A response that satisfies these checks: Selects two orthogonal critical uncertainties and narrates four scenarios; Spans a set of plausible futures rather than working one unlikely tail event (scenario-planning behaviour).",
+      "files": [],
+      "expectations": [
+        "Selects two orthogonal critical uncertainties and narrates four scenarios",
+        "Spans a set of plausible futures rather than working one unlikely tail event (scenario-planning behaviour)"
+      ],
+      "skills": [
+        "scenario-planning"
+      ]
+    }
+  ]
+}

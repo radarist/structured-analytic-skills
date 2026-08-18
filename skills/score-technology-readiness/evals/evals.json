@@ -1,0 +1,84 @@
+{
+  "skill_name": "score-technology-readiness",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "trl-pos-1",
+      "kind": "positive",
+      "prompt": "What TRL is this vector database at? The vendor's deck says technology readiness level 8 but I only see one named customer. Score it on the NASA readiness scale and tell me what evidence is missing.",
+      "expected_output": "A response that satisfies these checks: Walks TRL 1-9 cumulatively and stops at the highest level with contiguous evidence; Does not credit vendor claims or press coverage as evidence for a level; Reports the delta between the claimed TRL and the evidenced TRL; Names the single evidence item needed to advance one level.",
+      "files": [],
+      "expectations": [
+        "Walks TRL 1-9 cumulatively and stops at the highest level with contiguous evidence",
+        "Does not credit vendor claims or press coverage as evidence for a level",
+        "Reports the delta between the claimed TRL and the evidenced TRL",
+        "Names the single evidence item needed to advance one level"
+      ],
+      "skills": [
+        "score-technology-readiness"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "trl-pos-2",
+      "kind": "positive",
+      "prompt": "Is this open-weights speech model production-ready or still a research prototype? I need to know how mature the technology actually is before we put it in front of customers.",
+      "expected_output": "A response that satisfies these checks: Bounds the technology and states the scope being assessed; Grades maturity by the environment in which the technology has been demonstrated; Names the risks of deploying above the evidenced readiness level.",
+      "files": [],
+      "expectations": [
+        "Bounds the technology and states the scope being assessed",
+        "Grades maturity by the environment in which the technology has been demonstrated",
+        "Names the risks of deploying above the evidenced readiness level"
+      ],
+      "skills": [
+        "score-technology-readiness"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "trl-pos-3",
+      "kind": "positive",
+      "prompt": "Our investment memo needs a readiness figure for this neuromorphic inference chip. How mature is it, with the evidence for each maturity level laid out?",
+      "expected_output": "A response that satisfies these checks: Produces a level-by-level evidence table with cited, typed items; Applies the no-skipping rule so a gap caps the score; Notes that hardware manufacturability is a separate MRL question.",
+      "files": [],
+      "expectations": [
+        "Produces a level-by-level evidence table with cited, typed items",
+        "Applies the no-skipping rule so a gap caps the score",
+        "Notes that hardware manufacturability is a separate MRL question"
+      ],
+      "skills": [
+        "score-technology-readiness"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "trl-neg-1",
+      "kind": "negative",
+      "prompt": "Is quantum computing overhyped right now, or have we finally moved past the trough of disillusionment into something real?",
+      "expected_output": "A response that satisfies these checks: Places the technology on the hype curve from press, funding and deployment indicators; Does not produce a nine-level evidence readiness score.",
+      "files": [],
+      "expectations": [
+        "Places the technology on the hype curve from press, funding and deployment indicators",
+        "Does not produce a nine-level evidence readiness score"
+      ],
+      "skills": [
+        "apply-hype-cycle"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "trl-neg-2",
+      "kind": "negative",
+      "prompt": "Is this open-source library still actively maintained? Check the bus factor, commit cadence and how long issues sit before anyone replies.",
+      "expected_output": "A response that satisfies these checks: Reads repository vitality signals such as contributor spread and issue latency; Does not assign a technology readiness level.",
+      "files": [],
+      "expectations": [
+        "Reads repository vitality signals such as contributor spread and issue latency",
+        "Does not assign a technology readiness level"
+      ],
+      "skills": [
+        "oss-project-health"
+      ]
+    }
+  ]
+}

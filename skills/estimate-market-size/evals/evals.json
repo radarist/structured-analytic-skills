@@ -1,0 +1,84 @@
+{
+  "skill_name": "estimate-market-size",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "mkt-pos-1",
+      "kind": "positive",
+      "prompt": "How big is the market for enterprise LLM API services in North America and Europe next year? I need a defensible TAM, not a number lifted from one analyst press release.",
+      "expected_output": "A response that satisfies these checks: Fixes a market definition as product category by buyer segment by geography by time frame; Builds both a top-down estimate from a larger market and a bottom-up estimate from buyer counts and revenue per buyer; Compares the two and applies the order-of-magnitude agreement rule; Reports a range with a midpoint and states which layer the figure is.",
+      "files": [],
+      "expectations": [
+        "Fixes a market definition as product category by buyer segment by geography by time frame",
+        "Builds both a top-down estimate from a larger market and a bottom-up estimate from buyer counts and revenue per buyer",
+        "Compares the two and applies the order-of-magnitude agreement rule",
+        "Reports a range with a midpoint and states which layer the figure is"
+      ],
+      "skills": [
+        "estimate-market-size"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "mkt-pos-2",
+      "kind": "positive",
+      "prompt": "This pitch deck claims a multi-billion-dollar opportunity expected to reach $40B by 2030. Is that number real, or is the opportunity being oversold?",
+      "expected_output": "A response that satisfies these checks: Separates today's market size from the growth assumption in the forecast; Builds two independent estimates rather than accepting the single cited figure; Rejects the claim when the two estimates disagree by more than three-fold and names the likely offending input.",
+      "files": [],
+      "expectations": [
+        "Separates today's market size from the growth assumption in the forecast",
+        "Builds two independent estimates rather than accepting the single cited figure",
+        "Rejects the claim when the two estimates disagree by more than three-fold and names the likely offending input"
+      ],
+      "skills": [
+        "estimate-market-size"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "mkt-pos-3",
+      "kind": "positive",
+      "prompt": "Size the opportunity for a robotic warehouse-picking product before we commit engineering budget — TAM, SAM and SOM with the assumptions written down.",
+      "expected_output": "A response that satisfies these checks: Distinguishes the total addressable, serviceable addressable and serviceable obtainable layers; Cites every share ratio, buyer count and revenue-per-buyer input or names it as an assumption; Names the most sensitive input and the citation to verify first.",
+      "files": [],
+      "expectations": [
+        "Distinguishes the total addressable, serviceable addressable and serviceable obtainable layers",
+        "Cites every share ratio, buyer count and revenue-per-buyer input or names it as an assumption",
+        "Names the most sensitive input and the citation to verify first"
+      ],
+      "skills": [
+        "estimate-market-size"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "mkt-neg-1",
+      "kind": "negative",
+      "prompt": "This report says revenue grows from $4M to $19M by 2029 at a 31% CAGR. Do those numbers actually reproduce each other?",
+      "expected_output": "A response that satisfies these checks: Recomputes the source's own compounding arithmetic for internal consistency; Does not build an independent two-direction market estimate.",
+      "files": [],
+      "expectations": [
+        "Recomputes the source's own compounding arithmetic for internal consistency",
+        "Does not build an independent two-direction market estimate"
+      ],
+      "skills": [
+        "quantitative-sanity-check"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "mkt-neg-2",
+      "kind": "negative",
+      "prompt": "How attractive is the industrial robotics industry structurally — supplier power, barriers to entry, threat of substitutes?",
+      "expected_output": "A response that satisfies these checks: Assesses industry structure across the five competitive forces; Does not produce a TAM/SAM/SOM figure.",
+      "files": [],
+      "expectations": [
+        "Assesses industry structure across the five competitive forces",
+        "Does not produce a TAM/SAM/SOM figure"
+      ],
+      "skills": [
+        "five-forces-analysis"
+      ]
+    }
+  ]
+}

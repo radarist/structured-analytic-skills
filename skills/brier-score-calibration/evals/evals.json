@@ -1,0 +1,84 @@
+{
+  "skill_name": "brier-score-calibration",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "brier-pos-1",
+      "kind": "positive",
+      "prompt": "Compute the Brier score for my forecast set — 40 dated predictions, most now resolved, two never settled. I want to know whether I am well calibrated or overconfident.",
+      "expected_output": "A response that satisfies these checks: Excludes the unresolved forecasts and reports the excluded count instead of scoring them as losses; Reports the mean Brier score plus the Murphy decomposition into reliability, resolution and uncertainty; Compares against the base-rate reference with a Brier Skill Score; Reads the per-bin calibration table and names one specific correction.",
+      "files": [],
+      "expectations": [
+        "Excludes the unresolved forecasts and reports the excluded count instead of scoring them as losses",
+        "Reports the mean Brier score plus the Murphy decomposition into reliability, resolution and uncertainty",
+        "Compares against the base-rate reference with a Brier Skill Score",
+        "Reads the per-bin calibration table and names one specific correction"
+      ],
+      "skills": [
+        "brier-score-calibration"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "brier-pos-2",
+      "kind": "positive",
+      "prompt": "Our analysts have been attaching probabilities to outcomes for two years and the outcomes are now known. Were those probabilistic forecasts accurate and well calibrated, or would predicting the base rate every time have scored just as well?",
+      "expected_output": "A response that satisfies these checks: Computes the Brier Skill Score against the climatological base-rate reference and interprets its sign; Separates calibration error from discrimination rather than reporting a single accuracy number; States what the score can and cannot establish given the number of resolved forecasts.",
+      "files": [],
+      "expectations": [
+        "Computes the Brier Skill Score against the climatological base-rate reference and interprets its sign",
+        "Separates calibration error from discrimination rather than reporting a single accuracy number",
+        "States what the score can and cannot establish given the number of resolved forecasts"
+      ],
+      "skills": [
+        "brier-score-calibration"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "brier-pos-3",
+      "kind": "positive",
+      "prompt": "Run a calibration check on these resolved predictions — when the forecaster said 90%, how often did it actually happen? Give me the calibration curve by probability bin.",
+      "expected_output": "A response that satisfies these checks: Bins forecasts by stated probability and reports the observed frequency in each bin; Labels each bin overconfident or underconfident relative to the diagonal; Reproduces the numbers with scripts/brier.py decompose.",
+      "files": [],
+      "expectations": [
+        "Bins forecasts by stated probability and reports the observed frequency in each bin",
+        "Labels each bin overconfident or underconfident relative to the diagonal",
+        "Reproduces the numbers with scripts/brier.py decompose"
+      ],
+      "skills": [
+        "brier-score-calibration"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "brier-neg-1",
+      "kind": "negative",
+      "prompt": "I put the chance of the supplier missing the deadline at 60%, and now a report says their factory is running at 70% capacity. How much should that move my estimate?",
+      "expected_output": "A response that satisfies these checks: Performs an odds-form Bayesian update with a prior, likelihoods and a posterior; Does not score resolved forecasts for accuracy (bayesian-update behaviour).",
+      "files": [],
+      "expectations": [
+        "Performs an odds-form Bayesian update with a prior, likelihoods and a posterior",
+        "Does not score resolved forecasts for accuracy (bayesian-update behaviour)"
+      ],
+      "skills": [
+        "bayesian-update"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "brier-neg-2",
+      "kind": "negative",
+      "prompt": "When will solid-state batteries reach mass production in passenger cars? Give me a dated prediction with the accelerants, the blockers and what would falsify it.",
+      "expected_output": "A response that satisfies these checks: Produces a single dated, falsifiable prediction with signposts and kill-signals; Does not score an existing forecast set (foresight behaviour).",
+      "files": [],
+      "expectations": [
+        "Produces a single dated, falsifiable prediction with signposts and kill-signals",
+        "Does not score an existing forecast set (foresight behaviour)"
+      ],
+      "skills": [
+        "foresight"
+      ]
+    }
+  ]
+}

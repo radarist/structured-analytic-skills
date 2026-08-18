@@ -1,0 +1,84 @@
+{
+  "skill_name": "assess-research-momentum",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "mom-pos-1",
+      "kind": "positive",
+      "prompt": "Is research on neuromorphic computing heating up or has the publication trend flattened out? I want the yearly paper counts and citation velocity, not a vibe.",
+      "expected_output": "A response that satisfies these checks: States the index, query string and year window used; Buckets papers by publication year and reads the curve shape; Reports citation velocity and whether it is accelerating, steady or decelerating; Calls a research-front or maturing verdict and names what would flip it.",
+      "files": [],
+      "expectations": [
+        "States the index, query string and year window used",
+        "Buckets papers by publication year and reads the curve shape",
+        "Reports citation velocity and whether it is accelerating, steady or decelerating",
+        "Calls a research-front or maturing verdict and names what would flip it"
+      ],
+      "skills": [
+        "assess-research-momentum"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "mom-pos-2",
+      "kind": "positive",
+      "prompt": "Three groups keep publishing on this topic and everyone calls it an exploding field. How much academic attention is it really getting, and is the growth faster than science as a whole?",
+      "expected_output": "A response that satisfies these checks: Counts distinct authors and institutions to judge whether the front is broad or nascent; Compares the growth rate against the roughly 8-9% per year global literature baseline; Reports low confidence when the paper count is small.",
+      "files": [],
+      "expectations": [
+        "Counts distinct authors and institutions to judge whether the front is broad or nascent",
+        "Compares the growth rate against the roughly 8-9% per year global literature baseline",
+        "Reports low confidence when the paper count is small"
+      ],
+      "skills": [
+        "assess-research-momentum"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "mom-pos-3",
+      "kind": "positive",
+      "prompt": "Fit an S-curve to the yearly paper counts for solid-state electrolyte research and tell me which phase the literature is in.",
+      "expected_output": "A response that satisfies these checks: Fits a logistic curve and reports K, growth rate, midpoint and R-squared; Classifies the phase as emergent, growth or mature from the fraction of capacity reached; Treats a poor fit as a finding rather than smoothing it over.",
+      "files": [],
+      "expectations": [
+        "Fits a logistic curve and reports K, growth rate, midpoint and R-squared",
+        "Classifies the phase as emergent, growth or mature from the fraction of capacity reached",
+        "Treats a poor fit as a finding rather than smoothing it over"
+      ],
+      "skills": [
+        "assess-research-momentum"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "mom-neg-1",
+      "kind": "negative",
+      "prompt": "What does the evidence actually say about whether these interventions work? I need a reproducible review with inclusion and exclusion criteria and a screening audit trail.",
+      "expected_output": "A response that satisfies these checks: Follows a PRISMA-style identification, screening, eligibility and inclusion process; Synthesises findings rather than counting publications per year.",
+      "files": [],
+      "expectations": [
+        "Follows a PRISMA-style identification, screening, eligibility and inclusion process",
+        "Synthesises findings rather than counting publications per year"
+      ],
+      "skills": [
+        "systematic-review"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "mom-neg-2",
+      "kind": "negative",
+      "prompt": "Is this technology overhyped by the press right now, and how many years until it settles into the plateau of productivity?",
+      "expected_output": "A response that satisfies these checks: Places the technology on a maturity-of-expectations curve from press, funding and deployment indicators; Does not produce a bibliometric S-curve fit.",
+      "files": [],
+      "expectations": [
+        "Places the technology on a maturity-of-expectations curve from press, funding and deployment indicators",
+        "Does not produce a bibliometric S-curve fit"
+      ],
+      "skills": [
+        "apply-hype-cycle"
+      ]
+    }
+  ]
+}

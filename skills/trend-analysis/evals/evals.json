@@ -1,0 +1,85 @@
+{
+  "skill_name": "trend-analysis",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "ta-pos-1",
+      "kind": "positive",
+      "prompt": "Is heat-pump adoption in Europe actually a trend or just a subsidy-driven fad? Validate the claim against the data, and if it holds, extrapolate it to 2030 with the assumptions spelled out.",
+      "expected_output": "A response that satisfies these checks: Restates the claim as a falsifiable trend statement with quantity, population and horizon; Validates against at least two independent time series and checks fad markers before projecting; Quantifies rate and curvature and locates the trend on the diffusion curve; Projects with a named method and attaches an assumption sheet including events with probability and impact; Adds a counter-trend scan, signposts and a confidence statement.",
+      "files": [],
+      "expectations": [
+        "Restates the claim as a falsifiable trend statement with quantity, population and horizon",
+        "Validates against at least two independent time series and checks fad markers before projecting",
+        "Quantifies rate and curvature and locates the trend on the diffusion curve",
+        "Projects with a named method and attaches an assumption sheet including events with probability and impact",
+        "Adds a counter-trend scan, signposts and a confidence statement"
+      ],
+      "skills": [
+        "trend-analysis"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "ta-pos-2",
+      "kind": "positive",
+      "prompt": "We have five years of market share numbers for our category. How far can this trend run, and what would bend the curve before 2030?",
+      "expected_output": "A response that satisfies these checks: Reads curvature from the period-over-period gains rather than assuming a straight line; Considers a saturating curve and states the assumed ceiling with fit quality; Uses Trend Impact Analysis to adjust the baseline for events with explicit probabilities and impacts; Recomputes the arithmetic with the companion script rather than in prose.",
+      "files": [],
+      "expectations": [
+        "Reads curvature from the period-over-period gains rather than assuming a straight line",
+        "Considers a saturating curve and states the assumed ceiling with fit quality",
+        "Uses Trend Impact Analysis to adjust the baseline for events with explicit probabilities and impacts",
+        "Recomputes the arithmetic with the companion script rather than in prose"
+      ],
+      "skills": [
+        "trend-analysis"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "ta-pos-3",
+      "kind": "positive",
+      "prompt": "Someone in the exec team keeps saying remote work is a megatrend. Validate that trend claim with real time-series evidence and tell me whether it is accelerating, linear or saturating.",
+      "expected_output": "A response that satisfies these checks: Returns a validation verdict (validated, uncertain, or fad markers present) with sources and span; Names the structural mechanism that would sustain the change; Reports the curvature read with the period-gain evidence; Stops short of projecting if the evidence does not support it.",
+      "files": [],
+      "expectations": [
+        "Returns a validation verdict (validated, uncertain, or fad markers present) with sources and span",
+        "Names the structural mechanism that would sustain the change",
+        "Reports the curvature read with the period-gain evidence",
+        "Stops short of projecting if the evidence does not support it"
+      ],
+      "skills": [
+        "trend-analysis"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "ta-neg-1",
+      "kind": "negative",
+      "prompt": "Is research on solid-state electrolytes heating up? Look at the publication and citation counts over the last decade and tell me whether the field is accelerating or maturing.",
+      "expected_output": "A response that satisfies these checks: Does not run a general trend validation; reads the bibliometric result set into publication and citation momentum (assess-research-momentum behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not run a general trend validation; reads the bibliometric result set into publication and citation momentum (assess-research-momentum behaviour)"
+      ],
+      "skills": [
+        "assess-research-momentum"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "ta-neg-2",
+      "kind": "negative",
+      "prompt": "Is quantum computing overhyped right now? Where does it sit on the Gartner hype curve — peak of inflated expectations or trough of disillusionment?",
+      "expected_output": "A response that satisfies these checks: Does not fit a curve to a series; places the technology on the hype cycle from indicator evidence (apply-hype-cycle behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not fit a curve to a series; places the technology on the hype cycle from indicator evidence (apply-hype-cycle behaviour)"
+      ],
+      "skills": [
+        "apply-hype-cycle"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "skill_name": "jtbd-framing",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "jtbd-pos-1",
+      "kind": "positive",
+      "prompt": "Run a jobs-to-be-done (JTBD) framing on these three recruiting platforms before I write the vendor comparison.",
+      "expected_output": "A response that satisfies these checks: Writes a solution-free job statement (verb + object + contextual clarifier) per option; Adds desired-outcome statements starting with minimize or increase; Lists competing solutions including an explicit non-consumption entry; Captures a struggling moment of 30 words or fewer with an evidence label.",
+      "files": [],
+      "expectations": [
+        "Writes a solution-free job statement (verb + object + contextual clarifier) per option",
+        "Adds desired-outcome statements starting with minimize or increase",
+        "Lists competing solutions including an explicit non-consumption entry",
+        "Captures a struggling moment of 30 words or fewer with an evidence label"
+      ],
+      "skills": [
+        "jtbd-framing"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "jtbd-pos-2",
+      "kind": "positive",
+      "prompt": "Our tool comparison reads like a feature matrix — every vendor looks the same. Help me anchor it in what customers actually hire these products to do.",
+      "expected_output": "A response that satisfies these checks: Diagnoses the comparison as tautological without a job statement; Produces one job statement per distinct job rather than one per vendor; Places each option against the job and the competing solution it displaces.",
+      "files": [],
+      "expectations": [
+        "Diagnoses the comparison as tautological without a job statement",
+        "Produces one job statement per distinct job rather than one per vendor",
+        "Places each option against the job and the competing solution it displaces"
+      ],
+      "skills": [
+        "jtbd-framing"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "jtbd-pos-3",
+      "kind": "positive",
+      "prompt": "We're deciding between buying an internal-mobility platform, using LinkedIn Recruiter, or keeping our manual process. What job is each one hired for, and what does the customer do without any tool?",
+      "expected_output": "A response that satisfies these checks: Names non-consumption (the manual status quo) as a competing solution; States the circumstance — segment, size, industry — that has the job; Notes where two options serve different jobs instead of ranking them on one list.",
+      "files": [],
+      "expectations": [
+        "Names non-consumption (the manual status quo) as a competing solution",
+        "States the circumstance — segment, size, industry — that has the job",
+        "Notes where two options serve different jobs instead of ranking them on one list"
+      ],
+      "skills": [
+        "jtbd-framing"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "jtbd-pos-4",
+      "kind": "positive",
+      "prompt": "Write a job statement and desired outcome statements for a warehouse robotics buyer, with the competing solutions including non-consumption.",
+      "expected_output": "A response that satisfies these checks: Uses Ulwick's outcome grammar: direction of improvement + metric + object of control + contextual clarifier; Keeps every statement free of product, vendor and feature nouns; Emits the output template with all mandatory fields filled.",
+      "files": [],
+      "expectations": [
+        "Uses Ulwick's outcome grammar: direction of improvement + metric + object of control + contextual clarifier",
+        "Keeps every statement free of product, vendor and feature nouns",
+        "Emits the output template with all mandatory fields filled"
+      ],
+      "skills": [
+        "jtbd-framing"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "jtbd-neg-1",
+      "kind": "negative",
+      "prompt": "Place these five vendors on a 2x2 competitive landscape by price and integration depth — a magic-quadrant style map.",
+      "expected_output": "A response that satisfies these checks: Does not write job or desired-outcome statements; Selects axes and places competitors on a 2x2 map (position-competitor behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not write job or desired-outcome statements",
+        "Selects axes and places competitors on a 2x2 map (position-competitor behaviour)"
+      ],
+      "skills": [
+        "position-competitor"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "jtbd-neg-2",
+      "kind": "negative",
+      "prompt": "Is generative AI for HR overhyped right now — where does it sit on the Gartner hype cycle?",
+      "expected_output": "A response that satisfies these checks: Places the technology on a maturity curve rather than framing a customer job; Reports the hype-cycle stage with indicator evidence.",
+      "files": [],
+      "expectations": [
+        "Places the technology on a maturity curve rather than framing a customer job",
+        "Reports the hype-cycle stage with indicator evidence"
+      ],
+      "skills": [
+        "apply-hype-cycle"
+      ]
+    }
+  ]
+}

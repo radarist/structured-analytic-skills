@@ -1,0 +1,84 @@
+{
+  "skill_name": "experimental-design",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "expd-pos-1",
+      "kind": "positive",
+      "prompt": "Design an A/B test for one-click checkout. Baseline conversion is 10% and we would only ship it for a two point lift — how many users per arm do we need, and what should the preregistered plan say?",
+      "expected_output": "A response that satisfies these checks: Sets the minimum detectable effect from decision stakes and states it in both absolute and relative terms; Runs a power analysis at alpha .05 two-sided and 80% power and reports n per arm and the total; Names the randomization unit and mechanism and fixes a stop rule with no peeking; Produces a design card including exclusions, the analysis plan and the surviving validity threats.",
+      "files": [],
+      "expectations": [
+        "Sets the minimum detectable effect from decision stakes and states it in both absolute and relative terms",
+        "Runs a power analysis at alpha .05 two-sided and 80% power and reports n per arm and the total",
+        "Names the randomization unit and mechanism and fixes a stop rule with no peeking",
+        "Produces a design card including exclusions, the analysis plan and the surviving validity threats"
+      ],
+      "skills": [
+        "experimental-design"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "expd-pos-2",
+      "kind": "positive",
+      "prompt": "We can realistically get about 500 users into this trial. Run a power analysis and tell me what size of effect that could actually detect, and whether the experiment is worth running at all.",
+      "expected_output": "A response that satisfies these checks: Runs the minimum-detectable-effect direction rather than sizing the sample from the budget; States honestly what effect 500 units can detect and whether that is below the decision threshold; Recommends accepting a larger MDE, getting more units, or dropping the causal claim.",
+      "files": [],
+      "expectations": [
+        "Runs the minimum-detectable-effect direction rather than sizing the sample from the budget",
+        "States honestly what effect 500 units can detect and whether that is below the decision threshold",
+        "Recommends accepting a larger MDE, getting more units, or dropping the causal claim"
+      ],
+      "skills": [
+        "experimental-design"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "expd-pos-3",
+      "kind": "positive",
+      "prompt": "Is this experiment design sound before we launch? We plan to randomise by page view, check the dashboard daily, and stop when it looks significant.",
+      "expected_output": "A response that satisfies these checks: Flags randomising page views as the wrong unit because repeated users break independence; Flags daily checking with an ad-hoc stop as peeking and requires a fixed horizon or a named sequential method; Requires preregistration of the primary metric, exclusions and analysis plan before launch.",
+      "files": [],
+      "expectations": [
+        "Flags randomising page views as the wrong unit because repeated users break independence",
+        "Flags daily checking with an ad-hoc stop as peeking and requires a fixed horizon or a named sequential method",
+        "Requires preregistration of the primary metric, exclusions and analysis plan before launch"
+      ],
+      "skills": [
+        "experimental-design"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "expd-neg-1",
+      "kind": "negative",
+      "prompt": "The test finished: control converted 376 of 3841 and treatment 457 of 3841. Is that difference significant, and what is the confidence interval?",
+      "expected_output": "A response that satisfies these checks: Analyses the completed comparison with a two-proportion test, confidence interval and effect size; Does not plan a new experiment (test-significance behaviour).",
+      "files": [],
+      "expectations": [
+        "Analyses the completed comparison with a two-proportion test, confidence interval and effect size",
+        "Does not plan a new experiment (test-significance behaviour)"
+      ],
+      "skills": [
+        "test-significance"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "expd-neg-2",
+      "kind": "negative",
+      "prompt": "Assess the risk of bias in this published randomised trial someone else ran — allocation concealment, attrition and whether the reported outcome was pre-specified.",
+      "expected_output": "A response that satisfies these checks: Applies Cochrane RoB 2 domains to the finished trial; Does not produce a power analysis or a design card (assess-study-bias behaviour).",
+      "files": [],
+      "expectations": [
+        "Applies Cochrane RoB 2 domains to the finished trial",
+        "Does not produce a power analysis or a design card (assess-study-bias behaviour)"
+      ],
+      "skills": [
+        "assess-study-bias"
+      ]
+    }
+  ]
+}

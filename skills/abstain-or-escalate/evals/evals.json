@@ -1,0 +1,84 @@
+{
+  "skill_name": "abstain-or-escalate",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "abstain-pos-1",
+      "kind": "positive",
+      "prompt": "I searched and there is genuinely no source for this shipment number, but it's the key figure in my recommendation. Should I abstain or escalate it rather than guess?",
+      "expected_output": "A response that satisfies these checks: Tests whether the claim is load-bearing before deciding; Chooses an explicit disposition (drop, abstain outright, escalate, or report disagreement) instead of hedging the claim; Writes the refusal in plain words with no 'probably' or 'I think'; Names the specific input or source that would close the gap.",
+      "files": [],
+      "expectations": [
+        "Tests whether the claim is load-bearing before deciding",
+        "Chooses an explicit disposition (drop, abstain outright, escalate, or report disagreement) instead of hedging the claim",
+        "Writes the refusal in plain words with no 'probably' or 'I think'",
+        "Names the specific input or source that would close the gap"
+      ],
+      "skills": [
+        "abstain-or-escalate"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "abstain-pos-2",
+      "kind": "positive",
+      "prompt": "Two analyst reports give completely contradictory figures for the same cost decline and neither is obviously more authoritative. What should the brief say — pick one, or state that the sources contradict each other?",
+      "expected_output": "A response that satisfies these checks: Reports the disagreement with both sources cited rather than silently picking one; States which source is weighted higher and why; Widens the downstream conclusion (a range rather than a point estimate) to reflect the unresolved gap.",
+      "files": [],
+      "expectations": [
+        "Reports the disagreement with both sources cited rather than silently picking one",
+        "States which source is weighted higher and why",
+        "Widens the downstream conclusion (a range rather than a point estimate) to reflect the unresolved gap"
+      ],
+      "skills": [
+        "abstain-or-escalate"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "abstain-pos-3",
+      "kind": "positive",
+      "prompt": "Answering this properly needs a paid industry database we don't have access to. I'd rather refuse and hand the open question off than write something unsupported — how should that be worded and recorded?",
+      "expected_output": "A response that satisfies these checks: Escalates rather than guessing, naming the specific gap and where the answer likely lives; Provides reader-facing wording for the refusal or escalation; Leaves a recoverable marker or note so the gap can be backfilled later.",
+      "files": [],
+      "expectations": [
+        "Escalates rather than guessing, naming the specific gap and where the answer likely lives",
+        "Provides reader-facing wording for the refusal or escalation",
+        "Leaves a recoverable marker or note so the gap can be backfilled later"
+      ],
+      "skills": [
+        "abstain-or-escalate"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "abstain-neg-1",
+      "kind": "negative",
+      "prompt": "Before this answer goes out, run the full verification cycle on it: draft it, plan verification questions, answer them independently against sources, then revise the draft.",
+      "expected_output": "A response that satisfies these checks: Runs the Chain-of-Verification draft/plan/verify/revise loop; Does not jump to abstention before verification has been attempted.",
+      "files": [],
+      "expectations": [
+        "Runs the Chain-of-Verification draft/plan/verify/revise loop",
+        "Does not jump to abstention before verification has been attempted"
+      ],
+      "skills": [
+        "grounded-answer"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "abstain-neg-2",
+      "kind": "negative",
+      "prompt": "This brief claims the model has 405B parameters and that the market grew 60% year on year. Check those specific published numbers against live web sources before we publish.",
+      "expected_output": "A response that satisfies these checks: Verifies the named specifics against live sources and reconciles the draft with what they say; Only routes to abstention for the specifics that verification cannot confirm.",
+      "files": [],
+      "expectations": [
+        "Verifies the named specifics against live sources and reconciles the draft with what they say",
+        "Only routes to abstention for the specifics that verification cannot confirm"
+      ],
+      "skills": [
+        "grounded-fact-check"
+      ]
+    }
+  ]
+}

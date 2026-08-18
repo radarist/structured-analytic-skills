@@ -1,0 +1,118 @@
+{
+  "skill_name": "quality-of-information-check",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "qoi-pos-1",
+      "kind": "positive",
+      "prompt": "Before this assessment goes to the executive team, audit the quality of the sourcing behind its key judgments — I want to know how solid the evidence base is for each conclusion.",
+      "expected_output": "A response that satisfies these checks: Lists the key judgments under audit with their stated confidence; Builds a source inventory with originator, date, access, motive/bias, primary-vs-re-report and an Admiralty grade per source; Builds a source-to-judgment matrix and collapses re-reporting chains before counting independent supports; Assigns a status per judgment (corroborated / thin / single-source / conflicting / unsupported); Writes an ICD 206-style source summary statement and states per judgment whether the stated confidence is warranted or must be lowered.",
+      "files": [],
+      "expectations": [
+        "Lists the key judgments under audit with their stated confidence",
+        "Builds a source inventory with originator, date, access, motive/bias, primary-vs-re-report and an Admiralty grade per source",
+        "Builds a source-to-judgment matrix and collapses re-reporting chains before counting independent supports",
+        "Assigns a status per judgment (corroborated / thin / single-source / conflicting / unsupported)",
+        "Writes an ICD 206-style source summary statement and states per judgment whether the stated confidence is warranted or must be lowered"
+      ],
+      "skills": [
+        "quality-of-information-check"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 2,
+      "case_id": "qoi-pos-2",
+      "kind": "positive",
+      "prompt": "Run a quality-of-information check on this report's evidence base.",
+      "expected_output": "A response that satisfies these checks: Runs the six-step procedure: judgments, source inventory, matrix, status flags, gaps and deception flags, source summary statement; States gaps per judgment as missing expected reporting rather than 'none identified'; Uses the output template with inventory, matrix, source summary statement and confidence per judgment.",
+      "files": [],
+      "expectations": [
+        "Runs the six-step procedure: judgments, source inventory, matrix, status flags, gaps and deception flags, source summary statement",
+        "States gaps per judgment as missing expected reporting rather than 'none identified'",
+        "Uses the output template with inventory, matrix, source summary statement and confidence per judgment"
+      ],
+      "skills": [
+        "quality-of-information-check"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 3,
+      "case_id": "qoi-pos-3",
+      "kind": "positive",
+      "prompt": "Which of our conclusions rest on a single source or on re-reported information? Several of the citations look like they trace back to the same press release.",
+      "expected_output": "A response that satisfies these checks: Traces 'according to' chains to their origin and collapses items that share an origin into one source; Flags single-source and thin judgments explicitly and names the most compelling source for each; Recommends lowering confidence on judgments that rest on one origin.",
+      "files": [],
+      "expectations": [
+        "Traces 'according to' chains to their origin and collapses items that share an origin into one source",
+        "Flags single-source and thin judgments explicitly and names the most compelling source for each",
+        "Recommends lowering confidence on judgments that rest on one origin"
+      ],
+      "skills": [
+        "quality-of-information-check"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "qoi-pos-4",
+      "kind": "positive",
+      "prompt": "Write an ICD 206 style source summary statement for this intelligence assessment: how good is our source base overall, which sources carry the key judgments, where is it corroborated or conflicting, and what are the gaps?",
+      "expected_output": "A response that satisfies these checks: Produces a source summary statement covering strengths and weaknesses, most important sources, corroborative vs conflicting reporting, and expertise used; Grounds the statement in a source inventory and a source-to-judgment matrix rather than writing it from impression; States gaps and any deception or denial flags.",
+      "files": [],
+      "expectations": [
+        "Produces a source summary statement covering strengths and weaknesses, most important sources, corroborative vs conflicting reporting, and expertise used",
+        "Grounds the statement in a source inventory and a source-to-judgment matrix rather than writing it from impression",
+        "States gaps and any deception or denial flags"
+      ],
+      "skills": [
+        "quality-of-information-check"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "qoi-neg-1",
+      "kind": "negative",
+      "prompt": "How reliable is this one outlet as a source for the claim? Give me an Admiralty grade with a rationale.",
+      "expected_output": "A response that satisfies these checks: Grades the single source on the A–F / 1–6 Admiralty axes (rate-source-admiralty behaviour); Does not build a whole-evidence-base inventory or a source summary statement.",
+      "files": [],
+      "expectations": [
+        "Grades the single source on the A–F / 1–6 Admiralty axes (rate-source-admiralty behaviour)",
+        "Does not build a whole-evidence-base inventory or a source summary statement"
+      ],
+      "skills": [
+        "rate-source-admiralty"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "qoi-neg-2",
+      "kind": "negative",
+      "prompt": "Is this website legit? I have never heard of it — can I trust this article before I cite it?",
+      "expected_output": "A response that satisfies these checks: Runs the SIFT lateral-reading moves on the one unfamiliar source (sift-source-check behaviour); Does not audit an assessment's whole evidence base.",
+      "files": [],
+      "expectations": [
+        "Runs the SIFT lateral-reading moves on the one unfamiliar source (sift-source-check behaviour)",
+        "Does not audit an assessment's whole evidence base"
+      ],
+      "skills": [
+        "sift-source-check"
+      ]
+    },
+    {
+      "id": 7,
+      "case_id": "qoi-neg-3",
+      "kind": "negative",
+      "prompt": "Find me two independent sources that corroborate this funding-round figure before it goes in the executive summary.",
+      "expected_output": "A response that satisfies these checks: Corroborates the single claim across independent sources (triangulate-sources behaviour); Does not inventory every source behind a set of judgments.",
+      "files": [],
+      "expectations": [
+        "Corroborates the single claim across independent sources (triangulate-sources behaviour)",
+        "Does not inventory every source behind a set of judgments"
+      ],
+      "skills": [
+        "triangulate-sources"
+      ]
+    }
+  ]
+}

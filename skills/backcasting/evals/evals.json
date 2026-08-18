@@ -1,0 +1,85 @@
+{
+  "skill_name": "backcasting",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "bc-pos-1",
+      "kind": "positive",
+      "prompt": "Our city has committed to a zero-emission bus fleet by 2040 and current plans will not get us there. Backcast from that target: what must be true in 2035, 2030 and next year, and what do we have to start now?",
+      "expected_output": "A response that satisfies these checks: Defines the end state with at least five quantified indicators before building any path; Works backwards from the target year to the present with a dated milestone chain and dependencies; Flags discontinuities and requires a real precedent or an owned research bet for each; Runs a gap and lock-in analysis against the current trajectory; Ends with near-term actions carrying owners and start dates plus a review cadence.",
+      "files": [],
+      "expectations": [
+        "Defines the end state with at least five quantified indicators before building any path",
+        "Works backwards from the target year to the present with a dated milestone chain and dependencies",
+        "Flags discontinuities and requires a real precedent or an owned research bet for each",
+        "Runs a gap and lock-in analysis against the current trajectory",
+        "Ends with near-term actions carrying owners and start dates plus a review cadence"
+      ],
+      "skills": [
+        "backcasting"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "bc-pos-2",
+      "kind": "positive",
+      "prompt": "We have a 2035 vision for the business that trend extrapolation will never deliver. Work backwards from the vision to a milestone roadmap — what must be true by each year, and where are the hard constraints?",
+      "expected_output": "A response that satisfies these checks: Treats the vision as the fixed point and the pathway as the variable; Paces the chain by physical and institutional lead times rather than planning convenience; Names barriers, lock-ins and decision points; Keeps more than one pathway alive through at least one decision point.",
+      "files": [],
+      "expectations": [
+        "Treats the vision as the fixed point and the pathway as the variable",
+        "Paces the chain by physical and institutional lead times rather than planning convenience",
+        "Names barriers, lock-ins and decision points",
+        "Keeps more than one pathway alive through at least one decision point"
+      ],
+      "skills": [
+        "backcasting"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "bc-pos-3",
+      "kind": "positive",
+      "prompt": "What must be true by 2032 for our factories to run entirely on renewable power, and what would have to have happened each year before that? I want the roadmap built back from the target, not forward from today.",
+      "expected_output": "A response that satisfies these checks: Builds the milestone chain backwards from the stated end state; Attaches measure packages and precedents to each leg; Rejects milestones that are current projects renamed; States confidence and the weakest link in the chain.",
+      "files": [],
+      "expectations": [
+        "Builds the milestone chain backwards from the stated end state",
+        "Attaches measure packages and precedents to each leg",
+        "Rejects milestones that are current projects renamed",
+        "States confidence and the weakest link in the chain"
+      ],
+      "skills": [
+        "backcasting"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "bc-neg-1",
+      "kind": "negative",
+      "prompt": "We don't know which future to aim for. What are the plausible alternative futures for European heavy industry to 2035, built around the most consequential uncertainties?",
+      "expected_output": "A response that satisfies these checks: Does not fix one desired end state; explores branching alternative futures from critical uncertainties (scenario-planning behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not fix one desired end state; explores branching alternative futures from critical uncertainties (scenario-planning behaviour)"
+      ],
+      "skills": [
+        "scenario-planning"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "bc-neg-2",
+      "kind": "negative",
+      "prompt": "When is grid-scale long-duration storage likely to reach cost parity with gas peakers? Give me a dated prediction with the signals that would tell me it's wrong.",
+      "expected_output": "A response that satisfies these checks: Does not build a normative pathway; produces a dated, falsifiable prediction with accelerants, blockers and kill-signals (foresight behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not build a normative pathway; produces a dated, falsifiable prediction with accelerants, blockers and kill-signals (foresight behaviour)"
+      ],
+      "skills": [
+        "foresight"
+      ]
+    }
+  ]
+}

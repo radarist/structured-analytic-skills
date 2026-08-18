@@ -1,0 +1,84 @@
+{
+  "skill_name": "pyramid-principle",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "pyramid-pos-1",
+      "kind": "positive",
+      "prompt": "Restructure this recommendation memo with the Minto pyramid — what is the governing thought, and are my supporting arguments MECE?",
+      "expected_output": "A response that satisfies these checks: States a one-sentence governing thought that is a point, not a topic; Groups about three supporting arguments and tests them for overlap and gaps; Places evidence under each argument; Reports the vertical and horizontal logic checks.",
+      "files": [],
+      "expectations": [
+        "States a one-sentence governing thought that is a point, not a topic",
+        "Groups about three supporting arguments and tests them for overlap and gaps",
+        "Places evidence under each argument",
+        "Reports the vertical and horizontal logic checks"
+      ],
+      "skills": [
+        "pyramid-principle"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "pyramid-pos-2",
+      "kind": "positive",
+      "prompt": "Every time I send this memo the executives say it rambles and they cannot tell what I am asking for until the last page. How should the argument be arranged so the point lands first?",
+      "expected_output": "A response that satisfies these checks: Moves the conclusion to the top and arranges support beneath it; Checks that each downward step answers 'why?' of the step above; Flags supporting reasons that overlap or leave a gap.",
+      "files": [],
+      "expectations": [
+        "Moves the conclusion to the top and arranges support beneath it",
+        "Checks that each downward step answers 'why?' of the step above",
+        "Flags supporting reasons that overlap or leave a gap"
+      ],
+      "skills": [
+        "pyramid-principle"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "pyramid-pos-3",
+      "kind": "positive",
+      "prompt": "We are writing a board deck arguing for consolidating our three CI systems. Help us structure the argument top-down so a skeptical reader can drill into whichever reason they doubt.",
+      "expected_output": "A response that satisfies these checks: Puts the recommendation at the apex and the reasons in a mutually exclusive, collectively exhaustive group; Orders the tier by a logic the reader can predict; Adds a Situation-Complication-Question opening only if the reader needs orienting.",
+      "files": [],
+      "expectations": [
+        "Puts the recommendation at the apex and the reasons in a mutually exclusive, collectively exhaustive group",
+        "Orders the tier by a logic the reader can predict",
+        "Adds a Situation-Complication-Question opening only if the reader needs orienting"
+      ],
+      "skills": [
+        "pyramid-principle"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "pyramid-neg-1",
+      "kind": "negative",
+      "prompt": "Give me a 1-pager on the payments outage for tomorrow's leadership meeting — SBAR format with a recommendation and an owner.",
+      "expected_output": "A response that satisfies these checks: Produces the four fixed SBAR sections with a single action, owner and confidence; Does not emit a pyramid of governing thought and supporting tiers.",
+      "files": [],
+      "expectations": [
+        "Produces the four fixed SBAR sections with a single action, owner and confidence",
+        "Does not emit a pyramid of governing thought and supporting tiers"
+      ],
+      "skills": [
+        "write-sbar-brief"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "pyramid-neg-2",
+      "kind": "negative",
+      "prompt": "Our headline conclusion is that the competitor cut prices out of distress. Attack it — what would a skeptical reviewer say against that claim?",
+      "expected_output": "A response that satisfies these checks: Runs an adversarial review naming attack vectors against the claim; Does not restructure the document into a top-down argument.",
+      "files": [],
+      "expectations": [
+        "Runs an adversarial review naming attack vectors against the claim",
+        "Does not restructure the document into a top-down argument"
+      ],
+      "skills": [
+        "red-team-claim"
+      ]
+    }
+  ]
+}

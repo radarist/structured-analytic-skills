@@ -1,0 +1,19 @@
+{
+  "quantity": "delivery schedule of Feature X (planned 9 months)",
+  "kind": "ratio",
+  "unit": "actual / planned duration",
+  "class": "internal ML/R&D features 2019-2025, >= 3 engineers, novel model component, planned >= 6 months (illustrative)",
+  "sources": ["PMO schedule log, 10 completed features (illustrative data for the worked example)"],
+  "outcomes": [
+    {"name": "Project Alder",    "value": 1.0, "source": "PMO schedule log (illustrative)"},
+    {"name": "Project Birch",    "value": 1.1, "source": "PMO schedule log (illustrative)"},
+    {"name": "Project Cedar",    "value": 1.2, "source": "PMO schedule log (illustrative)"},
+    {"name": "Project Dogwood",  "value": 1.3, "source": "PMO schedule log (illustrative)"},
+    {"name": "Project Elm",      "value": 1.5, "source": "PMO schedule log (illustrative)"},
+    {"name": "Project Fir",      "value": 1.6, "source": "PMO schedule log (illustrative)"},
+    {"name": "Project Ginkgo",   "value": 1.8, "source": "PMO schedule log (illustrative)"},
+    {"name": "Project Hazel",    "value": 2.0, "source": "PMO schedule log (illustrative)"},
+    {"name": "Project Ironwood", "value": 2.4, "source": "PMO schedule log (illustrative)"},
+    {"name": "Project Juniper",  "value": 3.0, "source": "PMO schedule log (illustrative)"}
+  ]
+}

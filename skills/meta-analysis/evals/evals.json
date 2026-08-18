@@ -1,0 +1,84 @@
+{
+  "skill_name": "meta-analysis",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "meta-pos-1",
+      "kind": "positive",
+      "prompt": "Run a meta-analysis on these six RCTs of a mindfulness programme for burnout — I have the SMD and standard error for each. Give me the pooled effect, fixed and random-effects, and tell me how heterogeneous they are.",
+      "expected_output": "A response that satisfies these checks: Computes both the fixed-effect and DerSimonian-Laird random-effects pooled estimates with 95% CIs (via scripts/metapool.py or equivalent arithmetic); Reports Cochran's Q, I² and tau² with an interpretation, and states which pooled estimate is the headline and why; Shows a forest table with each study's weight; Reports Egger's test but marks it not interpreted because k < 10.",
+      "files": [],
+      "expectations": [
+        "Computes both the fixed-effect and DerSimonian-Laird random-effects pooled estimates with 95% CIs (via scripts/metapool.py or equivalent arithmetic)",
+        "Reports Cochran's Q, I² and tau² with an interpretation, and states which pooled estimate is the headline and why",
+        "Shows a forest table with each study's weight",
+        "Reports Egger's test but marks it not interpreted because k < 10"
+      ],
+      "skills": [
+        "meta-analysis"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "meta-pos-2",
+      "kind": "positive",
+      "prompt": "Five papers measure the same effect and get different answers, from basically nothing to a big improvement. Is there a way to combine them into one overall effect size and say how much they actually disagree?",
+      "expected_output": "A response that satisfies these checks: Extracts each study's effect and SE (or CI) on a common scale before pooling; Pools the studies and quantifies disagreement with I² rather than reporting a single number alone; Runs a leave-one-out sensitivity check on the most heavily weighted study.",
+      "files": [],
+      "expectations": [
+        "Extracts each study's effect and SE (or CI) on a common scale before pooling",
+        "Pools the studies and quantifies disagreement with I² rather than reporting a single number alone",
+        "Runs a leave-one-out sensitivity check on the most heavily weighted study"
+      ],
+      "skills": [
+        "meta-analysis"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "meta-pos-3",
+      "kind": "positive",
+      "prompt": "Our systematic review is done and we have twelve comparable trials with odds ratios and confidence intervals. Pool the trial results and check for publication bias with a funnel-plot asymmetry test.",
+      "expected_output": "A response that satisfies these checks: Converts odds ratios to the log scale and derives SEs from the confidence intervals, recording the conversion; Reports fixed and random-effects pooled estimates plus heterogeneity statistics; Interprets Egger's test because k ≥ 10 and states the plausible cause of any asymmetry.",
+      "files": [],
+      "expectations": [
+        "Converts odds ratios to the log scale and derives SEs from the confidence intervals, recording the conversion",
+        "Reports fixed and random-effects pooled estimates plus heterogeneity statistics",
+        "Interprets Egger's test because k ≥ 10 and states the plausible cause of any asymmetry"
+      ],
+      "skills": [
+        "meta-analysis"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "meta-neg-1",
+      "kind": "negative",
+      "prompt": "Model A scored 87% and Model B scored 85% on the same benchmark with 500 test items each — is that difference statistically significant or just noise?",
+      "expected_output": "A response that satisfies these checks: Does not pool multiple studies; treats it as a single-comparison significance question; Reports a p-value / confidence interval / effect size for the one comparison (test-significance behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not pool multiple studies; treats it as a single-comparison significance question",
+        "Reports a p-value / confidence interval / effect size for the one comparison (test-significance behaviour)"
+      ],
+      "skills": [
+        "test-significance"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "meta-neg-2",
+      "kind": "negative",
+      "prompt": "What does the research literature say about remote work and productivity? I want a comprehensive, reproducible review with clear inclusion and exclusion criteria.",
+      "expected_output": "A response that satisfies these checks: Runs the PRISMA-style search, screening and eligibility flow rather than pooling effect sizes; Only hands off to meta-analysis once included studies are known to be quantitatively comparable.",
+      "files": [],
+      "expectations": [
+        "Runs the PRISMA-style search, screening and eligibility flow rather than pooling effect sizes",
+        "Only hands off to meta-analysis once included studies are known to be quantitatively comparable"
+      ],
+      "skills": [
+        "systematic-review"
+      ]
+    }
+  ]
+}

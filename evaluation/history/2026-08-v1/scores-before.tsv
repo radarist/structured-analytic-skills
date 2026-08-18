@@ -1,0 +1,78 @@
+file	scores	gaps
+skills/abstain-or-escalate/SKILL.md	2,1,2,2,2,1,1,1,0,2	no output-verification hook; vague "I-CALM 2025" citation (no author/venue/title)
+skills/analysis-of-competing-hypotheses/SKILL.md	2,2,2,1,2,2,1,2,2,0	no runnable matrix-scoring companion tool; no fill-in output template (emit spec is prose only)
+skills/analyze-patent-claims/SKILL.md	2,2,2,2,2,1,1,1,0,0	no runnable patent-parsing companion tool; no end-to-end worked example
+skills/analyze-release-notes/SKILL.md	2,2,2,2,2,1,1,1,0,0	no runnable release-notes parser tool; no end-to-end worked example
+skills/apply-hype-cycle/SKILL.md	2,2,2,2,2,1,1,1,2,2	no fully worked placement example; no methodology cross-links
+skills/assess-research-momentum/SKILL.md	2,1,2,2,2,2,1,1,1,0	no canonical bibliometrics citations; no companion tool for citation-velocity math
+skills/assess-study-bias/SKILL.md	2,2,2,2,2,1,1,0,2,2	no worked bias-assessment example; no methodology cross-links
+skills/bayesian-update/SKILL.md	2,2,2,2,2,2,1,1,2,0	no link to methodologies bayesian-evidence-updating; no full worked example
+skills/benchmark-model-claims/SKILL.md	2,1,2,2,2,2,1,1,2,0	RoB-2 lineage named but canonical citation missing; no worked audit example
+skills/brier-score-calibration/SKILL.md	2,2,2,2,2,2,1,1,2,0	no runnable tool for Brier/decomposition math; no fully worked scoring example or methodologies link
+skills/cheapest-experiment/SKILL.md	2,1,2,2,2,1,1,2,2,2	no canonical citation for Ries innovation accounting; skip-for lacks named sibling routing
+skills/chemistry-claim-check/SKILL.md	2,2,2,2,2,2,1,2,2,0	no runnable tool for DBE/MW arithmetic; no methodologies cross-link
+skills/cite-ieee/SKILL.md	2,2,2,2,2,1,1,1,2,2	no end-to-end worked example; skip boundary lacks sibling routing
+skills/claim-provenance/SKILL.md	2,1,2,2,2,1,1,2,2,2	no canonical citation for McGrath Discovery-Driven Planning; skip-for lacks named sibling routing
+skills/critique-report/SKILL.md	2,1,2,2,2,2,2,1,2,2	no canonical method citation (bespoke checklist); no fully worked critique example; leftover origin codebase paths
+skills/cynefin-classification/SKILL.md	2,1,2,2,2,2,2,2,2,2	no canonical citation (Snowden & Boone 2007); worked illustration generic
+skills/decompose-research-question/SKILL.md	2,2,2,2,2,2,2,2,2,2	5W+H pattern uncited (only Self-Ask sourced); worked example covers one question shape; dangling ref `five-forces`
+skills/delphi-method/SKILL.md	2,2,2,2,2,2,1,1,1,0	no link to methodologies/foresight/delphi-method.md; no runnable median/IQR aggregation tool
+skills/detect-funding-round/SKILL.md	2,1,2,2,2,1,1,2,2,0	no runnable parsing/amount-normalization tool; thin skip-for with no sibling routing
+skills/detect-ma-event/SKILL.md	2,1,2,2,2,2,1,2,2,0	no runnable parsing/premium-computation tool; no dedicated Pair-with section
+skills/estimate-market-size/SKILL.md	2,1,2,2,2,2,1,2,2,0	no runnable triangulation/Fermi tool; loose/unverifiable citations
+skills/evolution-stage/SKILL.md	2,1,2,2,2,2,1,2,2,2	no canonical Wardley citation; no methodologies counterpart link
+skills/five-forces-analysis/SKILL.md	2,2,2,2,2,2,1,1,0,2	worked example covers only Force 1 of 5; no verification hook
+skills/foresight/SKILL.md	2,0,2,2,2,2,1,1,1,2	no identifiable published method or citation; examples are fragments
+skills/grounded-answer/SKILL.md	2,2,2,1,2,1,1,1,2,2	no fenced output template; skip list has no sibling routing; leftover webSearch/firecrawl refs
+skills/grounded-fact-check/SKILL.md	2,2,2,1,2,1,1,2,2,2	no fill-in output template; boundaries lack named sibling routing
+skills/jtbd-framing/SKILL.md	2,1,2,2,2,2,1,2,2,2	Ulwick/Christensen named but no full citation; dangling ref `research-technology`
+skills/key-assumptions-check/SKILL.md	2,2,2,2,2,2,1,1,0,2	no worked example; no verification hook
+skills/oss-project-health/SKILL.md	2,1,2,2,2,2,2,0,1,2	no worked example with real data; no canonical CHAOSS citation; leftover `searchOssHealth` tool name
+skills/position-competitor/SKILL.md	2,2,2,2,2,2,2,1,2,2	example is two placements not a full map; pair-with links only inline
+skills/premortem-analysis/SKILL.md	2,2,2,2,2,2,2,1,2,2	no single complete worked premortem; references non-existent `postmortem` sibling
+skills/pyramid-principle/SKILL.md	2,2,2,2,2,2,2,1,2,2	no complete worked pyramid; reference lacks specific Minto edition/year
+skills/quantitative-sanity-check/SKILL.md	2,2,2,2,2,2,2,2,2,0	no runnable companion tool for the recomputations
+skills/rate-source-admiralty/SKILL.md	2,2,1,2,2,0,1,2,1,2	no when-NOT/skip-for boundaries; no numbered procedure
+skills/read-patent-landscape/SKILL.md	2,1,2,2,2,2,2,0,1,2	no worked example with real filings; no canonical method citation; dangling ref `research-technology`
+skills/red-team-claim/SKILL.md	2,2,2,2,2,2,1,2,2,2	no Pair-with section or methodologies link; no check that hedged rewrite resolves flagged vectors; leftover Creator-agent ref
+skills/scenario-planning/SKILL.md	2,2,2,2,2,2,1,2,2,2	methodologies/foresight/scenario-planning.md not linked; header says "five steps" but procedure has seven
+skills/score-technology-readiness/SKILL.md	2,2,2,2,2,2,1,1,2,2	worked example is placeholder-filled; cross-links embedded, no Pair-with/methodology link; leftover agent refs
+skills/sift-source-check/SKILL.md	2,2,2,2,2,2,1,1,2,2	no end-to-end worked SIFT check on a named source; no methodology counterpart link
+skills/smiles-sanity-check/SKILL.md	2,2,2,2,2,1,1,2,2,0	parsing task with no runnable checker script; no explicit skip-for list with sibling routing
+skills/steelman-argument/SKILL.md	2,2,2,2,2,2,1,1,2,2	no filled worked steelman of a named position; no methodology counterpart link
+skills/systematic-review/SKILL.md	2,2,2,2,2,2,1,1,2,0	meta-analysis stats (I2, pooling) with no companion tool; no worked example; dangling ref `web-research`
+skills/test-significance/SKILL.md	2,2,2,2,2,1,1,0,1,0	no worked numerical example; no companion stats tool
+skills/three-horizons/SKILL.md	2,1,2,2,2,2,1,1,2,2	partial citation (no book/year for Baghai/Coley/White); no link to methodologies/foresight/three-horizons.md
+skills/triangulate-sources/SKILL.md	2,2,2,2,2,1,1,2,1,2	skip-for lacks named sibling routing; no link to mixed-methods methodology
+skills/verify-citations/SKILL.md	2,2,2,2,2,2,1,2,1,0	no runnable validation tool; no verification hook; contradictory `resolve-citations` references
+skills/wardley-map-drafting/SKILL.md	2,2,2,2,2,2,1,1,1,2	worked example stops before a filled-in map; no methodology counterpart link
+skills/write-imrad-report/SKILL.md	2,1,2,1,2,2,1,1,1,2	no fenced output template; IMRAD-history citation misattributes author; dangling ref `generate-radar-report`
+skills/write-srl-brief/SKILL.md	2,1,2,2,2,2,1,2,2,2	garbled Leonard citation; leftover Curator/Strategist refs; confusing SRL naming
+methodologies/foresight/backcasting.md	2,2,2,2,2,1,2,2,2,2	S&L table only no commentary or failure cases; case outcomes unquantified
+methodologies/foresight/causal-layered-analysis.md	2,2,2,2,2,1,1,2,2,2	worked examples generic no named orgs; S&L table only
+methodologies/foresight/cross-impact-analysis.md	2,2,2,2,2,1,1,2,2,2	cases named (SNCF/EDF) but outcomes undocumented; S&L table only
+methodologies/foresight/delphi-method.md	2,2,2,2,2,1,2,1,2,2	skills/delphi-method counterpart not linked; S&L table only
+methodologies/foresight/futures-triangle.md	2,2,2,2,2,1,1,2,2,2	examples generic/anecdotal; S&L table only
+methodologies/foresight/futures-wheel.md	2,2,2,2,2,1,1,2,2,2	examples generic (unnamed teaching/corporate use); S&L table only
+methodologies/foresight/horizon-scanning.md	2,2,2,2,2,1,2,2,2,2	S&L table only; case outcomes thin (RAHS Shell)
+methodologies/foresight/scenario-planning.md	2,2,2,2,2,1,2,1,2,2	no link to skills/scenario-planning; S&L table only
+methodologies/foresight/steep-pestle-analysis.md	2,2,2,2,2,1,1,2,2,2	worked examples generic; S&L table only
+methodologies/foresight/technology-roadmapping.md	2,2,2,2,2,1,2,2,2,2	S&L table only; no elapsed-time guidance
+methodologies/foresight/three-horizons.md	2,2,2,2,2,1,1,1,2,2	worked examples unnamed/generic; no link to skills/three-horizons
+methodologies/foresight/trend-analysis.md	2,2,2,2,2,1,2,2,2,2	S&L table only; process steps lack participants/timeframes
+methodologies/research-methods/action-research.md	2,2,2,2,2,1,2,2,2,2	S&L table only; agent_suitability "Low–Medium" outside enum
+methodologies/research-methods/case-study-research.md	2,2,2,2,2,1,1,2,2,2	worked examples mostly generic; S&L table only
+methodologies/research-methods/design-science-research.md	2,2,2,2,2,2,1,2,2,2	worked examples generic; no S&L commentary paragraph
+methodologies/research-methods/ethnography.md	2,2,2,2,2,2,2,2,2,2	netnography process compressed; no S&L commentary paragraph
+methodologies/research-methods/experimental-design.md	2,2,2,2,2,2,2,2,2,2	no S&L commentary paragraph; variants are bare one-liners
+methodologies/research-methods/grounded-theory.md	2,2,2,2,2,2,2,2,2,2	no S&L commentary paragraph; minimal variant glosses
+methodologies/research-methods/meta-analysis.md	2,2,2,2,2,2,2,2,2,2	no S&L commentary paragraph; no numeric pooling illustration
+methodologies/research-methods/mixed-methods.md	2,2,2,2,2,2,1,2,2,2	worked examples generic; no S&L commentary paragraph
+methodologies/research-methods/survey-research.md	2,2,2,2,2,2,2,2,2,2	no S&L commentary paragraph; terse variants
+methodologies/research-methods/systematic-literature-review.md	2,2,2,2,2,1,2,1,2,2	no link to skills/systematic-review; S&L table only
+methodologies/scientific-methods/bayesian-evidence-updating.md	2,2,2,2,2,1,2,1,2,2	no links to skills/bayesian-update or brier-score-calibration; S&L table only
+methodologies/scientific-methods/evidence-appraisal.md	2,2,2,2,2,1,2,1,2,2	no link to skills/assess-study-bias; S&L table only
+methodologies/scientific-methods/hypothetico-deductive-method.md	2,2,2,2,2,1,2,1,2,2	no link to skills/analysis-of-competing-hypotheses; S&L table only
+methodologies/scientific-methods/induction-abduction-analogy.md	2,2,2,2,2,1,2,2,2,2	S&L table only; stray unpaired "2008" year in Origin & History
+methodologies/scientific-methods/reproducibility-open-science.md	2,2,2,2,2,1,2,2,2,2	S&L table only; process steps omit explicit timeframes
+methodologies/scientific-methods/scientific-method-cycle.md	2,2,2,2,2,1,2,2,2,2	S&L table only; process steps omit explicit timeframes

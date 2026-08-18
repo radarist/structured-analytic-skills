@@ -1,0 +1,10 @@
+{
+  "name": "structured-analytic-skills",
+  "description": "Structured analytic techniques as agent skills — ACH, Admiralty grading, GRADE, RoB 2, Delphi, scenario planning, Wardley mapping, TRL, Brier scoring, meta-analysis and more. Each skill implements a published method, cites it, and ships deterministic companion tools.",
+  "version": "1.0.0",
+  "author": { "name": "Claudio Babelis" },
+  "homepage": "https://github.com/radarist/structured-analytic-skills",
+  "repository": "https://github.com/radarist/structured-analytic-skills",
+  "license": "MIT",
+  "keywords": ["analysis", "intelligence-analysis", "foresight", "evidence-appraisal", "decision-support", "research-methods", "structured-analytic-techniques"]
+}

@@ -1,0 +1,101 @@
+{
+  "skill_name": "oss-project-health",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "oss-health-pos-1",
+      "kind": "positive",
+      "prompt": "Run an OSS project health check on pgvector/pgvector — bus factor, commit and release cadence, issue response time, open security advisories — and tell me whether it is healthy, at-risk or abandoned.",
+      "expected_output": "A response that satisfies these checks: Resolves the full owner/repo slug and gathers a snapshot over a stated window; Computes the CHAOSS Contributor Absence Factor (bus factor) from commits by author, excluding bots; Reads cadence, responsiveness and advisories with the stated thresholds and calls exactly one verdict; Names the single biggest risk and writes 'data not found' for any null field; Keeps the Ecosyste.ms CC-BY-SA attribution when its numbers are quoted.",
+      "files": [],
+      "expectations": [
+        "Resolves the full owner/repo slug and gathers a snapshot over a stated window",
+        "Computes the CHAOSS Contributor Absence Factor (bus factor) from commits by author, excluding bots",
+        "Reads cadence, responsiveness and advisories with the stated thresholds and calls exactly one verdict",
+        "Names the single biggest risk and writes 'data not found' for any null field",
+        "Keeps the Ecosyste.ms CC-BY-SA attribution when its numbers are quoted"
+      ],
+      "skills": [
+        "oss-project-health"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "oss-health-pos-2",
+      "kind": "positive",
+      "prompt": "The last commit on this GitHub repo was eight months ago and one maintainer wrote almost all the code. Is this project dying, or is it just a finished library — should we keep depending on it?",
+      "expected_output": "A response that satisfies these checks: Distinguishes a stable, feature-complete library from an abandoned one using releases and issue responsiveness, not commit count alone; Reports the bus factor as fragile when one author holds most commits; Does not call 'abandoned' unless commit, release and issue-response stalls all exceed their bars; States confidence from data completeness.",
+      "files": [],
+      "expectations": [
+        "Distinguishes a stable, feature-complete library from an abandoned one using releases and issue responsiveness, not commit count alone",
+        "Reports the bus factor as fragile when one author holds most commits",
+        "Does not call 'abandoned' unless commit, release and issue-response stalls all exceed their bars",
+        "States confidence from data completeness"
+      ],
+      "skills": [
+        "oss-project-health"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "oss-health-pos-3",
+      "kind": "positive",
+      "prompt": "We are choosing between two open-source vector databases for production. Which repository is better maintained — contributor spread, release rhythm, unpatched vulnerabilities — before we bet on it?",
+      "expected_output": "A response that satisfies these checks: Runs the vitality read per repository rather than comparing star counts; Reads contributor concentration, release frequency and open advisories for each; Presents a verdict per repository with the biggest risk, using the output template.",
+      "files": [],
+      "expectations": [
+        "Runs the vitality read per repository rather than comparing star counts",
+        "Reads contributor concentration, release frequency and open advisories for each",
+        "Presents a verdict per repository with the biggest risk, using the output template"
+      ],
+      "skills": [
+        "oss-project-health"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "oss-health-neg-1",
+      "kind": "negative",
+      "prompt": "Is retrieval-augmented generation overhyped right now, or are we already past the peak of inflated expectations and into the trough?",
+      "expected_output": "A response that satisfies these checks: Does not compute repository health metrics; Places the technology on the Gartner Hype Cycle from market indicators (apply-hype-cycle behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not compute repository health metrics",
+        "Places the technology on the Gartner Hype Cycle from market indicators (apply-hype-cycle behaviour)"
+      ],
+      "skills": [
+        "apply-hype-cycle"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "oss-health-neg-2",
+      "kind": "negative",
+      "prompt": "LangChain just published the release notes for 0.3.0 — parse the breaking changes and deprecations I need to migrate for.",
+      "expected_output": "A response that satisfies these checks: Parses the single release note into breaking changes, deprecations and features (analyze-release-notes behaviour); Does not issue a healthy / at-risk / abandoned verdict for the project.",
+      "files": [],
+      "expectations": [
+        "Parses the single release note into breaking changes, deprecations and features (analyze-release-notes behaviour)",
+        "Does not issue a healthy / at-risk / abandoned verdict for the project"
+      ],
+      "skills": [
+        "analyze-release-notes"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "oss-health-neg-3",
+      "kind": "negative",
+      "prompt": "What TRL is this quantum error-correction toolkit — is it proven at scale and production-grade, or still a lab prototype?",
+      "expected_output": "A response that satisfies these checks: Assigns a NASA TRL level from deployment evidence (score-technology-readiness behaviour); Does not read repository bus factor or commit cadence.",
+      "files": [],
+      "expectations": [
+        "Assigns a NASA TRL level from deployment evidence (score-technology-readiness behaviour)",
+        "Does not read repository bus factor or commit cadence"
+      ],
+      "skills": [
+        "score-technology-readiness"
+      ]
+    }
+  ]
+}

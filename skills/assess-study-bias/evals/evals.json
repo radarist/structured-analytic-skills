@@ -1,0 +1,84 @@
+{
+  "skill_name": "assess-study-bias",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "rob2-pos-1",
+      "kind": "positive",
+      "prompt": "Run RoB 2 on this randomised trial before I cite it — I want the risk of bias per domain and an overall judgement, with the evidence for each answer.",
+      "expected_output": "A response that satisfies these checks: Names the specific result assessed and states that the effect of interest is assignment to intervention (ITT); Answers the signalling questions Y/PY/PN/N/NI with page or section citations; Derives each of the five domain judgements from the RoB 2 algorithm, not from an impression; Applies the overall rule: any High domain makes the overall judgement High.",
+      "files": [],
+      "expectations": [
+        "Names the specific result assessed and states that the effect of interest is assignment to intervention (ITT)",
+        "Answers the signalling questions Y/PY/PN/N/NI with page or section citations",
+        "Derives each of the five domain judgements from the RoB 2 algorithm, not from an impression",
+        "Applies the overall rule: any High domain makes the overall judgement High"
+      ],
+      "skills": [
+        "assess-study-bias"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "rob2-pos-2",
+      "kind": "positive",
+      "prompt": "This randomised trial reports a big effect, but 22% of the treatment arm dropped out versus 4% of controls and the headline outcome is not the one in the registry. Assess the risk of bias in the trial and tell me how much that undermines the result.",
+      "expected_output": "A response that satisfies these checks: Maps differential attrition to the missing-outcome-data domain and outcome switching to selection of the reported result; Judges the affected domains High and therefore the overall judgement High; States what the study can still support (hypothesis-generating) and what it cannot.",
+      "files": [],
+      "expectations": [
+        "Maps differential attrition to the missing-outcome-data domain and outcome switching to selection of the reported result",
+        "Judges the affected domains High and therefore the overall judgement High",
+        "States what the study can still support (hypothesis-generating) and what it cannot"
+      ],
+      "skills": [
+        "assess-study-bias"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "rob2-pos-3",
+      "kind": "positive",
+      "prompt": "Is this randomised controlled trial trustworthy enough to base a recommendation on? Assess its methodological weaknesses domain by domain and tell me what a replication would need to do differently.",
+      "expected_output": "A response that satisfies these checks: Applies the five Cochrane RoB 2 domains rather than an ad-hoc quality checklist; Produces per-domain judgements of Low risk / Some concerns / High risk with supporting evidence; Ends with a follow-up section naming what a stronger replication must change.",
+      "files": [],
+      "expectations": [
+        "Applies the five Cochrane RoB 2 domains rather than an ad-hoc quality checklist",
+        "Produces per-domain judgements of Low risk / Some concerns / High risk with supporting evidence",
+        "Ends with a follow-up section naming what a stronger replication must change"
+      ],
+      "skills": [
+        "assess-study-bias"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "rob2-neg-1",
+      "kind": "negative",
+      "prompt": "Across the whole literature, how certain are we that this intervention works? GRADE the body of evidence for each outcome and give me a summary of findings.",
+      "expected_output": "A response that satisfies these checks: Rates certainty across the whole body of evidence per outcome with GRADE domains; Does not produce a single-study risk-of-bias table (evidence-appraisal behaviour).",
+      "files": [],
+      "expectations": [
+        "Rates certainty across the whole body of evidence per outcome with GRADE domains",
+        "Does not produce a single-study risk-of-bias table (evidence-appraisal behaviour)"
+      ],
+      "skills": [
+        "evidence-appraisal"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "rob2-neg-2",
+      "kind": "negative",
+      "prompt": "A vendor claims their model scores 91.2% on GSM8K and beats GPT-4o. Audit that claim for contamination, baseline pinning, seed variance and cherry-picked metrics.",
+      "expected_output": "A response that satisfies these checks: Audits the benchmark-specific integrity domains and emits a reliability score with risk tags; Does not apply Cochrane RoB 2 domains to a leaderboard claim (benchmark-model-claims behaviour).",
+      "files": [],
+      "expectations": [
+        "Audits the benchmark-specific integrity domains and emits a reliability score with risk tags",
+        "Does not apply Cochrane RoB 2 domains to a leaderboard claim (benchmark-model-claims behaviour)"
+      ],
+      "skills": [
+        "benchmark-model-claims"
+      ]
+    }
+  ]
+}

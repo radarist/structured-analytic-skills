@@ -1,0 +1,100 @@
+{
+  "skill_name": "delphi-method",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "delphi-pos-1",
+      "kind": "positive",
+      "prompt": "Run a Delphi study with a panel of experts on the year fault-tolerant quantum computing reaches commercial advantage — rounds, median, IQR, and the dissenting view.",
+      "expected_output": "A response that satisfies these checks: Scopes the question to a single scalar with an explicit event definition; Elicits round 1 independently, then feeds back the median and IQR anonymously; Stops on stability rather than unanimity and states the stopping reason; Reports the median with the Q1-Q3 band and preserves the dissenting rationale.",
+      "files": [],
+      "expectations": [
+        "Scopes the question to a single scalar with an explicit event definition",
+        "Elicits round 1 independently, then feeds back the median and IQR anonymously",
+        "Stops on stability rather than unanimity and states the stopping reason",
+        "Reports the median with the Q1-Q3 band and preserves the dissenting rationale"
+      ],
+      "skills": [
+        "delphi-method"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "delphi-pos-2",
+      "kind": "positive",
+      "prompt": "Five senior engineers each give a different date for when our robotaxi service breaks even, and the loudest voice wins every meeting. Is there a structured way to get an anonymous group estimate with the spread of expert opinion?",
+      "expected_output": "A response that satisfies these checks: Diagnoses deference bias and prescribes anonymous, independent elicitation; Runs iterated rounds with controlled feedback of the group distribution; Reports the spread rather than only a single number.",
+      "files": [],
+      "expectations": [
+        "Diagnoses deference bias and prescribes anonymous, independent elicitation",
+        "Runs iterated rounds with controlled feedback of the group distribution",
+        "Reports the spread rather than only a single number"
+      ],
+      "skills": [
+        "delphi-method"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "delphi-pos-3",
+      "kind": "positive",
+      "prompt": "We need a consensus forecast from external experts on when EU regulators will approve this therapy class, and we can't get them in a room. What method gives us a defensible aggregated estimate with the spread of opinion?",
+      "expected_output": "A response that satisfies these checks: Defines panel size and heterogeneity, including at least one skeptic; Never weights answers by self-rated expertise; Distinguishes consensus from a persistent split and refuses to average a bimodal panel.",
+      "files": [],
+      "expectations": [
+        "Defines panel size and heterogeneity, including at least one skeptic",
+        "Never weights answers by self-rated expertise",
+        "Distinguishes consensus from a persistent split and refuses to average a bimodal panel"
+      ],
+      "skills": [
+        "delphi-method"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "delphi-pos-4",
+      "kind": "positive",
+      "prompt": "Aggregate these round-two panel estimates: compute the median, interquartile range, and tell me whether the panel has stabilised or needs another round.",
+      "expected_output": "A response that satisfies these checks: Computes median, Q1, Q3 and flags estimates outside the IQR with their rationales; Applies the 15% stability level to decide STABLE versus MOVING; Uses the companion script scripts/delphi.py rather than mental arithmetic.",
+      "files": [],
+      "expectations": [
+        "Computes median, Q1, Q3 and flags estimates outside the IQR with their rationales",
+        "Applies the 15% stability level to decide STABLE versus MOVING",
+        "Uses the companion script scripts/delphi.py rather than mental arithmetic"
+      ],
+      "skills": [
+        "delphi-method"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "delphi-neg-1",
+      "kind": "negative",
+      "prompt": "When will on-device inference overtake cloud APIs for enterprise summarization? Give me a dated prediction with accelerants, blockers and kill-signals.",
+      "expected_output": "A response that satisfies these checks: Produces one dated prediction with a confidence and kill-signals; Does not convene or simulate an expert panel.",
+      "files": [],
+      "expectations": [
+        "Produces one dated prediction with a confidence and kill-signals",
+        "Does not convene or simulate an expert panel"
+      ],
+      "skills": [
+        "foresight"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "delphi-neg-2",
+      "kind": "negative",
+      "prompt": "My last 30 forecasts have resolved — compute my Brier score and tell me if I was overconfident.",
+      "expected_output": "A response that satisfies these checks: Scores resolved forecasts and decomposes calibration versus resolution; Does not run elicitation rounds.",
+      "files": [],
+      "expectations": [
+        "Scores resolved forecasts and decomposes calibration versus resolution",
+        "Does not run elicitation rounds"
+      ],
+      "skills": [
+        "brier-score-calibration"
+      ]
+    }
+  ]
+}

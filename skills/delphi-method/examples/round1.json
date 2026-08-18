@@ -1,0 +1,16 @@
+{
+  "question": "Year in which a fault-tolerant quantum computer first demonstrates commercial advantage on a logistics-optimization workload",
+  "round": 1,
+  "items": {
+    "fault-tolerant advantage year": [
+      {"panelist": "E1", "estimate": 2031, "rationale": "error-correction overhead falling faster than roadmaps assume"},
+      {"panelist": "E2", "estimate": 2033, "rationale": "steady qubit scaling, no new physics needed"},
+      {"panelist": "E3", "estimate": 2035, "rationale": "midpoint of published vendor roadmaps"},
+      {"panelist": "E4", "estimate": 2035, "rationale": "logistics workloads need modest depth; gate fidelity is the gate"},
+      {"panelist": "E5", "estimate": 2036, "rationale": "classical heuristics keep improving, raising the bar"},
+      {"panelist": "E6", "estimate": 2038, "rationale": "cryogenic control electronics are the unpriced bottleneck"},
+      {"panelist": "E7", "estimate": 2042, "rationale": "materials yield has slipped every roadmap since 2019"},
+      {"panelist": "E8", "estimate": 2055, "rationale": "no credible path to logical-qubit counts at this cost"}
+    ]
+  }
+}

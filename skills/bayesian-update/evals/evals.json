@@ -1,0 +1,84 @@
+{
+  "skill_name": "bayesian-update",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "bayes-pos-1",
+      "kind": "positive",
+      "prompt": "Run a Bayesian update for me: my prior that the supplier misses the deadline is 10%, and I have just learned they hired a new operations lead. What's the posterior probability?",
+      "expected_output": "A response that satisfies these checks: States the hypothesis so its negation is unambiguous and names the reference class behind the prior; Estimates both P(E|H) and P(E|not H) with reasoning and derives the Bayes factor; Computes posterior odds and probability in odds form and reports both the relative shift and the absolute posterior; Runs a sensitivity sweep and names the most load-bearing input.",
+      "files": [],
+      "expectations": [
+        "States the hypothesis so its negation is unambiguous and names the reference class behind the prior",
+        "Estimates both P(E|H) and P(E|not H) with reasoning and derives the Bayes factor",
+        "Computes posterior odds and probability in odds form and reports both the relative shift and the absolute posterior",
+        "Runs a sensitivity sweep and names the most load-bearing input"
+      ],
+      "skills": [
+        "bayesian-update"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "bayes-pos-2",
+      "kind": "positive",
+      "prompt": "A screening test came back positive and it is advertised as 99% accurate, but the condition is rare. Update my prior: how much should that single positive result actually move the probability, given the base rate?",
+      "expected_output": "A response that satisfies these checks: Anchors the prior on the base rate rather than the test's headline accuracy; Separates sensitivity from the false-positive rate to get a Bayes factor; Reports the absolute posterior alongside the relative shift, showing the result is far from certainty.",
+      "files": [],
+      "expectations": [
+        "Anchors the prior on the base rate rather than the test's headline accuracy",
+        "Separates sensitivity from the false-positive rate to get a Bayes factor",
+        "Reports the absolute posterior alongside the relative shift, showing the result is far from certainty"
+      ],
+      "skills": [
+        "bayesian-update"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "bayes-pos-3",
+      "kind": "positive",
+      "prompt": "I put the odds of this deal closing this quarter at about one in five. Their CFO just posted about needing headcount. How much should that evidence shift my estimate, and is the conclusion robust to my prior?",
+      "expected_output": "A response that satisfies these checks: Converts the stated probability to odds and multiplies by a justified Bayes factor; Notes that evidence roughly as likely under the alternative moves the belief very little; Sweeps the prior and the Bayes factor and states whether the decision is robust or fragile.",
+      "files": [],
+      "expectations": [
+        "Converts the stated probability to odds and multiplies by a justified Bayes factor",
+        "Notes that evidence roughly as likely under the alternative moves the belief very little",
+        "Sweeps the prior and the Bayes factor and states whether the decision is robust or fragile"
+      ],
+      "skills": [
+        "bayesian-update"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "bayes-neg-1",
+      "kind": "negative",
+      "prompt": "Our adoption stalled last quarter and there are at least three explanations — a slower sales cycle, a competitor launch, or budget freezes. Work out which explanation the evidence actually supports before I brief the board.",
+      "expected_output": "A response that satisfies these checks: Enumerates the rival hypotheses and grades evidence against each in a matrix; Ranks by fewest inconsistencies rather than computing a single posterior (ACH behaviour).",
+      "files": [],
+      "expectations": [
+        "Enumerates the rival hypotheses and grades evidence against each in a matrix",
+        "Ranks by fewest inconsistencies rather than computing a single posterior (ACH behaviour)"
+      ],
+      "skills": [
+        "analysis-of-competing-hypotheses"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "bayes-neg-2",
+      "kind": "negative",
+      "prompt": "All forty of last year's predictions have now resolved. How accurate were they, and was I overconfident at the high end?",
+      "expected_output": "A response that satisfies these checks: Scores the resolved set with the Brier score and decomposes it into reliability and resolution; Does not revise a single belief on new evidence (brier-score-calibration behaviour).",
+      "files": [],
+      "expectations": [
+        "Scores the resolved set with the Brier score and decomposes it into reliability and resolution",
+        "Does not revise a single belief on new evidence (brier-score-calibration behaviour)"
+      ],
+      "skills": [
+        "brier-score-calibration"
+      ]
+    }
+  ]
+}

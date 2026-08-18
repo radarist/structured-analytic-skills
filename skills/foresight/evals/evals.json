@@ -1,0 +1,116 @@
+{
+  "skill_name": "foresight",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "fore-pos-1",
+      "kind": "positive",
+      "prompt": "Run the foresight skill on this: when will open-weight models match GPT-4-class quality on consumer hardware? I want a dated prediction with kill-signals.",
+      "expected_output": "A response that satisfies these checks: States one prediction with an absolute date and a numeric confidence; Lists three accelerants and three blockers, each with a lead time in months; Commits to three specific kill-signals that would force a retraction; Sets a review date and says what to look for on it.",
+      "files": [],
+      "expectations": [
+        "States one prediction with an absolute date and a numeric confidence",
+        "Lists three accelerants and three blockers, each with a lead time in months",
+        "Commits to three specific kill-signals that would force a retraction",
+        "Sets a review date and says what to look for on it"
+      ],
+      "skills": [
+        "foresight"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "fore-pos-2",
+      "kind": "positive",
+      "prompt": "Our brief claims solid-state batteries will 'soon' reach mass-market EVs. Turn that into a dated, falsifiable milestone and tell me what to watch and what would make us retract it.",
+      "expected_output": "A response that satisfies these checks: Replaces 'soon' with an absolute date and a confidence in the 0.5-0.9 band; Names weak signals with the source where each would be observed; Refuses to publish a confidence below 0.5 as a prediction.",
+      "files": [],
+      "expectations": [
+        "Replaces 'soon' with an absolute date and a confidence in the 0.5-0.9 band",
+        "Names weak signals with the source where each would be observed",
+        "Refuses to publish a confidence below 0.5 as a prediction"
+      ],
+      "skills": [
+        "foresight"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 3,
+      "case_id": "fore-pos-3",
+      "kind": "positive",
+      "prompt": "We're deciding whether to wait or commit on on-device LLM inference for our enterprise product. Is this accelerating or stalling, and by what date would it become the default?",
+      "expected_output": "A response that satisfies these checks: Frames the timing question as a single dated trajectory rather than branching scenarios; Gives lead times so the watchlist can time the wait-or-commit decision; Marks a 0.5-0.7 confidence as directional.",
+      "files": [],
+      "expectations": [
+        "Frames the timing question as a single dated trajectory rather than branching scenarios",
+        "Gives lead times so the watchlist can time the wait-or-commit decision",
+        "Marks a 0.5-0.7 confidence as directional"
+      ],
+      "skills": [
+        "foresight"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "fore-pos-4",
+      "kind": "positive",
+      "prompt": "By what date will 50% of new enterprise laptops ship with an NPU? Give me accelerants, blockers and a review date.",
+      "expected_output": "A response that satisfies these checks: Emits the fenced prediction block with all mandatory labels; Keeps every accelerant and blocker observable and dated; Notes that the prediction should be scored after it resolves.",
+      "files": [],
+      "expectations": [
+        "Emits the fenced prediction block with all mandatory labels",
+        "Keeps every accelerant and blocker observable and dated",
+        "Notes that the prediction should be scored after it resolves"
+      ],
+      "skills": [
+        "foresight"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "fore-neg-1",
+      "kind": "negative",
+      "prompt": "Sketch four plausible futures for European energy markets in 2035 as a 2x2 scenario matrix.",
+      "expected_output": "A response that satisfies these checks: Builds a 2x2 of branching futures from two critical uncertainties; Does not collapse the question into one dated prediction.",
+      "files": [],
+      "expectations": [
+        "Builds a 2x2 of branching futures from two critical uncertainties",
+        "Does not collapse the question into one dated prediction"
+      ],
+      "skills": [
+        "scenario-planning"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "fore-neg-2",
+      "kind": "negative",
+      "prompt": "Set up a continuous horizon scan for weak signals in synthetic biology — sources, scanning charter, issue radar.",
+      "expected_output": "A response that satisfies these checks: Designs a standing scanning process with sources and a fringe quota; Produces a prioritized watchlist rather than a single dated forecast.",
+      "files": [],
+      "expectations": [
+        "Designs a standing scanning process with sources and a fringe quota",
+        "Produces a prioritized watchlist rather than a single dated forecast"
+      ],
+      "skills": [
+        "horizon-scanning"
+      ]
+    },
+    {
+      "id": 7,
+      "case_id": "fore-neg-3",
+      "kind": "negative",
+      "prompt": "Score how accurate my last 40 probability forecasts were and tell me whether I was overconfident.",
+      "expected_output": "A response that satisfies these checks: Computes a Brier score and decomposes calibration versus discrimination; Does not produce a new prediction.",
+      "files": [],
+      "expectations": [
+        "Computes a Brier score and decomposes calibration versus discrimination",
+        "Does not produce a new prediction"
+      ],
+      "skills": [
+        "brier-score-calibration"
+      ]
+    }
+  ]
+}

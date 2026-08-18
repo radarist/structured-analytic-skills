@@ -1,0 +1,86 @@
+{
+  "skill_name": "critique-report",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "critique-pos-1",
+      "kind": "positive",
+      "prompt": "Critique this report before I send it to the exec team — the draft is finished, I just want to know what a reviewer would catch first.",
+      "expected_output": "A response that satisfies these checks: Reviews the complete draft and records its type and intended reader; Assigns pass / fix / block to each of the ten base points with a rationale citing the section; Marks the conditional points N/A with a reason where their conditions do not fire; Returns a verdict that follows mechanically from the statuses; Gives every non-passing point a located fix and the condition under which it would pass.",
+      "files": [],
+      "expectations": [
+        "Reviews the complete draft and records its type and intended reader",
+        "Assigns pass / fix / block to each of the ten base points with a rationale citing the section",
+        "Marks the conditional points N/A with a reason where their conditions do not fire",
+        "Returns a verdict that follows mechanically from the statuses",
+        "Gives every non-passing point a located fix and the condition under which it would pass"
+      ],
+      "skills": [
+        "critique-report"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 2,
+      "case_id": "critique-pos-2",
+      "kind": "positive",
+      "prompt": "The brief is drafted and unsent. Is it ready to publish? I'm worried it has no limitations section and the confidence sounds higher than the evidence supports.",
+      "expected_output": "A response that satisfies these checks: Checks whether limitations are stated and whether stated confidence matches the evidence grade; Flags unsourced load-bearing claims and undefensible numbers; Produces a publish verdict of approve, revise or block.",
+      "files": [],
+      "expectations": [
+        "Checks whether limitations are stated and whether stated confidence matches the evidence grade",
+        "Flags unsourced load-bearing claims and undefensible numbers",
+        "Produces a publish verdict of approve, revise or block"
+      ],
+      "skills": [
+        "critique-report"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "critique-pos-3",
+      "kind": "positive",
+      "prompt": "Run a structured self-review over my whole 12-page draft: does it actually answer the question that was asked, is the method reproducible, has counter-evidence been engaged, and are the next steps owned and dated?",
+      "expected_output": "A response that satisfies these checks: Walks the fixed point list rather than commenting impressionistically; Names the strongest disconfirming evidence the draft failed to engage; Requires owner and date on the recommended next actions.",
+      "files": [],
+      "expectations": [
+        "Walks the fixed point list rather than commenting impressionistically",
+        "Names the strongest disconfirming evidence the draft failed to engage",
+        "Requires owner and date on the recommended next actions"
+      ],
+      "skills": [
+        "critique-report"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "critique-neg-1",
+      "kind": "negative",
+      "prompt": "Just take our single headline conclusion and attack it the way a hostile competitor's analyst would — definitions, baselines, counter-examples.",
+      "expected_output": "A response that satisfies these checks: Attacks one claim along the named vectors and returns a survival score and verdict; Does not audit the whole document's structure, sourcing and next actions.",
+      "files": [],
+      "expectations": [
+        "Attacks one claim along the named vectors and returns a survival score and verdict",
+        "Does not audit the whole document's structure, sourcing and next actions"
+      ],
+      "skills": [
+        "red-team-claim"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "critique-neg-2",
+      "kind": "negative",
+      "prompt": "Check that every DOI, arXiv ID and URL in the reference list is well formed and resolves before this goes out.",
+      "expected_output": "A response that satisfies these checks: Validates citation identifiers against their canonical formats and flags broken ones; Does not run a document-wide pass/fix/block review.",
+      "files": [],
+      "expectations": [
+        "Validates citation identifiers against their canonical formats and flags broken ones",
+        "Does not run a document-wide pass/fix/block review"
+      ],
+      "skills": [
+        "verify-citations"
+      ]
+    }
+  ]
+}

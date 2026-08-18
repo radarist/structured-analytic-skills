@@ -1,0 +1,84 @@
+{
+  "skill_name": "apply-hype-cycle",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "hype-pos-1",
+      "kind": "positive",
+      "prompt": "Where is agentic AI on the hype cycle right now — still at the peak of inflated expectations, or already sliding into the trough of disillusionment? Derive it from evidence rather than quoting a chart.",
+      "expected_output": "A response that satisfies these checks: Narrows the subject to one discontinuous technology with a scope boundary; Counts sourced indicators per phase and places the technology on the phase with the most confirmations; Names the phase in the published wording; Reports a time-to-plateau range and a stall risk rather than a point estimate.",
+      "files": [],
+      "expectations": [
+        "Narrows the subject to one discontinuous technology with a scope boundary",
+        "Counts sourced indicators per phase and places the technology on the phase with the most confirmations",
+        "Names the phase in the published wording",
+        "Reports a time-to-plateau range and a stall risk rather than a point estimate"
+      ],
+      "skills": [
+        "apply-hype-cycle"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "hype-pos-2",
+      "kind": "positive",
+      "prompt": "Everyone at the conference was talking about digital twins like they change everything, but the deployments I hear about keep quietly dying. Is this overhyped, and how many years until it is boring infrastructure?",
+      "expected_output": "A response that satisfies these checks: Treats the gap between press enthusiasm and failed deployments as phase evidence; Requires a citation for each counted indicator; Estimates years to the plateau of productivity as a range with a reason for its width.",
+      "files": [],
+      "expectations": [
+        "Treats the gap between press enthusiasm and failed deployments as phase evidence",
+        "Requires a citation for each counted indicator",
+        "Estimates years to the plateau of productivity as a range with a reason for its width"
+      ],
+      "skills": [
+        "apply-hype-cycle"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "hype-pos-3",
+      "kind": "positive",
+      "prompt": "Apply the Gartner hype cycle to homomorphic encryption for us and tell me what would move the placement.",
+      "expected_output": "A response that satisfies these checks: Works through the five phases and reports per-phase indicator counts; Calibrates the timing against a named peer technology, including one that stalled; States the specific indicator shifts that would re-place the technology.",
+      "files": [],
+      "expectations": [
+        "Works through the five phases and reports per-phase indicator counts",
+        "Calibrates the timing against a named peer technology, including one that stalled",
+        "States the specific indicator shifts that would re-place the technology"
+      ],
+      "skills": [
+        "apply-hype-cycle"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "hype-neg-1",
+      "kind": "negative",
+      "prompt": "What technology readiness level has this satellite propulsion system actually reached? The vendor claims it is qualified but I want the evidence for each level.",
+      "expected_output": "A response that satisfies these checks: Scores the cumulative nine-level readiness scale against evidence per level; Does not place the technology on a hype curve.",
+      "files": [],
+      "expectations": [
+        "Scores the cumulative nine-level readiness scale against evidence per level",
+        "Does not place the technology on a hype curve"
+      ],
+      "skills": [
+        "score-technology-readiness"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "hype-neg-2",
+      "kind": "negative",
+      "prompt": "Give me one dated, falsifiable prediction about when autonomous freight trucking reaches commercial scale, with the signals that would kill the prediction.",
+      "expected_output": "A response that satisfies these checks: Produces a single dated prediction with accelerants, blockers and kill-signals; Does not produce a phase placement on a maturity curve.",
+      "files": [],
+      "expectations": [
+        "Produces a single dated prediction with accelerants, blockers and kill-signals",
+        "Does not produce a phase placement on a maturity curve"
+      ],
+      "skills": [
+        "foresight"
+      ]
+    }
+  ]
+}

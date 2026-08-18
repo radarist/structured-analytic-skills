@@ -1,0 +1,84 @@
+{
+  "skill_name": "rate-source-admiralty",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "admiralty-pos-1",
+      "kind": "positive",
+      "prompt": "Give this source an Admiralty rating: a Reuters report that the company closed a $3.5B round, not yet confirmed by any filing. What is its A1–F6 grade?",
+      "expected_output": "A response that satisfies these checks: Grades reliability (A–F) from the originator's track record and credibility (1–6) from the item's corroboration separately; Returns a combined code such as B2 with a one-sentence rationale tying each half to observable facts; Does not collapse the pair into a single number or percentage; Names Reuters as the originator, not the page where it was found.",
+      "files": [],
+      "expectations": [
+        "Grades reliability (A–F) from the originator's track record and credibility (1–6) from the item's corroboration separately",
+        "Returns a combined code such as B2 with a one-sentence rationale tying each half to observable facts",
+        "Does not collapse the pair into a single number or percentage",
+        "Names Reuters as the originator, not the page where it was found"
+      ],
+      "skills": [
+        "rate-source-admiralty"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "admiralty-pos-2",
+      "kind": "positive",
+      "prompt": "How reliable is this outlet? I keep seeing this trade blog cited in our reports and I want a defensible grade on the source before we cite it again.",
+      "expected_output": "A response that satisfies these checks: Identifies the actual originator and its editorial track record before assigning a letter; Assigns a letter and a digit, or F/6 with the gap named if the record is unknown; Emits the JSON record with combined grade and rationale.",
+      "files": [],
+      "expectations": [
+        "Identifies the actual originator and its editorial track record before assigning a letter",
+        "Assigns a letter and a digit, or F/6 with the gap named if the record is unknown",
+        "Emits the JSON record with combined grade and rationale"
+      ],
+      "skills": [
+        "rate-source-admiralty"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "admiralty-pos-3",
+      "kind": "positive",
+      "prompt": "Grade both of these conflicting sources on the Admiralty scale — reliability letter and credibility digit each — so the record shows which one carries more weight.",
+      "expected_output": "A response that satisfies these checks: Grades each source on both axes independently; Explains the weighting via the letter and digit rather than a gut preference; Suggests triangulate-sources or abstain-or-escalate if the conflict cannot be resolved by grading alone.",
+      "files": [],
+      "expectations": [
+        "Grades each source on both axes independently",
+        "Explains the weighting via the letter and digit rather than a gut preference",
+        "Suggests triangulate-sources or abstain-or-escalate if the conflict cannot be resolved by grading alone"
+      ],
+      "skills": [
+        "rate-source-admiralty"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "admiralty-neg-1",
+      "kind": "negative",
+      "prompt": "Do these five articles give independent confirmation of the funding figure, or do they all trace back to one press release? Corroborate it before it goes in the summary.",
+      "expected_output": "A response that satisfies these checks: Runs the independence and corroboration test across several sources rather than grading one source; Flags sources that re-report the same primary as not independent.",
+      "files": [],
+      "expectations": [
+        "Runs the independence and corroboration test across several sources rather than grading one source",
+        "Flags sources that re-report the same primary as not independent"
+      ],
+      "skills": [
+        "triangulate-sources"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "admiralty-neg-2",
+      "kind": "negative",
+      "prompt": "Is this website legit? Someone sent me a link to a site I have never heard of — run a SIFT check on it before I read any further.",
+      "expected_output": "A response that satisfies these checks: Performs the lateral SIFT moves on the unfamiliar site rather than assigning an Admiralty grade; Returns a trusted / usable with caveat / unconfirmed / refuted verdict.",
+      "files": [],
+      "expectations": [
+        "Performs the lateral SIFT moves on the unfamiliar site rather than assigning an Admiralty grade",
+        "Returns a trusted / usable with caveat / unconfirmed / refuted verdict"
+      ],
+      "skills": [
+        "sift-source-check"
+      ]
+    }
+  ]
+}

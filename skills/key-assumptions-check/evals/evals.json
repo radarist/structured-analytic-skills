@@ -1,0 +1,85 @@
+{
+  "skill_name": "key-assumptions-check",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "kac-pos-1",
+      "kind": "positive",
+      "prompt": "Run a key assumptions check on our conclusion that we should replatform to multi-region this year — I want the premises it leans on written down and challenged before we commit budget.",
+      "expected_output": "A response that satisfies these checks: States the conclusion under audit in one sentence; Lists implicit, boundary and absence-of-evidence premises, not just the stated ones; Categorises each premise as basically solid, correct with caveats, or unsupported/questionable; Converts unsupported load-bearing premises into named key uncertainties with dispositions; Runs a sensitivity sweep and adjusts the stated confidence.",
+      "files": [],
+      "expectations": [
+        "States the conclusion under audit in one sentence",
+        "Lists implicit, boundary and absence-of-evidence premises, not just the stated ones",
+        "Categorises each premise as basically solid, correct with caveats, or unsupported/questionable",
+        "Converts unsupported load-bearing premises into named key uncertainties with dispositions",
+        "Runs a sensitivity sweep and adjusts the stated confidence"
+      ],
+      "skills": [
+        "key-assumptions-check"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "kac-pos-2",
+      "kind": "positive",
+      "prompt": "This recommendation has been treated as settled for months and nobody has written down what it's actually assuming. What would have to be true for it to hold?",
+      "expected_output": "A response that satisfies these checks: Excavates the unstated premises behind the settled recommendation; Challenges each premise (why must it be true, what would undermine it, was it truer in the past); Names which premises, if wrong, would change the conclusion.",
+      "files": [],
+      "expectations": [
+        "Excavates the unstated premises behind the settled recommendation",
+        "Challenges each premise (why must it be true, what would undermine it, was it truer in the past)",
+        "Names which premises, if wrong, would change the conclusion"
+      ],
+      "skills": [
+        "key-assumptions-check"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "kac-pos-3",
+      "kind": "positive",
+      "prompt": "Our forecast quietly assumes the market keeps growing and that our two data sources are independent. Stress-test the reasoning and tell me which of those premises are actually supported.",
+      "expected_output": "A response that satisfies these checks: Rates each premise for sensitivity and grounding; Flags weakly grounded, high-sensitivity premises as key uncertainties rather than accepting consensus as grounding; Gives each key uncertainty a disposition: re-source, test, bound the conclusion, or flag with lowered confidence.",
+      "files": [],
+      "expectations": [
+        "Rates each premise for sensitivity and grounding",
+        "Flags weakly grounded, high-sensitivity premises as key uncertainties rather than accepting consensus as grounding",
+        "Gives each key uncertainty a disposition: re-source, test, bound the conclusion, or flag with lowered confidence"
+      ],
+      "skills": [
+        "key-assumptions-check"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "kac-neg-1",
+      "kind": "negative",
+      "prompt": "Imagine it's twelve months from now and this product launch has failed badly. Work backwards and tell me every way it could have gone wrong, with mitigations.",
+      "expected_output": "A response that satisfies these checks: Imagines the future failure and enumerates failure modes with likelihoods and mitigations; Does not audit the present premises of a stated conclusion.",
+      "files": [],
+      "expectations": [
+        "Imagines the future failure and enumerates failure modes with likelihoods and mitigations",
+        "Does not audit the present premises of a stated conclusion"
+      ],
+      "skills": [
+        "premortem-analysis"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "kac-neg-2",
+      "kind": "negative",
+      "prompt": "There are three plausible explanations for the sudden drop in signups and I need to know which one the evidence best supports before I brief anyone.",
+      "expected_output": "A response that satisfies these checks: Enumerates rival hypotheses and scores evidence against each; Ranks by fewest inconsistencies rather than auditing one conclusion's premises.",
+      "files": [],
+      "expectations": [
+        "Enumerates rival hypotheses and scores evidence against each",
+        "Ranks by fewest inconsistencies rather than auditing one conclusion's premises"
+      ],
+      "skills": [
+        "analysis-of-competing-hypotheses"
+      ]
+    }
+  ]
+}

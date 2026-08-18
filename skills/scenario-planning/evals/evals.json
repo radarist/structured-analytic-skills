@@ -1,0 +1,85 @@
+{
+  "skill_name": "scenario-planning",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "scenario-pos-1",
+      "kind": "positive",
+      "prompt": "Do a scenario planning exercise for the European grid-storage market out to 2032 — build the 2x2 scenarios on the two biggest uncertainties and tell us which of our investments hold up across all of them.",
+      "expected_output": "A response that satisfies these checks: Frames the focal question, decision-maker and horizon before listing forces; Separates predetermined elements from critical uncertainties and picks two independent, bipolar axes; Produces four named scenarios each with a vignette, leading indicators and an implication; Treats the four scenarios as equally plausible and assigns no probabilities or 'most likely' labels; Ends with robust moves, scenario-specific options and a monitoring plan.",
+      "files": [],
+      "expectations": [
+        "Frames the focal question, decision-maker and horizon before listing forces",
+        "Separates predetermined elements from critical uncertainties and picks two independent, bipolar axes",
+        "Produces four named scenarios each with a vignette, leading indicators and an implication",
+        "Treats the four scenarios as equally plausible and assigns no probabilities or 'most likely' labels",
+        "Ends with robust moves, scenario-specific options and a monitoring plan"
+      ],
+      "skills": [
+        "scenario-planning"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "scenario-pos-2",
+      "kind": "positive",
+      "prompt": "Our strategy deck has one forecast for enterprise AI procurement in 2030 plus a page of caveats, and the board keeps asking 'but what if that's wrong?'. Give us a few plausible alternative futures for the sector instead of one number.",
+      "expected_output": "A response that satisfies these checks: Recognises single-forecast false precision and builds a divergent scenario set rather than another forecast; Uses two critical uncertainties as axes and checks they are independent; Wind-tunnels the current strategy against every scenario and names the assumption only one scenario supports.",
+      "files": [],
+      "expectations": [
+        "Recognises single-forecast false precision and builds a divergent scenario set rather than another forecast",
+        "Uses two critical uncertainties as axes and checks they are independent",
+        "Wind-tunnels the current strategy against every scenario and names the assumption only one scenario supports"
+      ],
+      "skills": [
+        "scenario-planning"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "scenario-pos-3",
+      "kind": "positive",
+      "prompt": "We are deciding whether to spend €40M over the next four years on an in-house claims automation platform. What are the plausible futures for automated decision-making in insurance by 2030, and which moves are robust across them?",
+      "expected_output": "A response that satisfies these checks: Ties the scenarios to the €40M focal decision and a stated horizon; Builds four scenarios from two independent axes with names, indicators and implications; Reports robust moves, options and a monitoring plan; states scenarios carry no probabilities.",
+      "files": [],
+      "expectations": [
+        "Ties the scenarios to the €40M focal decision and a stated horizon",
+        "Builds four scenarios from two independent axes with names, indicators and implications",
+        "Reports robust moves, options and a monitoring plan; states scenarios carry no probabilities"
+      ],
+      "skills": [
+        "scenario-planning"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "scenario-neg-1",
+      "kind": "negative",
+      "prompt": "When will solid-state batteries reach mass-market EVs? Give me a dated prediction with the accelerants, blockers and the kill-signals that would prove it wrong.",
+      "expected_output": "A response that satisfies these checks: Produces one dated, falsifiable prediction (foresight) rather than a 2x2 scenario set; Does not build four alternative futures.",
+      "files": [],
+      "expectations": [
+        "Produces one dated, falsifiable prediction (foresight) rather than a 2x2 scenario set",
+        "Does not build four alternative futures"
+      ],
+      "skills": [
+        "foresight"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "scenario-neg-2",
+      "kind": "negative",
+      "prompt": "Run a STEEP / PESTLE analysis of the macro-environment for offshore wind in Southeast Asia — inventory the social, technological, economic, environmental and political factors and rate them.",
+      "expected_output": "A response that satisfies these checks: Delivers the rated macro-factor inventory (STEEP/PESTLE) rather than four scenario narratives; May note that the inventory could feed a later scenario exercise but does not run one.",
+      "files": [],
+      "expectations": [
+        "Delivers the rated macro-factor inventory (STEEP/PESTLE) rather than four scenario narratives",
+        "May note that the inventory could feed a later scenario exercise but does not run one"
+      ],
+      "skills": [
+        "steep-pestle-analysis"
+      ]
+    }
+  ]
+}

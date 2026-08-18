@@ -1,0 +1,100 @@
+{
+  "skill_name": "expected-value-decision-tree",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "evdt-pos-1",
+      "kind": "positive",
+      "prompt": "Should we run the $2M pilot before committing $20M to full development? Build the decision tree with expected values for commit-now, do-nothing and pilot-first, and tell me what the pilot's information is actually worth.",
+      "expected_output": "A response that satisfies these checks: Frames the options including do nothing / wait and the staged pilot-then-decide branch; Lays out chance nodes with probabilities that sum to 1 and payoffs on one basis (NPV), stating the risk attitude; Rolls the tree back to an EV per option and names the optimal policy including the contingent choice after each pilot result; Computes EVPI and the EVSI of the pilot against its cost with an explicit run/skip verdict (EVSI <= EVPI); Reports the risk profile of the recommendation and the switching point, and hands the pilot design to cheapest-experiment.",
+      "files": [],
+      "expectations": [
+        "Frames the options including do nothing / wait and the staged pilot-then-decide branch",
+        "Lays out chance nodes with probabilities that sum to 1 and payoffs on one basis (NPV), stating the risk attitude",
+        "Rolls the tree back to an EV per option and names the optimal policy including the contingent choice after each pilot result",
+        "Computes EVPI and the EVSI of the pilot against its cost with an explicit run/skip verdict (EVSI <= EVPI)",
+        "Reports the risk profile of the recommendation and the switching point, and hands the pilot design to cheapest-experiment"
+      ],
+      "skills": [
+        "expected-value-decision-tree"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "evdt-pos-2",
+      "kind": "positive",
+      "prompt": "Compute the expected value of perfect information for this go/no-go: p(success) 0.4, payoff $60M if it works, $5M if not, $20M to build. Is a market study worth paying for?",
+      "expected_output": "A response that satisfies these checks: Rolls back the go/no-go to its EV and identifies the best option without information; Computes EVPI = EV with perfect information minus best EV and reports it as the ceiling on any study's value; Explains that a study is worth buying only if its EVSI exceeds its cost and shows the arithmetic, ideally with scripts/dtree.py.",
+      "files": [],
+      "expectations": [
+        "Rolls back the go/no-go to its EV and identifies the best option without information",
+        "Computes EVPI = EV with perfect information minus best EV and reports it as the ceiling on any study's value",
+        "Explains that a study is worth buying only if its EVSI exceeds its cost and shows the arithmetic, ideally with scripts/dtree.py"
+      ],
+      "skills": [
+        "expected-value-decision-tree"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "evdt-pos-3",
+      "kind": "positive",
+      "prompt": "Which uncertainty is my launch decision most sensitive to? I have a decision tree with probabilities and payoffs and want a tornado ranking plus the switching probability where the recommendation flips.",
+      "expected_output": "A response that satisfies these checks: Runs one-way sensitivity on every probability and payoff and ranks inputs by swing (tornado); Reports the switching point at which the optimal branch changes; Says which inputs deserve estimation effort or a test before the commitment.",
+      "files": [],
+      "expectations": [
+        "Runs one-way sensitivity on every probability and payoff and ranks inputs by swing (tornado)",
+        "Reports the switching point at which the optimal branch changes",
+        "Says which inputs deserve estimation effort or a test before the commitment"
+      ],
+      "skills": [
+        "expected-value-decision-tree"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "evdt-pos-4",
+      "kind": "positive",
+      "prompt": "Roll back this decision tree and give me the expected value of each option, the optimal policy and the value of information for the pilot.",
+      "expected_output": "A response that satisfies these checks: Rolls back chance nodes by probability-weighted average and decision nodes by best branch; Names the optimal policy including contingent choices; Reports EVPI/EVSI and the recommendation with its assumptions.",
+      "files": [],
+      "expectations": [
+        "Rolls back chance nodes by probability-weighted average and decision nodes by best branch",
+        "Names the optimal policy including contingent choices",
+        "Reports EVPI/EVSI and the recommendation with its assumptions"
+      ],
+      "skills": [
+        "expected-value-decision-tree"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "evdt-neg-1",
+      "kind": "negative",
+      "prompt": "We have decided to recommend piloting the vendor's tool. Design the smallest test that would validate that recommendation — scope, cost and duration, and an explicit pass/fail decision rule.",
+      "expected_output": "A response that satisfies these checks: Does not build a decision tree or compute expected values; Names the smallest bounded test, its cost and duration, and a pass/fail rule (cheapest-experiment behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not build a decision tree or compute expected values",
+        "Names the smallest bounded test, its cost and duration, and a pass/fail rule (cheapest-experiment behaviour)"
+      ],
+      "skills": [
+        "cheapest-experiment"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "evdt-neg-2",
+      "kind": "negative",
+      "prompt": "I currently believe there is a 30% chance the supplier misses the deadline; a new report says their factory is running at 70% capacity. Update my probability given this evidence.",
+      "expected_output": "A response that satisfies these checks: Performs a single Bayes-factor update of one belief rather than laying out options, payoffs and a rolled-back tree.",
+      "files": [],
+      "expectations": [
+        "Performs a single Bayes-factor update of one belief rather than laying out options, payoffs and a rolled-back tree"
+      ],
+      "skills": [
+        "bayesian-update"
+      ]
+    }
+  ]
+}

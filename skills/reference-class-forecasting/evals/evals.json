@@ -1,0 +1,84 @@
+{
+  "skill_name": "reference-class-forecasting",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "rcf-pos-1",
+      "kind": "positive",
+      "prompt": "Our team estimates the data-platform migration will take 9 months. Before it goes on the roadmap, sanity-check that with an outside view — what does a reference class of similar migration projects say about how long these actually take?",
+      "expected_output": "A response that satisfies these checks: Defines the forecast quantity and unit (schedule in months, or actual/planned ratio) and records the inside view as stated; Proposes 2-3 candidate reference classes and justifies the choice on the similarity vs sample-size trade-off; Assembles the class's outcome distribution with sources and n, reporting P10/P50/P80/P90 rather than the mean; Positions the 9-month estimate as a percentile of the class and interprets it; Computes the uplift to a target percentile (P50/P80) and adjusts only with specific, evidenced reasons; Reports base rate, percentile, uplift and residual inside-view adjustment with rationale using the output template.",
+      "files": [],
+      "expectations": [
+        "Defines the forecast quantity and unit (schedule in months, or actual/planned ratio) and records the inside view as stated",
+        "Proposes 2-3 candidate reference classes and justifies the choice on the similarity vs sample-size trade-off",
+        "Assembles the class's outcome distribution with sources and n, reporting P10/P50/P80/P90 rather than the mean",
+        "Positions the 9-month estimate as a percentile of the class and interprets it",
+        "Computes the uplift to a target percentile (P50/P80) and adjusts only with specific, evidenced reasons",
+        "Reports base rate, percentile, uplift and residual inside-view adjustment with rationale using the output template"
+      ],
+      "skills": [
+        "reference-class-forecasting"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "rcf-pos-2",
+      "kind": "positive",
+      "prompt": "What's the base rate for enterprise software rollouts finishing within their original budget? I want the outside view before I trust the internal estimate of $2.4M.",
+      "expected_output": "A response that satisfies these checks: Treats the question as a reference-class exercise: names the class of comparable rollouts and its outcome distribution (cost-overrun ratios), with sources and n; Locates the $2.4M inside estimate as a percentile of the class rather than accepting or rejecting it outright; States the uplift required to reach a P50 or P80 forecast and flags any small-n caveat.",
+      "files": [],
+      "expectations": [
+        "Treats the question as a reference-class exercise: names the class of comparable rollouts and its outcome distribution (cost-overrun ratios), with sources and n",
+        "Locates the $2.4M inside estimate as a percentile of the class rather than accepting or rejecting it outright",
+        "States the uplift required to reach a P50 or P80 forecast and flags any small-n caveat"
+      ],
+      "skills": [
+        "reference-class-forecasting"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "rcf-pos-3",
+      "kind": "positive",
+      "prompt": "Apply reference class forecasting to this R&D budget: the inside-view estimate is EUR 1.2M and here are cost-overrun ratios from 12 comparable programmes.",
+      "expected_output": "A response that satisfies these checks: Runs the procedure: quantity and unit, class description with n = 12, distribution percentiles (type-7 quantiles via the companion tool), position of the inside view, uplift to the target percentile; Adjusts the class-based forecast only for specific, evidenced differences and states the adjustment multiplier; Uses the output template and reports the final P50/P80 forecast in EUR.",
+      "files": [],
+      "expectations": [
+        "Runs the procedure: quantity and unit, class description with n = 12, distribution percentiles (type-7 quantiles via the companion tool), position of the inside view, uplift to the target percentile",
+        "Adjusts the class-based forecast only for specific, evidenced differences and states the adjustment multiplier",
+        "Uses the output template and reports the final P50/P80 forecast in EUR"
+      ],
+      "skills": [
+        "reference-class-forecasting"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "rcf-neg-1",
+      "kind": "negative",
+      "prompt": "I currently put 40% on the vendor shipping on time; their latest status report says the beta slipped two weeks. Update my probability given this new evidence.",
+      "expected_output": "A response that satisfies these checks: Performs a Bayes-factor update of a single belief (prior, likelihood ratio, posterior) rather than assembling a reference class distribution.",
+      "files": [],
+      "expectations": [
+        "Performs a Bayes-factor update of a single belief (prior, likelihood ratio, posterior) rather than assembling a reference class distribution"
+      ],
+      "skills": [
+        "bayesian-update"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "rcf-neg-2",
+      "kind": "negative",
+      "prompt": "How big is the total addressable market for LLM observability tools? Give me TAM, SAM and SOM for a Series A pitch.",
+      "expected_output": "A response that satisfies these checks: Sizes the market with top-down and bottom-up triangulation (estimate-market-size behaviour) instead of positioning an estimate in a reference class of past projects.",
+      "files": [],
+      "expectations": [
+        "Sizes the market with top-down and bottom-up triangulation (estimate-market-size behaviour) instead of positioning an estimate in a reference class of past projects"
+      ],
+      "skills": [
+        "estimate-market-size"
+      ]
+    }
+  ]
+}

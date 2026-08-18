@@ -1,0 +1,85 @@
+{
+  "skill_name": "red-team-claim",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "redteam-pos-1",
+      "kind": "positive",
+      "prompt": "Red team this claim before it goes in the executive summary: 'our accelerator is 30% faster, so we'll lead the enterprise inference segment by 2027'. Attack it as hard as a hostile reviewer would.",
+      "expected_output": "A response that satisfies these checks: Walks all seven attack vectors and names the specific attack on each, including vectors where no attack lands; Grades severity and computes a survival score out of 7; Returns a verdict of ship, hedge, rewrite or retract; Supplies the exact replacement wording when the verdict is hedge or rewrite.",
+      "files": [],
+      "expectations": [
+        "Walks all seven attack vectors and names the specific attack on each, including vectors where no attack lands",
+        "Grades severity and computes a survival score out of 7",
+        "Returns a verdict of ship, hedge, rewrite or retract",
+        "Supplies the exact replacement wording when the verdict is hedge or rewrite"
+      ],
+      "skills": [
+        "red-team-claim"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 2,
+      "case_id": "redteam-pos-2",
+      "kind": "positive",
+      "prompt": "What would a skeptical reviewer say about our headline takeaway? I want the holes poked in it now rather than by the board on Thursday.",
+      "expected_output": "A response that satisfies these checks: Attacks the claim as written rather than a charitable paraphrase; Names at least one concrete counter-example or records that a search found none; Flags undefined terms and missing baselines rather than general worries.",
+      "files": [],
+      "expectations": [
+        "Attacks the claim as written rather than a charitable paraphrase",
+        "Names at least one concrete counter-example or records that a search found none",
+        "Flags undefined terms and missing baselines rather than general worries"
+      ],
+      "skills": [
+        "red-team-claim"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "redteam-pos-3",
+      "kind": "positive",
+      "prompt": "This conclusion is about to propagate into three other decks. Stress-test the takeaway adversarially and tell me whether to ship it, hedge it or pull it.",
+      "expected_output": "A response that satisfies these checks: Produces the vector-by-vector table with severities; Gives an explicit verdict tied to the survival score; Lists any attacks still open at ship time so they become stated limitations.",
+      "files": [],
+      "expectations": [
+        "Produces the vector-by-vector table with severities",
+        "Gives an explicit verdict tied to the survival score",
+        "Lists any attacks still open at ship time so they become stated limitations"
+      ],
+      "skills": [
+        "red-team-claim"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "redteam-neg-1",
+      "kind": "negative",
+      "prompt": "The whole 12-page brief is drafted. Review it end to end before it ships — sourcing, limitations, whether it answers the question that was asked, and whether the next steps are actionable.",
+      "expected_output": "A response that satisfies these checks: Runs the whole-document review rather than attacking a single claim; Returns a per-point status table with a publish verdict and specific fixes.",
+      "files": [],
+      "expectations": [
+        "Runs the whole-document review rather than attacking a single claim",
+        "Returns a per-point status table with a publish verdict and specific fixes"
+      ],
+      "skills": [
+        "critique-report"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "redteam-neg-2",
+      "kind": "negative",
+      "prompt": "Before I write my rebuttal, help me put the opposing position in its strongest and most charitable form — the version its actual proponents would endorse.",
+      "expected_output": "A response that satisfies these checks: Reconstructs the opposing case in its own terms rather than attacking it; Applies an endorsement test rather than producing a survival score.",
+      "files": [],
+      "expectations": [
+        "Reconstructs the opposing case in its own terms rather than attacking it",
+        "Applies an endorsement test rather than producing a survival score"
+      ],
+      "skills": [
+        "steelman-argument"
+      ]
+    }
+  ]
+}

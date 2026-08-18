@@ -1,0 +1,88 @@
+{
+  "skill_name": "analyze-release-notes",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "relnotes-pos-1",
+      "kind": "positive",
+      "prompt": "Here are the release notes for v2.0.0 — parse out the breaking changes, deprecations and any CVEs, and tell me how risky the upgrade is.",
+      "expected_output": "A response that satisfies these checks: Identifies the version, prior version and the SemVer bump; Tags each entry as breaking change, deprecation, feature, fix or security fix; Quotes breaking changes and deprecations verbatim with any migration path; Separates CVE/GHSA advisories from the bug-fix count; Rates impact high for a major bump or any breaking change.",
+      "files": [],
+      "expectations": [
+        "Identifies the version, prior version and the SemVer bump",
+        "Tags each entry as breaking change, deprecation, feature, fix or security fix",
+        "Quotes breaking changes and deprecations verbatim with any migration path",
+        "Separates CVE/GHSA advisories from the bug-fix count",
+        "Rates impact high for a major bump or any breaking change"
+      ],
+      "skills": [
+        "analyze-release-notes"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "relnotes-pos-2",
+      "kind": "positive",
+      "prompt": "We are pinned to 1.9.3 and the maintainers just tagged 2.0.0. What actually changed since our version, and will anything break when we upgrade?",
+      "expected_output": "A response that satisfies these checks: Compares the two versions and computes the bump rather than trusting the announcement's wording; Lists what changed by category since the pinned version; Flags removals and renames as backwards-incompatible; States the removal horizon for any deprecation.",
+      "files": [],
+      "expectations": [
+        "Compares the two versions and computes the bump rather than trusting the announcement's wording",
+        "Lists what changed by category since the pinned version",
+        "Flags removals and renames as backwards-incompatible",
+        "States the removal horizon for any deprecation"
+      ],
+      "skills": [
+        "analyze-release-notes"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "relnotes-pos-3",
+      "kind": "positive",
+      "prompt": "This changelog entry is labelled a patch release but it mentions dropping Python 3.8 and renaming a public method. Is the version number honest?",
+      "expected_output": "A response that satisfies these checks: Checks the version number's compatibility claim against the entries; Flags breaking changes shipped without a major bump; Treats 0.y.z and 0.x to 1.0.0 cases as informational per SemVer; Names which versioning convention the project appears to follow.",
+      "files": [],
+      "expectations": [
+        "Checks the version number's compatibility claim against the entries",
+        "Flags breaking changes shipped without a major bump",
+        "Treats 0.y.z and 0.x to 1.0.0 cases as informational per SemVer",
+        "Names which versioning convention the project appears to follow"
+      ],
+      "skills": [
+        "analyze-release-notes"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 4,
+      "case_id": "relnotes-neg-1",
+      "kind": "negative",
+      "prompt": "Is this GitHub repo abandoned? One maintainer writes nearly every commit and nothing has been released in over a year — what is the bus factor?",
+      "expected_output": "A response that satisfies these checks: Reads contributor concentration, cadence and responsiveness across the repository (oss-project-health behaviour); Does not parse an individual release note into categories.",
+      "files": [],
+      "expectations": [
+        "Reads contributor concentration, cadence and responsiveness across the repository (oss-project-health behaviour)",
+        "Does not parse an individual release note into categories"
+      ],
+      "skills": [
+        "oss-project-health"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "relnotes-neg-2",
+      "kind": "negative",
+      "prompt": "Vectorly announced it closed a $45M Series B led by Northline Capital to accelerate its database roadmap.",
+      "expected_output": "A response that satisfies these checks: Extracts round stage, amount, lead investor and date (detect-funding-round behaviour); Does not compute a version bump or list breaking changes.",
+      "files": [],
+      "expectations": [
+        "Extracts round stage, amount, lead investor and date (detect-funding-round behaviour)",
+        "Does not compute a version bump or list breaking changes"
+      ],
+      "skills": [
+        "detect-funding-round"
+      ]
+    }
+  ]
+}

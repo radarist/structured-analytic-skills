@@ -1,0 +1,85 @@
+{
+  "skill_name": "evolution-stage",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "evo-pos-1",
+      "kind": "positive",
+      "prompt": "This vendor calls its offering a product, but every customer I've spoken to spent four months tuning it. What evolution stage is it really at, and what does that mean for how we should run the project?",
+      "expected_output": "A response that satisfies these checks: Places the component in one Wardley evolution stage with a named label; Anchors the placement in observable evidence such as integration time or reference-customer count; States the way of working the stage implies; Flags the mismatch between the vendor's product framing and bespoke integration.",
+      "files": [],
+      "expectations": [
+        "Places the component in one Wardley evolution stage with a named label",
+        "Anchors the placement in observable evidence such as integration time or reference-customer count",
+        "States the way of working the stage implies",
+        "Flags the mismatch between the vendor's product framing and bespoke integration"
+      ],
+      "skills": [
+        "evolution-stage"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "evo-pos-2",
+      "kind": "positive",
+      "prompt": "Half of these tools are bespoke one-offs and half are off-the-shelf utilities, but our brief compares them all the same way. Tag each technology with where it sits in its lifecycle so the comparison stops being apples to oranges.",
+      "expected_output": "A response that satisfies these checks: Assigns exactly one evolution stage per named component; Notes that components at different stages need different ways of working; Recommends utility treatment for commodity components and time-boxed experiments for novel ones.",
+      "files": [],
+      "expectations": [
+        "Assigns exactly one evolution stage per named component",
+        "Notes that components at different stages need different ways of working",
+        "Recommends utility treatment for commodity components and time-boxed experiments for novel ones"
+      ],
+      "skills": [
+        "evolution-stage"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 3,
+      "case_id": "evo-pos-3",
+      "kind": "positive",
+      "prompt": "Is this capability genesis, custom built, product or commodity? Give me the Wardley evolution stage with a rationale I can defend to the architecture board.",
+      "expected_output": "A response that satisfies these checks: Uses the four Wardley stage labels; Gives a one-line rationale citing something countable or checkable; Marks the placement as an estimate when only vendor self-positioning supports it.",
+      "files": [],
+      "expectations": [
+        "Uses the four Wardley stage labels",
+        "Gives a one-line rationale citing something countable or checkable",
+        "Marks the placement as an estimate when only vendor self-positioning supports it"
+      ],
+      "skills": [
+        "evolution-stage"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "evo-neg-1",
+      "kind": "negative",
+      "prompt": "Map our whole value chain from the end-user need down through every supporting component so I can see the dependencies and where to focus.",
+      "expected_output": "A response that satisfies these checks: Anchors on the user need and lays out a full value chain with dependencies; Does not stop at scoring a single component.",
+      "files": [],
+      "expectations": [
+        "Anchors on the user need and lays out a full value chain with dependencies",
+        "Does not stop at scoring a single component"
+      ],
+      "skills": [
+        "wardley-map-drafting"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "evo-neg-2",
+      "kind": "negative",
+      "prompt": "How much deployment evidence exists for this inference accelerator? I need the readiness level with the proof at each level before we commit.",
+      "expected_output": "A response that satisfies these checks: Assesses maturity against a cumulative evidence-gated readiness scale; Does not assign a build-buy-rent strategic stage.",
+      "files": [],
+      "expectations": [
+        "Assesses maturity against a cumulative evidence-gated readiness scale",
+        "Does not assign a build-buy-rent strategic stage"
+      ],
+      "skills": [
+        "score-technology-readiness"
+      ]
+    }
+  ]
+}

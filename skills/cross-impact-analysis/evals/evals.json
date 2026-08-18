@@ -1,0 +1,85 @@
+{
+  "skill_name": "cross-impact-analysis",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "ci-pos-1",
+      "kind": "positive",
+      "prompt": "We have twelve drivers for the European hydrogen market and they clearly interact. Build a cross-impact matrix and tell me which of these drivers actually drive the system and which are just indicators.",
+      "expected_output": "A response that satisfies these checks: Restates each driver as an operational, falsifiable event before rating; Rates each ordered pair separately rather than assuming symmetry, with rationales for strong ratings; Computes influence and dependence totals with the companion script rather than by hand; Classifies items into determinants, relays, dependents and excluded; Flags asymmetric pairs and names the cells whose flip would change the classification.",
+      "files": [],
+      "expectations": [
+        "Restates each driver as an operational, falsifiable event before rating",
+        "Rates each ordered pair separately rather than assuming symmetry, with rationales for strong ratings",
+        "Computes influence and dependence totals with the companion script rather than by hand",
+        "Classifies items into determinants, relays, dependents and excluded",
+        "Flags asymmetric pairs and names the cells whose flip would change the classification"
+      ],
+      "skills": [
+        "cross-impact-analysis"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "ci-pos-2",
+      "kind": "positive",
+      "prompt": "Run MICMAC on these ten risk variables and give me the influence/dependence map — I want to know where to act and what to just monitor.",
+      "expected_output": "A response that satisfies these checks: Builds the N x N matrix and computes row and column totals in code; Produces influence and dependence rankings plus the four-quadrant classification; Reports classifications and ranges rather than decimal authority; Includes a sensitivity note on load-bearing cells.",
+      "files": [],
+      "expectations": [
+        "Builds the N x N matrix and computes row and column totals in code",
+        "Produces influence and dependence rankings plus the four-quadrant classification",
+        "Reports classifications and ranges rather than decimal authority",
+        "Includes a sensitivity note on load-bearing cells"
+      ],
+      "skills": [
+        "cross-impact-analysis"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "ci-pos-3",
+      "kind": "positive",
+      "prompt": "If a carbon price of $100 a tonne arrives, does grid storage cost falling 50% become more or less likely? How do these events affect each other across the whole set?",
+      "expected_output": "A response that satisfies these checks: Treats the question as a pairwise judgement inside a larger matrix rather than a one-off answer; Judges i to j separately from j to i and logs a rationale; Audits asymmetric pairs before computing the rankings; States that the ratings are structured judgement, not measurement.",
+      "files": [],
+      "expectations": [
+        "Treats the question as a pairwise judgement inside a larger matrix rather than a one-off answer",
+        "Judges i to j separately from j to i and logs a rationale",
+        "Audits asymmetric pairs before computing the rankings",
+        "States that the ratings are structured judgement, not measurement"
+      ],
+      "skills": [
+        "cross-impact-analysis"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "ci-neg-1",
+      "kind": "negative",
+      "prompt": "Convene an anonymous expert panel and run iterative rounds with controlled feedback to converge on when fusion power will reach grid parity.",
+      "expected_output": "A response that satisfies these checks: Does not build an interaction matrix; runs an anonymous multi-round expert elicitation and reports the group distribution (delphi-method behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not build an interaction matrix; runs an anonymous multi-round expert elicitation and reports the group distribution (delphi-method behaviour)"
+      ],
+      "skills": [
+        "delphi-method"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "ci-neg-2",
+      "kind": "negative",
+      "prompt": "Our warehouse automation goes live next year. Map the knock-on consequences ring by ring — the second and third-order effects and the unintended ones.",
+      "expected_output": "A response that satisfies these checks: Does not rate mutual influence in a matrix; builds a ring-by-ring consequence map from one change (futures-wheel behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not rate mutual influence in a matrix; builds a ring-by-ring consequence map from one change (futures-wheel behaviour)"
+      ],
+      "skills": [
+        "futures-wheel"
+      ]
+    }
+  ]
+}

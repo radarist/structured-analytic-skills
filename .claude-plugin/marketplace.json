@@ -1,0 +1,18 @@
+{
+  "name": "structured-analytic-skills",
+  "owner": { "name": "Claudio Babelis" },
+  "metadata": {
+    "description": "Marketplace for the structured-analytic-skills plugin (analytic methods as agent skills).",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "structured-analytic-skills",
+      "source": "./",
+      "description": "Structured analytic techniques as agent skills — each implements a published method, cites it, and ships deterministic companion tools.",
+      "version": "1.0.0",
+      "category": "analysis",
+      "keywords": ["analysis", "foresight", "evidence", "decision-support", "research-methods"]
+    }
+  ]
+}

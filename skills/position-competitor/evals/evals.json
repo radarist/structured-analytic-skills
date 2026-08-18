@@ -1,0 +1,84 @@
+{
+  "skill_name": "position-competitor",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "pos-pos-1",
+      "kind": "positive",
+      "prompt": "Put these six vendors on a 2x2 so I can see who leads the category and where the gaps are. I want the axes justified, not just logos dropped on a grid.",
+      "expected_output": "A response that satisfies these checks: Chooses an axis pair and justifies it, naming the alternative rejected; Tests the two axes for independence before trusting the picture; Gives one evidence sentence per placement; Argues whether the empty region is untried or unviable.",
+      "files": [],
+      "expectations": [
+        "Chooses an axis pair and justifies it, naming the alternative rejected",
+        "Tests the two axes for independence before trusting the picture",
+        "Gives one evidence sentence per placement",
+        "Argues whether the empty region is untried or unviable"
+      ],
+      "skills": [
+        "position-competitor"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "pos-pos-2",
+      "kind": "positive",
+      "prompt": "Where does our product sit versus the two incumbents and the open-source challenger? The board wants a competitive landscape map, not a feature comparison table.",
+      "expected_output": "A response that satisfies these checks: Places three or more entities on two axes with quadrant readings; Reports which entities cluster and what that clustering implies; States how long the map stays valid and what it ignores.",
+      "files": [],
+      "expectations": [
+        "Places three or more entities on two axes with quadrant readings",
+        "Reports which entities cluster and what that clustering implies",
+        "States how long the map stays valid and what it ignores"
+      ],
+      "skills": [
+        "position-competitor"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "pos-pos-3",
+      "kind": "positive",
+      "prompt": "Nobody seems to occupy the premium mid-market quadrant of this landscape. Map the competitors first, then tell me whether that whitespace is a real opportunity or empty for a reason.",
+      "expected_output": "A response that satisfies these checks: Builds the map before judging the empty region; Distinguishes an untried combination from an unviable one; Describes what a player occupying that region would have to look like.",
+      "files": [],
+      "expectations": [
+        "Builds the map before judging the empty region",
+        "Distinguishes an untried combination from an unviable one",
+        "Describes what a player occupying that region would have to look like"
+      ],
+      "skills": [
+        "position-competitor"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "pos-neg-1",
+      "kind": "negative",
+      "prompt": "How attractive is this industry structurally? I need supplier power, buyer power, barriers to entry and the threat of substitutes assessed.",
+      "expected_output": "A response that satisfies these checks: Assesses industry-level profitability drivers across the five forces; Does not place individual firms on a two-axis map.",
+      "files": [],
+      "expectations": [
+        "Assesses industry-level profitability drivers across the five forces",
+        "Does not place individual firms on a two-axis map"
+      ],
+      "skills": [
+        "five-forces-analysis"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "pos-neg-2",
+      "kind": "negative",
+      "prompt": "What is the total addressable market for this category, and can the number be triangulated top-down and bottom-up?",
+      "expected_output": "A response that satisfies these checks: Produces TAM/SAM/SOM figures from two independent estimates; Does not produce a competitive positioning map.",
+      "files": [],
+      "expectations": [
+        "Produces TAM/SAM/SOM figures from two independent estimates",
+        "Does not produce a competitive positioning map"
+      ],
+      "skills": [
+        "estimate-market-size"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "skill_name": "cheapest-experiment",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "cheap-pos-1",
+      "kind": "positive",
+      "prompt": "Give me the cheapest experiment for each recommendation in this strategy memo — smallest test, cost, duration, and a pass/fail rule.",
+      "expected_output": "A response that satisfies these checks: Restates each recommendation in one sentence with scope; Names a bounded smallest test that is executable today; Gives cost and duration with units; Writes a pass/fail decision rule with numeric thresholds before the run.",
+      "files": [],
+      "expectations": [
+        "Restates each recommendation in one sentence with scope",
+        "Names a bounded smallest test that is executable today",
+        "Gives cost and duration with units",
+        "Writes a pass/fail decision rule with numeric thresholds before the run"
+      ],
+      "skills": [
+        "cheapest-experiment"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "cheap-pos-2",
+      "kind": "positive",
+      "prompt": "Every recommendation in our board deck says 'pilot it' with no scope or success criteria. Help me turn them into bounded tests with go/no-go thresholds.",
+      "expected_output": "A response that satisfies these checks: Rejects unscoped pilots and demands N units, N sites, N weeks; Fixes thresholds at the lower bound of the conviction case, not a stretch goal; States what a pass and a fail each trigger.",
+      "files": [],
+      "expectations": [
+        "Rejects unscoped pilots and demands N units, N sites, N weeks",
+        "Fixes thresholds at the lower bound of the conviction case, not a stretch goal",
+        "States what a pass and a fail each trigger"
+      ],
+      "skills": [
+        "cheapest-experiment"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "cheap-pos-3",
+      "kind": "positive",
+      "prompt": "We're about to commit $4M to roll out an AI recruiting tool across ten offices. What is the smallest pilot that would tell us whether to proceed, and how do we decide pass or fail before we run it?",
+      "expected_output": "A response that satisfies these checks: Designs a pilot whose cost is a small fraction of the full commitment; Commits to the decision rule before data collection starts; Names the asymmetry between the pass branch and the fail branch.",
+      "files": [],
+      "expectations": [
+        "Designs a pilot whose cost is a small fraction of the full commitment",
+        "Commits to the decision rule before data collection starts",
+        "Names the asymmetry between the pass branch and the fail branch"
+      ],
+      "skills": [
+        "cheapest-experiment"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "cheap-pos-4",
+      "kind": "positive",
+      "prompt": "Design a lean-startup style MVP test to validate this bet before we fund it.",
+      "expected_output": "A response that satisfies these checks: Applies the build-measure-learn framing with a minimum viable test; Emits the output template with all five mandatory fields; Flags any unsourced cost figure as an estimate.",
+      "files": [],
+      "expectations": [
+        "Applies the build-measure-learn framing with a minimum viable test",
+        "Emits the output template with all five mandatory fields",
+        "Flags any unsourced cost figure as an estimate"
+      ],
+      "skills": [
+        "cheapest-experiment"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "cheap-neg-1",
+      "kind": "negative",
+      "prompt": "How many users do I need per arm to detect a 3% lift in conversion at 80% power? Design the A/B test.",
+      "expected_output": "A response that satisfies these checks: Runs a power analysis and names the randomization unit; Does not reduce the question to a bounded pilot with a go/no-go rule.",
+      "files": [],
+      "expectations": [
+        "Runs a power analysis and names the randomization unit",
+        "Does not reduce the question to a bounded pilot with a go/no-go rule"
+      ],
+      "skills": [
+        "experimental-design"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "cheap-neg-2",
+      "kind": "negative",
+      "prompt": "Imagine it's 12 months from now and our expansion into Brazil has failed. Walk me through the failure modes and mitigations.",
+      "expected_output": "A response that satisfies these checks: Works backwards from an imagined failure to enumerate failure modes; Does not design a pilot or a pass/fail threshold.",
+      "files": [],
+      "expectations": [
+        "Works backwards from an imagined failure to enumerate failure modes",
+        "Does not design a pilot or a pass/fail threshold"
+      ],
+      "skills": [
+        "premortem-analysis"
+      ]
+    }
+  ]
+}

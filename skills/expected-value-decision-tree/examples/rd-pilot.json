@@ -1,0 +1,125 @@
+{
+  "title": "Two-stage R&D bet: pilot before the USD 20M commitment?",
+  "units": "USD M, NPV",
+  "variables": {
+    "v_high": {
+      "min": 45,
+      "mode": 60,
+      "max": 80
+    },
+    "v_low": {
+      "min": 0,
+      "mode": 5,
+      "max": 12
+    },
+    "c_dev": {
+      "min": 18,
+      "mode": 20,
+      "max": 25
+    }
+  },
+  "root": {
+    "type": "decision",
+    "name": "Go / no-go",
+    "branches": [
+      {
+        "label": "Commit now",
+        "cost": "c_dev",
+        "node": {
+          "type": "chance",
+          "name": "Demand",
+          "branches": [
+            {
+              "label": "High",
+              "p": 0.4,
+              "value": "v_high"
+            },
+            {
+              "label": "Low",
+              "value": "v_low"
+            }
+          ]
+        }
+      },
+      {
+        "label": "Do nothing",
+        "value": 0
+      },
+      {
+        "label": "Pilot first",
+        "cost": 2,
+        "node": {
+          "type": "chance",
+          "name": "Pilot result",
+          "branches": [
+            {
+              "label": "Positive",
+              "p": 0.6,
+              "node": {
+                "type": "decision",
+                "name": "After positive pilot",
+                "branches": [
+                  {
+                    "label": "Commit",
+                    "cost": "c_dev",
+                    "node": {
+                      "type": "chance",
+                      "name": "Demand",
+                      "branches": [
+                        {
+                          "label": "High",
+                          "p": 0.6,
+                          "value": "v_high"
+                        },
+                        {
+                          "label": "Low",
+                          "value": "v_low"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Stop",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Negative",
+              "node": {
+                "type": "decision",
+                "name": "After negative pilot",
+                "branches": [
+                  {
+                    "label": "Commit",
+                    "cost": "c_dev",
+                    "node": {
+                      "type": "chance",
+                      "name": "Demand",
+                      "branches": [
+                        {
+                          "label": "High",
+                          "p": 0.1,
+                          "value": "v_high"
+                        },
+                        {
+                          "label": "Low",
+                          "value": "v_low"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Stop",
+                    "value": 0
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

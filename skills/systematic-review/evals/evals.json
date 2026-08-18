@@ -1,0 +1,84 @@
+{
+  "skill_name": "systematic-review",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "sr-pos-1",
+      "kind": "positive",
+      "prompt": "Do a systematic review of the evidence on four-day workweek trials and productivity. I need a pre-registered protocol, explicit inclusion and exclusion criteria, and a PRISMA flow I can defend in review.",
+      "expected_output": "A response that satisfies these checks: Writes the protocol — question, inclusion and exclusion criteria, exact search strings per database — before searching; Reports the PRISMA 2020 flow with counts that reconcile at every stage; Logs every full-text exclusion against a single reason and shows the exclusion table; Grades each included study for risk of bias and source reliability before synthesis.",
+      "files": [],
+      "expectations": [
+        "Writes the protocol — question, inclusion and exclusion criteria, exact search strings per database — before searching",
+        "Reports the PRISMA 2020 flow with counts that reconcile at every stage",
+        "Logs every full-text exclusion against a single reason and shows the exclusion table",
+        "Grades each included study for risk of bias and source reliability before synthesis"
+      ],
+      "skills": [
+        "systematic-review"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "sr-pos-2",
+      "kind": "positive",
+      "prompt": "What does the published research actually say about remote work and developer productivity? I want a reproducible survey of the literature, not a web summary — someone else should be able to re-run the search and get the same papers.",
+      "expected_output": "A response that satisfies these checks: Treats reproducibility as the requirement: exact queries with dates run, and a documented screening procedure; Screens in duplicate and reports an inter-rater agreement statistic; Distinguishes convergent findings, divergent findings with their methodological cause, and gaps.",
+      "files": [],
+      "expectations": [
+        "Treats reproducibility as the requirement: exact queries with dates run, and a documented screening procedure",
+        "Screens in duplicate and reports an inter-rater agreement statistic",
+        "Distinguishes convergent findings, divergent findings with their methodological cause, and gaps"
+      ],
+      "skills": [
+        "systematic-review"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "sr-pos-3",
+      "kind": "positive",
+      "prompt": "We need the full evidence base on this intervention for a peer-reviewed paper. Screen the search results against our criteria, record why each full text was excluded, and give me the flow diagram counts.",
+      "expected_output": "A response that satisfies these checks: Applies the identification, screening, eligibility and inclusion stages in order; Produces the flow counts and validates the arithmetic with scripts/prisma.py flow; Keeps the excluded-studies list with reasons as part of the deliverable.",
+      "files": [],
+      "expectations": [
+        "Applies the identification, screening, eligibility and inclusion stages in order",
+        "Produces the flow counts and validates the arithmetic with scripts/prisma.py flow",
+        "Keeps the excluded-studies list with reasons as part of the deliverable"
+      ],
+      "skills": [
+        "systematic-review"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "sr-neg-1",
+      "kind": "negative",
+      "prompt": "I already have twelve comparable trials with odds ratios and confidence intervals. Pool them into one overall effect size and tell me how heterogeneous they are.",
+      "expected_output": "A response that satisfies these checks: Pools the effect sizes with fixed-effect and random-effects estimators and reports I² and tau²; Does not re-run search and screening (meta-analysis behaviour).",
+      "files": [],
+      "expectations": [
+        "Pools the effect sizes with fixed-effect and random-effects estimators and reports I² and tau²",
+        "Does not re-run search and screening (meta-analysis behaviour)"
+      ],
+      "skills": [
+        "meta-analysis"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "sr-neg-2",
+      "kind": "negative",
+      "prompt": "What year was the transformer architecture first published, and by whom? Give me a sourced answer.",
+      "expected_output": "A response that satisfies these checks: Answers the single factual question with a verified source; Does not launch a protocol-driven multi-stage review (grounded-answer behaviour).",
+      "files": [],
+      "expectations": [
+        "Answers the single factual question with a verified source",
+        "Does not launch a protocol-driven multi-stage review (grounded-answer behaviour)"
+      ],
+      "skills": [
+        "grounded-answer"
+      ]
+    }
+  ]
+}

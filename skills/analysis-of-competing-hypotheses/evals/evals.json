@@ -1,0 +1,84 @@
+{
+  "skill_name": "analysis-of-competing-hypotheses",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "ach-pos-1",
+      "kind": "positive",
+      "prompt": "Our enterprise product's adoption stalled last quarter and I can think of at least three explanations — slower sales cycle, a competitor's launch, or budget freezes. Help me work out which explanation the evidence actually supports before I brief the board.",
+      "expected_output": "A response that satisfies these checks: Enumerates 3+ hypotheses including a null/noise hypothesis; Builds an evidence-by-hypothesis matrix with C/N/I/NA marks; Ranks hypotheses by fewest inconsistencies, not most consistencies; Names the single most diagnostic piece of evidence and a sensitivity statement; Lists leftover uncertainty and what would disconfirm the runner-up.",
+      "files": [],
+      "expectations": [
+        "Enumerates 3+ hypotheses including a null/noise hypothesis",
+        "Builds an evidence-by-hypothesis matrix with C/N/I/NA marks",
+        "Ranks hypotheses by fewest inconsistencies, not most consistencies",
+        "Names the single most diagnostic piece of evidence and a sensitivity statement",
+        "Lists leftover uncertainty and what would disconfirm the runner-up"
+      ],
+      "skills": [
+        "analysis-of-competing-hypotheses"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "ach-pos-2",
+      "kind": "positive",
+      "prompt": "Is the sudden jump in GitHub stars for this open-source model a real signal of adoption or just noise from a viral post? There are several competing explanations and I want a disciplined comparison, not a gut call.",
+      "expected_output": "A response that satisfies these checks: Treats 'noise' as an explicit hypothesis; Grades each observation against every hypothesis independently; Reports the leading hypothesis with its inconsistency count and the pivotal evidence.",
+      "files": [],
+      "expectations": [
+        "Treats 'noise' as an explicit hypothesis",
+        "Grades each observation against every hypothesis independently",
+        "Reports the leading hypothesis with its inconsistency count and the pivotal evidence"
+      ],
+      "skills": [
+        "analysis-of-competing-hypotheses"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "ach-pos-3",
+      "kind": "positive",
+      "prompt": "Run an ACH on why our competitor suddenly cut prices 30% — pivot, distress, or market-share grab?",
+      "expected_output": "A response that satisfies these checks: Runs the eight-step ACH procedure; Includes a sensitivity check on the load-bearing evidence; Uses the output template with ranking, most-diagnostic evidence, sensitivity, loose ends.",
+      "files": [],
+      "expectations": [
+        "Runs the eight-step ACH procedure",
+        "Includes a sensitivity check on the load-bearing evidence",
+        "Uses the output template with ranking, most-diagnostic evidence, sensitivity, loose ends"
+      ],
+      "skills": [
+        "analysis-of-competing-hypotheses"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "ach-neg-1",
+      "kind": "negative",
+      "prompt": "What year did NVIDIA release the H100 GPU and what was its launch price? Give me a sourced answer.",
+      "expected_output": "A response that satisfies these checks: Does not build a hypothesis matrix; Answers the factual question with a verified source (grounded-answer behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not build a hypothesis matrix",
+        "Answers the factual question with a verified source (grounded-answer behaviour)"
+      ],
+      "skills": [
+        "grounded-answer"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "ach-neg-2",
+      "kind": "negative",
+      "prompt": "I already believe there is a 60% chance the supplier misses the deadline; a new report says their factory is at 70% capacity. Update my probability.",
+      "expected_output": "A response that satisfies these checks: Performs a Bayesian update of a single belief rather than enumerating and ranking rival hypotheses.",
+      "files": [],
+      "expectations": [
+        "Performs a Bayesian update of a single belief rather than enumerating and ranking rival hypotheses"
+      ],
+      "skills": [
+        "bayesian-update"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "skill_name": "sift-source-check",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "sift-pos-1",
+      "kind": "positive",
+      "prompt": "Run a SIFT check on this link before I cite it — it is a site I have never heard of claiming a new battery chemistry doubles EV range.",
+      "expected_output": "A response that satisfies these checks: Runs Stop, Investigate the source, Find better coverage and Trace to the original context in order; Does the checks laterally — names sites or searches other than the page itself; Returns one of the four verdicts with the move that settled it; Hands off to rate-source-admiralty, triangulate-sources or abstain-or-escalate.",
+      "files": [],
+      "expectations": [
+        "Runs Stop, Investigate the source, Find better coverage and Trace to the original context in order",
+        "Does the checks laterally — names sites or searches other than the page itself",
+        "Returns one of the four verdicts with the move that settled it",
+        "Hands off to rate-source-admiralty, triangulate-sources or abstain-or-escalate"
+      ],
+      "skills": [
+        "sift-source-check"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "sift-pos-2",
+      "kind": "positive",
+      "prompt": "Is this website legit? Can this article be trusted? It looks professional but I do not recognise the outlet and the headline made me angry.",
+      "expected_output": "A response that satisfies these checks: Treats the emotional reaction as the Stop signal, not as evidence; Investigates the outlet from outside sources rather than its About page; Reports whether trusted outlets cover the same claim or are silent.",
+      "files": [],
+      "expectations": [
+        "Treats the emotional reaction as the Stop signal, not as evidence",
+        "Investigates the outlet from outside sources rather than its About page",
+        "Reports whether trusted outlets cover the same claim or are silent"
+      ],
+      "skills": [
+        "sift-source-check"
+      ],
+      "requires_input": true
+    },
+    {
+      "id": 3,
+      "case_id": "sift-pos-3",
+      "kind": "positive",
+      "prompt": "Is this viral post real? A screenshot of a quote from a CEO is going around and I want to know whether it is genuine and in context before sharing it.",
+      "expected_output": "A response that satisfies these checks: Traces the quote to the full transcript or original setting; Distinguishes a real quote in false context from a fabricated one; Returns Unconfirmed rather than Trusted if no original can be found.",
+      "files": [],
+      "expectations": [
+        "Traces the quote to the full transcript or original setting",
+        "Distinguishes a real quote in false context from a fabricated one",
+        "Returns Unconfirmed rather than Trusted if no original can be found"
+      ],
+      "skills": [
+        "sift-source-check"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "sift-neg-1",
+      "kind": "negative",
+      "prompt": "Give me an Admiralty rating for this Reuters article — reliability letter and credibility digit — so I can record the grade in our source list.",
+      "expected_output": "A response that satisfies these checks: Assigns a NATO A–F / 1–6 grade with rationale instead of running the SIFT moves; Treats Reuters as an already-known source needing a grade, not lateral vetting.",
+      "files": [],
+      "expectations": [
+        "Assigns a NATO A–F / 1–6 grade with rationale instead of running the SIFT moves",
+        "Treats Reuters as an already-known source needing a grade, not lateral vetting"
+      ],
+      "skills": [
+        "rate-source-admiralty"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "sift-neg-2",
+      "kind": "negative",
+      "prompt": "Triangulate this funding claim: find at least two independent sources that corroborate it and tell me if they all trace back to the same press release.",
+      "expected_output": "A response that satisfies these checks: Runs the independence and corroboration test across several sources rather than vetting one unfamiliar site; Collapses sources that re-report the same primary into one.",
+      "files": [],
+      "expectations": [
+        "Runs the independence and corroboration test across several sources rather than vetting one unfamiliar site",
+        "Collapses sources that re-report the same primary into one"
+      ],
+      "skills": [
+        "triangulate-sources"
+      ]
+    }
+  ]
+}

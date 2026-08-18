@@ -1,0 +1,117 @@
+{
+  "skill_name": "indicators-validation",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "indval-pos-1",
+      "kind": "positive",
+      "prompt": "We have three scenarios for the battery market — what early-warning indicators would tell us which one is unfolding, and are they actually diagnostic?",
+      "expected_output": "A response that satisfies these checks: Takes the three scenarios as given rather than rebuilding them; Generates observable, dated, thresholded candidate indicators per scenario; Rates every indicator against every scenario on the HL/L/C/U/HU scale and computes spread; Drops indicators that would appear under all scenarios and reports per-scenario coverage; Returns a monitoring plan with source, threshold, cadence and owner per kept indicator.",
+      "files": [],
+      "expectations": [
+        "Takes the three scenarios as given rather than rebuilding them",
+        "Generates observable, dated, thresholded candidate indicators per scenario",
+        "Rates every indicator against every scenario on the HL/L/C/U/HU scale and computes spread",
+        "Drops indicators that would appear under all scenarios and reports per-scenario coverage",
+        "Returns a monitoring plan with source, threshold, cadence and owner per kept indicator"
+      ],
+      "skills": [
+        "indicators-validation"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "indval-pos-2",
+      "kind": "positive",
+      "prompt": "Validate our indicator list: here are 14 signposts our team wrote for the four futures in last quarter's scenario exercise. Which ones actually discriminate between the futures and which are noise?",
+      "expected_output": "A response that satisfies these checks: Builds the Indicators Validator matrix (indicators x scenarios); Computes diagnosticity (spread) per indicator and gives keep / weak / drop verdicts; Flags scenarios with fewer than three unique indicators and asks for more; Uses scripts/indicators.py or reproduces its arithmetic by hand.",
+      "files": [],
+      "expectations": [
+        "Builds the Indicators Validator matrix (indicators x scenarios)",
+        "Computes diagnosticity (spread) per indicator and gives keep / weak / drop verdicts",
+        "Flags scenarios with fewer than three unique indicators and asks for more",
+        "Uses scripts/indicators.py or reproduces its arithmetic by hand"
+      ],
+      "skills": [
+        "indicators-validation"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "indval-pos-3",
+      "kind": "positive",
+      "prompt": "Build a signpost list for our scenario set on European data-centre power demand so we know which scenario is playing out — with owners and a review cadence.",
+      "expected_output": "A response that satisfies these checks: Generates 5-15 candidate indicators per scenario meeting the five qualities (observable, valid, reliable, stable, unique); Validates them against all scenarios and keeps the diagnostic set; Emits the output template: matrix, dropped list, coverage, monitoring plan, absence rule, re-validation date.",
+      "files": [],
+      "expectations": [
+        "Generates 5-15 candidate indicators per scenario meeting the five qualities (observable, valid, reliable, stable, unique)",
+        "Validates them against all scenarios and keeps the diagnostic set",
+        "Emits the output template: matrix, dropped list, coverage, monitoring plan, absence rule, re-validation date"
+      ],
+      "skills": [
+        "indicators-validation"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "indval-pos-4",
+      "kind": "positive",
+      "prompt": "Our watchlist keeps 'confirming' every scenario at the same time. Can you check which of these indicators are diagnostic and set up a proper monitoring plan?",
+      "expected_output": "A response that satisfies these checks: Diagnoses the problem as non-diagnostic indicators (likely under every scenario); Rates each indicator against each scenario and drops uniform rows; Produces a monitoring plan with sources, thresholds, cadence, owners and a re-validation date.",
+      "files": [],
+      "expectations": [
+        "Diagnoses the problem as non-diagnostic indicators (likely under every scenario)",
+        "Rates each indicator against each scenario and drops uniform rows",
+        "Produces a monitoring plan with sources, thresholds, cadence, owners and a re-validation date"
+      ],
+      "skills": [
+        "indicators-validation"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "indval-neg-1",
+      "kind": "negative",
+      "prompt": "Help us build 2x2 scenarios for the future of the European battery market over the next five years — what are the critical uncertainties and the plausible futures?",
+      "expected_output": "A response that satisfies these checks: Does not start from an existing scenario set or rate indicators; Runs scenario planning: driving forces, critical uncertainties, 2x2 matrix, narrated futures.",
+      "files": [],
+      "expectations": [
+        "Does not start from an existing scenario set or rate indicators",
+        "Runs scenario planning: driving forces, critical uncertainties, 2x2 matrix, narrated futures"
+      ],
+      "skills": [
+        "scenario-planning"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "indval-neg-2",
+      "kind": "negative",
+      "prompt": "Do a quick scan for weak signals at the fringe of the grid-storage industry — what is emerging that nobody is watching yet?",
+      "expected_output": "A response that satisfies these checks: Does not presuppose scenarios or build a validator matrix; Runs a horizon-scanning sweep: signal log with sources, clustering into issues, scored radar.",
+      "files": [],
+      "expectations": [
+        "Does not presuppose scenarios or build a validator matrix",
+        "Runs a horizon-scanning sweep: signal log with sources, clustering into issues, scored radar"
+      ],
+      "skills": [
+        "horizon-scanning"
+      ]
+    },
+    {
+      "id": 7,
+      "case_id": "indval-neg-3",
+      "kind": "negative",
+      "prompt": "When will sodium-ion cells reach cost parity with LFP for stationary storage? Give me a dated prediction with kill-signals and a review date.",
+      "expected_output": "A response that satisfies these checks: Does not build a multi-scenario indicator matrix; Produces one dated prediction with accelerants, blockers, weak signals, kill-signals and a review date (foresight behaviour).",
+      "files": [],
+      "expectations": [
+        "Does not build a multi-scenario indicator matrix",
+        "Produces one dated prediction with accelerants, blockers, weak signals, kill-signals and a review date (foresight behaviour)"
+      ],
+      "skills": [
+        "foresight"
+      ]
+    }
+  ]
+}

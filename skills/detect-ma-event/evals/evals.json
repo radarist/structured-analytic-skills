@@ -1,0 +1,104 @@
+{
+  "skill_name": "detect-ma-event",
+  "evals": [
+    {
+      "id": 1,
+      "case_id": "ma-pos-1",
+      "kind": "positive",
+      "prompt": "Reuters reports that Northwind Traders agreed to acquire Coho Vineyard for $2.4 billion in cash. Turn this takeover announcement into a structured deal record with acquirer, target, deal value and status.",
+      "expected_output": "A response that satisfies these checks: Classifies the deal type as acquisition and the status as announced, not closed; Extracts acquirer and target separately and does not swap them; Normalises the deal value to a number with an explicit currency, flagging a bare '$' as ambiguous; Emits the event record with a 0-100 confidence and omits fields the text does not state.",
+      "files": [],
+      "expectations": [
+        "Classifies the deal type as acquisition and the status as announced, not closed",
+        "Extracts acquirer and target separately and does not swap them",
+        "Normalises the deal value to a number with an explicit currency, flagging a bare '$' as ambiguous",
+        "Emits the event record with a 0-100 confidence and omits fields the text does not state"
+      ],
+      "skills": [
+        "detect-ma-event"
+      ]
+    },
+    {
+      "id": 2,
+      "case_id": "ma-pos-2",
+      "kind": "positive",
+      "prompt": "Parse this press release about an all-stock merger of equals between two logistics carriers: extract the consideration mix, the exchange ratio, the premium over the unaffected share price and which antitrust regulators must clear the transaction.",
+      "expected_output": "A response that satisfies these checks: Classifies the deal type as merger (merger of equals), consideration as stock; Computes the implied per-share value from the exchange ratio and the premium over the unaffected price; Lists the reviewing antitrust jurisdictions rather than leaving the regulatory field empty; Keeps deal value and premium as separate fields.",
+      "files": [],
+      "expectations": [
+        "Classifies the deal type as merger (merger of equals), consideration as stock",
+        "Computes the implied per-share value from the exchange ratio and the premium over the unaffected price",
+        "Lists the reviewing antitrust jurisdictions rather than leaving the regulatory field empty",
+        "Keeps deal value and premium as separate fields"
+      ],
+      "skills": [
+        "detect-ma-event"
+      ]
+    },
+    {
+      "id": 3,
+      "case_id": "ma-pos-3",
+      "kind": "positive",
+      "prompt": "A private equity firm signed a definitive merger agreement to take a listed retailer private in a leveraged buyout. Extract the deal structure, the offer per share, the expected close date and any termination fee.",
+      "expected_output": "A response that satisfies these checks: Classifies the deal type as go-private and flags the sponsor-backed buyout structure; Captures the offer price per share and the termination fee as distinct fields; Normalises 'expected to close' timing without treating the deal as closed; Does not fabricate a regulatory list or a fee the announcement never states.",
+      "files": [],
+      "expectations": [
+        "Classifies the deal type as go-private and flags the sponsor-backed buyout structure",
+        "Captures the offer price per share and the termination fee as distinct fields",
+        "Normalises 'expected to close' timing without treating the deal as closed",
+        "Does not fabricate a regulatory list or a fee the announcement never states"
+      ],
+      "skills": [
+        "detect-ma-event"
+      ]
+    },
+    {
+      "id": 4,
+      "case_id": "ma-pos-4",
+      "kind": "positive",
+      "prompt": "Sources say a chipmaker is in talks to acquire a smaller rival in a takeover worth about $3 billion, but no definitive agreement has been signed. Should this rumoured change of control become a structured deal record with an acquirer, a target and a deal value?",
+      "expected_output": "A response that satisfies these checks: Marks the transaction as rumoured rather than announced and withholds a definitive status; Applies an explicit confidence penalty for rumour wording and surfaces the record for human review; Recommends corroboration before the event is emitted.",
+      "files": [],
+      "expectations": [
+        "Marks the transaction as rumoured rather than announced and withholds a definitive status",
+        "Applies an explicit confidence penalty for rumour wording and surfaces the record for human review",
+        "Recommends corroboration before the event is emitted"
+      ],
+      "skills": [
+        "detect-ma-event"
+      ]
+    },
+    {
+      "id": 5,
+      "case_id": "ma-neg-1",
+      "kind": "negative",
+      "prompt": "A robotics startup raised $450 million in a Series C led by Spark Capital at a $4 billion post-money valuation. Log this as a structured funding event with the round stage, lead investor and participants.",
+      "expected_output": "A response that satisfies these checks: Treats the capital raise as a primary-market financing event, not a change of control; Extracts round stage, lead investor and post-money valuation (detect-funding-round behaviour); Does not emit an acquirer/target deal record.",
+      "files": [],
+      "expectations": [
+        "Treats the capital raise as a primary-market financing event, not a change of control",
+        "Extracts round stage, lead investor and post-money valuation (detect-funding-round behaviour)",
+        "Does not emit an acquirer/target deal record"
+      ],
+      "skills": [
+        "detect-funding-round"
+      ]
+    },
+    {
+      "id": 6,
+      "case_id": "ma-neg-2",
+      "kind": "negative",
+      "prompt": "Here are the v3.2 release notes for our database: breaking changes, deprecations and a security advisory. Summarise what changed and whether the semver bump is correct.",
+      "expected_output": "A response that satisfies these checks: Parses a version announcement into breaking changes, deprecations and fixes (analyze-release-notes behaviour); Checks the semver bump against the breaking-change entries; Does not attempt to extract an acquirer, target or deal value.",
+      "files": [],
+      "expectations": [
+        "Parses a version announcement into breaking changes, deprecations and fixes (analyze-release-notes behaviour)",
+        "Checks the semver bump against the breaking-change entries",
+        "Does not attempt to extract an acquirer, target or deal value"
+      ],
+      "skills": [
+        "analyze-release-notes"
+      ]
+    }
+  ]
+}
