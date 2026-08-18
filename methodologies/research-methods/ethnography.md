@@ -1,7 +1,7 @@
 ---
 name: Ethnography (incl. Digital Ethnography / Netnography)
 category: research-method
-origin: anthropology (Malinowski, 1922; Boas tradition); thick description: Clifford Geertz (1973); netnography: Robert Kozinets (1998/2010)
+origin: "anthropology (Malinowski, 1922; Boas tradition); thick description: Clifford Geertz (1973); netnography: Robert Kozinets (1998/2010)"
 agent_suitability: Medium
 tags: [qualitative, fieldwork, participant-observation, culture, thick-description, netnography, reflexivity]
 related: [../research-methods/grounded-theory.md, ../research-methods/case-study-research.md, ../foresight/horizon-scanning.md, ../agent-playbook.md]

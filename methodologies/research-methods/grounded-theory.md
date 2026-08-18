@@ -1,7 +1,7 @@
 ---
 name: Grounded Theory
 category: research-method
-origin: Barney G. Glaser & Anselm L. Strauss (1967); later schools: Strauss & Corbin (1990), Kathy Charmaz (2006, constructivist)
+origin: "Barney G. Glaser & Anselm L. Strauss (1967); later schools: Strauss & Corbin (1990), Kathy Charmaz (2006, constructivist)"
 agent_suitability: Medium
 tags: [qualitative, coding, theory-building, constant-comparison, saturation, induction]
 related: [../research-methods/case-study-research.md, ../research-methods/ethnography.md, ../research-methods/systematic-literature-review.md, ../scientific-methods/induction-abduction-analogy.md, ../agent-playbook.md]

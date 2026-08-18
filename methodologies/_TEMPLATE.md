@@ -16,12 +16,16 @@ Adaptation section are mandatory and must be practical (copy-paste ready), not v
 ---
 name: <Methodology Name>
 category: foresight | research-method | scientific-method
-origin: <Originator(s) and year, e.g. "Olaf Helmer & Norman Dalkey (RAND), 1950s">
+origin: "Olaf Helmer & Norman Dalkey (RAND), 1950s"
 agent_suitability: High | Medium | Low
 tags: [<5-10 lowercase tags>]
 related: [<relative paths to sibling files, e.g. ../foresight/delphi-method.md>]
 ---
 ```
+
+Quote free-text scalar values such as `origin` with double quotes. This is required
+when a value contains a colon followed by a space (`: `), which YAML otherwise
+interprets as the start of another mapping.
 
 ## Section order (all sections required, in this order)
 

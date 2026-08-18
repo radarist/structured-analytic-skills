@@ -1,7 +1,7 @@
 ---
 name: Reproducibility & Open Science
 category: scientific-method
-origin: replication norm since early science (Boyle's air-pump witnesses, 1660s); modern reform movement: replication crisis (2010s), Center for Open Science (2013), FAIR principles (2016)
+origin: "replication norm since early science (Boyle's air-pump witnesses, 1660s); modern reform movement: replication crisis (2010s), Center for Open Science (2013), FAIR principles (2016)"
 agent_suitability: High
 tags: [replication, reproducibility, preregistration, open-data, fair, p-hacking, registered-reports]
 related: [../scientific-methods/scientific-method-cycle.md, ../scientific-methods/hypothetico-deductive-method.md, ../research-methods/experimental-design.md, ../research-methods/meta-analysis.md, ../agent-playbook.md]

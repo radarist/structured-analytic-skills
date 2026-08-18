@@ -4,8 +4,9 @@
 Stdlib-only. Checks:
   1. Every skills/*/SKILL.md has YAML frontmatter with `name` and a strict,
      JSON-quoted `description` accepted by cross-client validators.
-  2. Every methodologies/<cat>/*.md has the 12 template sections and the 8
-     Agent Adaptation subsections required by methodologies/_TEMPLATE.md.
+  2. Every methodologies/<cat>/*.md has valid schema-shaped YAML frontmatter,
+     the 12 template sections and the 8 Agent Adaptation subsections required
+     by methodologies/_TEMPLATE.md.
   3. Every relative Markdown link and frontmatter `related:` entry resolves
      to a file that exists, and no skills/*/SKILL.md link escapes its own
      directory with a leading `../` (those dangle after the documented
@@ -162,7 +163,7 @@ def read(path):
 
 
 def check_frontmatter(path, text, required_keys):
-    """Return list of problems with the YAML frontmatter (regex-level parse)."""
+    """Return frontmatter problems detectable with the repository schema."""
     m = FRONTMATTER_RE.match(text)
     if not m:
         return ["missing YAML frontmatter"]
@@ -171,6 +172,18 @@ def check_frontmatter(path, text, required_keys):
     for key in required_keys:
         if not re.search(rf"^{re.escape(key)}:\s*\S", body, re.MULTILINE):
             problems.append(f"frontmatter missing `{key}:`")
+    for line_number, line in enumerate(body.splitlines(), start=2):
+        field = re.match(r"^[A-Za-z_][A-Za-z0-9_-]*:\s*(.*)$", line)
+        if not field:
+            continue
+        value = field.group(1).strip()
+        if value.startswith(('"', "'", "[", "{", "|", ">")):
+            continue
+        if re.search(r":(?:[ \t]|$)", value):
+            problems.append(
+                "invalid YAML plain scalar on line %d: quote values containing ': '"
+                % line_number
+            )
     description = re.search(r"^description:\s*(\S.*)$", body, re.MULTILINE)
     if description:
         raw = description.group(1).strip()
@@ -315,7 +328,12 @@ def main():
             meth_files.append((cat, fn))
             path = os.path.join(cat_dir, fn)
             text = read(path)
-            problems = check_methodology_sections(text)
+            problems = check_frontmatter(
+                path,
+                text,
+                ["name", "category", "origin", "agent_suitability", "tags", "related"],
+            )
+            problems += check_methodology_sections(text)
             problems += check_links(path, text)
             problems += check_self_containment(text, skill_names, check_personas=False)
             for p in problems:

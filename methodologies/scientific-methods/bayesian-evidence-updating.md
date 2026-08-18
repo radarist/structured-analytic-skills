@@ -1,7 +1,7 @@
 ---
 name: Bayesian Evidence Updating
 category: scientific-method
-origin: Thomas Bayes (essay published 1763); Pierre-Simon Laplace (1774+); modern revival: Jeffreys (1939), Jaynes; forecasting craft: Tetlock (2015)
+origin: "Thomas Bayes (essay published 1763); Pierre-Simon Laplace (1774+); modern revival: Jeffreys (1939), Jaynes; forecasting craft: Tetlock (2015)"
 agent_suitability: High
 tags: [bayes, probability, priors, likelihood, updating, calibration, forecasting, base-rates]
 related: [../scientific-methods/hypothetico-deductive-method.md, ../scientific-methods/induction-abduction-analogy.md, ../foresight/delphi-method.md, ../agent-playbook.md]

@@ -1,7 +1,7 @@
 ---
 name: Hypothetico-Deductive Method (incl. Falsificationism & Strong Inference)
 category: scientific-method
-origin: Karl Popper (Logik der Forschung, 1934; English 1959); strong inference: John R. Platt (1964); multiple working hypotheses: T.C. Chamberlin (1890)
+origin: "Karl Popper (Logik der Forschung, 1934; English 1959); strong inference: John R. Platt (1964); multiple working hypotheses: T.C. Chamberlin (1890)"
 agent_suitability: High
 tags: [falsification, deduction, popper, strong-inference, hypotheses, testing, demarcation]
 related: [../scientific-methods/scientific-method-cycle.md, ../scientific-methods/induction-abduction-analogy.md, ../scientific-methods/bayesian-evidence-updating.md, ../research-methods/experimental-design.md, ../agent-playbook.md]

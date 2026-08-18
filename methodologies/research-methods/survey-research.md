@@ -1,7 +1,7 @@
 ---
 name: Survey Research
 category: research-method
-origin: social-survey tradition (early 20th c.); sampling theory (Neyman, 1934); codified questionnaire design: Don Dillman's Tailored Design Method (1978 onward)
+origin: "social-survey tradition (early 20th c.); sampling theory (Neyman, 1934); codified questionnaire design: Don Dillman's Tailored Design Method (1978 onward)"
 agent_suitability: Medium
 tags: [survey, questionnaire, sampling, likert, validity, response-bias, quantitative]
 related: [../research-methods/mixed-methods.md, ../research-methods/experimental-design.md, ../research-methods/systematic-literature-review.md, ../agent-playbook.md]

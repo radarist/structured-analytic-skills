@@ -1,7 +1,7 @@
 ---
 name: Action Research
 category: research-method
-origin: Kurt Lewin (1940s); Susman & Evered (1978); participatory turn: Freire, Fals Borda, Reason & Bradbury
+origin: "Kurt Lewin (1940s); Susman & Evered (1978); participatory turn: Freire, Fals Borda, Reason & Bradbury"
 agent_suitability: Low
 tags: [intervention, cycles, participation, practice, change, plan-act-observe-reflect]
 related: [../research-methods/case-study-research.md, ../research-methods/design-science-research.md, ../research-methods/grounded-theory.md, ../agent-playbook.md]
